@@ -1,0 +1,10 @@
+<footer class="site-footer">
+    <div style="text-align: center; padding: 20px; font-size: 14px; color: #888;">
+        <p>&copy; 2025 {{ if .SiteName }}{{ .SiteName }}{{ else }}Tamarind User{{ end }}. All rights reserved.</p>
+        <p style="margin-top: 12px; font-size: 14px;">
+            Proudly built using <a href="https://github.com/yourusername/tamarind" target="_blank" style="color: inherit; text-decoration: none; font-weight: bold; font-size: 18px;">Tamarind</a>. Check it out.
+            &nbsp;&bull;&nbsp;
+            <a href="{{ .RelPrefix }}feed.xml" style="color: inherit; text-decoration: none;">RSS Feed</a>
+        </p>
+    </div>
+</footer>

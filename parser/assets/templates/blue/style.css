@@ -1,0 +1,384 @@
+/* Theme: Blue (The Social Network / Classic Facebook - Editorial Version) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+
+:root {
+    --background-color: #e2e8f0;
+    /* Was bg-color */
+    /* Slate 200 - Distinct contrast */
+    --header-bg: #0f172a;
+    /* Deep Slate Blue - Authoritative & Premium */
+    --header-text: #ffffff;
+    --text-color: #1e293b;
+    /* Slate 800 - Softer than pure black */
+    --text-secondary: #64748b;
+    /* Slate 500 */
+    --primary-color: #2563eb;
+    /* Was accent-color */
+    /* Modern Royal Blue */
+    --link-color: #2563eb;
+    /* Can remove or map to primary? kept for structure but mapped to same default */
+    --card-bg: #ffffff;
+    --border-color: #dddfe2;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
+    /* Softer, deeper shadow */
+    --font-heading: 'Merriweather', serif;
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    /* Was font-body */
+    --nav-hover: rgba(255, 255, 255, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-family);
+    margin: 0;
+    font-size: 17px;
+    /* Increased for readability */
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.site-header {
+    background-color: var(--header-bg);
+    border-bottom: 1px solid var(--border-color);
+    height: 56px;
+    /* Taller, more substantial header */
+    position: sticky;
+    top: 0;
+    z-index: 500;
+    display: flex;
+    align-items: center;
+    padding: 0 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.site-header nav {
+    width: 100%;
+    max-width: 960px;
+    /* Aligned with content */
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--header-text);
+    text-decoration: none;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links a {
+    color: var(--header-text);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 15px;
+    padding: 6px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+    opacity: 0.9;
+}
+
+.nav-links a:hover {
+    background-color: var(--nav-hover);
+    opacity: 1;
+}
+
+/* Layout - Single Column Professional */
+.layout-container {
+    max-width: 840px;
+    /* Significantly wider for reading comfort */
+    margin: 40px auto;
+    padding: 0 20px;
+    display: block;
+    /* Removed Grid */
+}
+
+/* Sidebars REMOVED visually */
+.sidebar-left,
+.sidebar-right {
+    display: none;
+}
+
+/* Main Content */
+main {
+    width: 100%;
+}
+
+/* Card Style */
+.card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    margin-bottom: 32px;
+    /* More breathing room between multiple articles */
+    padding: 48px;
+    /* High-end editorial padding */
+    border: 1px solid var(--border-color);
+}
+
+/* Typography & Content */
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    color: var(--heading-color, var(--text-color));
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-top: 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border-color);
+    color: var(--heading-color, var(--text-color));
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--heading-color, var(--text-color));
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    margin-bottom: 1.5rem;
+    color: var(--text-color);
+}
+
+a {
+    color: var(--link-color);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(59, 89, 152, 0.3);
+    transition: border-bottom 0.2s;
+}
+
+a:hover {
+    border-bottom-color: var(--link-color);
+}
+
+/* Article Meta */
+.post-header {
+    margin-bottom: 32px;
+    text-align: left;
+}
+
+.post-meta {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.post-meta .dot {
+    margin: 0 8px;
+    color: #ccc;
+}
+
+/* Lists */
+ul,
+ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+}
+
+li {
+    margin-bottom: 0.5rem;
+}
+
+blockquote {
+    border-left: 4px solid var(--primary-color);
+    margin: 2rem 0;
+    padding: 1rem 1.5rem;
+    background: #f7f8fa;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    border-radius: 0 4px 4px 0;
+}
+
+pre {
+    background: #1e293b;
+    color: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin-bottom: 1.5rem;
+    font-family: monospace;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+code {
+    background: #e2e8f0;
+    padding: 2px 4px;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #0f172a;
+    font-family: monospace;
+}
+
+pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+    display: block;
+    margin: 2rem auto;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Article List (Feed) tweaks */
+.feed-item {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.feed-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.feed-item h2 {
+    margin-top: 0;
+    border: none;
+    padding: 0;
+}
+
+.feed-item h2 a {
+    color: var(--heading-color, var(--text-color));
+    border: none;
+}
+
+.feed-item h2 a:hover {
+    color: var(--primary-color);
+}
+
+/* Footer */
+.site-footer {
+    text-align: center;
+    padding: 40px 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+    border-top: 1px solid var(--border-color);
+    margin-top: 40px;
+    background: var(--card-bg);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .layout-container {
+        padding: 0 16px;
+        margin-top: 20px;
+    }
+
+    .card {
+        padding: 24px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+
+    .site-header {
+        padding: 0 16px;
+    }
+
+    .nav-links {
+        gap: 12px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        padding: 4px 8px;
+    }
+}
+/* Responsive Video Embeds */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+    margin-bottom: 1.5em;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Figure & Caption */
+figure {
+    margin: 2em 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+figcaption {
+    margin-top: 0.8em;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+/* Tamarind Developer Shortcodes */
+.mermaid{margin:2em 0;text-align:center}
+.callout{padding:1rem;margin:1.5rem 0;border-left:4px solid #ddd;border-radius:4px;background:#f9f9f9}
+.callout-title{font-weight:700;margin-bottom:.5rem}
+.callout-info{border-color:#007bff;background:#e7f5ff}
+.callout-warn{border-color:#ffc107;background:#fff3cd}
+.callout-error{border-color:#dc3545;background:#ffe6e6}
+.callout-tip{border-color:#28a745;background:#e6ffed}
+.terminal{background:#1e1e1e;border-radius:6px;box-shadow:0 4px 10px rgba(0,0,0,.3);margin:2em 0;overflow:hidden}
+.terminal-header{background:#333;padding:8px 12px;display:flex;gap:6px}
+.terminal-header .dot{width:12px;height:12px;border-radius:50%}
+.terminal-header .red{background:#ff5f56}
+.terminal-header .yellow{background:#ffbd2e}
+.terminal-header .green{background:#27c93f}
+.terminal-content{margin:0;padding:20px;color:#f8f8f2;font-family:monospace;overflow-x:auto}

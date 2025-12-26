@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <!-- Profile / Intro Section -->
+        <header class="profile-header">
+            <div class="profile-pic-placeholder">
+                <!-- Initials or Icon -->
+                RS
+            </div>
+            
+            <div class="profile-info">
+                <h1>Rodrigo Santiago <span style="font-size: 14px; color: #0095f6; margin-left:8px;">✓</span></h1>
+                
+                <!-- Stats Removed -->
+                
+                <div class="profile-bio">
+                    <p><strong>Engineering Leadership & Org Architecture</strong></p>
+                    <p>Building the next generation of CTOs and VPs. 
+
+            </div>
+        </header>
+
+        <!-- Grid Feed -->
+        <main class="grid-feed">
+            {{ range .Articles }}
+            <a href="{{ $.RelPrefix }}{{ .URL }}" class="grid-item">
+                <div class="grid-item-content">
+                    <div class="grid-item-category">Article</div>
+                    <h3>{{ .Title }}</h3>
+                    <div class="grid-item-date">{{ .Date }}</div>
+                </div>
+            </a>
+            {{ end }}
+        </main>
+
+        {{ if gt .Paginator.TotalPages 1 }}
+        <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 40px 0; padding: 20px;">
+            {{ if .Paginator.HasPrev }}
+            <a href="{{ .Paginator.PrevURL }}" style="font-weight: 600;">&larr;</a>
+            {{ end }}
+
+            <div style="display: flex; gap: 8px;">
+                {{ range .Paginator.VisiblePages }}
+                    {{ if .IsCurrent }}
+                        <span style="border-bottom: 2px solid var(--text-color); padding: 0 4px; font-weight: 700;">{{ .Number }}</span>
+                    {{ else }}
+                        <a href="{{ .URL }}" style="padding: 0 4px; color: var(--text-secondary);">{{ .Number }}</a>
+                    {{ end }}
+                {{ end }}
+            </div>
+
+            {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.NextURL }}" style="font-weight: 600;">&rarr;</a>
+            {{ end }}
+        </div>
+        {{ end }}
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

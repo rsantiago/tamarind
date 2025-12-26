@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav>
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </nav>
+    </header>
+
+    <div class="layout-container">
+        <!-- Main Feed -->
+        <main>
+            <!-- Intro Card -->
+            <div class="card" style="text-align: center; padding: 60px 20px;">
+                <h1 style="border: none; margin-bottom: 16px;">Rodrigo Santiago</h1>
+                <p style="font-size: 20px; color: var(--text-secondary);">Engineering Leadership & Organizational Architecture</p>
+                <div style="margin-top: 24px;">
+                     <a href="{{ .RelPrefix }}pages/about.html" style="margin: 0 12px; font-weight: 600;">About Me</a>
+                     <a href="{{ .RelPrefix }}pages/curriculum.html" style="margin: 0 12px; font-weight: 600;">The Curriculum</a>
+                </div>
+            </div>
+
+            {{ range .Articles }}
+            <article class="card feed-item">
+                <div class="post-content" style="padding: 0;">
+                    <span style="font-size: 13px; font-weight: 600; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Article</span>
+                    <h2><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></h2>
+                    <p style="font-size: 16px; margin: 12px 0 20px;">{{ .Subtitle }}</p>
+                    <div style="font-size: 13px; color: var(--text-secondary);">
+                        {{ .Date }} <span class="dot">&middot;</span> Read More &rarr;
+                    </div>
+                </div>
+            </article>
+            {{ end }}
+
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 40px; padding: 20px;">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" style="font-weight: 600;">&larr; Prev</a>
+                {{ end }}
+
+                <div style="display: flex; gap: 4px;">
+                    {{ range .Paginator.VisiblePages }}
+                        {{ if .IsCurrent }}
+                            <span style="padding: 6px 12px; background: var(--primary-color); color: white; border-radius: 4px; font-weight: bold;">{{ .Number }}</span>
+                        {{ else }}
+                            <a href="{{ .URL }}" style="padding: 6px 12px; border-radius: 4px; border: 1px solid var(--border-color); background: white;">{{ .Number }}</a>
+                        {{ end }}
+                    {{ end }}
+                </div>
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" style="font-weight: 600;">Next &rarr;</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </main>
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

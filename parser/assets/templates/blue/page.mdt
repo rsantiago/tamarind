@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav>
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </nav>
+    </header>
+
+    <div class="layout-container">
+        <!-- Main Content -->
+        <main>
+            <article class="card">
+                <header class="post-header">
+                     <h1>{{ .Title }}</h1>
+                     {{ if .Subtitle }}<p style="font-size: 20px; color: var(--text-secondary); margin-bottom: 24px;">{{ .Subtitle }}</p>{{ end }}
+                     
+                    <div class="post-meta">
+                        <div>
+                             {{ .Date }} <span class="dot">&middot;</span> By Rodrigo Santiago
+                        </div>
+                    </div>
+                </header>
+
+                {{ if .Tags }}
+                <div class="post-meta" style="margin-top: 2rem;">
+                     {{ range .Tags }}
+                    <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" style="margin-right: 10px; color: var(--primary-color);">#{{ . }}</a>
+                     {{ end }}
+                </div>
+                {{ end }}
+
+                <div class="post-content">
+                    {{ .Body }}
+                </div>
+                
+            </article>
+        </main>
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

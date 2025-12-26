@@ -1,0 +1,16 @@
+# Tamarind Configuration File
+# ------------------------
+# This file allows you to override the default theme settings.
+# By default, all values are commented out (#), so the theme's default colors are used.
+#
+# To customize your site:
+# 1. Uncomment (remove '#') the line you want to change.
+# 2. Change the value (e.g., set primary-color to "#ff0000").
+# 3. Run 'tamarind build -theme <name>' to see the changes.
+
+theme_config:
+  # primary-color:    "#3b82f6"   # The main accent color (links, buttons)
+  # background-color: "#ffffff"   # Page background
+  # text-color:       "#1f2937"   # Main text color
+  # heading-color:    "#111827"   # Color for titles (h1, h2, etc.)
+  # font-family:      "'Inter', sans-serif"
