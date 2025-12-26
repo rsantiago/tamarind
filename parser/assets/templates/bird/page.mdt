@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+    <!-- Theme Specific: Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:,">
+</head>
+
+<body>
+    <div class="app-layout">
+        <!-- Sidebar Navigation (Desktop) -->
+        <header class="sidebar">
+            <div class="sidebar-content">
+                <!-- User requested removal of X logo -->
+                <nav>
+                    <a href="{{ .RelPrefix }}index.html" class="nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+                        <span class="label">Home</span>
+                    </a>
+                    <a href="{{ .RelPrefix }}pages/about.html" class="nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        <span class="label">Profile</span>
+                    </a>
+                    {{ range .Menu }}
+                    {{ if ne .Title "Home" }}
+                    <a href="{{ $.RelPrefix }}{{ .URL }}" class="nav-item">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        <span class="label">{{ .Title }}</span>
+                    </a>
+                    {{ end }}
+                    {{ end }}
+                </nav>
+                <!-- Post Button Removed -->
+            </div>
+        </header>
+
+        <!-- Main Feed -->
+        <main class="timeline">
+            <!-- Sticky Header -->
+            <div class="timeline-header">
+                <div>
+                   <h2> {{ .SiteName }} </h2>
+                   <span class="subtitle">Post</span>
+                </div>
+                <div class="sparkles">✨</div>
+            </div>
+
+            <!-- Content -->
+            <div class="feed-content">
+                {{ .Body }}
+            </div>
+            
+            <!-- Articles List (if present) -->
+             {{ if .Articles }}
+            <div class="feed-posts">
+                {{ range .Articles }}
+                <article class="post">
+                    <div class="post-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"></path><line x1="16" y1="8" x2="2" y2="22"></line><line x1="17.5" y1="15" x2="9" y2="15"></line></svg>
+                    </div>
+                    <div class="post-content">
+                        <div class="post-header">
+                            <span class="name">Rodrigo Santiago</span>
+                            <span class="handle">@100xDev</span>
+                            <span class="dot">·</span>
+                            <span class="date">{{ .Date }}</span>
+                        </div>
+                        <div class="post-body">
+                            <a href="{{ $.RelPrefix }}{{ .URL }}" class="post-link">
+                                {{ .Title }}
+                            </a>
+                            <div class="post-meta" style="padding: 0 32px 32px; font-weight: normal;">
+                 {{ range .Tags }}
+                <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" style="color: var(--primary-color); margin-right: 12px;">#{{ . }}</a>
+                 {{ end }}
+            </div>
+                            <p class="post-preview">{{ .Subtitle }}</p>
+                        </div>
+                    </div>
+                </article>
+                {{ end }}
+            </div>
+            {{ end }}
+            {{ template "footer.mdt" . }}
+        </main>
+        
+        <!-- Right Sidebar (Trends) Removed entirely -->
+    </div>
+</body>
+</html>

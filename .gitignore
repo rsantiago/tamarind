@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+dist/
+.env
+.vscode/
+
+# Generated files
+/website/
+tamarind
+/writer-sandbox/
+# templates/
+generated-site/
+100xDev/
+new-website/
+website/
