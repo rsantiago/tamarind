@@ -1,92 +1,74 @@
-# Tamarind
-
-![Version](https://img.shields.io/badge/version-v1.0.0-blue.svg)
-![Go](https://img.shields.io/badge/built_with-Go-00ADD8.svg)
-![License](https://img.shields.io/badge/license-MIT-green.svg)
-
-> **Tamarind** is the **AI-First Web Engine**. 
-> It transforms static content into a living, queryable, and distributed knowledge graph.
-
-**Website**: [usetamarind.com](https://usetamarind.com)
+<div align="center">
+  <img src="parser/assets/structure/images/logo.png" width="180" alt="Tamarind Logo" />
+  <h1>Tamarind</h1>
+  <p><b>The engine for the Living Web.</b></p>
+  <a href="https://usetamarind.com">usetamarind.com</a>
+</div>
 
 ---
 
-## 🔮 The Vision
+### The web has become a lonely place.
 
-Static site generators were built for the "Human Web" — optimized for browsers and eyeballs.
-**Tamarind** is built for the **Agent Web** — optimized for LLMs, RAG pipelines, and autonomous indexing.
+You spend hours crafting your content. You deploy it. And then... silence. Your beautiful site sits alone in the void, waiting for a Google crawler that might never come. 
 
-We believe your website shouldn't just be a collection of HTML files. It should be:
-1.  **A Knowledge Base**: Instantly queryable by AI.
-2.  **A Social Node**: Connected to a decentralized decentralized federation of growers.
-3.  **Self-Healing**: Capable of identifying gaps and fixing its own links.
+Meanwhile, the internet is changing. It's no longer just humans reading your work—it's **Agents**. AI models are the new browsers, and traditional websites are speaking a language they can't understand.
 
----
+**We built Tamarind to fix this.**
 
-## ✨ AI-Native Features
-
-### 1. Build-Time Vectorization (Instant RAG)
-Tamarind doesn't just compile HTML. It chunks your content, generates local embeddings, and outputs a `knowledge.db` alongside your site. 
-*   **Benefits**: Your site is "RAG-ready" the moment it deploys. No external vector DB required.
-
-### 2. The "Digital Gardener"
-Tamarind acts as a gardener for your content.
-*   **Self-Healing Links**: Identifies "orphan" concepts and suggests internal links (or auto-injects them).
-*   **Synthetic Localization**: Uses LLMs to "transcreate" content for global audiences, not just translate it.
-
-### 3. Agent-Native Schemas
-Every interactive element on a Tamarind site exposes a structured semantic definition (MCP-style).
-*   Visiting Agents understand "this is a Buy button" or "this is a Code snippet" systematically, not via DOM scraping.
+Tamarind is not just a static site generator. It is a **Digital Gardener** that helps you grow a website that is connected, intelligent, and alive.
 
 ---
 
-## 🔌 The "Tamarind Garden" (Social Hub)
+## Only with Tamarind
 
-Tamarind sites are designed to be part of a greater whole. By enabling the **Garden Protocol**, your content is automatically aggregated into **Tamarind Garden** — a decentralized hub for content growers.
+### 🧠 Your Website Has a Brain
+Most websites are just text on a screen. A Tamarind site is a **knowledge base**.
+*   **Instant Intelligence**: As you write, Tamarind automatically indexes your content into a "Brain" (Vector Database).
+*   **Agent-Ready**: Your site speaks "AI" natively. When ChatGPT or Claude visits your site, they don't just scrape HTML—they download a structured knowledge graph.
+*   **The Result**: Your documentation answers questions. Your blog connects concepts. Your site feels *smart*.
 
-> "Plant your seed, grow your forest, join the garden."
+### 🌿 You Are Not Alone
+Static sites used to be isolated islands. Tamarind connects them into an archipelago.
+*   **The Garden Network**: By default, Tamarind sites can "signal" each other. Your content joins a decentralized feed of growers.
+*   **Instant Distribution**: Write locally, publish globally. Your articles appear in the **Tamarind Garden**, a community hub that drives real human traffic back to your domain.
+*   **The Result**: You own your data, but you get the traffic of a social network.
+
+### ✨ Complexity is Composted
+We believe writing should feel like breathing.
+*   **Zero Config**: No Webpack. No React hydration errors. No YAML hell.
+*   **Just Write**: Drop a Markdown file in a folder. That's it. Tamarind handles the rest—optimizing images, generating SEO tags, and styling your prose with award-winning typography.
+*   **The Result**: You focus on the *story*. We handle the *stage*.
 
 ---
 
-## 🚀 Quick Start
+## The "Vibe"
+Tamarind feels different. It's built for **Growers**, not just "Developers".
 
-Get your garden growing in seconds:
+*   **Fast**: Builds in milliseconds.
+*   **Beautiful**: Themes so polished you'll want to lick the screen.
+*   **Portable**: A single 15MB binary. No `node_modules` black hole.
+
+---
+
+## Start Growing
+
+You are 5 seconds away from your new garden.
 
 ```bash
-# 1. Install & Init
+# 1. Plant the seed
 git clone https://github.com/rsantiago/tamarind.git
 cd tamarind
 go build -o tamarind parser/main.go
+
+# 2. Water it
 ./tamarind init
 
-# 2. Build & Serve (Watch Mode)
+# 3. Watch it grow
 ./tamarind serve -watch -theme pastel
 ```
 
----
-
-## 📂 Project Structure
-
-```text
-my-garden/
-├── tamarind            # The engine
-├── tamarind.yaml       # Configuration (AI settings, Theme)
-├── writer-sandbox/     # Your Content (The Soil)
-│   ├── index.md
-│   ├── articles/
-│   ├── docs/
-│   └── knowledge/      # Agent-specific context
-└── website/            # The Result (The Fruit)
-    ├── index.html
-    ├── llms.txt        # Agent Context
-    └── knowledge.db    # Vector Embeddings
-```
+> "The best time to plant a tree was 20 years ago. The second best time is now."
 
 ---
 
-## 🤝 Contributing
-
-We welcome "Growers" to help us build the infrastructure of the AI Web.
-Check `AGENTS.md` for our AI-assisted contribution guidelines.
-
-**License**: MIT
+*MIT License. Cultivated with care by @rsantiago.*

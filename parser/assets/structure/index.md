@@ -1,30 +1,37 @@
 ---
-title: Tamarind
-subtitle: The Soul of Static Site Generation
-date: 2025-11-28
-tags: []
-description: Tamarind is a single-binary static site generator designed for simplicity, speed, and self-containment.
-image: https://example.com/tamarind-cover.jpg
+title: Welcome to Your Garden
+date: 2025-01-01
+description: Tamarind is the engine for the Living Web.
 ---
 
-# Return to Essence
+# Only with Tamarind.
 
-**Tamarind** is more than just a software tool; it is a philosophy expressed in code. It is a static site generator designed for those who value **simplicity**, **speed**, and **self-containment** above all else. 
+<img src="/images/logo.png" alt="Tamarind Logo" style="width: 120px; display: block; margin: 0 auto 2rem auto;" />
 
-In an era where "Hello World" requires a `package.json` with 500 dependencies, a complex build pipeline, and a fragile dependency tree that rivals a NASA launch sequence, Tamarind offers a quiet, reliable alternative. ONE binary. ZERO dependencies. ONE command.
+### The web used to be complicated. Not anymore.
 
-It respects your time, your machine's resources, and the longevity of your content. By stripping away the non-essential, we uncover the powerful core of web publishing: text, structure, and readability.
+You are looking at the start of something different. Tamarind is built for clarity, speed, and the future.
 
-## The Tamarind Way
+Most websites are bloated with JavaScript, trackers, and complexity. A Tamarind site is built to be **clean, readable, and incredibly fast**.
 
-*   **Self-Contained**: The program carries its own soul. Templates, themes, and directory structures are embedded within the binary itself. You can copy the single executable to a USB drive, plug it into a fresh machine, and build your site instantly.
-*   **Blazing Fast**: Written in Go, it compiles your entire site in milliseconds. It processes Markdown with the speed of a compiled language, making the "save-refresh" loop imperceptible.
-*   **Universal Output**: Produces pure, semantic HTML and CSS. No hydration, no runtime, no bloat. The output is compatible with every browser released in the last 20 years and will likely remain compatible for the next 20.
+## ⚡ Speed is a Feature
 
-## Why We Built This
+We believe the best tool is the one you don't notice.
+*   **No Config**: No hidden files. No fragile dependencies.
+*   **Just Write**: You focus on the story. We handle the optimization, the SEO, and the styling.
+*   **Pure Speed**: Your site loads in milliseconds, because speed is the ultimate luxury.
 
-We were tired of maintaining complex toolchains just to publish simple text. We wanted a tool that felt like a sharp chisel, not a complex factory. Tamarind is that chisel. It does one thing, and it does it with precision.
+## 🤖 AI-Ready by Default
 
-## Get Started
+The internet is changing. It's no longer just humans reading your work—it's Agents.
+*   **Machine Readable**: Tamarind automatically generates `llms.txt` context files.
+*   **Agent Friendly**: When AI bots visit your site, they get a structured, clean version of your content, not just a mess of HTML.
 
-Check out the [Usage Guide](docs/usage.html) to learn the three commands that control the entire system, or read about our [Philosophy](docs/philosophy.html) to understand the design decisions behind the code.
+---
+
+### Start Growing
+
+This page is just a Markdown file (`index.md`). 
+To change it, just open it and start typing. 
+
+> "The best time to plant a tree was 20 years ago. The second best time is now."
