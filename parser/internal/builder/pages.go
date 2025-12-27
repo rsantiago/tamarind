@@ -90,6 +90,16 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		canonicalURL = baseURL + "/" + webPath
 	}
 
+	// Determine Author
+    author := fm.Author
+    if author == "" {
+    	if info, ok := siteData["info"].(map[string]interface{}); ok {
+    		if siteAuthor, ok := info["author"].(string); ok {
+    			author = siteAuthor
+    		}
+    	}
+    }
+
 	data := models.PageData{
 		Title:        fm.Title,
 		Subtitle:     fm.Subtitle,
@@ -107,6 +117,7 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		CustomCSS:    customCSS,
 		Hidden:       fm.Hidden,
 		Data:         siteData,
+        Author:       author,
 	}
 
 	templateName := "page.mdt"

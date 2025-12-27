@@ -3,6 +3,8 @@ title: Contact
 subtitle: Get in touch
 date: 2025-12-01
 tags: [contact]
+menu_label: Contact
+menu_order: 300
 ---
 
 # Let's Connect

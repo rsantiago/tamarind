@@ -43,7 +43,7 @@
     <main class="container">
         <article class="post">
             <header class="post-header">
-                {{ if .Date }}<span class="post-date">{{ .Date }}</span>{{ end }}
+                {{ if .Date }}<p class="post-meta">{{ .Date }} by {{ .Author }}</p>{{ end }}
                 <h1>{{ .Title }}</h1>
                 {{ if .Subtitle }}<p class="post-subtitle">{{ .Subtitle }}</p>{{ end }}
             </header>
