@@ -1,37 +1,55 @@
 ---
-title: Welcome to Your Garden
+title: Turn markdown files into an gorgeous, AI crawler-friendly website - using a single command line
 date: 2025-01-01
-description: Tamarind is the engine for the Living Web.
+description: The AI-First Web Engine.
 ---
-
-# Only with Tamarind.
-
-<img src="/images/logo.png" alt="Tamarind Logo" style="width: 120px; display: block; margin: 0 auto 2rem auto;" />
-
-### The web used to be complicated. Not anymore.
-
-You are looking at the start of something different. Tamarind is built for clarity, speed, and the future.
-
-Most websites are bloated with JavaScript, trackers, and complexity. A Tamarind site is built to be **clean, readable, and incredibly fast**.
-
-## ⚡ Speed is a Feature
-
-We believe the best tool is the one you don't notice.
-*   **No Config**: No hidden files. No fragile dependencies.
-*   **Just Write**: You focus on the story. We handle the optimization, the SEO, and the styling.
-*   **Pure Speed**: Your site loads in milliseconds, because speed is the ultimate luxury.
-
-## 🤖 AI-Ready by Default
-
-The internet is changing. It's no longer just humans reading your work—it's Agents.
-*   **Machine Readable**: Tamarind automatically generates `llms.txt` context files.
-*   **Agent Friendly**: When AI bots visit your site, they get a structured, clean version of your content, not just a mess of HTML.
+{{ figure src="images/logo.png" width="500px" }}
 
 ---
 
-### Start Growing
+## The AI-First Engine
 
-This page is just a Markdown file (`index.md`). 
-To change it, just open it and start typing. 
+Tamarind is a static site generator with a single purpose: **To make your content perfectly readable by both Humans and Machines.**
 
-> "The best time to plant a tree was 20 years ago. The second best time is now."
+It works like this:
+1.  **You write Markdown.** (Just simple text).
+2.  **Tamarind builds HTML.** (For humans).
+3.  **Tamarind builds Context.** (For Agents).
+
+When you ran `tamarind quickstart` just now, something invisible happened. Look in your `website/` folder. You will see an `index.html`, but you will also see `llms.txt`. 
+
+This file is a clean, structured map of your entire site, stripped of noise and formatted specifically for Large Language Model ingestion. When an AI bot visits this site, it doesn't have to guess. It *knows*.
+
+## Only What Matters
+
+We stripped everything else away.
+Most web frameworks are 90% configuration and 10% content. You spend hours fighting Webpack, updating `node_modules`, and debugging hydration errors.
+
+Tamarind has:
+*   **No Config**: This site has no configuration file. It just works.
+*   **No Dependencies**: It is a single binary. No Node.js. No Python.
+*   **No Fluff**: It processes Markdown into HTML in milliseconds.
+
+## Why This Matters
+
+If you are writing documentation, a blog, or a portfolio today, you need to ask yourself: **"Can an AI understand this?"**
+
+If the answer is "I hope so," you are already behind. 
+With Tamarind, the answer is "Yes, natively."
+
+### Every website you have ever built is invisible to half the internet.
+
+We usually build for humans. We obsess over CSS, dark mode, and responsive layouts. But while we were refining pixel margins on mobile, something fundamental shifted. The internet is no longer just for eyeballs. It is for **Agents**.
+
+AI models—ChatGPT, Claude, search crawlers—are the new "browsers". And right now, your beautiful React app looks like a garbled mess of `<div>` soup to them. Your documentation is hallucinated. Your blog is ignored.
+
+You are building dead ends for the smartest users on the planet.
+
+**Tamarind fixes this.**
+
+### Try It Now.
+
+This page is just a file called `index.md`.
+Open it. Delete this text. Write your own.
+
+You are now building for the Agent Web.

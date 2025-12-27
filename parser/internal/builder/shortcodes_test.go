@@ -1,73 +1,172 @@
 package builder
 
 import (
+	"image"
+	"image/color"
+	_ "image/jpeg"
+	"image/png"
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 )
 
+// createTestImage generates a blank PNG image of specific width/height
+func createTestImage(dir, name string, width, height int) error {
+	img := image.NewRGBA(image.Rect(0, 0, width, height))
+	// Fill with white
+	for y := 0; y < height; y++ {
+		for x := 0; x < width; x++ {
+			img.Set(x, y, color.White)
+		}
+	}
+
+	path := filepath.Join(dir, name)
+	f, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+	defer f.Close()
+
+	return png.Encode(f, img)
+}
+
 func TestProcessShortcodes_Figure(t *testing.T) {
+	// Setup temporary directory for test images
+	tmpDir, err := os.MkdirTemp("", "tamarind-test")
+	if err != nil {
+		t.Fatalf("Failed to create temp dir: %v", err)
+	}
+	defer os.RemoveAll(tmpDir)
+
+	// Create test images with different sizes
+	// Breakpoints are 480, 800, 1200
+	
+	// 1. Small Image (300w) -> No breakpoints
+	if err := createTestImage(tmpDir, "small.png", 300, 300); err != nil {
+		t.Fatal(err)
+	}
+
+	// 2. Medium Image (600w) -> Only 480w
+	if err := createTestImage(tmpDir, "medium.png", 600, 400); err != nil {
+		t.Fatal(err)
+	}
+
+	// 3. Large Image (1000w) -> 480w, 800w
+	if err := createTestImage(tmpDir, "large.png", 1000, 600); err != nil {
+		t.Fatal(err)
+	}
+
+	// 4. Huge Image (1500w) -> 480w, 800w, 1200w
+	if err := createTestImage(tmpDir, "huge.png", 1500, 900); err != nil {
+		t.Fatal(err)
+	}
+
 	tests := []struct {
-		name     string
-		input    string
-		expected []string // substrings expected in output
+		name         string
+		input        string
+		expected     []string // substrings expected in output
+		notExpected  []string // substrings that should NOT be in output
 	}{
 		{
-			name:  "Responsive JPG",
-			input: `{{ figure src="images/photo.jpg" caption="My Photo" }}`,
+			name:  "Small Image (No Scaling)",
+			input: `{{ figure src="small.png" caption="Small" }}`,
+			expected: []string{
+				`<img src="small.png" alt="Small">`,
+				`<figcaption>Small</figcaption>`,
+			},
+			notExpected: []string{
+				"srcset",
+			},
+		},
+		{
+			name:  "Medium Image (600px)",
+			input: `{{ figure src="medium.png" caption="Medium" }}`,
+			expected: []string{
+				`srcset="medium-480w.png 480w"`, // ONLY 480w
+			},
+			notExpected: []string{
+				"800w", "1200w",
+			},
+		},
+		{
+			name:  "Large Image (1000px)",
+			input: `{{ figure src="large.png" caption="Large" }}`,
+			expected: []string{
+				`large-480w.png 480w`, 
+				`large-800w.png 800w`,
+			},
+			notExpected: []string{
+				"1200w",
+			},
+		},
+		{
+			name:  "Huge Image (1500px)",
+			input: `{{ figure src="huge.png" caption="Huge" }}`,
+			expected: []string{
+				`huge-480w.png 480w`, 
+				`huge-800w.png 800w`,
+				`huge-1200w.png 1200w`,
+			},
+		},
+		{
+			name:  "Missing Caption",
+			input: `{{ figure src="medium.png" }}`,
 			expected: []string{
 				`<figure>`,
-				`<img src="images/photo.jpg"`,
-				`srcset="images/photo-480w.jpg 480w, images/photo-800w.jpg 800w, images/photo-1200w.jpg 1200w"`,
-				`sizes="(max-width: 480px) 100vw, (max-width: 800px) 100vw, 100vw"`,
-				`alt="My Photo"`,
-				`<figcaption>My Photo</figcaption>`,
-				`</figure>`,
+				`<img src="medium.png"`,
+				`alt=""`, 
 			},
 		},
 		{
-			name:  "Responsive PNG",
-			input: `{{ figure src="assets/image.png" caption="PNG Image" }}`,
-			expected: []string{
-				`srcset="assets/image-480w.png 480w`,
-				`assets/image-800w.png 800w`,
-			},
-		},
-		{
-			name:  "Non-Responsive GIF",
-			input: `{{ figure src="meme.gif" caption="Funny" }}`,
-			expected: []string{
-				`<img src="meme.gif" alt="Funny">`,
-				`<figcaption>Funny</figcaption>`,
-			},
-		},
-		{
-			name:  "External URL (Fallback)",
+			name:  "External URL (No Srcset)",
 			input: `{{ figure src="https://example.com/foo.jpg" caption="External" }}`,
-			// Currently implementation logic is just extension check.
-			// filepath.Ext("https://example.com/foo.jpg") is ".jpg".
-			// So it WILL try to generate srcset with local suffixes.
-			// Ideally we might want to skip remote URLs for srcset unless we know they exist?
-			// But for now, let's just verify behavior matches current code.
-			// Current code: `ext := filepath.Ext(src)` -> `.jpg` -> generates srcset.
-			// This might be a bug/LIMITATION if we don't want to optimize external images (we can't generate the -480w versions for them locally).
-			// The optimize logic only works on local resources.
-			// So `figure` shortcode should probably NOT add srcset if the src starts with `http`.
-			// Let's UPDATE the code to handle this, then update this test.
+			expected: []string{
+				`<img src="https://example.com/foo.jpg" alt="External">`,
+			},
+			notExpected: []string{
+				"srcset",
+			},
+		},
+		{
+			name: "File Not Found (Fallback)",
+			input: `{{ figure src="missing.png" caption="Missing" }}`,
+			expected: []string{
+				`<img src="missing.png" alt="Missing">`,
+			},
+			notExpected: []string{
+				"srcset",
+			},
+		},
+		{
+			name: "With Width",
+			input: `{{ figure src="medium.png" width="50%" }}`,
+			expected: []string{
+				`style="width: 50%; margin: 0 auto; display: block;"`,
+				`srcset="medium-480w.png 480w"`,
+			},
 		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := processShortcodes(tt.input, "")
+			got := processShortcodes(tt.input, tmpDir)
+			
+			// Handle "Small Image" specific logic check from earlier comment
+			// If 300px < 480px, loop produces 0 sources. 
+			// Code: if len(sources) > 0 { return ... } return fallback.
+			// So small image should match Fallback format (no srcset).
+			
 			for _, exp := range tt.expected {
 				if !strings.Contains(got, exp) {
-					t.Errorf("Expected output to contain:\n%s\nGot:\n%s", exp, got)
+					t.Errorf("[%s] Expected output to contain:\n%s\nGot:\n%s", tt.name, exp, got)
 				}
 			}
-			
-			// Additional check for External Case: Ensure NO srcset
-			if tt.name == "External URL (Fallback)" && strings.Contains(got, "srcset") {
-				t.Errorf("External URL should not have srcset, but got:\n%s", got)
+
+			for _, nexp := range tt.notExpected {
+				if strings.Contains(got, nexp) {
+					t.Errorf("[%s] Expected output NOT to contain:\n%s\nGot:\n%s", tt.name, nexp, got)
+				}
 			}
 		})
 	}
