@@ -20,6 +20,7 @@ type PageData struct {
 	Paginator    Paginator
 	Hidden       bool
 	Data         map[string]interface{} // Data Files Support
+    Author       string // Page-specific or Global Author
 }
 
 type Paginator struct {
@@ -48,11 +49,13 @@ type ArticleMeta struct {
 	Draft    bool // New Draft Field
 	Description string
 	SourcePath  string
+    Author      string // Metadata
 }
 
 type MenuItem struct {
 	Title string
 	URL   string
+	Order int // Sorting order
 }
 
 type FrontMatter struct {
@@ -64,4 +67,8 @@ type FrontMatter struct {
     Image       string   `yaml:"image"`       // SEO
 	Hidden      bool     `yaml:"hidden"`
 	Draft       bool     `yaml:"draft"`       // New Draft Field
+	SiteName    string   `yaml:"site_name"`   // Override Site Name
+	MenuLabel   string   `yaml:"menu_label"`  // Custom Menu Title
+	MenuOrder   int      `yaml:"menu_order"`  // Menu Sorting Order
+    Author      string   `yaml:"author"`      // Override Author
 }

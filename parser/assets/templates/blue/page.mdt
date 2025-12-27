@@ -29,7 +29,7 @@
                      
                     <div class="post-meta">
                         <div>
-                             {{ .Date }} <span class="dot">&middot;</span> By Rodrigo Santiago
+                             {{ .Date }} <span class="dot">&middot;</span> By {{ .Author }}
                         </div>
                     </div>
                 </header>
