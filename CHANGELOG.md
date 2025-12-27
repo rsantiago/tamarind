@@ -6,6 +6,7 @@ A complete history of **Tamarind** releases and milestones.
 
 | Version | Description |
 | :--- | :--- |
+| **v4.10.0** | **Structural Refinement**: Flattened project structure, added **Author Attribution** docs, enhanced **Dynamic Menu**, and polished **Gram** theme headers. |
 | **v4.9.1** | **Polish**: Removed figure box shadows across all themes; Enhanced `figure` shortcode with `width` attribute support. |
 | **v4.9.0** | **Feature Suite**: Implemented automatic **Image Optimization** (resize pipeline, srcset) and **Data Files** support (`data/*.json` in templates). |
 | **v4.8.0** | **RSS Feeds**: Added `feed.xml` generation for articles and RSS footer link. |
