@@ -1,5 +1,5 @@
 ---
-title: Turn markdown files into a gorgeous website that's AI Crawler Friendly - with one command line
+title: Turn markdown content into a gorgeous website that's seen by AI Agents. Just run `tamarind quickstart`
 date: 2025-01-01
 description: The AI-First Web Engine.
 site_name: Tamarind
@@ -10,38 +10,60 @@ menu_order: 1
 
 ## The AI-First Static Site Generator
 
-Tamarind is has a single purpose: **To quickly turn your content into a fast, beautiful, and perfectly readable website - by both Humans and Machines.**
+Tamarind has a single purpose: **To quickly turn your content into a fast, beautiful, and perfectly readable website - by both Humans and AI Agents like ChatGPT, Claude, Gemini, and others.**
+
+In order to generate a demo site, get our binary from [here](https://github.com/tamarind/tamarind/releases) and run `tamarind quickstart` on your terminal window.
+
+That's it. 
+
+Tamarind will generate and serve a demo site for you locally (just like this one), so you can see it in action immediately on your browser.
+
+You can now edit the md files in the generated `website/` folder - please make it yours - and see the changes in real-time by running `tamarind build -theme gram && tamarind serve`.
+
+You can also see the available themes by running `tamarind themes`. Just change from `gram` to any other theme name to see it in action.
 
 It works like this:
+
 1.  **You write Markdown.** (Just simple text).
 2.  **Tamarind builds HTML.** (For humans).
 3.  **Tamarind builds Context.** (For Agents).
 
-When you ran `tamarind quickstart` just now, something invisible happened. Look in your `website/` folder. You will see an `index.html`, but you will also see `llms.txt`. 
+When you run `tamarind quickstart` something invisible happens. Look in your `website/` folder. You will see an `index.html`, but you will also see `llms.txt`.
 
-This file is a clean, structured map of your entire site, stripped of noise and formatted specifically for Large Language Model ingestion. When an AI bot visits this site, it doesn't have to guess. It *knows*.
+The `llms.txt` file is a clean, structured map of your entire site, stripped of noise and formatted specifically for Large Language Model ingestion. When an AI bot visits this site, it doesn't have to guess. It *knows* what it's looking for.
 
 ## Why This Matters
-If you are writing documentation, a blog, or a portfolio today, you need to ask yourself: **"Can an AI understand this?"**
 
-If the answer is "I hope so," you are already behind. 
-With Tamarind, the answer is "Yes, natively."
+If you are a developer writing your own documentation, a personal blog, or a portfolio today, you need to ask yourself: **"Can an AI understand this?"**
+
+If you are a content producer for a SaaS company, you need to ask yourself: **"Can an AI understand my product's content?"**
+
+If the answer is "I hope AI Agents gets it," you are already behind. 
+
+With Tamarind, the answer is "Yes, my content will be understood natively by AI Agents."
 
 Every website you have ever built is invisible to half the internet.
-We usually build for humans. We obsess over CSS, dark mode, and responsive layouts. But while we were refining pixel margins on mobile, something fundamental shifted. The internet is no longer just for eyeballs. It is for **Agents**.
 
-AI models—ChatGPT, Claude, search crawlers—are the new "browsers". And right now, your beautiful React app looks like a garbled mess of `<div>` soup to them. Your documentation is hallucinated. Your blog is ignored.
+We usually build websites just for humans. Developers obsess over CSS, dark mode, and responsive layouts. 
 
-You are building dead ends for the smartest users on the planet.
+But while we were refining pixel margins on mobile, something fundamental shifted. The internet is no longer just for eyeballs. It is for **Agents**.
+
+AI models—ChatGPT, Claude, search crawlers—are the new "browsers". 
+
+And right now, your beautiful React app looks like a garbled mess of `<div>` soup to AI Agents. Your documentation is hallucinated. Your blog is ignored.
+
+Developers everywhere are building dead ends for the smartest users on the planet.
 
 **Tamarind fixes this.**
 
 ## Ship Content Like Code
 
 If you pitch yourself as a "blogger", you inherit the "SEO is dying" anxiety.
+
 **Tamarind is a content engine for SaaS teams.**
 
 ### 1. Product Content, Not Just "Blogging"
+
 Your content should be versioned, reviewable, and deployable.
 *   **Workflow like GitHub**: PR previews, review states, and build gates.
 *   **Structure**: Clean headings and semantics increase skimmability for humans and extractability for AI.
