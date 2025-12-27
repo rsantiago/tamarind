@@ -14,6 +14,9 @@
     *   Command: `cd parser && go build -o ../tamarind` (Run this inside the `tamarind` folder, or `cd tamarind/parser && go build -o ../tamarind` from root).
 
 ### 2. Initialize Project
-*   **Important**: Return to the root of your workspace (parent of `tamarind` folder).
-*   Run: `./tamarind/tamarind init`
-    *   This must create the `writer-sandbox` directory at the **root folder level**, NOT inside the `tamarind` cloned repo.
+*   **Create Test Directory**: Create a clean directory for the site.
+    *   Command: `mkdir -p test_site`
+*   **Copy Binary**: Copy the built binary into the test directory.
+    *   Command: `cp tamarind/tamarind test_site/`
+*   **Initialize**: Run init inside the test directory.
+    *   Command: `cd test_site && ./tamarind init`
