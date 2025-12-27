@@ -345,7 +345,7 @@ a:hover {
 .article-content h2 {
     font-family: var(--font-heading);
     font-size: 28px;
-    margin-top: 2.5em;
+    margin-top: 1.5em;
     /* Increased spacing */
     margin-bottom: 0.8em;
     font-weight: 700;

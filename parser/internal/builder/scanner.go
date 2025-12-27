@@ -5,6 +5,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"sort"
 	"strings"
 
 	"github.com/rsantiago/tamarind/parser/internal/models"
@@ -82,6 +83,7 @@ func scanDirForMarkdown(dirPath, collectionName string, includeDrafts bool) ([]m
 				Draft:    fm.Draft,
 				Description: fm.Description,
 				SourcePath:  absPath,
+                Author:      fm.Author,
 			})
 		}
 	}
@@ -111,42 +113,69 @@ func ParseFrontMatter(content []byte) (models.FrontMatter, string) {
 func ScanPagesAndCollections(sourceDir string, collections map[string][]models.ArticleMeta) ([]models.MenuItem, error) {
 	var menu []models.MenuItem
 	
-	// 1. Home
-	menu = append(menu, models.MenuItem{Title: "Home", URL: "index.html"})
+	// Scan root directory for MD files
+	entries, err := os.ReadDir(sourceDir)
+	if err != nil {
+		return nil, err
+	}
 
-	// 2. Collections (sorted by name or specific order logic)
+	for _, entry := range entries {
+		if !entry.IsDir() && filepath.Ext(entry.Name()) == ".md" {
+			path := filepath.Join(sourceDir, entry.Name())
+			content, err := os.ReadFile(path)
+			if err != nil {
+				continue
+			}
+			fm, _ := ParseFrontMatter(content)
+			
+			if fm.Hidden {
+				continue
+			}
+
+            // Determine Label
+            label := fm.MenuLabel
+            if label == "" {
+                // Special case for index.md
+                if entry.Name() == "index.md" {
+                    label = "Home"
+                } else {
+                    // Title Case filename
+                    base := strings.TrimSuffix(entry.Name(), ".md")
+                    label = strings.Title(base)
+                }
+            }
+
+            // Determine URL
+            url := strings.TrimSuffix(entry.Name(), ".md") + ".html"
+            
+            // Determine Order
+            order := fm.MenuOrder
+            
+            menu = append(menu, models.MenuItem{
+                Title: label,
+                URL:   url,
+                Order: order,
+            })
+		}
+	}
+
+	// Add Collections (Order 99+)
 	for name := range collections {
 		title := strings.Title(name)
 		menu = append(menu, models.MenuItem{
 			Title: title,
-			URL:   name + ".html", // The collection index page
+			URL:   name + ".html", 
+			Order: 99, // User specified default high order for collections
 		})
 	}
-
-	// 3. Pages
-	pagesDir := filepath.Join(sourceDir, "pages")
-	entries, err := os.ReadDir(pagesDir)
-	if err == nil {
-		for _, entry := range entries {
-			if filepath.Ext(entry.Name()) == ".md" {
-				path := filepath.Join(pagesDir, entry.Name())
-				content, err := os.ReadFile(path)
-				if err != nil {
-					continue
-				}
-				fm, _ := ParseFrontMatter(content)
-				
-				if fm.Hidden {
-					continue
-				}
-
-				menu = append(menu, models.MenuItem{
-					Title: fm.Title,
-					URL:   "pages/" + strings.TrimSuffix(entry.Name(), ".md") + ".html",
-				})
-			}
-		}
-	}
+    
+    // Sort Menu
+    sort.Slice(menu, func(i, j int) bool {
+        if menu[i].Order != menu[j].Order {
+            return menu[i].Order < menu[j].Order
+        }
+        return menu[i].Title < menu[j].Title
+    })
 
 	return menu, nil
 }

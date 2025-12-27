@@ -65,7 +65,7 @@
                             <span class="name">Rodrigo Santiago</span>
                             <span class="handle">@100xDev</span>
                             <span class="dot">·</span>
-                            <span class="date">{{ .Date }}</span>
+                            <span style="color: #536471;">{{ .Date }} · {{ .Author }}</span>
                         </div>
                         <div class="post-body">
                             <a href="{{ $.RelPrefix }}{{ .URL }}" class="post-link">

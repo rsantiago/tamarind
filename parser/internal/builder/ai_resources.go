@@ -2,6 +2,7 @@ package builder
 
 import (
 	"fmt"
+	"log"
 	"os"
 	"path/filepath"
 	"strings"
@@ -20,9 +21,11 @@ func GenerateAIResources(websiteDir string, articles []models.ArticleMeta, pages
 	if err := generateLLMsTxt(websiteDir, articles, pages, baseURL, tagsMap); err != nil {
 		return err
 	}
+	log.Println("Generated llms.txt")
 	if err := generateLLMsFullTxt(websiteDir, articles, pages); err != nil {
 		return err
 	}
+	log.Println("Generated llms_full.txt")
 	return nil
 }
 
