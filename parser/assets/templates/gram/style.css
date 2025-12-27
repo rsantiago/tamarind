@@ -223,7 +223,7 @@ a:hover {
     padding: 24px;
     transition: transform 0.2s, box-shadow 0.2s;
     cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    box-shadow: none;
 }
 
 /* Varying Colors for Interesting Look */
@@ -474,7 +474,7 @@ figure img {
     max-width: 100%;
     height: auto;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-shadow: none;
 }
 
 figcaption {

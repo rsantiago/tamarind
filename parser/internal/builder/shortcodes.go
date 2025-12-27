@@ -3,6 +3,9 @@ package builder
 import (
 	"encoding/json"
 	"fmt"
+	"image"
+	_ "image/jpeg"
+	_ "image/png"
 	"io"
 	"net/http"
 	"os"
@@ -124,36 +127,86 @@ func processShortcodes(markdown, sourceDir string) string {
 	reYT := regexp.MustCompile(`{{\s*youtube\s+([a-zA-Z0-9_-]+)\s*}}`)
 	markdown = reYT.ReplaceAllString(markdown, `<div class="video-container"><iframe src="https://www.youtube.com/embed/$1" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`)
 
-	// Figure: {{ figure src="url" caption="text" }}
-	reFig := regexp.MustCompile(`{{\s*figure\s+src="([^"]+)"\s+caption="([^"]+)"\s*}}`)
+	// Figure: {{ figure src="url" caption="text" width="50%" }}
+	reFig := regexp.MustCompile(`{{\s*figure\s+(.*?)\s*}}`)
 	markdown = reFig.ReplaceAllStringFunc(markdown, func(match string) string {
-		parts := reFig.FindStringSubmatch(match)
-		src := parts[1]
-		caption := parts[2]
+		// Parse attributes manually for flexibility
+		content := reFig.FindStringSubmatch(match)[1]
 		
+		reSrc := regexp.MustCompile(`src="([^"]+)"`)
+		reCap := regexp.MustCompile(`caption="([^"]+)"`)
+		reWidth := regexp.MustCompile(`width="([^"]+)"`)
+		
+		srcMatch := reSrc.FindStringSubmatch(content)
+		if srcMatch == nil {
+			return match // Invalid, no src
+		}
+		src := srcMatch[1]
+		
+		caption := ""
+		capMatch := reCap.FindStringSubmatch(content)
+		if capMatch != nil {
+			caption = capMatch[1]
+		}
+		
+		width := ""
+		widthMatch := reWidth.FindStringSubmatch(content)
+		if widthMatch != nil {
+			width = widthMatch[1] // e.g. "500px" or "50%"
+		}
+		
+		var figcaptionHTML string
+		if caption != "" {
+			figcaptionHTML = fmt.Sprintf("<figcaption>%s</figcaption>", caption)
+		}
+		
+		// Style for width
+		styleAttr := ""
+		if width != "" {
+			styleAttr = fmt.Sprintf(` style="width: %s; margin: 0 auto; display: block;"`, width)
+		}
+
 		// Responsive Logic
 		// We assume src matches the generated optimized files: name-width.ext
 		// AND that it is a local resource (not http/s)
 		if !strings.HasPrefix(src, "http") {
-			ext := filepath.Ext(src)
-			if ext == ".jpg" || ext == ".jpeg" || ext == ".png" {
-				base := strings.TrimSuffix(src, ext)
-				
-			// Construct srcset
-				// Example: path/to/img-480w.jpg 480w, ...
-				srcset := fmt.Sprintf("%s-480w%s 480w, %s-800w%s 800w, %s-1200w%s 1200w", 
-					base, ext, base, ext, base, ext)
-				
-				// sizes: mobile/tablet = 100vw, desktop = capped at 1200px (or typically content width)
-				sizes := "(max-width: 480px) 100vw, (max-width: 800px) 100vw, 100vw"
+			// Resolve path to check dimensions
+			localPath := filepath.Join(sourceDir, src)
 
-				return fmt.Sprintf(`<figure><img src="%s" srcset="%s" sizes="%s" alt="%s"><figcaption>%s</figcaption></figure>`,
-					src, srcset, sizes, caption, caption)
+			// Check if file exists and get dimensions
+			f, err := os.Open(localPath)
+			if err == nil {
+				defer f.Close()
+				cfg, _, err := image.DecodeConfig(f)
+				if err == nil {
+					imgWidth := cfg.Width
+					ext := filepath.Ext(src)
+					base := strings.TrimSuffix(src, ext)
+					
+					lowerExt := strings.ToLower(ext)
+					if lowerExt == ".jpg" || lowerExt == ".jpeg" || lowerExt == ".png" {
+						var sources []string
+						breakpoints := []int{480, 800, 1200}
+						
+						for _, bp := range breakpoints {
+							if imgWidth >= bp {
+								sources = append(sources, fmt.Sprintf("%s-%dw%s %dw", base, bp, ext, bp))
+							}
+						}
+						
+						if len(sources) > 0 {
+							srcset := strings.Join(sources, ", ")
+							sizes := "(max-width: 480px) 100vw, (max-width: 800px) 100vw, 100vw"
+							return fmt.Sprintf(`<figure><img src="%s" srcset="%s" sizes="%s" alt="%s"%s>%s</figure>`,
+								src, srcset, sizes, caption, styleAttr, figcaptionHTML)
+						}
+					}
+				}
 			}
 		}
 		
-		// Fallback for gifs/svgs/external
-		return fmt.Sprintf(`<figure><img src="%s" alt="%s"><figcaption>%s</figcaption></figure>`, src, caption, caption)
+		// Fallback
+		return fmt.Sprintf(`<figure><img src="%s" alt="%s"%s>%s</figure>`, src, caption, styleAttr, figcaptionHTML)
 	})
 
 	// Cleanup Escape Token {{!}}
