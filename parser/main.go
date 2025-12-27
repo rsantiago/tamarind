@@ -88,79 +88,10 @@ func main() {
 				runThemes()
 				os.Exit(1)
 			}
-			
-			// Initial Build
-			fmt.Println("Performing initial build...")
-			if err := runBuild(*theme, *sourcePath, "http://localhost:"+*port, *displayDrafts, true); err != nil {
-				log.Fatalf("Build failed: %v", err)
-			}
+		}
 
-			// Start Watcher in Goroutine
-			go func() {
-				watcher, err := fsnotify.NewWatcher()
-				if err != nil {
-					log.Fatal(err)
-				}
-				defer watcher.Close()
-
-				// Add paths to watch
-				// Watch source files
-				if err := watcher.Add(*sourcePath); err != nil {
-					log.Printf("Warning: failed to watch source path: %v", err)
-				}
-				
-				// Watch nested directories in source? fsnotify is non-recursive by default on some OS, but Linux is usually fine? 
-				// Actually fsnotify is NOT recursive. We need to walk and add.
-				filepath.Walk(*sourcePath, func(path string, info os.FileInfo, err error) error {
-					if info.IsDir() {
-						return watcher.Add(path)
-					}
-					return nil
-				})
-				
-				// Watch Templates (embedded? No, usually we want to watch LOCAL assets if overridden, 
-				// but current architecture relies on embedded assets mostly unless extracted.
-				// For now, let's just watch source.
-				// If the user wants to watch templates during dev of a theme, they might need to point to a local template dir.
-				// But runBuild extracts embedded assets. To dev themes, one should arguably use local files.
-				// Assuming standard usage: User just writes content.
-				
-				log.Println("Watching for file changes...")
-				for {
-					select {
-					case event, ok := <-watcher.Events:
-						if !ok {
-							return
-						}
-						if event.Op&fsnotify.Write == fsnotify.Write || event.Op&fsnotify.Create == fsnotify.Create || event.Op&fsnotify.Remove == fsnotify.Remove {
-							log.Printf("File modified: %s. Rebuilding...", event.Name)
-							
-							// Debounce?
-							time.Sleep(100 * time.Millisecond) 
-							
-							if err := runBuild(*theme, *sourcePath, "http://localhost:"+*port, *displayDrafts, true); err != nil {
-								log.Printf("Rebuild failed: %v", err)
-							} else {
-								log.Println("Rebuild complete. Reloading browsers...")
-								server.NotifyReload()
-							}
-						}
-					case err, ok := <-watcher.Errors:
-						if !ok {
-							return
-						}
-						log.Println("error:", err)
-					}
-				}
-			}()
-			
-			if err := server.Start(*port, WebsiteDir, true); err != nil {
-				log.Fatalf("Serve failed: %v", err)
-			}
-		} else {
-			if err := server.Start(*port, WebsiteDir, false); err != nil {
-				log.Fatalf("Serve failed: %v", err)
-			}
+		if err := runServe(*port, *watch, *theme, *sourcePath, *displayDrafts); err != nil {
+			log.Fatalf("Serve failed: %v", err)
 		}
 
 	case "themes":
@@ -196,15 +127,10 @@ func runQuickstart() error {
 		return fmt.Errorf("config step failed: %w", err)
 	}
 
-	// 3. Build with 'Gram' theme directly using the shared build function
-	if err := runBuild("gram", DefaultStructureDir, "http://localhost:8080", false, false); err != nil {
-		return fmt.Errorf("build step failed: %w", err)
-	}
-
-	// 4. Serve
+	// 3. Serve with Watcher (Theme: Gram)
 	fmt.Println("--------------------------------")
-	fmt.Println("✨ Quickstart Complete! Serving on http://localhost:8080")
-	return server.Start("8080", WebsiteDir, false)
+	fmt.Println("✨ Quickstart Complete! Serving on http://localhost:8080 with Live Reloading")
+	return runServe("8080", true, "gram", DefaultStructureDir, false)
 }
 
 func runBuild(theme, sourcePath, baseURL string, includeDrafts bool, liveReload bool) error {
@@ -288,6 +214,75 @@ func runThemes() error {
 		}
 	}
 	return nil
+}
+
+func runServe(port string, watch bool, theme string, sourcePath string, displayDrafts bool) error {
+	if watch {
+		if theme == "" {
+			return fmt.Errorf("theme is required for live reloading")
+		}
+		
+		// Initial Build
+		fmt.Println("Performing initial build...")
+		if err := runBuild(theme, sourcePath, "http://localhost:"+port, displayDrafts, true); err != nil {
+			return fmt.Errorf("build failed: %w", err)
+		}
+
+		// Start Watcher in Goroutine
+		go func() {
+			watcher, err := fsnotify.NewWatcher()
+			if err != nil {
+				log.Fatal(err)
+			}
+			defer watcher.Close()
+
+			// Add paths to watch
+			// Watch source files
+			if err := watcher.Add(sourcePath); err != nil {
+				log.Printf("Warning: failed to watch source path: %v", err)
+			}
+			
+			// Recursively watch subdirectories
+			filepath.Walk(sourcePath, func(path string, info os.FileInfo, err error) error {
+				if info.IsDir() {
+					return watcher.Add(path)
+				}
+				return nil
+			})
+			
+			log.Println("Watching for file changes...")
+			for {
+				select {
+				case event, ok := <-watcher.Events:
+					if !ok {
+						return
+					}
+					if event.Op&fsnotify.Write == fsnotify.Write || event.Op&fsnotify.Create == fsnotify.Create || event.Op&fsnotify.Remove == fsnotify.Remove {
+						log.Printf("File modified: %s. Rebuilding...", event.Name)
+						
+						// Debounce
+						time.Sleep(100 * time.Millisecond) 
+						
+						if err := runBuild(theme, sourcePath, "http://localhost:"+port, displayDrafts, true); err != nil {
+							log.Printf("Rebuild failed: %v", err)
+						} else {
+							log.Println("Rebuild complete. Reloading browsers...")
+							server.NotifyReload()
+						}
+					}
+				case err, ok := <-watcher.Errors:
+					if !ok {
+						return
+					}
+					log.Println("error:", err)
+				}
+			}
+		}()
+		
+		return server.Start(port, WebsiteDir, true)
+	} else {
+		return server.Start(port, WebsiteDir, false)
+	}
 }
 
 // --- Init Command ---
