@@ -18,9 +18,11 @@ That's it.
 
 Tamarind will generate and serve a demo site for you locally (just like this one), so you can see it in action immediately on your browser.
 
-You can now edit the md files in the generated `website/` folder - please make it yours - and see the changes in real-time by running `tamarind build -theme gram && tamarind serve`.
+You can now edit the sample md files in the generated `writer-sandbox/` folder - please make it yours - and see the changes in real-time on your browser.
 
-You can also see the available themes by running `tamarind themes`. Just change from `gram` to any other theme name to see it in action.
+You can also see the available themes by running `tamarind themes`. And then run 
+
+`tamarind serve -watch -theme <name>`
 
 It works like this:
 
@@ -34,9 +36,9 @@ The `llms.txt` file is a clean, structured map of your entire site, stripped of 
 
 ## Why This Matters
 
-If you are a developer writing your own documentation, a personal blog, or a portfolio today, you need to ask yourself: **"Can an AI understand this?"**
+If you are a developer writing your own documentation, a personal blog, or a portfolio today, you need to ask yourself: **"Can an AI agent understand this?"**
 
-If you are a content producer for a SaaS company, you need to ask yourself: **"Can an AI understand my product's content?"**
+If you are a content producer for a SaaS company, you need to ask yourself: **"Can an AI agent understand my product's content?"**
 
 If the answer is "I hope AI Agents gets it," you are already behind. 
 
@@ -58,9 +60,17 @@ Developers everywhere are building dead ends for the smartest users on the plane
 
 ## Ship Content Like Code
 
-If you pitch yourself as a "blogger", you inherit the "SEO is dying" anxiety.
+If you are a developer or content producer, and you would love to version your pure content with text-based, GIT simplicity - without the need to manage a database, front end frameworks, or complex build pipelines, Tamarind is a crazy fast way to get there.
 
-**Tamarind is a content engine for SaaS teams.**
+Tamarind gets you focused on content generation. It strips away a lot of the noise, time spent and complexity of web development.
+
+Tamarind is your new content engine for SaaS teams and independent developers/content producers wanting to own their main assets - content, documentation, and blog posts. It will help you to craft authority content that you own - and that is well structured for modern AI Crawlers and human readers at the same time.
+
+## Generate content faster with your favorite AI Agent
+
+Plus, with Tamarind, you can use any AI Agent you want to generate content for you in a very fast pace. Just open your favorite AI Agent in the author sandbox folder, and prompt your way to published content.
+
+**Tamarind is your bridge so that AI agents can create, manage and read your content, across the entire lifecycle.**
 
 ### 1. Product Content, Not Just "Blogging"
 
@@ -70,7 +80,7 @@ Your content should be versioned, reviewable, and deployable.
 
 ### 2. Publish Once, Distribute Everywhere
 A Tamarind site isn't just a website. It's a distribution center.
-*   **Docs + Blog + Changelog**: Coherent information architecture.
+*   **Docs + Blog**: Coherent information architecture.
 *   **AI-Ready Publishing**: Auto-generated `llms.txt`, consistent answer blocks, and strong metadata defaults.
 
 ### 3. The "Money Pages" System

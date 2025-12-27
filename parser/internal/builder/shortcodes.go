@@ -16,6 +16,10 @@ import (
 )
 
 func processShortcodes(markdown, sourceDir string) string {
+	// 0. Agent (Comment): {{ agent "instruction" }} -> Removed from output
+	reAgent := regexp.MustCompile(`{{\s*agent\s+"(.*?)"\s*}}`)
+	markdown = reAgent.ReplaceAllString(markdown, "")
+
 	// 1. Mermaid (Block): {{ mermaid }}...{{ /mermaid }}
 	reMermaid := regexp.MustCompile(`(?s){{\s*mermaid\s*}}(.*?){{\s*/mermaid\s*}}`)
 	markdown = reMermaid.ReplaceAllString(markdown, `<div class="mermaid">$1</div>`)
