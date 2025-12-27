@@ -300,11 +300,22 @@ a:hover {
 
 /* ... existing article header ... */
 .article-header {
-    padding: 20px;
-    border-bottom: 1px solid var(--border-color);
+    padding: 30px; /* Increased padding */
+    border-bottom: none; /* Remove border since we have color */
     display: flex;
     align-items: center;
     gap: 12px;
+    background-image: var(--grad-4); /* Vibrant gradient */
+    color: #fff; /* White text for contrast */
+}
+
+/* Ensure links/text inside header are proper color */
+.article-header .user-name {
+    color: #fff;
+}
+.article-header .user-avatar-small {
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
 }
 
 /* ... existing user avatar ... */
