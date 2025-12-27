@@ -41,16 +41,16 @@ Use this when you have a single set of key-value pairs, like configuration or so
 Access fields directly using the key names.
 
 ```markdown
-**Version:** {{ "{{" }} .Data.Info.version }}
+**Version:** {{ "{{" }} .Data.info.version }}
 
-**Contact:** [{{ "{{" }} .Data.Info.contact_email }}](mailto:{{ "{{" }} .Data.Info.contact_email }})
+**Contact:** [{{ "{{" }} .Data.info.contact_email }}](mailto:{{ "{{" }} .Data.info.contact_email }})
 ```
 
 #### Active Demo (Live Result)
 
-**Version:** {{ .Data.Info.version }}
+**Version:** {{ .Data.info.version }}
 
-**Contact:** [{{ .Data.Info.contact_email }}](mailto:{{ .Data.Info.contact_email }})
+**Contact:** [{{ .Data.info.contact_email }}](mailto:{{ .Data.info.contact_email }})
 
 ### Scenario 2: List of Objects (e.g. Products)
 
@@ -74,14 +74,14 @@ Use this when you have a collection of items to iterate over.
 Use `range` to loop through the list.
 
 ```markdown
-{{ "{{" }} range .Data.Products }}
+{{ "{{" }} range .Data.products }}
 - **{{ "{{" }} .name }}**: {{ "{{" }} .price }}
 {{ "{{" }} end }}
 ```
 
 #### Active Demo (Live Result)
 
-{{ range .Data.Products }}
+{{ range .Data.products }}
 - **{{ .name }}**: {{ .price }}
 {{ end }}
 
@@ -90,12 +90,12 @@ Use `range` to loop through the list.
 If you need to grab just the *second* product from the list above, you can use the `index` function. Note that indexes are 0-based.
 
 ```markdown
-**Featured:** {{ "{{" }} (index .Data.Products 1).name }}
+**Featured:** {{ "{{" }} (index .Data.products 1).name }}
 ```
 
 #### Active Demo (Live Result)
 
-**Featured:** {{ (index .Data.Products 1).name }}
+**Featured:** {{ (index .Data.products 1).name }}
 
 ## Why use Data Files?
 
