@@ -3,6 +3,8 @@ title: About Tamarind
 subtitle: What is this project?
 date: 2025-12-01
 tags: [about]
+menu_label: About
+menu_order: 200
 ---
 
 # What is Tamarind?

@@ -21,24 +21,6 @@
 
     <div class="layout-container">
         
-        <!-- Profile / Intro Section -->
-        <header class="profile-header">
-            <div class="profile-pic-placeholder">
-                <!-- Initials or Icon -->
-                RS
-            </div>
-            
-            <div class="profile-info">
-                <h1>Rodrigo Santiago <span style="font-size: 14px; color: #0095f6; margin-left:8px;">✓</span></h1>
-                
-                <!-- Stats Removed -->
-                
-                <div class="profile-bio">
-                    <p><strong>Engineering Leadership & Org Architecture</strong></p>
-                    <p>Building the next generation of CTOs and VPs. 
-
-            </div>
-        </header>
 
         <!-- Grid Feed -->
         <main class="grid-feed">

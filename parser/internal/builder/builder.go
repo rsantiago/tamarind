@@ -79,18 +79,18 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 	var tagsMap = make(map[string][]models.ArticleMeta)
 	
 	// Collect Site Name from config or default
-	siteName := "My Tamarind Site"
+	siteName := "Tamarind"
 	if val, ok := themeConfig["site_name"]; ok {
 		siteName = val
 	}
 
-	// 3. Scan & Build Pages
-	menu := []models.MenuItem{
-		{Title: "Home", URL: "index.html"},
-		{Title: "Articles", URL: "articles.html"},
-		{Title: "Docs", URL: "docs.html"},
-		{Title: "About Tamarind", URL: "pages/about.html"},
-		{Title: "Contact", URL: "pages/contact.html"},
+	// Attempt to read parsing config from index.md
+	indexPath := filepath.Join(sourceDir, "index.md")
+	if content, err := os.ReadFile(indexPath); err == nil {
+		fm, _ := ParseFrontMatter(content)
+		if fm.SiteName != "" {
+			siteName = fm.SiteName
+		}
 	}
 
 	// 2a. Load Data Files
@@ -105,6 +105,13 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 	if err != nil {
 		return fmt.Errorf("failed to scan content: %w", err)
 	}
+    
+    // 3b. Generate Dynamic Menu (After scanning collections so we know them)
+    menu, err := ScanPagesAndCollections(sourceDir, collections)
+    if err != nil {
+        log.Printf("Warning: Failed to scan menu: %v", err)
+        // Fallback? nil is handled by templates usually (empty menu)
+    }
 
 	// Flatten collections into articles list, build tags map, and generate INDICES
 	for name, items := range collections {
@@ -214,6 +221,16 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 	siteDescription := "A static site built with Tamarind"
 	if val, ok := themeConfig["site_description"]; ok {
 		siteDescription = val
+	}
+    
+    // Attempt to read description from index.md (Re-using logic or just reading it again)
+    // We already read index.md at the start of Build function, but we didn't store the description in a variable accessible here.
+    // Let's read it again for simplicity/local scoping.
+	if content, err := os.ReadFile(filepath.Join(sourceDir, "index.md")); err == nil {
+		fm, _ := ParseFrontMatter(content)
+		if fm.Description != "" {
+			siteDescription = fm.Description
+		}
 	}
 	if err := GenerateRSS(websiteDir, articles, baseURL, siteName, siteDescription); err != nil {
 		log.Printf("Warning: failed to generate RSS feed: %v", err)

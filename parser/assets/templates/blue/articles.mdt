@@ -22,16 +22,6 @@
     <div class="layout-container">
         <!-- Main Feed -->
         <main>
-            <!-- Intro Card -->
-            <div class="card" style="text-align: center; padding: 60px 20px;">
-                <h1 style="border: none; margin-bottom: 16px;">Rodrigo Santiago</h1>
-                <p style="font-size: 20px; color: var(--text-secondary);">Engineering Leadership & Organizational Architecture</p>
-                <div style="margin-top: 24px;">
-                     <a href="{{ .RelPrefix }}pages/about.html" style="margin: 0 12px; font-weight: 600;">About Me</a>
-                     <a href="{{ .RelPrefix }}pages/curriculum.html" style="margin: 0 12px; font-weight: 600;">The Curriculum</a>
-                </div>
-            </div>
-
             {{ range .Articles }}
             <article class="card feed-item">
                 <div class="post-content" style="padding: 0;">
