@@ -26,9 +26,9 @@
 
 
                 <!-- "Image" Area (Title as the visual) -->
-                <div style="background-color: #fafafa; padding: 60px 40px; text-align: center; border-bottom: 1px solid #efefef;">
-                     <h1 class="page-title" style="font-size: 32px; font-weight: 600;">{{ .Title }}</h1>
-                     {{ if .Subtitle }}<p style="color: #666; margin-top: 10px;">{{ .Subtitle }}</p>{{ end }}
+                <div class="article-header-visual">
+                     <h1 class="page-title">{{ .Title }}</h1>
+                     {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
                 </div>
                 
                 <!-- Interaction Bar Removed -->
