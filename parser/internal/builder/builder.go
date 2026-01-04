@@ -178,6 +178,12 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 	if err := copyAssets(templateDir, websiteDir); err != nil {
 		return fmt.Errorf("failed to copy assets: %w", err)
 	}
+	// 4b. Copy Shared Assets (like core.css)
+	sharedDir = filepath.Join(filepath.Dir(templateDir), "shared")
+	if err := copyAssets(sharedDir, websiteDir); err != nil {
+		// Log warning but don't fail, shared dir might not have css
+		log.Printf("Warning: failed to copy shared assets: %v", err)
+	}
 
 	// 5. Copy Site Resources
 	if err := copySiteResources(sourceDir, websiteDir); err != nil {
