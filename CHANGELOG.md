@@ -6,6 +6,7 @@ A complete history of **Tamarind** releases and milestones.
 
 | Version | Description |
 | :--- | :--- |
+| **v4.11.1** | **Viral & Fixes**: Implemented **Viral Distribution** (Ghost Badge & Power Footer); Fixed **Mermaid Dark Mode** using dynamic luminance detection. |
 | **v4.11.0** | **Agent Experience**: Added `{{ agent }}` comment shortcode for invisible instructions; Enhanced `quickstart` to enable **Live Reloading** by default; Updated Landing Page copy. |
 | **v4.10.1** | **Polish & Copy**: Vibrant headers for 'Gram' individual pages, removed placeholder initials from collections, fixed data loader casing, and updated landing page copy. |
 | **v4.10.0** | **Structural Refinement**: Flattened project structure, added **Author Attribution** docs, enhanced **Dynamic Menu**, and polished **Gram** theme headers. |
