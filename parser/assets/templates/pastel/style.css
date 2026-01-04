@@ -459,29 +459,39 @@ a:hover {
 @media (max-width: 768px) {
     .site-header {
         height: auto;
-        padding: 20px 0;
+        padding: 16px 0;
     }
 
     .nav-container {
         flex-direction: column;
-        gap: 16px;
+        gap: 12px;
+        padding: 0 16px;
     }
 
     .nav-links {
-        gap: 20px;
+        gap: 16px;
         flex-wrap: wrap;
         justify-content: center;
+    }
+
+    .layout-container {
+        margin: 0;
+        padding: 0;
+        /* Edge to edge */
+        max-width: 100%;
     }
 
     .profile-header {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 30px 16px;
+        border-bottom: none;
     }
 
     .profile-pic-placeholder {
         margin-right: 0;
-        margin-bottom: 24px;
+        margin-bottom: 20px;
         width: 80px;
         height: 80px;
         font-size: 2rem;
@@ -489,21 +499,56 @@ a:hover {
 
     .profile-info h1 {
         justify-content: center;
+        font-size: 24px;
+        margin-bottom: 12px;
     }
 
     .profile-stats {
         justify-content: center;
+        font-size: 14px;
+        gap: 24px;
     }
 
     .grid-feed {
-        grid-template-columns: repeat(1, 1fr);
-        /* Single column on mobile? Or 3 small ones? */
-        gap: 12px;
+        grid-template-columns: 1fr;
+        gap: 2px;
+        /* Minimal gap */
     }
 
     .grid-item {
-        aspect-ratio: auto;
+        border-radius: 0;
+        /* Edge to edge */
         padding: 40px 20px;
+        aspect-ratio: auto;
+    }
+
+    /* Article Reading Optimization */
+    .article-container {
+        border-radius: 0;
+        border: none;
+        margin-bottom: 0;
+    }
+
+    .article-content {
+        padding: 24px 16px;
+        /* Tighter padding */
+        font-size: 17px;
+        /* Reduced from 18px */
+        line-height: 1.6;
+    }
+
+    .article-header-visual,
+    .article-header {
+        padding: 40px 20px;
+        border-radius: 0;
+    }
+
+    .article-content h1 {
+        font-size: 28px;
+    }
+
+    .article-content h2 {
+        font-size: 22px;
     }
 }
 
