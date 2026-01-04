@@ -26,13 +26,40 @@
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let theme = 'default';
-        // Auto-detect Dark Themes (Midnight, Neon, Pastel) based on background color variable
-        const style = getComputedStyle(document.documentElement);
-        const bg = style.getPropertyValue('--background-color').trim().toLowerCase();
-        // Midnight: #0b0c10, Neon: #151620, Pastel: #242933
-        if (['#0b0c10', '#151620', '#242933', '#0d0e15'].includes(bg)) {
-            theme = 'dark';
+        
+        // Helper: Calculate relative luminance from RGB
+        function getLuminance(r, g, b) {
+            const a = [r, g, b].map(function (v) {
+                v /= 255;
+                return v <= 0.03928 ? v / 12.92 : Math.pow((v + 0.055) / 1.055, 2.4);
+            });
+            return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
         }
+
+        // Helper: Parse color string (hex or rgb)
+        function parseColor(color) {
+            const temp = document.createElement("div");
+            temp.style.color = color;
+            temp.style.display = "none";
+            document.body.appendChild(temp);
+            const style = window.getComputedStyle(temp).color; // returns rgb(r, g, b)
+            document.body.removeChild(temp);
+            
+            const rgb = style.match(/\d+/g);
+            return rgb ? rgb.map(Number) : [255, 255, 255]; // default to white
+        }
+
+        const style = getComputedStyle(document.documentElement);
+        const bgVal = style.getPropertyValue('--background-color').trim();
+        
+        if (bgVal) {
+            const [r, g, b] = parseColor(bgVal);
+            const luminance = getLuminance(r, g, b);
+            if (luminance < 0.5) {
+                theme = 'dark';
+            }
+        }
+        
         mermaid.initialize({ startOnLoad: true, theme: theme });
     });
 </script>
