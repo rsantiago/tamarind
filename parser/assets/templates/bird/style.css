@@ -361,14 +361,52 @@ blockquote {
 
 /* Responsive */
 @media (max-width: 1100px) {
+    .app-layout {
+        flex-direction: column;
+        padding-top: 0;
+    }
+
     .sidebar {
-        display: none;
+        width: 100%;
+        height: auto;
+        position: relative;
+        top: 0;
+        padding: 10px 20px;
+        align-items: flex-start;
+        border-bottom: 1px solid var(--border-color);
+        background: var(--background-color);
+        z-index: 101;
+    }
+
+    .sidebar-content {
+        width: 100%;
+        padding-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        height: auto;
+    }
+
+    .nav-item {
+        width: auto;
+        margin-bottom: 0;
+        font-size: 14px;
+        padding: 8px 12px;
+    }
+
+    .nav-item svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 8px;
     }
 
     .timeline {
         width: 100%;
-        max-width: 700px;
-        margin: 0 20px;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
     }
 
     .timeline-header,
@@ -419,18 +457,83 @@ figcaption {
     color: var(--text-secondary);
     font-style: italic;
 }
+
 /* Tamarind Developer Shortcodes */
-.mermaid{margin:2em 0;text-align:center}
-.callout{padding:1rem;margin:1.5rem 0;border-left:4px solid #ddd;border-radius:4px;background:#f9f9f9}
-.callout-title{font-weight:700;margin-bottom:.5rem}
-.callout-info{border-color:#007bff;background:#e7f5ff}
-.callout-warn{border-color:#ffc107;background:#fff3cd}
-.callout-error{border-color:#dc3545;background:#ffe6e6}
-.callout-tip{border-color:#28a745;background:#e6ffed}
-.terminal{background:#1e1e1e;border-radius:6px;box-shadow:0 4px 10px rgba(0,0,0,.3);margin:2em 0;overflow:hidden}
-.terminal-header{background:#333;padding:8px 12px;display:flex;gap:6px}
-.terminal-header .dot{width:12px;height:12px;border-radius:50%}
-.terminal-header .red{background:#ff5f56}
-.terminal-header .yellow{background:#ffbd2e}
-.terminal-header .green{background:#27c93f}
-.terminal-content{margin:0;padding:20px;color:#f8f8f2;font-family:monospace;overflow-x:auto}
+.mermaid {
+    margin: 2em 0;
+    text-align: center
+}
+
+.callout {
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9
+}
+
+.callout-title {
+    font-weight: 700;
+    margin-bottom: .5rem
+}
+
+.callout-info {
+    border-color: #007bff;
+    background: #e7f5ff
+}
+
+.callout-warn {
+    border-color: #ffc107;
+    background: #fff3cd
+}
+
+.callout-error {
+    border-color: #dc3545;
+    background: #ffe6e6
+}
+
+.callout-tip {
+    border-color: #28a745;
+    background: #e6ffed
+}
+
+.terminal {
+    background: #1e1e1e;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    margin: 2em 0;
+    overflow: hidden
+}
+
+.terminal-header {
+    background: #333;
+    padding: 8px 12px;
+    display: flex;
+    gap: 6px
+}
+
+.terminal-header .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%
+}
+
+.terminal-header .red {
+    background: #ff5f56
+}
+
+.terminal-header .yellow {
+    background: #ffbd2e
+}
+
+.terminal-header .green {
+    background: #27c93f
+}
+
+.terminal-content {
+    margin: 0;
+    padding: 20px;
+    color: #f8f8f2;
+    font-family: monospace;
+    overflow-x: auto
+}

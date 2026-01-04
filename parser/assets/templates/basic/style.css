@@ -185,7 +185,7 @@ h3 {
 
 /* The "Colorful Heading" Magic */
 h1 {
-    font-size: 4.5rem;
+    font-size: clamp(2.5rem, 5vw + 1rem, 4.5rem);
     font-weight: 700;
     margin-bottom: var(--spacing-sm);
 
@@ -200,7 +200,7 @@ h1 {
 }
 
 h2 {
-    font-size: 2.5rem;
+    font-size: clamp(1.8rem, 3vw + 1rem, 2.5rem);
     margin-top: var(--spacing-lg);
     margin-bottom: 1.5rem;
     color: var(--heading-color, var(--text-color));
@@ -226,7 +226,7 @@ h2::after {
 }
 
 h3 {
-    font-size: 2rem;
+    font-size: clamp(1.5rem, 2vw + 1rem, 2rem);
     /* Increased from 1.75rem */
     font-weight: 600;
     /* Make it bold to stand out */
@@ -344,16 +344,7 @@ li {
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-    h1 {
-        font-size: 2.75rem;
-        /* Increased for mobile impact */
-        line-height: 1.1;
-    }
-
-    h2 {
-        font-size: 1.75rem;
-        /* Slightly smaller h2 on mobile too */
-    }
+    /* h1 and h2 handled by clamp() */
 
     .container {
         padding: 0 var(--spacing-sm);
@@ -425,10 +416,12 @@ li {
 .theme-toggle-icon.moon {
     color: var(--text-color);
 }
+
 /* Responsive Video Embeds */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     height: 0;
     margin-bottom: 1.5em;
     overflow: hidden;
@@ -465,17 +458,81 @@ figcaption {
 }
 
 /* Tamarind Developer Shortcodes */
-.mermaid{margin:2em 0;text-align:center}
-.callout{padding:1rem;margin:1.5rem 0;border-left:4px solid #ddd;border-radius:4px;background:#f9f9f9}
-.callout-title{font-weight:700;margin-bottom:.5rem}
-.callout-info{border-color:#007bff;background:#e7f5ff}
-.callout-warn{border-color:#ffc107;background:#fff3cd}
-.callout-error{border-color:#dc3545;background:#ffe6e6}
-.callout-tip{border-color:#28a745;background:#e6ffed}
-.terminal{background:#1e1e1e;border-radius:6px;box-shadow:0 4px 10px rgba(0,0,0,.3);margin:2em 0;overflow:hidden}
-.terminal-header{background:#333;padding:8px 12px;display:flex;gap:6px}
-.terminal-header .dot{width:12px;height:12px;border-radius:50%}
-.terminal-header .red{background:#ff5f56}
-.terminal-header .yellow{background:#ffbd2e}
-.terminal-header .green{background:#27c93f}
-.terminal-content{margin:0;padding:20px;color:#f8f8f2;font-family:monospace;overflow-x:auto}
+.mermaid {
+    margin: 2em 0;
+    text-align: center
+}
+
+.callout {
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9
+}
+
+.callout-title {
+    font-weight: 700;
+    margin-bottom: .5rem
+}
+
+.callout-info {
+    border-color: #007bff;
+    background: #e7f5ff
+}
+
+.callout-warn {
+    border-color: #ffc107;
+    background: #fff3cd
+}
+
+.callout-error {
+    border-color: #dc3545;
+    background: #ffe6e6
+}
+
+.callout-tip {
+    border-color: #28a745;
+    background: #e6ffed
+}
+
+.terminal {
+    background: #1e1e1e;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    margin: 2em 0;
+    overflow: hidden
+}
+
+.terminal-header {
+    background: #333;
+    padding: 8px 12px;
+    display: flex;
+    gap: 6px
+}
+
+.terminal-header .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%
+}
+
+.terminal-header .red {
+    background: #ff5f56
+}
+
+.terminal-header .yellow {
+    background: #ffbd2e
+}
+
+.terminal-header .green {
+    background: #27c93f
+}
+
+.terminal-content {
+    margin: 0;
+    padding: 20px;
+    color: #f8f8f2;
+    font-family: monospace;
+    overflow-x: auto
+}
