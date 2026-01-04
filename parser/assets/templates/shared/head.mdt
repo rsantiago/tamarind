@@ -18,6 +18,7 @@
 <meta name="twitter:title" content="{{ .Title }}">
 <meta name="twitter:description" content="{{ if .Description }}{{ .Description }}{{ else }}{{ .Title }}{{ end }}">
 {{ if .Image }}<meta name="twitter:image" content="{{ .Image }}">{{ end }}
+<link rel="stylesheet" href="{{ .RelPrefix }}core.css">
 <link rel="stylesheet" href="{{ .RelPrefix }}style.css">
 {{ if .CustomCSS }}<style>{{ .CustomCSS }}</style>{{ end }}
 <!-- Tamarind Shortcodes: Mermaid & KaTeX -->
