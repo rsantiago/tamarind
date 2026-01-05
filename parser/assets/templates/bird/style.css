@@ -371,7 +371,7 @@ blockquote {
         height: auto;
         position: relative;
         top: 0;
-        padding: 10px 20px;
+        padding: 10px 16px;
         align-items: flex-start;
         border-bottom: 1px solid var(--border-color);
         background: var(--background-color);
@@ -407,14 +407,34 @@ blockquote {
         border-radius: 0;
         border-left: none;
         border-right: none;
+        box-shadow: none;
+        border: none;
     }
 
     .timeline-header,
     .post,
     .feed-content h1,
-    .feed-content p {
-        padding-left: 20px;
-        padding-right: 20px;
+    .feed-content p,
+    .feed-content li {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    .feed-content p,
+    .feed-content li {
+        font-size: 16px;
+        line-height: 1.6;
+    }
+
+    .timeline-header {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    blockquote {
+        margin: 20px 16px;
+        padding: 20px;
+        font-size: 18px;
     }
 }
 
