@@ -303,35 +303,65 @@ img {
 /* Responsive */
 @media (max-width: 768px) {
     .layout-container {
-        padding: 0 16px;
-        margin-top: 20px;
+        padding: 0;
+        margin-top: 0;
+        max-width: 100%;
     }
 
     .card {
-        padding: 24px;
+        padding: 24px 16px;
+        border-radius: 0;
+        box-shadow: none;
+        border: none;
+        border-bottom: 1px solid var(--border-color);
+        margin-bottom: 0;
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 2rem;
+        /* 32px standard */
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        /* 24px */
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        /* 20px */
     }
 
     .site-header {
-        padding: 0 16px;
+        height: auto;
+        /* Allow growth */
+        padding: 12px 16px;
     }
 
-    .nav-links {
+    .site-header nav {
+        flex-direction: column;
         gap: 12px;
     }
 
+    .nav-links {
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
     .nav-links a {
-        font-size: 13px;
-        padding: 4px 8px;
+        font-size: 14px;
+        padding: 6px 10px;
+        background: rgba(255, 255, 255, 0.1);
     }
 }
+
 /* Responsive Video Embeds */
 .video-container {
     position: relative;
-    padding-bottom: 56.25%; /* 16:9 */
+    padding-bottom: 56.25%;
+    /* 16:9 */
     height: 0;
     margin-bottom: 1.5em;
     overflow: hidden;
@@ -368,17 +398,156 @@ figcaption {
 }
 
 /* Tamarind Developer Shortcodes */
-.mermaid{margin:2em 0;text-align:center}
-.callout{padding:1rem;margin:1.5rem 0;border-left:4px solid #ddd;border-radius:4px;background:#f9f9f9}
-.callout-title{font-weight:700;margin-bottom:.5rem}
-.callout-info{border-color:#007bff;background:#e7f5ff}
-.callout-warn{border-color:#ffc107;background:#fff3cd}
-.callout-error{border-color:#dc3545;background:#ffe6e6}
-.callout-tip{border-color:#28a745;background:#e6ffed}
-.terminal{background:#1e1e1e;border-radius:6px;box-shadow:0 4px 10px rgba(0,0,0,.3);margin:2em 0;overflow:hidden}
-.terminal-header{background:#333;padding:8px 12px;display:flex;gap:6px}
-.terminal-header .dot{width:12px;height:12px;border-radius:50%}
-.terminal-header .red{background:#ff5f56}
-.terminal-header .yellow{background:#ffbd2e}
-.terminal-header .green{background:#27c93f}
-.terminal-content{margin:0;padding:20px;color:#f8f8f2;font-family:monospace;overflow-x:auto}
+.mermaid {
+    margin: 2em 0;
+    text-align: center
+}
+
+.callout {
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9
+}
+
+.callout-title {
+    font-weight: 700;
+    margin-bottom: .5rem
+}
+
+.callout-info {
+    border-color: #007bff;
+    background: #e7f5ff
+}
+
+.callout-warn {
+    border-color: #ffc107;
+    background: #fff3cd
+}
+
+.callout-error {
+    border-color: #dc3545;
+    background: #ffe6e6
+}
+
+.callout-tip {
+    border-color: #28a745;
+    background: #e6ffed
+}
+
+.terminal {
+    background: #1e1e1e;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    margin: 2em 0;
+    overflow: hidden
+}
+
+.terminal-header {
+    background: #333;
+    padding: 8px 12px;
+    display: flex;
+    gap: 6px
+}
+
+.terminal-header .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%
+}
+
+.terminal-header .red {
+    background: #ff5f56
+}
+
+.terminal-header .yellow {
+    background: #ffbd2e
+}
+
+.terminal-header .green {
+    background: #27c93f
+}
+
+.terminal-content {
+    margin: 0;
+    padding: 20px;
+    color: #f8f8f2;
+    font-family: monospace;
+    overflow-x: auto
+}
+
+/* Pagination Styles (migrated from inline) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.pagination-link.arrow {
+    font-weight: 600;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 4px;
+}
+
+.page-number {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: white;
+}
+
+.page-number.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+/* Page Meta & Tags (migrated from page.mdt) */
+.page-subtitle {
+    font-size: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.post-meta.tags-container {
+    margin-top: 2rem;
+}
+
+.post-tag {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+/* Article Feed Styles (migrated from articles.mdt) */
+.post-content.nopad {
+    padding: 0;
+}
+
+.article-category {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-color, #2563eb);
+    /* Fallback to blue if accent not defined */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.article-subtitle {
+    font-size: 16px;
+    margin: 12px 0 20px;
+}
+
+.article-meta {
+    font-size: 13px;
+    color: var(--text-secondary);
+}

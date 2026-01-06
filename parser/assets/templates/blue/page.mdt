@@ -25,7 +25,7 @@
             <article class="card">
                 <header class="post-header">
                      <h1>{{ .Title }}</h1>
-                     {{ if .Subtitle }}<p style="font-size: 20px; color: var(--text-secondary); margin-bottom: 24px;">{{ .Subtitle }}</p>{{ end }}
+                     {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
                      
                     <div class="post-meta">
                         <div>
@@ -35,9 +35,9 @@
                 </header>
 
                 {{ if .Tags }}
-                <div class="post-meta" style="margin-top: 2rem;">
+                <div class="post-meta tags-container">
                      {{ range .Tags }}
-                    <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" style="margin-right: 10px; color: var(--primary-color);">#{{ . }}</a>
+                    <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="post-tag">#{{ . }}</a>
                      {{ end }}
                 </div>
                 {{ end }}

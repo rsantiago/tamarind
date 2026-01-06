@@ -36,23 +36,23 @@
         </main>
 
         {{ if gt .Paginator.TotalPages 1 }}
-        <div style="display: flex; justify-content: center; align-items: center; gap: 15px; margin: 40px 0; padding: 20px;">
+        <div class="pagination">
             {{ if .Paginator.HasPrev }}
-            <a href="{{ .Paginator.PrevURL }}" style="font-weight: 600;">&larr;</a>
+            <a href="{{ .Paginator.PrevURL }}" class="pagination-link arrow">&larr;</a>
             {{ end }}
 
-            <div style="display: flex; gap: 8px;">
+            <div class="pagination-numbers">
                 {{ range .Paginator.VisiblePages }}
                     {{ if .IsCurrent }}
-                        <span style="border-bottom: 2px solid var(--text-color); padding: 0 4px; font-weight: 700;">{{ .Number }}</span>
+                        <span class="page-number active">{{ .Number }}</span>
                     {{ else }}
-                        <a href="{{ .URL }}" style="padding: 0 4px; color: var(--text-secondary);">{{ .Number }}</a>
+                        <a href="{{ .URL }}" class="page-number">{{ .Number }}</a>
                     {{ end }}
                 {{ end }}
             </div>
 
             {{ if .Paginator.HasNext }}
-            <a href="{{ .Paginator.NextURL }}" style="font-weight: 600;">&rarr;</a>
+            <a href="{{ .Paginator.NextURL }}" class="pagination-link arrow">&rarr;</a>
             {{ end }}
         </div>
         {{ end }}

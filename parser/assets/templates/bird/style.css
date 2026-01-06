@@ -188,11 +188,12 @@ a:hover {
 }
 
 /* Typography for Posts (Content) */
-.feed-content h1 {
+.feed-content h1,
+.feed-content .page-title {
     font-size: 32px;
     font-weight: 800;
     letter-spacing: -0.03em;
-    padding: 40px 32px 10px;
+    padding: 32px 32px 10px;
     margin: 0;
     border: none;
     line-height: 1.2;
@@ -361,22 +362,131 @@ blockquote {
 
 /* Responsive */
 @media (max-width: 1100px) {
+    .app-layout {
+        flex-direction: column;
+        padding-top: 0;
+    }
+
     .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        /* Unstick to prevent overlap */
+        top: 0;
+        padding: 10px 16px;
+        border-bottom: 1px solid var(--border-color);
+        background: var(--background-color);
+        z-index: 100;
+        display: block;
+        margin-bottom: 20px;
+        /* Space between nav and content */
+    }
+
+    .sidebar-content {
+        width: 100%;
+        padding-top: 0;
+        /* Sidebar container */
+        height: auto;
+    }
+
+    /* Target the NAV element for the scroll strip */
+    .sidebar-content nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        gap: 12px;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0;
+        scrollbar-width: none;
+        align-items: center;
+    }
+
+    .sidebar-content nav::-webkit-scrollbar {
         display: none;
+    }
+
+    .nav-item {
+        width: auto;
+        margin-bottom: 0;
+        font-size: 14px;
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        flex-shrink: 0;
+        /* Important for scroll */
+        white-space: nowrap;
+    }
+
+    .nav-item svg {
+        width: 18px;
+        height: 18px;
+        margin-right: 6px;
     }
 
     .timeline {
         width: 100%;
-        max-width: 700px;
-        margin: 0 20px;
+        max-width: 100%;
+        margin: 0;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        box-shadow: none;
+        border: none;
     }
 
     .timeline-header,
     .post,
     .feed-content h1,
-    .feed-content p {
-        padding-left: 20px;
-        padding-right: 20px;
+    .feed-content p,
+    .feed-content li {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Fix Lists Alignment */
+    .feed-content ul,
+    .feed-content ol {
+        margin-left: 0;
+        padding-left: 24px;
+        /* Standard indentation */
+        margin-bottom: 16px;
+    }
+
+    .feed-content li {
+        padding-left: 4px;
+        /* Small gap between bullet and text */
+        margin-left: 0;
+    }
+
+    .feed-content h1 {
+        font-size: 2rem;
+        /* 32px */
+        padding-top: 24px;
+    }
+
+    .feed-content h2 {
+        font-size: 1.5rem;
+        /* 24px */
+    }
+
+    .feed-content p,
+    .feed-content li {
+        font-size: 1rem;
+        /* 16px */
+        line-height: 1.6;
+    }
+
+    .timeline-header {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    blockquote {
+        margin: 20px 16px;
+        padding: 20px;
+        font-size: 18px;
     }
 }
 
@@ -419,18 +529,142 @@ figcaption {
     color: var(--text-secondary);
     font-style: italic;
 }
+
 /* Tamarind Developer Shortcodes */
-.mermaid{margin:2em 0;text-align:center}
-.callout{padding:1rem;margin:1.5rem 0;border-left:4px solid #ddd;border-radius:4px;background:#f9f9f9}
-.callout-title{font-weight:700;margin-bottom:.5rem}
-.callout-info{border-color:#007bff;background:#e7f5ff}
-.callout-warn{border-color:#ffc107;background:#fff3cd}
-.callout-error{border-color:#dc3545;background:#ffe6e6}
-.callout-tip{border-color:#28a745;background:#e6ffed}
-.terminal{background:#1e1e1e;border-radius:6px;box-shadow:0 4px 10px rgba(0,0,0,.3);margin:2em 0;overflow:hidden}
-.terminal-header{background:#333;padding:8px 12px;display:flex;gap:6px}
-.terminal-header .dot{width:12px;height:12px;border-radius:50%}
-.terminal-header .red{background:#ff5f56}
-.terminal-header .yellow{background:#ffbd2e}
-.terminal-header .green{background:#27c93f}
-.terminal-content{margin:0;padding:20px;color:#f8f8f2;font-family:monospace;overflow-x:auto}
+.mermaid {
+    margin: 2em 0;
+    text-align: center
+}
+
+.callout {
+    padding: 1rem;
+    margin: 1.5rem 0;
+    border-left: 4px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9
+}
+
+.callout-title {
+    font-weight: 700;
+    margin-bottom: .5rem
+}
+
+.callout-info {
+    border-color: #007bff;
+    background: #e7f5ff
+}
+
+.callout-warn {
+    border-color: #ffc107;
+    background: #fff3cd
+}
+
+.callout-error {
+    border-color: #dc3545;
+    background: #ffe6e6
+}
+
+.callout-tip {
+    border-color: #28a745;
+    background: #e6ffed
+}
+
+.terminal {
+    background: #1e1e1e;
+    border-radius: 6px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, .3);
+    margin: 2em 0;
+    overflow: hidden
+}
+
+.terminal-header {
+    background: #333;
+    padding: 8px 12px;
+    display: flex;
+    gap: 6px
+}
+
+.terminal-header .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%
+}
+
+.terminal-header .red {
+    background: #ff5f56
+}
+
+.terminal-header .yellow {
+    background: #ffbd2e
+}
+
+.terminal-header .green {
+    background: #27c93f
+}
+
+.terminal-content {
+    margin: 0;
+    padding: 20px;
+    color: #f8f8f2;
+    font-family: monospace;
+    overflow-x: auto;
+}
+
+/* Pagination Styles (migrated from inline) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.pagination-arrow {
+    font-weight: 600;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 8px;
+}
+
+.page-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.page-number.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.page-number.link {
+    background: var(--glass-bg);
+    /* Was specific secondary-bg or glass */
+    color: var(--text-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Match nav item style roughly */
+}
+
+/* Post Meta & Tags (migrated from page.mdt) */
+.post-date-author {
+    color: #536471;
+}
+
+.post-meta-tags {
+    padding: 0 32px 32px;
+    font-weight: normal;
+}
+
+.post-tag {
+    color: var(--primary-color);
+    margin-right: 12px;
+}

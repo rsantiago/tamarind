@@ -1,16 +1,19 @@
 <footer class="site-footer">
-    <div style="text-align: center; padding: 20px; font-size: 14px; color: #888;">
+    <div class="footer-content">
         <p>&copy; 2025 {{ if .SiteName }}{{ .SiteName }}{{ else }}{{ .Data.info.author }}{{ end }}. All rights reserved.</p>
-        <p style="margin-top: 12px; font-size: 14px;">
-            This website was easily built with <a href="https://usetamarind.com" target="_blank" style="color: inherit; text-decoration: none; font-weight: bold;">Tamarind</a>. Start your own in 1 minute.
-            &nbsp;&bull;&nbsp;
-            <a href="{{ .RelPrefix }}feed.xml" style="color: inherit; text-decoration: none;">RSS Feed</a>
+        <p class="footer-promo">
+            This website was easily built with <a href="https://usetamarind.com" target="_blank" class="footer-link-tamarind">Tamarind</a>. 
+            <a href="https://usetamarind.com" target="_blank" class="footer-link-cta">Start your own in 1 minute &rarr;</a>
+        </p>
+        <p class="footer-rss-wrapper">
+            <a href="{{ .RelPrefix }}feed.xml" class="footer-rss-link">RSS Feed</a>
         </p>
     </div>
 </footer>
 
 <!-- Ghost Badge -->
 <a href="https://usetamarind.com" target="_blank" class="tamarind-ghost-badge">
-    Built with Tamarind
+    Use Tamarind
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
 </a>
 

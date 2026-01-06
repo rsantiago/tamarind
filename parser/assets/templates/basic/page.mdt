@@ -26,7 +26,7 @@
     <header class="site-header">
         <nav>
             <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
-            <div style="display: flex; align-items: center; gap: 2rem;">
+            <div class="header-actions">
                 <ul class="nav-links">
                     {{ range .Menu }}
                     <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
