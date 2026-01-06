@@ -10,7 +10,7 @@ import (
 
 const (
 	ConfigFileName = "tamarind.yaml"
-	Version        = "v4.9.0"
+	Version        = "v4.11.2"
 )
 
 type Config struct {

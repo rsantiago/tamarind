@@ -6,6 +6,12 @@ A complete history of **Tamarind** releases and milestones.
 
 | Version | Description |
 | :--- | :--- |
+| **v4.11.2** | **Mobile Rendering Overhaul**: Significant improvements to mobile typography and layout across all core themes (`basic`, `pastel`, `gram`, `neon`, `midnight`, `bird`, `blue`).
+  - **Fluid Typography**: Implemented `clamp()` based font sizing for harmonic scaling on small screens.
+  - **Edge-to-Edge Layouts**: Removed unnecessary borders and margins on mobile for a modern, app-like feel.
+  - **Bird Theme Updates**: Transformed sidebar into a swipeable horizontal top navigation on mobile.
+  - **Cleaner Navigation**: Stacked and centered navigation links in other themes.
+- **Power Footer Refinement**: Improved layout for viral distribution links. |
 | **v4.11.1** | **Viral & Fixes**: Implemented **Viral Distribution** (Ghost Badge & Power Footer); Fixed **Mermaid Dark Mode** using dynamic luminance detection. |
 | **v4.11.0** | **Agent Experience**: Added `{{ agent }}` comment shortcode for invisible instructions; Enhanced `quickstart` to enable **Live Reloading** by default; Updated Landing Page copy. |
 | **v4.10.1** | **Polish & Copy**: Vibrant headers for 'Gram' individual pages, removed placeholder initials from collections, fixed data loader casing, and updated landing page copy. |
