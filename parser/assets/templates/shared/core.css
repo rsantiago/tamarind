@@ -10,31 +10,50 @@
     background: rgba(255, 255, 255, 0.85);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    border: 1px solid rgba(0,0,0,0.08);
+    border: 1px solid rgba(0, 0, 0, 0.08);
     padding: 6px 14px;
     border-radius: 99px;
     text-decoration: none;
     opacity: 0.4;
     transition: all 0.3s ease;
     z-index: 9999;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tamarind-ghost-badge svg {
+    width: 12px;
+    height: 12px;
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.tamarind-ghost-badge:hover svg {
+    opacity: 1;
 }
 
 .tamarind-ghost-badge:hover {
     opacity: 1;
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     color: #000;
 }
 
 @media (prefers-color-scheme: dark) {
     .tamarind-ghost-badge {
-        color: #ddd;
-        background: rgba(30, 30, 30, 0.85);
-        border-color: rgba(255,255,255,0.1);
+        color: #fff;
+        background: rgba(40, 40, 40, 0.9);
+        border-color: rgba(255, 255, 255, 0.2);
+        opacity: 0.8;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
+
     .tamarind-ghost-badge:hover {
         color: #fff;
+        opacity: 1;
+        background: rgba(60, 60, 60, 0.95);
     }
 }
 
@@ -48,4 +67,40 @@
     .tamarind-ghost-badge {
         display: none !important;
     }
+}
+
+/* Footer Styles (migrated from inline) */
+.footer-content {
+    text-align: center;
+    padding: 20px;
+    font-size: 14px;
+    color: #888;
+}
+
+.footer-promo {
+    margin-top: 12px;
+    font-size: 14px;
+}
+
+.footer-link-tamarind {
+    color: inherit;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.footer-link-cta {
+    color: inherit;
+    text-decoration: underline;
+    margin-left: 4px;
+}
+
+.footer-rss-wrapper {
+    margin-top: 8px;
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.footer-rss-link {
+    color: inherit;
+    text-decoration: none;
 }

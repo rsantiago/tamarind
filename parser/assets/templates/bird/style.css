@@ -188,11 +188,12 @@ a:hover {
 }
 
 /* Typography for Posts (Content) */
-.feed-content h1 {
+.feed-content h1,
+.feed-content .page-title {
     font-size: 32px;
     font-weight: 800;
     letter-spacing: -0.03em;
-    padding: 40px 32px 10px;
+    padding: 32px 32px 10px;
     margin: 0;
     border: none;
     line-height: 1.2;
@@ -606,5 +607,64 @@ figcaption {
     padding: 20px;
     color: #f8f8f2;
     font-family: monospace;
-    overflow-x: auto
+    overflow-x: auto;
+}
+
+/* Pagination Styles (migrated from inline) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+    padding: 20px;
+    border-top: 1px solid var(--border-color);
+}
+
+.pagination-arrow {
+    font-weight: 600;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 8px;
+}
+
+.page-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    font-size: 14px;
+}
+
+.page-number.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+}
+
+.page-number.link {
+    background: var(--glass-bg);
+    /* Was specific secondary-bg or glass */
+    color: var(--text-secondary);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    /* Match nav item style roughly */
+}
+
+/* Post Meta & Tags (migrated from page.mdt) */
+.post-date-author {
+    color: #536471;
+}
+
+.post-meta-tags {
+    padding: 0 32px 32px;
+    font-weight: normal;
+}
+
+.post-tag {
+    color: var(--primary-color);
+    margin-right: 12px;
 }

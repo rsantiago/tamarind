@@ -26,7 +26,7 @@
     <header class="site-header">
         <nav>
             <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
-            <div style="display: flex; align-items: center; gap: 2rem;">
+            <div class="header-actions">
                 <ul class="nav-links">
                     {{ range .Menu }}
                     <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
@@ -48,32 +48,32 @@
 
         <section class="journal-list">
             {{ range .Articles }}
-            <article style="margin-bottom: 4rem;">
+            <article class="journal-entry">
                 <span class="post-date">{{ .Date }}</span>
-                <h2 style="margin-top: 0.5rem; display: block; text-align: left;"><a href="{{ $.RelPrefix }}{{ .URL }}" style="text-decoration: none; color: inherit;">{{ .Title }}</a></h2>
-                <p style="margin-top: 1rem;">{{ .Subtitle }}</p>
-                <a href="{{ $.RelPrefix }}{{ .URL }}" style="text-decoration: none; border-bottom: 1px solid var(--accent-color); color: var(--text-color); font-size: 0.9rem; font-weight: 500;">Read Article &rarr;</a>
+                <h2 class="journal-title"><a href="{{ $.RelPrefix }}{{ .URL }}" class="journal-link">{{ .Title }}</a></h2>
+                <p class="journal-subtitle">{{ .Subtitle }}</p>
+                <a href="{{ $.RelPrefix }}{{ .URL }}" class="read-more">Read Article &rarr;</a>
             </article>
             {{ end }}
 
             {{ if gt .Paginator.TotalPages 1 }}
-            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 30px;">
+            <div class="pagination">
                 {{ if .Paginator.HasPrev }}
-                <a href="{{ .Paginator.PrevURL }}" style="text-decoration: none;">&larr;</a>
+                <a href="{{ .Paginator.PrevURL }}" class="pagination-arrow">&larr;</a>
                 {{ end }}
 
-                <div style="display: flex; gap: 10px;">
+                <div class="pagination-numbers">
                     {{ range .Paginator.VisiblePages }}
                         {{ if .IsCurrent }}
-                            <span style="font-weight: bold; padding: 5px 10px; background: rgba(0,0,0,0.05); border-radius: 4px;">{{ .Number }}</span>
+                            <span class="page-number active">{{ .Number }}</span>
                         {{ else }}
-                            <a href="{{ .URL }}" style="text-decoration: none; padding: 5px 10px;">{{ .Number }}</a>
+                            <a href="{{ .URL }}" class="page-number">{{ .Number }}</a>
                         {{ end }}
                     {{ end }}
                 </div>
 
                 {{ if .Paginator.HasNext }}
-                <a href="{{ .Paginator.NextURL }}" style="text-decoration: none;">&rarr;</a>
+                <a href="{{ .Paginator.NextURL }}" class="pagination-arrow">&rarr;</a>
                 {{ end }}
             </div>
             {{ end }}

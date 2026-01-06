@@ -50,7 +50,7 @@
             <!-- Content -->
             <div class="feed-content">
                 {{ if .Title }}
-                <h1 style="padding: 20px 32px 0;">{{ .Title }}</h1>
+                <h1 class="page-title">{{ .Title }}</h1>
                 {{ end }}
                 {{ .Body }}
             </div>
@@ -68,15 +68,15 @@
                             <span class="name">Rodrigo Santiago</span>
                             <span class="handle">@100xDev</span>
                             <span class="dot">·</span>
-                            <span style="color: #536471;">{{ .Date }} · {{ .Author }}</span>
+                            <span class="post-date-author">{{ .Date }} · {{ .Author }}</span>
                         </div>
                         <div class="post-body">
                             <a href="{{ $.RelPrefix }}{{ .URL }}" class="post-link">
                                 {{ .Title }}
                             </a>
-                            <div class="post-meta" style="padding: 0 32px 32px; font-weight: normal;">
+                            <div class="post-meta post-meta-tags">
                  {{ range .Tags }}
-                <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" style="color: var(--primary-color); margin-right: 12px;">#{{ . }}</a>
+                <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="post-tag">#{{ . }}</a>
                  {{ end }}
             </div>
                             <p class="post-preview">{{ .Subtitle }}</p>
@@ -86,10 +86,8 @@
                 {{ end }}
             </div>
             {{ end }}
-            {{ template "footer.mdt" . }}
-        </main>
-        
         <!-- Right Sidebar (Trends) Removed entirely -->
     </div>
+    {{ template "footer.mdt" . }}
 </body>
 </html>

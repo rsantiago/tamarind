@@ -50,7 +50,7 @@
             <!-- Content -->
             <div class="feed-content">
                 {{ if .Title }}
-                <h1 style="padding: 20px 32px 0;">{{ .Title }}</h1>
+                <h1 class="page-title">{{ .Title }}</h1>
                 {{ end }}
                 {{ .Body }}
             </div>
@@ -76,32 +76,31 @@
                 {{ end }}
 
                 {{ if gt .Paginator.TotalPages 1 }}
-                <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 40px; padding: 20px; border-top: 1px solid var(--border-color);">
+                <div class="pagination">
                     {{ if .Paginator.HasPrev }}
-                    <a href="{{ .Paginator.PrevURL }}" style="font-weight: 600;">&larr;</a>
+                    <a href="{{ .Paginator.PrevURL }}" class="pagination-arrow">&larr;</a>
                     {{ end }}
 
-                    <div style="display: flex; gap: 8px;">
+                    <div class="pagination-numbers">
                         {{ range .Paginator.VisiblePages }}
                             {{ if .IsCurrent }}
-                                <span style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; background: var(--primary-color); color: white; border-radius: 50%; font-weight: bold;">{{ .Number }}</span>
+                                <span class="page-number active">{{ .Number }}</span>
                             {{ else }}
-                                <a href="{{ .URL }}" style="display: flex; align-items: center; justify-content: center; width: 32px; height: 32px; border-radius: 50%; background: var(--secondary-bg); color: var(--text-secondary);">{{ .Number }}</a>
+                                <a href="{{ .URL }}" class="page-number link">{{ .Number }}</a>
                             {{ end }}
                         {{ end }}
                     </div>
 
                     {{ if .Paginator.HasNext }}
-                    <a href="{{ .Paginator.NextURL }}" style="font-weight: 600;">&rarr;</a>
+                    <a href="{{ .Paginator.NextURL }}" class="pagination-arrow">&rarr;</a>
                     {{ end }}
                 </div>
                 {{ end }}
             </div>
             {{ end }}
         </main>
-        {{ template "footer.mdt" . }}
-        
         <!-- Right Sidebar (Trends) Removed entirely -->
     </div>
+    {{ template "footer.mdt" . }}
 </body>
 </html>

@@ -577,3 +577,70 @@ figcaption {
     font-family: monospace;
     overflow-x: auto
 }
+
+/* Header Actions (migrated from inline) */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Journal Entry Styles (migrated from inline) */
+.journal-entry {
+    margin-bottom: 4rem;
+}
+
+.journal-title {
+    margin-top: 0.5rem;
+    display: block;
+    text-align: left;
+}
+
+.journal-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.journal-subtitle {
+    margin-top: 1rem;
+}
+
+.read-more {
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+/* Pagination Styles (migrated from inline) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+}
+
+.pagination-arrow {
+    text-decoration: none;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 10px;
+}
+
+.page-number {
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+.page-number.active {
+    font-weight: bold;
+    padding: 5px 10px;
+    background: rgba(0, 0, 0, 0.05);
+    border-radius: 4px;
+}

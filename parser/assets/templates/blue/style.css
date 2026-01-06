@@ -476,3 +476,78 @@ figcaption {
     font-family: monospace;
     overflow-x: auto
 }
+
+/* Pagination Styles (migrated from inline) */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 40px;
+    padding: 20px;
+}
+
+.pagination-link.arrow {
+    font-weight: 600;
+}
+
+.pagination-numbers {
+    display: flex;
+    gap: 4px;
+}
+
+.page-number {
+    padding: 6px 12px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+    background: white;
+}
+
+.page-number.active {
+    background: var(--primary-color);
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+/* Page Meta & Tags (migrated from page.mdt) */
+.page-subtitle {
+    font-size: 20px;
+    color: var(--text-secondary);
+    margin-bottom: 24px;
+}
+
+.post-meta.tags-container {
+    margin-top: 2rem;
+}
+
+.post-tag {
+    margin-right: 10px;
+    color: var(--primary-color);
+}
+
+/* Article Feed Styles (migrated from articles.mdt) */
+.post-content.nopad {
+    padding: 0;
+}
+
+.article-category {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--accent-color, #2563eb);
+    /* Fallback to blue if accent not defined */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+}
+
+.article-subtitle {
+    font-size: 16px;
+    margin: 12px 0 20px;
+}
+
+.article-meta {
+    font-size: 13px;
+    color: var(--text-secondary);
+}

@@ -24,11 +24,11 @@
         <main>
             {{ range .Articles }}
             <article class="card feed-item">
-                <div class="post-content" style="padding: 0;">
-                    <span style="font-size: 13px; font-weight: 600; color: var(--accent-color); text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 8px;">Article</span>
+                <div class="post-content nopad">
+                    <span class="article-category">Article</span>
                     <h2><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></h2>
-                    <p style="font-size: 16px; margin: 12px 0 20px;">{{ .Subtitle }}</p>
-                    <div style="font-size: 13px; color: var(--text-secondary);">
+                    <p class="article-subtitle">{{ .Subtitle }}</p>
+                    <div class="article-meta">
                         {{ .Date }} <span class="dot">&middot;</span> Read More &rarr;
                     </div>
                 </div>
@@ -36,23 +36,23 @@
             {{ end }}
 
             {{ if gt .Paginator.TotalPages 1 }}
-            <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 40px; padding: 20px;">
+            <div class="pagination">
                 {{ if .Paginator.HasPrev }}
-                <a href="{{ .Paginator.PrevURL }}" style="font-weight: 600;">&larr; Prev</a>
+                <a href="{{ .Paginator.PrevURL }}" class="pagination-link arrow">&larr; Prev</a>
                 {{ end }}
 
-                <div style="display: flex; gap: 4px;">
+                <div class="pagination-numbers">
                     {{ range .Paginator.VisiblePages }}
                         {{ if .IsCurrent }}
-                            <span style="padding: 6px 12px; background: var(--primary-color); color: white; border-radius: 4px; font-weight: bold;">{{ .Number }}</span>
+                            <span class="page-number active">{{ .Number }}</span>
                         {{ else }}
-                            <a href="{{ .URL }}" style="padding: 6px 12px; border-radius: 4px; border: 1px solid var(--border-color); background: white;">{{ .Number }}</a>
+                            <a href="{{ .URL }}" class="page-number">{{ .Number }}</a>
                         {{ end }}
                     {{ end }}
                 </div>
 
                 {{ if .Paginator.HasNext }}
-                <a href="{{ .Paginator.NextURL }}" style="font-weight: 600;">Next &rarr;</a>
+                <a href="{{ .Paginator.NextURL }}" class="pagination-link arrow">Next &rarr;</a>
                 {{ end }}
             </div>
             {{ end }}

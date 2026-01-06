@@ -6,6 +6,7 @@ A complete history of **Tamarind** releases and milestones.
 
 | Version | Description |
 | :--- | :--- |
+| **v4.11.3** | **CSS Refiinement & Viral Loop**: Refactored all inline styles into CSS classes for improved maintainability. Updated Viral "Use Tamarind" button with icon, improved placement (Bird theme fix), and better dark mode visibility. Narrowed **Pastel** theme content for readability. |
 | **v4.11.2** | **Mobile Rendering Overhaul**: Significant improvements to mobile typography and layout across all core themes (`basic`, `pastel`, `gram`, `neon`, `midnight`, `bird`, `blue`).
   - **Fluid Typography**: Implemented `clamp()` based font sizing for harmonic scaling on small screens.
   - **Edge-to-Edge Layouts**: Removed unnecessary borders and margins on mobile for a modern, app-like feel.
