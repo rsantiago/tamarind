@@ -344,27 +344,68 @@ li {
 
 /* --- Responsive --- */
 @media (max-width: 768px) {
-    /* h1 and h2 handled by clamp() */
+
+    /* Fluid Typography Adjustments */
+    h1 {
+        font-size: 2rem !important;
+        /* 32px */
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 1.5rem !important;
+        /* 24px */
+    }
+
+    h3 {
+        font-size: 1.25rem !important;
+        /* 20px */
+    }
 
     .container {
-        padding: 0 var(--spacing-sm);
+        padding: 0 20px;
+    }
+
+    .site-header {
+        height: auto;
+        padding: 16px 0;
     }
 
     .site-header nav {
         flex-direction: column;
-        gap: var(--spacing-sm);
+        gap: 12px;
+    }
+
+    /* Fix Menu Cutoff */
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .nav-links li {
+        margin-bottom: 4px;
+    }
+
+    /* Fix Bullet Margins */
+    ul,
+    ol {
+        padding-left: 24px;
+        /* Ensure space for bullets */
+        margin-left: 0;
     }
 
     p,
     li {
-        font-size: 1.125rem;
-        /* Slightly smaller on mobile but still readable (18px) */
-        text-align: justify;
-        /* Justify text on mobile */
+        font-size: 1rem;
+        /* 16px standard */
+        text-align: left;
+        /* Justify can be weird on mobile */
     }
 
     blockquote {
-        font-size: 1.4rem;
+        font-size: 1.25rem;
+        margin: 24px 0;
     }
 }
 

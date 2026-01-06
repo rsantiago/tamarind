@@ -49,6 +49,9 @@
 
             <!-- Content -->
             <div class="feed-content">
+                {{ if .Title }}
+                <h1 style="padding: 20px 32px 0;">{{ .Title }}</h1>
+                {{ end }}
                 {{ .Body }}
             </div>
             

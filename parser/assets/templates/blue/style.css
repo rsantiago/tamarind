@@ -318,7 +318,19 @@ img {
     }
 
     h1 {
-        font-size: 28px;
+        font-size: 2rem;
+        /* 32px standard */
+        line-height: 1.2;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        /* 24px */
+    }
+
+    h3 {
+        font-size: 1.25rem;
+        /* 20px */
     }
 
     .site-header {

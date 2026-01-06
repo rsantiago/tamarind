@@ -370,34 +370,58 @@ blockquote {
         width: 100%;
         height: auto;
         position: relative;
+        /* Unstick to prevent overlap */
         top: 0;
         padding: 10px 16px;
-        align-items: flex-start;
         border-bottom: 1px solid var(--border-color);
         background: var(--background-color);
-        z-index: 101;
+        z-index: 100;
+        display: block;
+        margin-bottom: 20px;
+        /* Space between nav and content */
     }
 
     .sidebar-content {
         width: 100%;
-        padding-top: 10px;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
+        padding-top: 0;
+        /* Sidebar container */
         height: auto;
+    }
+
+    /* Target the NAV element for the scroll strip */
+    .sidebar-content nav {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        overflow-x: auto;
+        gap: 12px;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 0;
+        scrollbar-width: none;
+        align-items: center;
+    }
+
+    .sidebar-content nav::-webkit-scrollbar {
+        display: none;
     }
 
     .nav-item {
         width: auto;
         margin-bottom: 0;
         font-size: 14px;
-        padding: 8px 12px;
+        padding: 8px 16px;
+        background: rgba(255, 255, 255, 0.5);
+        border-radius: 20px;
+        border: 1px solid rgba(0, 0, 0, 0.05);
+        flex-shrink: 0;
+        /* Important for scroll */
+        white-space: nowrap;
     }
 
     .nav-item svg {
         width: 18px;
         height: 18px;
-        margin-right: 8px;
+        margin-right: 6px;
     }
 
     .timeline {
@@ -420,9 +444,36 @@ blockquote {
         padding-right: 16px;
     }
 
+    /* Fix Lists Alignment */
+    .feed-content ul,
+    .feed-content ol {
+        margin-left: 0;
+        padding-left: 24px;
+        /* Standard indentation */
+        margin-bottom: 16px;
+    }
+
+    .feed-content li {
+        padding-left: 4px;
+        /* Small gap between bullet and text */
+        margin-left: 0;
+    }
+
+    .feed-content h1 {
+        font-size: 2rem;
+        /* 32px */
+        padding-top: 24px;
+    }
+
+    .feed-content h2 {
+        font-size: 1.5rem;
+        /* 24px */
+    }
+
     .feed-content p,
     .feed-content li {
-        font-size: 16px;
+        font-size: 1rem;
+        /* 16px */
         line-height: 1.6;
     }
 
