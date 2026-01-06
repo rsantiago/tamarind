@@ -2,6 +2,14 @@
 
 This document defines the strictly typed "Interface" that **all Tamarind Themes** must implement. It has been derived from analyzing the commonalities across `bird`, `pastel`, `neon`, `gram`, `midnight`, `basic`, and `blue`.
 
+## 0. Philosophy: Style Ownership
+Themes are the **sole owners** of the visual presentation. 
+*   **No Inline Styles**: Content (Markdown) should never require inline `style="..."` attributes to look correct.
+*   **Class-Driven**: Visuals are applied via standard utility classes (e.g., `.card`, `.btn`).
+*   **Responsiveness**: The theme handles all responsive behavior. A `<div class="card">` must automatically look good on mobile and desktop without user intervention.
+
+---
+
 ## 1. CSS Variable Tokens (The "DNA")
 Every theme already shares a robust set of variables. This spec formalizes them.
 
@@ -80,6 +88,12 @@ Every theme MUST provide these utility classes. `bird` already has some, others 
     *   Border: 1px solid `--border-color`.
     *   Background: Transparent or surface color.
     *   Radius: Theme's radius token.
+*   `.form-checkbox`, `.form-radio`:
+    *   Accent color: `--primary-color`.
+    *   Margin-right: Small spacing.
+*   `.form-file`:
+    *   Standard padding/border.
+    *   Cursor pointer.
 
 ### Cards & Surfaces
 **Standard**: `<div class="card">Content</div>`

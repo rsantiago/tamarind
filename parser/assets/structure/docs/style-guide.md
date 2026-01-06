@@ -29,14 +29,13 @@ This is a **bold text**, *italic text*, and `inline code` sample.
 ---
 
 ## 2. Buttons
-
-<div style="display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px;">
+<div style="margin-bottom: 20px;">
     <a href="#" class="btn btn-primary">Primary Button</a>
     <a href="#" class="btn btn-secondary">Secondary Button</a>
     <a href="#" class="btn btn-ghost">Ghost Button</a>
 </div>
 
-<div style="display: flex; gap: 10px; flex-wrap: wrap;">
+<div>
     <a href="#" class="btn btn-primary btn-sm">Small Primary</a>
     <a href="#" class="btn btn-secondary btn-sm">Small Secondary</a>
 </div>
@@ -45,41 +44,60 @@ This is a **bold text**, *italic text*, and `inline code` sample.
 
 ## 3. Forms
 
-<div class="card card-padding" style="max-width: 400px;">
-    <div class="form-group">
-        <label class="form-label">Email Address</label>
-        <input type="email" class="form-input" placeholder="you@example.com">
-    </div>
-    <div class="form-group">
-        <label class="form-label">Subject</label>
-        <select class="form-select">
-            <option>General Inquiry</option>
-            <option>Support</option>
-            <option>Feedback</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label class="form-label">Message</label>
-        <textarea class="form-textarea" rows="4" placeholder="Type your message..."></textarea>
-    </div>
-    <button class="btn btn-primary" style="width: 100%">Send Message</button>
+<div class="card card-padding">
+    <form action="#" method="POST">
+        <div class="form-group">
+            <label class="form-label">Email Address</label>
+            <input type="email" class="form-input" placeholder="you@example.com">
+        </div>
+        <div class="form-group">
+            <label class="form-label">Subject</label>
+            <select class="form-select">
+                <option>General Inquiry</option>
+                <option>Support</option>
+                <option>Feedback</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Message</label>
+            <textarea class="form-textarea" rows="4" placeholder="Type your message..."></textarea>
+        </div>
+        <div class="form-group">
+             <label class="form-label">
+                <input type="checkbox" class="form-checkbox"> Subscribe to newsletter
+             </label>
+        </div>
+        <div class="form-group">
+             <label class="form-label">Preferred Contact:</label>
+             <label class="form-label">
+                <input type="radio" name="contact" class="form-radio" checked> Email
+             </label>
+             <label class="form-label">
+                <input type="radio" name="contact" class="form-radio"> Phone
+             </label>
+        </div>
+        <div class="form-group">
+            <label class="form-label">Attachment</label>
+            <input type="file" class="form-file">
+        </div>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+    </form>
 </div>
 
 ---
 
 ## 4. Cards & Badges
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
-    <div class="card card-padding">
-        <h3>Feature Card</h3>
-        <p>This is a standard card component. It uses <code>var(--card-bg)</code>.</p>
-        <span class="badge badge-primary">New</span>
-    </div>
-    <div class="card card-padding">
-        <h3>Another Card</h3>
-        <p>Cards are great for grouping related content in a grid layout.</p>
-        <span class="badge">Legacy</span>
-    </div>
+<div class="card card-padding">
+    <h3>Feature Card</h3>
+    <p>This is a standard card component. It uses <code>var(--card-bg)</code>.</p>
+    <span class="badge badge-primary">New</span>
+</div>
+<br>
+<div class="card card-padding">
+    <h3>Another Card</h3>
+    <p>Cards are great for grouping related content in a grid layout.</p>
+    <span class="badge">Legacy</span>
 </div>
 
 ---
