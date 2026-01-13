@@ -71,4 +71,4 @@ go build -o tamarind parser/main.go
 
 ---
 
-*MIT License. Cultivated with care by @rsantiago.*
+*Business Source License (BSL 1.1). Cultivated with care by @rsantiago.*
