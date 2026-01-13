@@ -29,13 +29,13 @@ This is a **bold text**, *italic text*, and `inline code` sample.
 ---
 
 ## 2. Buttons
-<div style="margin-bottom: 20px;">
+<div class="button-group">
     <a href="#" class="btn btn-primary">Primary Button</a>
     <a href="#" class="btn btn-secondary">Secondary Button</a>
     <a href="#" class="btn btn-ghost">Ghost Button</a>
 </div>
 
-<div>
+<div class="button-group">
     <a href="#" class="btn btn-primary btn-sm">Small Primary</a>
     <a href="#" class="btn btn-secondary btn-sm">Small Secondary</a>
 </div>

@@ -77,6 +77,7 @@ Every theme MUST provide these utility classes. `bird` already has some, others 
 *   `.btn-secondary`: Border = `--border-color`, Text = `--text-color`.
 *   `.btn-ghost`: Transparent, Text = `--text-secondary`.
 *   `.btn-sm`: Compact padding/font.
+*   `.button-group`: Wrapper for multiple buttons (flex, gap).
 
 ### Forms (New Requirement)
 **Standard**: `<div class="form-group"><label class="form-label">Email</label><input class="form-input"></div>`
