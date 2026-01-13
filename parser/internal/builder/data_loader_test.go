@@ -43,10 +43,10 @@ bob:
 	}
 
 	// 5. Verify Results
-	// Check "Authors"
-	authors, ok := data["Authors"]
+	// Check "authors"
+	authors, ok := data["authors"]
 	if !ok {
-		t.Fatal("Expected 'Authors' key from authors.yaml")
+		t.Fatal("Expected 'authors' key from authors.yaml")
 	}
 	
 	authorsMap, ok := authors.(map[string]interface{})
@@ -60,10 +60,10 @@ bob:
 		t.Errorf("Expected Alice's name to be 'Alice Smith', got %v", alice["name"])
 	}
 
-	// Check "Links"
-	links, ok := data["Links"]
+	// Check "links"
+	links, ok := data["links"]
 	if !ok {
-		t.Fatal("Expected 'Links' key from links.json")
+		t.Fatal("Expected 'links' key from links.json")
 	}
 	linksMap := links.(map[string]interface{})
 	if linksMap["twitter"] != "https://x.com/tamarind" {
