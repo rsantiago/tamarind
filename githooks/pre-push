@@ -1,0 +1,33 @@
+#!/bin/sh
+# Tamarind Hardening Hook (Pre-Push)
+
+echo "🛡️  Tamarind Hardening Protocols Initiated..."
+
+# 1. Legal Guard: Verify BSL 1.1 License
+if [ ! -f "LICENSE" ]; then
+    echo "❌  CRITICAL: LICENSE file is missing!"
+    exit 1
+fi
+
+if ! grep -q "Business Source License" LICENSE; then
+    echo "❌  CRITICAL: LICENSE file is NOT the Business Source License (BSL)! Push aborted to protect IP."
+    exit 1
+fi
+
+# 2. Revenue Guard: Verify EULA
+if [ ! -f "EULA.md" ]; then
+    echo "❌  CRITICAL: EULA.md is missing! Push aborted."
+    exit 1
+fi
+
+# 3. Integrity Guard: Run Tests
+echo "🧪  Running Go Tests..."
+cd parser || { echo "❌  Could not find parser directory!"; exit 1; }
+go test ./...
+if [ $? -ne 0 ]; then
+    echo "❌  Tests Failed. Fix your code before pushing."
+    exit 1
+fi
+
+echo "✅  All Systems Green. Hardening passed. Pushing to remote..."
+exit 0

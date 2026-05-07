@@ -1,0 +1,41 @@
+Business Source License 1.1
+
+Parameters
+
+Licensor: Rodrigo Santiago
+Software: Tamarind
+Production Use Field: Any use of the Software to provide a static site generation service, content management system, or publishing platform to third parties as a commercial SaaS offering.
+Additional Use Grant: You may use the Software for any purpose, including commercial websites, personal projects, and internal business tools, provided you do not violate the Production Use Field.
+Change Date: 2030-01-01
+Change License: MIT License
+
+Term
+
+The Licensor hereby grants you the right to copy, modify, create derivative works, redistribute, and make non-production use of the Licensed Work. The Licensor also grants you the right to make the Additional Use described in the Additional Use Grant.
+
+Use of the Software at any time is governed by the License applicable at that time.
+
+Licensor claims no rights to the source code of the underlying standard libraries or third-party dependencies used in the Software, which are governed by their respective licenses.
+
+-------------------------------------------------------------------------
+(Standard BSL 1.1 Text)
+
+1. Definitions
+   "Licensor" means the copyright owner or entity authorized by the copyright owner that is granting the License.
+   "Software" means the software licensed under this License.
+   "Licensed Work" means the Software and any works derived from the Software.
+   "Production Use" means using the Licensed Work in a production environment.
+   "Change Date" means the date on which the License changes to the Change License.
+   "Change License" means the license effectively replacing this License on the Change Date.
+
+2. License Grant
+   Subject to your compliance with this License, the Licensor hereby grants you a non-exclusive, worldwide, royalty-free, copyright license to use, copy, modify, create derivative works of, and redistribute the Licensed Work.
+
+3. Limitations
+   This License does not grant you the right to make Production Use of the Licensed Work, except to the extent such use is permitted under the Additional Use Grant.
+
+4. Change License
+   On the Change Date, this License commonly known as the Business Source License 1.1 shall automatically terminate and be replaced by the Change License.
+
+5. No Warranty
+   THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS or COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
