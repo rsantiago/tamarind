@@ -20,10 +20,18 @@
     --card-bg: #ffffff;
     --border-color: #dddfe2;
     --shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.05);
-    /* Softer, deeper shadow */
+
+    /* Layout & Tokens */
+    --max-width: 840px;
+    --header-height: 56px;
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+
+    /* Typography */
     --font-heading: 'Merriweather', serif;
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
-    /* Was font-body */
+    --font-body: var(--font-family);
     --nav-hover: rgba(255, 255, 255, 0.15);
 }
 
@@ -57,7 +65,7 @@ body {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
-.site-header nav {
+.nav-container {
     width: 100%;
     max-width: 960px;
     /* Aligned with content */
@@ -339,7 +347,7 @@ img {
         padding: 12px 16px;
     }
 
-    .site-header nav {
+    .nav-container {
         flex-direction: column;
         gap: 12px;
     }
@@ -550,4 +558,115 @@ figcaption {
 .article-meta {
     font-size: 13px;
     color: var(--text-secondary);
+}
+
+/* --- Required Spec Components --- */
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    text-decoration: none !important;
+    text-align: center;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: #ffffff !important;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color) !important;
+    border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-color);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: var(--text-secondary) !important;
+}
+
+.btn-ghost:hover {
+    color: var(--text-color) !important;
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.btn-sm {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background-color: #ffffff;
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-checkbox,
+.form-radio {
+    accent-color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.form-file {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background-color: var(--border-color);
+    color: var(--text-color);
+    border-radius: var(--radius-lg);
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
 }

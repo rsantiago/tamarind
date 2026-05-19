@@ -24,7 +24,7 @@
 <body>
 
     <header class="site-header">
-        <nav>
+        <nav class="nav-container">
             <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
             <div class="header-actions">
                 <ul class="nav-links">
@@ -40,7 +40,7 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main class="layout-container">
         <article class="post">
             <header class="post-header">
                 {{ if .Date }}<p class="post-meta">{{ .Date }} by {{ .Author }}</p>{{ end }}

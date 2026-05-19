@@ -25,9 +25,16 @@
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
     /* Clean, legible body font */
     --font-heading: 'Outfit', sans-serif;
+    --font-body: var(--font-family);
 
     --max-width: 1080px;
     --header-height: 70px;
+
+    /* Tokens */
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     /* Pastel Gradients */
     --grad-1: linear-gradient(135deg, #81A1C1 0%, #88C0D0 100%);
@@ -831,5 +838,116 @@ figcaption {
     margin-top: 20px;
     font-size: 12px;
     color: #8e8e8e;
+    text-transform: uppercase;
+}
+
+/* --- Required Spec Components --- */
+
+/* Buttons */
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    font-family: var(--font-heading);
+    cursor: pointer;
+    text-decoration: none !important;
+    text-align: center;
+    transition: all 0.2s ease;
+    border: 1px solid transparent;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: var(--background-color) !important;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-color) !important;
+    border-color: var(--border-color);
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-color);
+}
+
+.btn-ghost {
+    background-color: transparent;
+    color: var(--text-secondary) !important;
+}
+
+.btn-ghost:hover {
+    color: var(--text-color) !important;
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.btn-sm {
+    padding: 6px 14px;
+    font-size: 0.85rem;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+}
+
+/* Forms */
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    font-size: 0.95rem;
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 1rem;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.form-checkbox,
+.form-radio {
+    accent-color: var(--primary-color);
+    margin-right: 8px;
+}
+
+.form-file {
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+/* Badges */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 10px;
+    background-color: var(--border-color);
+    color: var(--text-color);
+    border-radius: var(--radius-lg);
+    font-size: 0.8rem;
+    font-weight: 600;
     text-transform: uppercase;
 }

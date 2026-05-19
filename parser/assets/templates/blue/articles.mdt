@@ -8,7 +8,7 @@
 <body>
 
     <header class="site-header">
-        <nav>
+        <nav class="nav-container">
             <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
             
             <ul class="nav-links">
