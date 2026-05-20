@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ template "head.mdt" . }}
+</head>
+<body>
+    <div class="layout-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h3>Workspace</h3>
+            <nav class="sidebar-nav">
+                {{ range .Menu }}
+                <a href="{{ $.RelPrefix }}{{ .URL }}"><span class="emoji">📄</span> {{ .Title }}</a>
+                {{ end }}
+            </nav>
+        </aside>
+        
+        <div class="main-area">
+            <!-- Breadcrumb Header -->
+            <header class="site-header">
+                <div class="nav-container">
+                    <ul class="nav-links">
+                        <li><a href="{{ .RelPrefix }}index.html">{{ .SiteName }}</a></li>
+                        <span class="divider">/</span>
+                        <li><a href="#">{{ if .Title }}{{ .Title }}{{ else }}Database{{ end }}</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <main>
+                <div class="article-header">
+                    <div class="page-icon">🗄️</div>
+                    {{ if .Title }}
+                    <h1 class="page-title">{{ .Title }}</h1>
+                    {{ end }}
+                </div>
+                
+                <div class="article-content">
+                    {{ .Body }}
+                </div>
+                
+                <!-- List Feed -->
+                <div class="grid-feed">
+                    {{ range .Articles }}
+                    <a href="{{ $.RelPrefix }}{{ .URL }}" class="grid-item">
+                        <span class="emoji" style="margin-right: 12px; font-size:18px;">📄</span>
+                        <h3>{{ .Title }}</h3>
+                        <div class="grid-item-date">{{ .Date }}</div>
+                    </a>
+                    {{ end }}
+                </div>
+
+                {{ if gt .Paginator.TotalPages 1 }}
+                <div class="pagination" style="display:flex;gap:12px;margin-top:32px;align-items:center;">
+                    {{ if .Paginator.HasPrev }}
+                    <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary">&larr;</a>
+                    {{ end }}
+
+                    <div class="pagination-numbers" style="display:flex; gap:8px;">
+                        {{ range .Paginator.VisiblePages }}
+                            {{ if .IsCurrent }}
+                                <span class="badge" style="background:var(--text-color);color:var(--background-color)">{{ .Number }}</span>
+                            {{ else }}
+                                <a href="{{ .URL }}" style="color:var(--text-secondary)">{{ .Number }}</a>
+                            {{ end }}
+                        {{ end }}
+                    </div>
+
+                    {{ if .Paginator.HasNext }}
+                    <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary">&rarr;</a>
+                    {{ end }}
+                </div>
+                {{ end }}
+            </main>
+        </div>
+    </div>
+    <div class="site-footer"></div>
+</body>
+</html>

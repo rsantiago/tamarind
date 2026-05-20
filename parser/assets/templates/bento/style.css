@@ -1,0 +1,532 @@
+/* Theme: Bento (Chaotic Grid / Magazine Style / Apple) */
+
+:root {
+    /* Colors */
+    --background-color: #f5f5f7;
+    --header-bg: rgba(245, 245, 247, 0.8);
+    --text-color: #1d1d1f;
+    --text-secondary: #86868b;
+    --primary-color: #0071e3;
+    --border-color: rgba(0, 0, 0, 0.05);
+    /* very subtle */
+    --card-bg: #ffffff;
+
+    /* Typography */
+    --font-heading: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+    --font-body: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
+
+    /* Specs */
+    --max-width: 1200px;
+    /* Wider for grid */
+    --header-height: 56px;
+
+    /* Bento-specific intense radii */
+    --radius-sm: 12px;
+    --radius-md: 24px;
+    --radius-lg: 32px;
+
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+[data-theme="dark"] {
+    --background-color: #000000;
+    --header-bg: rgba(0, 0, 0, 0.8);
+    --text-color: #f5f5f7;
+    --text-secondary: #a1a1a6;
+    --primary-color: #2997ff;
+    --border-color: rgba(255, 255, 255, 0.1);
+    --card-bg: #1c1c1e;
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+/* Layout Elements */
+.site-header {
+    height: var(--header-height);
+    background: var(--header-bg);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.nav-container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+    gap: 32px;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.nav-links {
+    display: flex;
+    gap: 24px;
+    list-style: none;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+.layout-container {
+    max-width: var(--max-width);
+    margin: 32px auto;
+    padding: 0 24px;
+}
+
+/* Grid Specifics (Bento Layout) */
+.grid-feed {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 24px;
+}
+
+/* Make some items larger randomly to create the "bento" feel! */
+@media (min-width: 768px) {
+    .grid-feed>.grid-item:first-child {
+        grid-column: 1 / -1;
+        padding: 48px;
+    }
+
+    .grid-feed>.grid-item:first-child h3 {
+        font-size: 32px;
+    }
+
+    .grid-feed>.grid-item:nth-child(4n - 1) {
+        grid-column: span 2;
+    }
+}
+
+.grid-item {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.grid-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
+}
+
+.grid-item h3 {
+    font-size: 20px;
+    line-height: 1.2;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.grid-item-date {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 600;
+    margin-top: auto;
+}
+
+/* Card-like content wrapper */
+.bento-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow);
+    padding: 48px;
+    margin-bottom: 24px;
+}
+
+.page-title {
+    font-size: 48px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 12px;
+    letter-spacing: -0.04em;
+}
+
+.page-subtitle {
+    font-size: 20px;
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 32px;
+}
+
+/* Markdown Typography styling inside Bento */
+.article-content {
+    max-width: 750px;
+    margin: 0 auto;
+    color: var(--text-color);
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.article-content h1,
+.article-content h2,
+.article-content h3 {
+    margin-top: 48px;
+    margin-bottom: 16px;
+}
+
+.article-content p {
+    margin-bottom: 24px;
+}
+
+.article-content ul,
+.article-content ol {
+    padding-left: 24px;
+    margin-bottom: 24px;
+}
+
+.article-content li {
+    margin-bottom: 8px;
+}
+
+/* Sub-components */
+.tags-container {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+}
+
+.tag-link {
+    background: var(--background-color);
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    transition: 0.2s;
+}
+
+.tag-link:hover {
+    background: var(--primary-color);
+    color: #fff;
+    text-decoration: none;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-top: 48px;
+    padding: 24px 0;
+}
+
+.site-footer {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-secondary);
+    padding: 48px 24px;
+    border-top: 1px solid var(--border-color);
+    max-width: var(--max-width);
+    margin: 0 auto;
+}
+
+/* REQUIRED SPEC CONTROLS */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border-radius: 999px;
+    /* Pill */
+    font-size: 15px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover {
+    text-decoration: none;
+    transform: scale(1.02);
+}
+
+.btn-primary {
+    background: var(--primary-color);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    filter: brightness(1.1);
+    color: #fff;
+}
+
+.btn-secondary {
+    background: var(--border-color);
+    color: var(--text-color);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--primary-color);
+}
+
+.btn-ghost:hover {
+    background: var(--border-color);
+}
+
+.btn-sm {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.button-group {
+    display: flex;
+    gap: 12px;
+}
+
+.form-group {
+    margin-bottom: 24px;
+}
+
+.form-label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-color);
+}
+
+.form-input,
+.form-textarea,
+.form-select {
+    width: 100%;
+    padding: 14px 16px;
+    font-family: var(--font-body);
+    font-size: 16px;
+    background: var(--background-color);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+    color: var(--text-color);
+    transition: all 0.2s;
+}
+
+.form-input:focus,
+.form-textarea:focus,
+.form-select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    background: var(--card-bg);
+    box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.1);
+}
+
+.form-checkbox,
+.form-radio {
+    margin-right: 8px;
+    accent-color: var(--primary-color);
+}
+
+.form-file {
+    font-size: 14px;
+}
+
+.badge {
+    display: inline-block;
+    background: var(--border-color);
+    color: var(--text-secondary);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.callout {
+    padding: 24px;
+    border-radius: var(--radius-md);
+    margin: 24px 0;
+    background: var(--background-color);
+}
+
+.callout-info {
+    border-left: 4px solid var(--primary-color);
+}
+
+.callout-warn {
+    border-left: 4px solid #ffcc00;
+    background: rgba(255, 204, 0, 0.1);
+}
+
+.callout-error {
+    border-left: 4px solid #ff3b30;
+    background: rgba(255, 59, 48, 0.1);
+}
+
+.callout-tip {
+    border-left: 4px solid #34c759;
+    background: rgba(52, 199, 89, 0.1);
+}
+
+.article-content pre {
+    background: var(--background-color);
+    color: var(--text-color);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    font-family: "SF Mono", ui-monospace, Menlo, Monaco, Consolas, monospace;
+    font-size: 14px;
+    margin: 24px 0;
+    border: 1px solid var(--border-color);
+}
+
+.article-content code {
+    background: var(--background-color);
+    padding: 4px 6px;
+    border-radius: 6px;
+    font-family: "SF Mono", ui-monospace, Menlo, monospace;
+    font-size: 0.9em;
+}
+
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin: 32px 0;
+    box-shadow: var(--shadow);
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.mermaid {
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    padding: 24px;
+    text-align: center;
+    margin: 32px 0;
+    box-shadow: var(--shadow);
+}
+
+.terminal {
+    background: #1c1c1e;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    margin: 32px 0;
+    box-shadow: var(--shadow);
+}
+
+.terminal-header {
+    background: #2c2c2e;
+    padding: 12px 16px;
+    display: flex;
+    gap: 8px;
+}
+
+.terminal-header .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #3a3a3c;
+}
+
+.terminal-header .dot:nth-child(1) {
+    background: #ff5f56;
+}
+
+.terminal-header .dot:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.terminal-header .dot:nth-child(3) {
+    background: #27c93f;
+}
+
+.terminal-content {
+    padding: 24px;
+    color: #f5f5f7;
+    font-family: "SF Mono", monospace;
+    font-size: 14px;
+    line-height: 1.6;
+    overflow-x: auto;
+}
+
+/* REQUIRED: responsive */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 16px;
+        justify-content: space-between;
+    }
+
+    .layout-container {
+        padding: 0 16px;
+        margin: 16px auto;
+    }
+
+    .bento-card {
+        padding: 24px;
+    }
+
+    .page-title {
+        font-size: 32px;
+    }
+
+    .grid-feed>.grid-item {
+        grid-column: 1 / -1 !important;
+    }
+}

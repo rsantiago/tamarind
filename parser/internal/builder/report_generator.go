@@ -46,6 +46,14 @@ func GenerateComplianceReport(specPath, templatesDir, outputPath string) error {
 	}
 	sort.Strings(themes)
 
+	// Read shared/core.css to merge baseline requirements
+	coreCSSPath := filepath.Join(templatesDir, "shared", "core.css")
+	coreCSSContent, err := os.ReadFile(coreCSSPath)
+	if err != nil {
+		return fmt.Errorf("failed to read shared/core.css: %w", err)
+	}
+	coreCSSStr := string(coreCSSContent)
+
 	// 3. Verify each theme
 	var reports []ThemeReport
 	for _, theme := range themes {
@@ -55,7 +63,8 @@ func GenerateComplianceReport(specPath, templatesDir, outputPath string) error {
 			return fmt.Errorf("failed to read CSS for %s: %w", theme, err)
 		}
 
-		analysis, err := AnalyzeCSS(string(cssContent))
+		combinedCSS := coreCSSStr + "\n" + string(cssContent)
+		analysis, err := AnalyzeCSS(combinedCSS)
 		if err != nil {
 			return fmt.Errorf("failed to analyze CSS for %s: %w", theme, err)
 		}

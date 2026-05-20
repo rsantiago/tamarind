@@ -104,3 +104,20 @@
     color: inherit;
     text-decoration: none;
 }
+
+/* Responsive Images & Figures across all themes */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+figure {
+    max-width: 100%;
+    margin: 1.5rem auto;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}

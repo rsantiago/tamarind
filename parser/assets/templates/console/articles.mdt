@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ template "head.mdt" . }}
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        <main>
+            <header class="article-header">
+                {{ if .Title }}
+                <h1 class="page-title">{{ .Title }}</h1>
+                {{ end }}
+            </header>
+            
+            <div class="article-content" style="margin-bottom:32px;">
+                {{ .Body }}
+            </div>
+            
+            <div class="grid-feed">
+                {{ range .Articles }}
+                <a href="{{ $.RelPrefix }}{{ .URL }}" class="grid-item">
+                    <h3>{{ .Title }}</h3>
+                    <div class="grid-item-date">[{{ .Date }}] {{ if .Tags }}(TAG: {{ index .Tags 0 }}){{ end }}</div>
+                </a>
+                {{ end }}
+            </div>
+
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div class="pagination">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary">< PREV_PAGE</a>
+                {{ end }}
+
+                <span class="badge">[ PG {{ .Paginator.CurrentPage }} / {{ .Paginator.TotalPages }} ]</span>
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary">NEXT_PAGE ></a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </main>
+    </div>
+
+    <footer class="site-footer">
+        Connection closed. EOF.
+    </footer>
+</body>
+</html>

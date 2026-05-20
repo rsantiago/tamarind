@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ template "head.mdt" . }}
+</head>
+<body>
+    <header class="site-header window">
+        <div class="window-header">
+            <span>{{ .SiteName }} - Microsoft Internet Explorer</span>
+            <div style="display:flex">
+                <a href="#" class="window-close" style="height:12px; width:14px; display:inline-flex;">_</a>
+                <a href="#" class="window-close" style="height:12px; width:14px; display:inline-flex;">&#9541;</a>
+                <a href="#" class="window-close" style="height:12px; width:14px; display:inline-flex;">X</a>
+            </div>
+        </div>
+        <div class="nav-container">
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}" class="btn">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+        <div style="padding: 2px; background:#dfdfdf; border-top: 1px solid #fff; border-bottom:1px solid #808080; display:flex; align-items:center; gap:8px;">
+            <span style="font-size:12px; margin-left:4px;">Address</span>
+            <input type="text" class="form-input" style="flex:1" value="http://localhost:8080/{{ .Title }}" readonly>
+        </div>
+    </header>
+
+    <div class="layout-container window" style="margin-top:8px;">
+        <div class="main-area">
+            <div class="inner-sunken">
+                <header class="article-header">
+                    <h1 class="page-title">{{ .Title }}</h1>
+                    {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
+                </header>
+                
+                <div class="article-content">
+                    {{ .Body }}
+                    
+                    {{ if .Tags }}
+                    <div class="tags-container">
+                        <span style="font-size:12px">Tags:</span>
+                        {{ range .Tags }}
+                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">[{{ . }}]</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    {{ template "footer.mdt" . }}
+</body>
+</html>

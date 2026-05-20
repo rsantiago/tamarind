@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ template "head.mdt" . }}
+</head>
+<body>
+    <div class="layout-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h3>Workspace</h3>
+            <nav class="sidebar-nav">
+                {{ range .Menu }}
+                <a href="{{ $.RelPrefix }}{{ .URL }}"><span class="emoji">📄</span> {{ .Title }}</a>
+                {{ end }}
+            </nav>
+        </aside>
+        
+        <div class="main-area">
+            <!-- Breadcrumb Header -->
+            <header class="site-header">
+                <div class="nav-container">
+                    <ul class="nav-links">
+                        <li><a href="{{ .RelPrefix }}index.html">{{ .SiteName }}</a></li>
+                        <span class="divider">/</span>
+                        <li><a href="#">{{ if .Title }}{{ .Title }}{{ else }}Page{{ end }}</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            <main>
+                <article class="article-container">
+                    <div class="article-header">
+                        <div class="page-icon">📄</div>
+                        <h1 class="page-title">{{ .Title }}</h1>
+                        {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
+                    </div>
+                    
+                    <div class="article-content">
+                        {{ .Body }}
+                        
+                        {{ if .Tags }}
+                        <div class="tags-container">
+                            {{ range .Tags }}
+                            <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">#{{ . }}</a>
+                            {{ end }}
+                        </div>
+                        {{ end }}
+                    </div>
+                </article>
+            </main>
+        </div>
+    </div>
+    <div class="site-footer"></div>
+</body>
+</html>

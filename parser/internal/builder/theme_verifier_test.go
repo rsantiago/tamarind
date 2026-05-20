@@ -60,6 +60,14 @@ func TestAllThemesCompliance(t *testing.T) {
 
 	t.Logf("Discovered %d themes: %v", len(themes), themes)
 
+	// Read shared/core.css to merge baseline requirements
+	coreCSSPath := filepath.Join(assetsDir, "shared", "core.css")
+	coreCSSContent, err := os.ReadFile(coreCSSPath)
+	if err != nil {
+		t.Fatalf("Failed to read shared/core.css: %v", err)
+	}
+	coreCSSStr := string(coreCSSContent)
+
 	// 3. Test each theme
 	for _, theme := range themes {
 		t.Run(theme, func(t *testing.T) {
@@ -69,7 +77,8 @@ func TestAllThemesCompliance(t *testing.T) {
 				t.Fatalf("Failed to read %s: %v", cssPath, err)
 			}
 
-			analysis, err := AnalyzeCSS(string(cssContent))
+			combinedCSS := coreCSSStr + "\n" + string(cssContent)
+			analysis, err := AnalyzeCSS(combinedCSS)
 			if err != nil {
 				t.Fatalf("Failed to analyze CSS for theme %s: %v", theme, err)
 			}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ template "head.mdt" . }}
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container page-container">
+        <header class="article-header">
+            <h1 class="page-title">{{ .Title }}</h1>
+            {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
+        </header>
+        
+        <div class="article-content">
+            {{ .Body }}
+            
+            {{ if .Tags }}
+            <div class="tags-container">
+                {{ range .Tags }}
+                <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">{{ . }}</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+    
+    {{ template "footer.mdt" . }}
+</body>
+</html>

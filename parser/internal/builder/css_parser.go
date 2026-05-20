@@ -53,41 +53,43 @@ func extractVariables(css string, analysis *CSSAnalysis) {
 	}
 }
 
-// extractSelectors finds all CSS class selectors (.class-name) in the file.
+// extractSelectors finds all CSS selectors (.class-name or specific tags like img/figure) in the file.
 func extractSelectors(css string, analysis *CSSAnalysis) {
 	// Remove comments first
 	commentPattern := regexp.MustCompile(`/\*[\s\S]*?\*/`)
 	cleaned := commentPattern.ReplaceAllString(css, "")
 
-	// Remove @import and @media blocks' conditions (but keep their content)
-	// We want selectors inside media blocks too
-
-	// Match class selectors: .class-name (possibly with pseudo-classes or combinators)
-	// We capture just the base class name
-	selectorPattern := regexp.MustCompile(`(?m)^[^{]*?(\.[\w-]+)[^{]*?\{`)
+	// Match class selectors safely (starts with dot, then letter, then words/dashes).
+	// This avoids catastrophic backtracking on large strings without brackets.
+	selectorPattern := regexp.MustCompile(`\.([a-zA-Z][\w-]*)`)
+	
 	matches := selectorPattern.FindAllStringSubmatch(cleaned, -1)
-
 	for _, m := range matches {
 		if len(m) > 1 {
-			analysis.Selectors[m[1]] = true
+			analysis.Selectors["." + m[1]] = true
 		}
 	}
 
-	// Also catch selectors in compound rules like ".form-input, .form-select, .form-textarea {"
-	// and selectors that appear mid-line
-	multiSelectorPattern := regexp.MustCompile(`(\.[\w-]+)`)
-	lines := strings.Split(cleaned, "\n")
-	for _, line := range lines {
-		trimmed := strings.TrimSpace(line)
-		// Only process lines that look like selector lines (contain { or end before {)
-		// Skip property lines (contain :) unless they also contain {
-		if strings.Contains(trimmed, "{") || (len(trimmed) > 0 && !strings.Contains(trimmed, ":") && !strings.HasPrefix(trimmed, "@") && !strings.HasPrefix(trimmed, "}")) {
-			found := multiSelectorPattern.FindAllStringSubmatch(trimmed, -1)
-			for _, f := range found {
-				if len(f) > 1 {
-					analysis.Selectors[f[1]] = true
-				}
-			}
+	// Also extract tag selectors like img and figure
+	parts := strings.Split(cleaned, "{")
+	for i := 0; i < len(parts)-1; i++ {
+		selectorPart := parts[i]
+		if idx := strings.LastIndex(selectorPart, "}"); idx != -1 {
+			selectorPart = selectorPart[idx+1:]
+		}
+		selectorPart = strings.TrimSpace(selectorPart)
+		
+		// Helper matching word boundaries
+		matchWord := func(s, word string) bool {
+			r := regexp.MustCompile(`\b` + regexp.QuoteMeta(word) + `\b`)
+			return r.MatchString(s)
+		}
+
+		if matchWord(selectorPart, "img") {
+			analysis.Selectors["img"] = true
+		}
+		if matchWord(selectorPart, "figure") {
+			analysis.Selectors["figure"] = true
 		}
 	}
 }

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ template "head.mdt" . }}
+</head>
+<body>
+    <header class="site-header window">
+        <div class="window-header">
+            <span>{{ .SiteName }} - File Explorer</span>
+            <div style="display:flex">
+                <a href="#" class="window-close" style="height:12px; width:14px; display:inline-flex;">_</a>
+                <a href="#" class="window-close" style="height:12px; width:14px; display:inline-flex;">&#9541;</a>
+                <a href="#" class="window-close" style="height:12px; width:14px; display:inline-flex;">X</a>
+            </div>
+        </div>
+        <div class="nav-container">
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}" class="btn">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+        <div style="padding: 2px; background:#dfdfdf; border-top: 1px solid #fff; border-bottom:1px solid #808080; display:flex; align-items:center; gap:8px;">
+            <span style="font-size:12px; margin-left:4px;">Folder</span>
+            <input type="text" class="form-input" style="flex:1" value="C:\Users\Tamarind\{{ .Title }}" readonly>
+        </div>
+    </header>
+
+    <div class="layout-container window" style="margin-top:8px;">
+        <div class="main-area">
+            <h1 class="page-title">{{ if .Title }}{{ .Title }}{{ else }}Documents{{ end }}</h1>
+            {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
+            
+            <div class="article-content">
+                {{ .Body }}
+            </div>
+            
+            <div style="display:flex; justify-content:space-between; margin-top:16px; background:#c0c0c0; border: 1px solid #fff; border-right:1px solid #000; border-bottom:1px solid #000; padding:2px 8px;">
+                <b style="font-size:12px">Name</b>
+                <b style="font-size:12px">Date Modified</b>
+            </div>
+            <div class="grid-feed">
+                {{ range .Articles }}
+                <a href="{{ $.RelPrefix }}{{ .URL }}" class="grid-item">
+                    <h3><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none'%3E%3Cpath stroke='%23000' d='M1 1v10h10V4H7V1H1z'/%3E%3Cpath fill='%23000' d='M8 1v3h3'/%3E%3C/svg%3E" style="margin-right:8px; vertical-align:text-bottom;">{{ .Title }}.txt</h3>
+                    <div class="grid-item-date">{{ .Date }}</div>
+                </a>
+                {{ end }}
+            </div>
+
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div class="pagination">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary">Up Directory</a>
+                {{ end }}
+                <span class="badge" style="align-self:center">Page {{ .Paginator.CurrentPage }}</span>
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary">Next Page</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </div>
+    </div>
+    
+    {{ template "footer.mdt" . }}
+</body>
+</html>

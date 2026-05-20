@@ -432,6 +432,16 @@ items:
     scope: global
     required: true
     description: "Terminal window frame"
+  - name: "img"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Responsive image styling to prevent overflow"
+  - name: "figure"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Responsive figure block formatting"
 ```
 
 ---

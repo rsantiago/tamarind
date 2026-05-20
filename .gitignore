@@ -13,3 +13,9 @@ generated-site/
 100xDev/
 new-website/
 website/
+
+# Build artifacts and logs
+/public-all/
+/parser/build_error.log
+/parser/server.log
+*.log

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ template "head.mdt" . }}
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        <div class="page-container" style="padding-top: 0; padding-bottom: 24px;">
+            <h1 class="page-title" style="text-align: left; font-size: 24px;">{{ if .Title }}{{ .Title }}{{ else }}Explore Updates{{ end }}</h1>
+            {{ if .Subtitle }}<p class="page-subtitle" style="text-align: left; font-size: 16px;">{{ .Subtitle }}</p>{{ end }}
+            
+            <div class="article-content" style="font-size: 16px;">
+                {{ .Body }}
+            </div>
+        </div>
+        
+        <div class="grid-feed">
+            {{ range .Articles }}
+            <a href="{{ $.RelPrefix }}{{ .URL }}" class="grid-item">
+                <h3>{{ .Title }}</h3>
+                <div class="grid-item-date">{{ .Date }}</div>
+            </a>
+            {{ end }}
+        </div>
+
+        {{ if gt .Paginator.TotalPages 1 }}
+        <div class="pagination">
+            {{ if .Paginator.HasPrev }}
+            <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm">Previous</a>
+            {{ end }}
+            {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary btn-sm">Next</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </div>
+    
+    {{ template "footer.mdt" . }}
+</body>
+</html>
