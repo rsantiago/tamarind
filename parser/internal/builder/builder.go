@@ -30,6 +30,18 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 		"sanitizeTag": func(s string) string {
 			return strings.ToLower(strings.ReplaceAll(s, " ", "-"))
 		},
+		"add": func(a, b int) int {
+			return a + b
+		},
+		"mul": func(a, b int) int {
+			return a * b
+		},
+		"mod": func(a, b int) int {
+			if b == 0 {
+				return 0
+			}
+			return a % b
+		},
 	}
 
 	tmpl := template.New("").Funcs(funcMap)

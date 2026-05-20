@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">BRUTAL.tamarind</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <!-- Big Hero Intro Statement -->
+        <div style="background-color: var(--accent-color); border: 3px solid #000000; box-shadow: var(--shadow); padding: 32px; margin-bottom: 48px;">
+            <span class="badge" style="margin-bottom: 12px; background-color: var(--primary-color);">RAW POWER</span>
+            <h1 style="font-size: 38px; font-weight: 900; text-transform: uppercase; line-height: 1.1; font-family: var(--font-heading);">THE NEO-BRUTALIST FEED</h1>
+            <p style="font-size: 16px; font-weight: bold; margin-top: 12px; max-width: 700px;">NO GRADIENTS. NO BLURS. NO BULSH*T. JUST DRAFT-LEVEL SPECS, THICK RAW BLACK BORDERS, AND PRIMARY HIGHLIGHT COLORS.</p>
+            <div style="margin-top: 24px;">
+                <a href="#feed" class="btn btn-primary">EXPLORE RAW FEED &darr;</a>
+            </div>
+        </div>
+
+        {{ if .Articles }}
+            <main id="feed" class="brutal-grid">
+                {{ range .Articles }}
+                <article class="card brutal-post-card">
+                    <div class="brutal-post-header">
+                        [ POST // {{ .Date }} ]
+                    </div>
+                    <div class="card-padding" style="display: flex; flex-direction: column; flex-grow: 1;">
+                        <h2 class="brutal-post-title">
+                            <a href="{{ $.RelPrefix }}{{ .URL }}" style="text-decoration: none;">{{ .Title }}</a>
+                        </h2>
+                        {{ if .Description }}
+                        <p style="font-size: 13px; font-weight: bold; margin-bottom: 24px;">{{ .Description }}</p>
+                        {{ else }}
+                        <p style="font-size: 13px; font-weight: bold; margin-bottom: 24px;">NO ABSTRACT SPECIFIED. CLICK THROUGH TO CONSUME RAW CONTENT DIRECTLY.</p>
+                        {{ end }}
+                        
+                        <div class="brutal-post-meta">
+                            AUTHOR: <span style="background-color: var(--primary-color); padding: 2px 6px; border: 1.5px solid #000;">{{ if .Author }}{{ .Author }}{{ else }}STAFF{{ end }}</span>
+                        </div>
+                    </div>
+                </article>
+                {{ end }}
+            </main>
+        {{ else }}
+            <div style="background-color: #ffffff; border: 3px solid #000000; box-shadow: var(--shadow); padding: 60px 20px; text-align: center;">
+                <h2 style="font-size: 24px; font-weight: 900;">NO CONTENT FOUND ON SYSTEM</h2>
+                <p style="margin-top: 12px; font-weight: bold;">DEPLOY ARTICLES TO INJECT NODES INTO THIS COMPONENT FEED.</p>
+            </div>
+        {{ end }}
+
+        <!-- Pagination -->
+        {{ if gt .Paginator.TotalPages 1 }}
+        <div style="display: flex; justify-content: center; gap: 16px; margin-top: 48px;">
+            {{ if .Paginator.HasPrev }}
+            <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm">BACK</a>
+            {{ end }}
+
+            {{ range .Paginator.VisiblePages }}
+                {{ if .IsCurrent }}
+                    <span class="btn btn-primary btn-sm" style="transform: translate(2px, 2px); box-shadow: 2px 2px 0px #000;">{{ .Number }}</span>
+                {{ else }}
+                    <a href="{{ .URL }}" class="btn btn-secondary btn-sm">{{ .Number }}</a>
+                {{ end }}
+            {{ end }}
+
+            {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary btn-sm">NEXT</a>
+            {{ end }}
+        </div>
+        {{ end }}
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

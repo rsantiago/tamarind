@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">
+                <div class="logo-badge">T</div>
+                Tamarind News
+            </a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <main>
+            <article class="article-container">
+                
+                <div class="article-header">
+                    <h1 class="page-title">{{ .Title }}</h1>
+                    <div class="page-subtitle">
+                        <span>Submitted on <strong>{{ .Date }}</strong> by <strong>{{ if .Author }}{{ .Author }}{{ else }}Tamarind Author{{ end }}</strong></span>
+                    </div>
+                </div>
+
+                <div class="article-content">
+                    {{ .Body }}
+                    
+                    {{ if .Tags }}
+                    <div class="tags-container">
+                        {{ range .Tags }}
+                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">#{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+
+            </article>
+        </main>
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

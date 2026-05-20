@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="{{ .RelPrefix }}index.html" class="logo">
+                    <span>T</span> TamarindTube
+                </a>
+            </div>
+
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <main class="main-content">
+
+            {{ if .Articles }}
+                <div class="video-grid">
+                    {{ range .Articles }}
+                    <a href="{{ $.RelPrefix }}{{ .URL }}" class="card video-card">
+                        <div class="thumbnail-container">
+                            <div class="thumbnail-play">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor" style="color: #ffffff;"><polygon points="8 5 19 12 8 19 8 5"></polygon></svg>
+                            </div>
+                            <!-- Premium dynamic glowing-orb fallback styled completely via CSS -->
+                            <div class="thumbnail-fallback"></div>
+                        </div>
+                        <div class="video-meta-block">
+                            <div class="author-avatar">
+                                {{ if .Author }}{{ printf "%.1s" .Author }}{{ else }}T{{ end }}
+                            </div>
+                            <div class="video-details">
+                                <h3 class="video-title">{{ .Title }}</h3>
+                                <div class="video-author">{{ if .Author }}{{ .Author }}{{ else }}Tamarind Creator{{ end }}</div>
+                                <div class="video-stats">{{ .Date }}</div>
+                            </div>
+                        </div>
+                    </a>
+                    {{ end }}
+                </div>
+            {{ else }}
+                <div style="text-align: center; padding: 80px 0;">
+                    <h2>No Videos Found</h2>
+                    <p style="color: var(--text-secondary); margin-top: 10px;">Upload some content to get started.</p>
+                </div>
+            {{ end }}
+
+            <!-- Pagination -->
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm">&larr;</a>
+                {{ end }}
+
+                {{ range .Paginator.VisiblePages }}
+                    {{ if .IsCurrent }}
+                        <span class="btn btn-primary btn-sm" style="background-color: var(--primary-color); color: #ffffff;">{{ .Number }}</span>
+                    {{ else }}
+                        <a href="{{ .URL }}" class="btn btn-secondary btn-sm">{{ .Number }}</a>
+                    {{ end }}
+                {{ end }}
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary btn-sm">&rarr;</a>
+                {{ end }}
+            </div>
+            {{ end }}
+
+        </main>
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

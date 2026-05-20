@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">
+                <div class="logo-badge">T</div>
+                Tamarind News
+            </a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        {{ if .Articles }}
+            <ol class="hn-feed">
+                {{ range $index, $element := .Articles }}
+                <li class="hn-row">
+                    <span class="hn-index">{{ add $index 1 }}.</span>
+                    <div class="hn-main">
+                        <div class="hn-title-line">
+                            <a href="{{ $.RelPrefix }}{{ .URL }}" class="hn-link">{{ .Title }}</a>
+                        </div>
+                        <div class="hn-meta-line">
+                            by <span style="font-weight: bold; color: var(--text-secondary);">{{ if .Author }}{{ .Author }}{{ else }}Tamarind Author{{ end }}</span> 
+                            <span>{{ .Date }}</span>
+                        </div>
+                    </div>
+                </li>
+                {{ end }}
+            </ol>
+        {{ else }}
+            <div style="padding: 20px 0;">
+                <p>No news links found.</p>
+            </div>
+        {{ end }}
+
+        <!-- Pagination -->
+        {{ if gt .Paginator.TotalPages 1 }}
+        <div style="margin-top: 24px; padding-left: 30px; font-size: 13px;">
+            {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.NextURL }}" style="color: #000000; font-weight: bold;">More</a>
+            {{ end }}
+            {{ if .Paginator.HasPrev }}
+            | <a href="{{ .Paginator.PrevURL }}" style="color: var(--text-secondary);">Previous</a>
+            {{ end }}
+        </div>
+        {{ end }}
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

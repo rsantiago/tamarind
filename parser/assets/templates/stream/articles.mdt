@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        {{ if .Articles }}
+            <!-- Cinematic Hero Banner (First Article) -->
+            {{ with index .Articles 0 }}
+            <section class="hero-banner">
+                <div class="hero-content">
+                    <span class="badge" style="background-color: var(--primary-color); margin-bottom: 12px;">Featured Release</span>
+                    <h1 class="hero-title">{{ .Title }}</h1>
+                    {{ if .Description }}
+                    <p class="hero-subtitle">{{ .Description }}</p>
+                    {{ else }}
+                    <p class="hero-subtitle">Dive into our latest featured article. Discover insights, guides, and stories curated just for you.</p>
+                    {{ end }}
+                    <div class="button-group">
+                        <a href="{{ $.RelPrefix }}{{ .URL }}" class="btn btn-primary">Read Now</a>
+                        <a href="#trending" class="btn btn-secondary">Explore More</a>
+                    </div>
+                </div>
+            </section>
+            {{ end }}
+
+            <!-- Carousel / Grid Section -->
+            <section id="trending" class="carousel-section">
+                <h2 class="carousel-title">Trending Now</h2>
+                <div class="grid-row">
+                    {{ range .Articles }}
+                    <a href="{{ $.RelPrefix }}{{ .URL }}" class="stream-card">
+                        <div class="stream-card-overlay"></div>
+                        <div class="stream-card-content">
+                            <h3 class="stream-card-title">{{ .Title }}</h3>
+                            <div class="stream-card-meta">
+                                <span>{{ .Date }}</span>
+                                <span>•</span>
+                                <span>{{ if .Author }}{{ .Author }}{{ else }}Staff{{ end }}</span>
+                            </div>
+                        </div>
+                    </a>
+                    {{ end }}
+                </div>
+            </section>
+        {{ else }}
+            <div style="text-align: center; padding: 80px 0;">
+                <h2>No Articles Found</h2>
+                <p style="color: var(--text-secondary); margin-top: 10px;">Please check back later or start writing some content!</p>
+            </div>
+        {{ end }}
+
+        <!-- Pagination -->
+        {{ if gt .Paginator.TotalPages 1 }}
+        <div style="display: flex; justify-content: center; gap: 10px; margin-top: 40px;">
+            {{ if .Paginator.HasPrev }}
+            <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm">&larr; Prev</a>
+            {{ end }}
+
+            {{ range .Paginator.VisiblePages }}
+                {{ if .IsCurrent }}
+                    <span class="btn btn-primary btn-sm">{{ .Number }}</span>
+                {{ else }}
+                    <a href="{{ .URL }}" class="btn btn-secondary btn-sm">{{ .Number }}</a>
+                {{ end }}
+            {{ end }}
+
+            {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary btn-sm">Next &rarr;</a>
+            {{ end }}
+        </div>
+        {{ end }}
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

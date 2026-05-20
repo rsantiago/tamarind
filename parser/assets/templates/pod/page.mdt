@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">
+                <div class="logo-icon">🎵</div>
+                TamarindPod
+            </a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+
+        <!-- Main Detail Page Content -->
+        <main class="main-content">
+            
+            <article class="article-container">
+                <!-- Large Podcast Episode Header Card -->
+                <div class="podcast-header-card">
+                    <div class="podcast-cover-large">🎧</div>
+                    <div class="podcast-meta-info">
+                        <span class="podcast-type">Podcast Episode</span>
+                        <h1 class="page-title">{{ .Title }}</h1>
+                        <p class="page-subtitle">By {{ .Author }} • Published on {{ .Date }}</p>
+                    </div>
+                </div>
+
+
+
+                <!-- Description / Episode Notes Content -->
+                <div class="article-content">
+                    <h2 style="font-size: 20px; font-weight: 800; margin-top: 0; margin-bottom: 16px;">Episode Notes</h2>
+                    {{ .Body }}
+                    
+                    {{ if .Tags }}
+                    <div class="tags-container">
+                        {{ range .Tags }}
+                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">#{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

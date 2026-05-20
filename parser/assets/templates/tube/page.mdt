@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="{{ .RelPrefix }}index.html" class="logo">
+                    <span>T</span> TamarindTube
+                </a>
+            </div>
+
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <main class="main-content">
+            <article class="article-container">
+                
+
+
+                <div class="article-header">
+                    <h1 class="page-title">{{ .Title }}</h1>
+                    <div class="page-subtitle">{{ .Date }}</div>
+                </div>
+
+                <!-- Channel Info -->
+                <div class="author-profile-bar">
+                    <div class="profile-left">
+                        <div class="author-avatar" style="width: 40px; height: 40px; font-size: 16px;">
+                            {{ if .Author }}{{ printf "%.1s" .Author }}{{ else }}T{{ end }}
+                        </div>
+                        <div>
+                            <div class="channel-name">By {{ if .Author }}{{ .Author }}{{ else }}Tamarind Creator{{ end }}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Article Content -->
+                <div class="article-content" style="margin-top: 24px;">
+                    {{ .Body }}
+                    
+                    {{ if .Tags }}
+                    <div class="tags-container">
+                        {{ range .Tags }}
+                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">#{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+
+            </article>
+        </main>
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

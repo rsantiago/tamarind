@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">
+                <div class="logo-icon">🎵</div>
+                TamarindPod
+            </a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- Playlist Banner -->
+            <div class="podcast-header-card" style="border-bottom: none; margin-bottom: 0;">
+                <div class="podcast-cover-large">🎙️</div>
+                <div class="podcast-meta-info">
+                    <span class="podcast-type">Public Playlist</span>
+                    <h1 class="page-title">Weekly Dev Digest</h1>
+                    <p class="page-subtitle">Your favorite articles formatted as custom podcasts and weekly insights. Handpicked by {{ .SiteName }}.</p>
+                </div>
+            </div>
+
+            {{ if .Articles }}
+                <table class="playlist-table">
+                    <thead>
+                        <tr>
+                            <th class="playlist-index">#</th>
+                            <th>Title</th>
+                            <th>Release Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{ range $index, $element := .Articles }}
+                        <tr class="playlist-row" onclick="window.location.href='{{ $.RelPrefix }}{{ .URL }}'">
+                            <td class="playlist-index">{{ add $index 1 }}</td>
+                            <td>
+                                <div class="playlist-title-cell">
+                                    <div class="playlist-cover-mock">🎧</div>
+                                    <div class="playlist-title-text">
+                                        <span class="playlist-track-name">{{ .Title }}</span>
+                                        <span class="playlist-track-author">{{ if .Author }}{{ .Author }}{{ else }}Tamarind host{{ end }}</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="playlist-date">{{ .Date }}</td>
+                        </tr>
+                        {{ end }}
+                    </tbody>
+                </table>
+            {{ else }}
+                <div style="text-align: center; padding: 80px 0;">
+                    <h2>No tracks found in this playlist</h2>
+                    <p style="color: var(--text-secondary); margin-top: 10px;">Check back later or compile new posts.</p>
+                </div>
+            {{ end }}
+
+            <!-- Pagination -->
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm">&larr;</a>
+                {{ end }}
+
+                {{ range .Paginator.VisiblePages }}
+                    {{ if .IsCurrent }}
+                        <span class="btn btn-primary btn-sm" style="color: #000000;">{{ .Number }}</span>
+                    {{ else }}
+                        <a href="{{ .URL }}" class="btn btn-secondary btn-sm">{{ .Number }}</a>
+                    {{ end }}
+                {{ end }}
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary btn-sm">&rarr;</a>
+                {{ end }}
+            </div>
+            {{ end }}
+
+        </main>
+
+    </div>
+
+
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

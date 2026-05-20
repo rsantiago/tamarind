@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">
+                <span>tamarind</span>
+            </a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+
+        <!-- Main Questions Feed -->
+        <main class="main-content">
+            
+            <!-- Page Header Bar -->
+            <div style="margin-bottom: 24px;">
+                <h1 style="font-size: 24px; font-weight: 400; color: #232629; font-family: var(--font-heading);">All Questions</h1>
+            </div>
+
+            <!-- Question Sub-filters info -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+                <div style="font-size: 15px; color: var(--text-secondary);">
+                    {{ if .Articles }}{{ len .Articles }}{{ else }}0{{ end }} questions
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-secondary btn-sm" style="border-radius: 3px; font-size: 12px;">Newest</button>
+                    <button class="btn btn-ghost btn-sm" style="border: 1px solid var(--border-color); border-radius: 3px; font-size: 12px;">Active</button>
+                    <button class="btn btn-ghost btn-sm" style="border: 1px solid var(--border-color); border-radius: 3px; font-size: 12px;">Unanswered</button>
+                </div>
+            </div>
+
+            {{ if .Articles }}
+                <div class="post-list">
+                    {{ range $index, $element := .Articles }}
+                    <div class="question-row">
+                        <!-- Right main body excerpt -->
+                        <div class="question-content">
+                            <h3 class="question-title">
+                                <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
+                            </h3>
+                            {{ if .Description }}
+                            <p class="question-excerpt">{{ .Description }}</p>
+                            {{ else }}
+                            <p class="question-excerpt">Seeking advice on the best implementation patterns, code verification practices, and standard CSS rules inside Tamarind templates. Read the detailed description.</p>
+                            {{ end }}
+                            
+                            <div class="question-meta">
+                                <div style="display: flex; gap: 6px;">
+                                    {{ if .Tags }}
+                                        {{ range .Tags }}
+                                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">{{ . }}</a>
+                                        {{ end }}
+                                    {{ else }}
+                                        <a href="#" class="tag-link">tamarind</a>
+                                        <a href="#" class="tag-link">go</a>
+                                    {{ end }}
+                                </div>
+                                <div class="meta-author">
+                                    <div class="author-avatar"></div>
+                                    <span>asked {{ .Date }} by <strong style="color: #0074cc;">{{ if .Author }}{{ .Author }}{{ else }}Tamarind Author{{ end }}</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {{ end }}
+                </div>
+            {{ else }}
+                <div style="text-align: center; padding: 80px 0; border: 1px dashed var(--border-color); border-radius: var(--radius-md);">
+                    <h2>No Questions Posted Yet</h2>
+                    <p style="color: var(--text-secondary); margin-top: 10px;">The database is waiting for questions or code articles.</p>
+                </div>
+            {{ end }}
+
+            <!-- Pagination -->
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div style="display: flex; justify-content: center; gap: 8px; margin-top: 40px; padding-top: 24px;">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm" style="border-radius: 3px;">Prev</a>
+                {{ end }}
+
+                {{ range .Paginator.VisiblePages }}
+                    {{ if .IsCurrent }}
+                        <span class="btn btn-primary btn-sm" style="background-color: var(--primary-color); border-color: var(--primary-color); color: #fff; border-radius: 3px;">{{ .Number }}</span>
+                    {{ else }}
+                        <a href="{{ .URL }}" class="btn btn-secondary btn-sm" style="border-radius: 3px;">{{ .Number }}</a>
+                    {{ end }}
+                {{ end }}
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary btn-sm" style="border-radius: 3px;">Next &rarr;</a>
+                {{ end }}
+            </div>
+            {{ end }}
+
+        </main>
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

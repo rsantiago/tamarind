@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">BRUTAL.tamarind</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <main>
+            <article class="article-container">
+                
+                <div class="article-header">
+                    <span class="badge" style="background-color: var(--secondary-color); margin-bottom: 12px;">RAW NODE DATA</span>
+                    <h1 class="page-title">{{ .Title }}</h1>
+                    {{ if .Subtitle }}
+                    <p class="page-subtitle">{{ .Subtitle }}</p>
+                    {{ else }}
+                    <p class="page-subtitle">SPECIFICATION COMPLIANT DATA MODEL</p>
+                    {{ end }}
+                    <div style="font-size: 12px; font-weight: bold; margin-top: 16px; text-transform: uppercase;">
+                        AUTHOR: {{ if .Author }}{{ .Author }}{{ else }}STAFF{{ end }} // PUBLISHED: {{ .Date }}
+                    </div>
+                </div>
+
+                <div class="article-content">
+                    {{ .Body }}
+                    
+                    {{ if .Tags }}
+                    <div class="tags-container">
+                        {{ range .Tags }}
+                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                    
+                    <div style="margin-top: 48px; border-top: 3px dashed #000000; padding-top: 24px; font-size: 12px; font-weight: bold; text-transform: uppercase;">
+                        EOF // END OF CONTENT STREAM // tamarind-engine-v4
+                    </div>
+                </div>
+
+            </article>
+        </main>
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

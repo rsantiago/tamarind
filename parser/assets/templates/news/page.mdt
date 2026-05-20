@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">The Tamarind Chronicle</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <!-- Newspaper Header Meta (Print style) -->
+        <div style="display: flex; justify-content: space-between; font-family: var(--font-heading); font-size: 11px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 24px; letter-spacing: 1px;">
+            <div>Vol. CXXIV No. 42</div>
+            <div>NEW YORK, WEDNESDAY, MAY 20, 2026</div>
+            <div>$3.00</div>
+        </div>
+
+        <main>
+            <article class="article-container">
+                
+                <div class="article-header">
+                    <span class="feature-meta" style="font-size: 11px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; color: var(--accent-color); display: block; margin-bottom: 8px;">Special Despatch</span>
+                    <h1 class="page-title">{{ .Title }}</h1>
+                    {{ if .Subtitle }}
+                    <p class="page-subtitle">{{ .Subtitle }}</p>
+                    {{ else }}
+                    <p class="page-subtitle">A detailed investigation concerning architectural models, specifications, and layout designs.</p>
+                    {{ end }}
+                    <div class="article-meta">
+                        By {{ if .Author }}{{ .Author }}{{ else }}Staff Correspondent{{ end }} — Published {{ .Date }}
+                    </div>
+                </div>
+                
+                <div class="article-content">
+                    {{ .Body }}
+                    
+                    {{ if .Tags }}
+                    <div class="tags-container">
+                        {{ range .Tags }}
+                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+
+                    <div style="margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; font-family: var(--font-heading); font-size: 12px; font-weight: bold; text-transform: uppercase; color: var(--text-secondary);">
+                        <div>Correspondent: {{ .Author }}</div>
+                        <div>Dated: {{ .Date }}</div>
+                    </div>
+                </div>
+
+            </article>
+        </main>
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

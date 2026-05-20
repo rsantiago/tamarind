@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <main>
+            <article class="article-container">
+                <div class="article-header">
+                    <span class="badge" style="background-color: var(--primary-color); margin-bottom: 12px;">{{ if .Tags }}{{ index .Tags 0 }}{{ else }}Feature{{ end }}</span>
+                    <h1 class="page-title">{{ .Title }}</h1>
+                    {{ if .Subtitle }}
+                    <p class="page-subtitle">{{ .Subtitle }}</p>
+                    {{ else }}
+                    <p class="page-subtitle">By {{ .Author }} • Published on {{ .Date }}</p>
+                    {{ end }}
+                </div>
+                
+                <div class="article-content">
+                    {{ .Body }}
+                    
+                    {{ if .Tags }}
+                    <div class="tags-container">
+                        {{ range .Tags }}
+                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">#{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+
+                    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border-color); display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--text-secondary);">
+                        <div>By <strong>{{ .Author }}</strong></div>
+                        <div>Released on <strong>{{ .Date }}</strong></div>
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

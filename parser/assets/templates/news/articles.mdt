@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">The Tamarind Chronicle</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <!-- Newspaper Header Meta (Print style) -->
+        <div style="display: flex; justify-content: space-between; font-family: var(--font-heading); font-size: 11px; font-weight: bold; text-transform: uppercase; border-bottom: 1px solid var(--border-color); padding-bottom: 6px; margin-bottom: 24px; letter-spacing: 1px;">
+            <div>Vol. CXXIV No. 42</div>
+            <div>NEW YORK, WEDNESDAY, MAY 20, 2026</div>
+            <div>$3.00</div>
+        </div>
+
+        {{ if .Articles }}
+            <div class="newspaper-grid">
+                
+                <!-- Main News Column (Featured Lead Story + Other Stories) -->
+                <main class="main-news-col">
+                    
+                    <!-- Lead Feature Story (First Article) -->
+                    {{ with index .Articles 0 }}
+                    <article class="feature-story">
+                        <span class="feature-meta">Front Page Feature</span>
+                        <h2 class="feature-title">
+                            <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
+                        </h2>
+                        <div style="font-family: var(--font-heading); font-size: 13px; font-weight: bold; margin-bottom: 8px;">
+                            By {{ if .Author }}{{ .Author }}{{ else }}STAFF REPORTER{{ end }} — {{ .Date }}
+                        </div>
+                        {{ if .Description }}
+                        <p class="feature-summary">{{ .Description }}</p>
+                        {{ else }}
+                        <p class="feature-summary">In-depth reporting and special insights from our editorial board. We cover the latest breaking details, structural updates, and direct coverage of important modern trends.</p>
+                        {{ end }}
+                        <div style="margin-top: 12px;">
+                            <a href="{{ $.RelPrefix }}{{ .URL }}" class="btn btn-primary">Read Full Article</a>
+                        </div>
+                    </article>
+                    {{ end }}
+
+                    <hr class="editorial-divider double">
+
+                    <!-- Secondary Main List (Skip first) -->
+                    <div style="display: flex; flex-direction: column; gap: 24px;">
+                        {{ range $index, $element := .Articles }}
+                        {{ if gt $index 0 }}
+                        <div class="story-card">
+                            <span class="story-meta">Editorial • {{ .Date }}</span>
+                            <h3 class="story-title">
+                                <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
+                            </h3>
+                            <p class="story-summary">{{ if .Description }}{{ .Description }}{{ else }}Detailed reports covering this week's technical reviews, designs, and architectural breakthroughs. Read on for the full editorial.{{ end }}</p>
+                        </div>
+                        {{ end }}
+                        {{ end }}
+                    </div>
+
+                </main>
+
+                <!-- Sidebar News Column -->
+                <aside class="sidebar-news-col">
+                    <div>
+                        <h4 style="font-family: var(--font-heading); font-size: 12px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; font-weight: 900;">Latest Briefs</h4>
+                        <hr class="editorial-divider" style="margin-top: 0; margin-bottom: 12px;">
+                        {{ range .Articles }}
+                        <div style="margin-bottom: 12px; font-size: 13px; border-bottom: 1px dashed var(--border-color); padding-bottom: 8px;">
+                            <a href="{{ $.RelPrefix }}{{ .URL }}" style="font-weight: bold; display: block; margin-bottom: 2px;">{{ .Title }}</a>
+                            <span style="color: var(--text-secondary); font-size: 11px;">{{ .Date }}</span>
+                        </div>
+                        {{ end }}
+                    </div>
+                </aside>
+
+            </div>
+        {{ else }}
+            <div style="text-align: center; padding: 80px 0; border: 1px solid var(--border-color);">
+                <h2>No Front-Page Stories Found</h2>
+                <p style="color: var(--text-secondary); margin-top: 10px; font-style: italic;">The printing press is waiting for content...</p>
+            </div>
+        {{ end }}
+
+        <!-- Pagination -->
+        {{ if gt .Paginator.TotalPages 1 }}
+        <div style="display: flex; justify-content: center; gap: 8px; margin-top: 40px; border-top: 1px solid var(--border-color); padding-top: 24px;">
+            {{ if .Paginator.HasPrev }}
+            <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm">&larr; Previous</a>
+            {{ end }}
+
+            {{ range .Paginator.VisiblePages }}
+                {{ if .IsCurrent }}
+                    <span class="btn btn-primary btn-sm" style="background-color: #000; color: #fff;">{{ .Number }}</span>
+                {{ else }}
+                    <a href="{{ .URL }}" class="btn btn-secondary btn-sm">{{ .Number }}</a>
+                {{ end }}
+            {{ end }}
+
+            {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary btn-sm">Next &rarr;</a>
+            {{ end }}
+        </div>
+        {{ end }}
+
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>
