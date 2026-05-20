@@ -31,7 +31,7 @@ func processShortcodes(markdown, sourceDir string) string {
 		typ := submatch[1]
 		title := submatch[2]
 		content := submatch[3]
-		
+
 		html := fmt.Sprintf(`<div class="callout callout-%s">`, typ)
 		if title != "" {
 			html += fmt.Sprintf(`<div class="callout-title">%s</div>`, title)
@@ -51,8 +51,10 @@ func processShortcodes(markdown, sourceDir string) string {
 		src := parts[1]
 		linesRange := parts[2]
 		lang := parts[3]
-		if lang == "" { lang = "text" }
-		
+		if lang == "" {
+			lang = "text"
+		}
+
 		var content []byte
 		var err error
 
@@ -71,18 +73,22 @@ func processShortcodes(markdown, sourceDir string) string {
 		if err != nil {
 			return fmt.Sprintf("> **Error including %s**: %v", src, err)
 		}
-		
+
 		finalContent := string(content)
 		if linesRange != "" {
 			lParts := strings.Split(linesRange, "-")
 			if len(lParts) == 2 {
 				start, _ := strconv.Atoi(lParts[0])
 				end, _ := strconv.Atoi(lParts[1])
-				
+
 				lines := strings.Split(finalContent, "\n")
 				// Validate bounds (1-based -> 0-based)
-				if start < 1 { start = 1 }
-				if end > len(lines) { end = len(lines) }
+				if start < 1 {
+					start = 1
+				}
+				if end > len(lines) {
+					end = len(lines)
+				}
 				if start <= end {
 					finalContent = strings.Join(lines[start-1:end], "\n")
 				}
@@ -136,34 +142,34 @@ func processShortcodes(markdown, sourceDir string) string {
 	markdown = reFig.ReplaceAllStringFunc(markdown, func(match string) string {
 		// Parse attributes manually for flexibility
 		content := reFig.FindStringSubmatch(match)[1]
-		
+
 		reSrc := regexp.MustCompile(`src="([^"]+)"`)
 		reCap := regexp.MustCompile(`caption="([^"]+)"`)
 		reWidth := regexp.MustCompile(`width="([^"]+)"`)
-		
+
 		srcMatch := reSrc.FindStringSubmatch(content)
 		if srcMatch == nil {
 			return match // Invalid, no src
 		}
 		src := srcMatch[1]
-		
+
 		caption := ""
 		capMatch := reCap.FindStringSubmatch(content)
 		if capMatch != nil {
 			caption = capMatch[1]
 		}
-		
+
 		width := ""
 		widthMatch := reWidth.FindStringSubmatch(content)
 		if widthMatch != nil {
 			width = widthMatch[1] // e.g. "500px" or "50%"
 		}
-		
+
 		var figcaptionHTML string
 		if caption != "" {
 			figcaptionHTML = fmt.Sprintf("<figcaption>%s</figcaption>", caption)
 		}
-		
+
 		// Style for width
 		styleAttr := ""
 		if width != "" {
@@ -186,18 +192,18 @@ func processShortcodes(markdown, sourceDir string) string {
 					imgWidth := cfg.Width
 					ext := filepath.Ext(src)
 					base := strings.TrimSuffix(src, ext)
-					
+
 					lowerExt := strings.ToLower(ext)
 					if lowerExt == ".jpg" || lowerExt == ".jpeg" || lowerExt == ".png" {
 						var sources []string
 						breakpoints := []int{480, 800, 1200}
-						
+
 						for _, bp := range breakpoints {
 							if imgWidth >= bp {
 								sources = append(sources, fmt.Sprintf("%s-%dw%s %dw", base, bp, ext, bp))
 							}
 						}
-						
+
 						if len(sources) > 0 {
 							srcset := strings.Join(sources, ", ")
 							sizes := "(max-width: 480px) 100vw, (max-width: 800px) 100vw, 100vw"
@@ -208,7 +214,7 @@ func processShortcodes(markdown, sourceDir string) string {
 				}
 			}
 		}
-		
+
 		// Fallback
 		return fmt.Sprintf(`<figure><img src="%s" alt="%s"%s>%s</figure>`, src, caption, styleAttr, figcaptionHTML)
 	})

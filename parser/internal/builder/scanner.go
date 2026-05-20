@@ -14,7 +14,7 @@ import (
 
 func ScanCollections(sourceDir string, includeDrafts bool) (map[string][]models.ArticleMeta, error) {
 	collections := make(map[string][]models.ArticleMeta)
-	
+
 	entries, err := os.ReadDir(sourceDir)
 	if err != nil {
 		return nil, err
@@ -63,7 +63,7 @@ func scanDirForMarkdown(dirPath, collectionName string, includeDrafts bool) ([]m
 				continue
 			}
 			fm, _ := ParseFrontMatter(content)
-			
+
 			if fm.Hidden {
 				continue
 			}
@@ -78,12 +78,12 @@ func scanDirForMarkdown(dirPath, collectionName string, includeDrafts bool) ([]m
 				Date:     fm.Date,
 				Tags:     fm.Tags,
 				// URL is relative to website root, e.g. "blog/post.html"
-				URL:      collectionName + "/" + strings.TrimSuffix(entry.Name(), ".md") + ".html",
-				Hidden:   fm.Hidden,
-				Draft:    fm.Draft,
+				URL:         collectionName + "/" + strings.TrimSuffix(entry.Name(), ".md") + ".html",
+				Hidden:      fm.Hidden,
+				Draft:       fm.Draft,
 				Description: fm.Description,
 				SourcePath:  absPath,
-                Author:      fm.Author,
+				Author:      fm.Author,
 			})
 		}
 	}
@@ -91,13 +91,13 @@ func scanDirForMarkdown(dirPath, collectionName string, includeDrafts bool) ([]m
 }
 
 func parseFrontMatter(content []byte) (models.FrontMatter, string) {
-    return ParseFrontMatter(content)
+	return ParseFrontMatter(content)
 }
 
 func ParseFrontMatter(content []byte) (models.FrontMatter, string) {
 	strContent := string(content)
 	var fm models.FrontMatter
-	
+
 	if strings.HasPrefix(strContent, "---") {
 		parts := strings.SplitN(strContent, "---", 3)
 		if len(parts) == 3 {
@@ -112,7 +112,7 @@ func ParseFrontMatter(content []byte) (models.FrontMatter, string) {
 
 func ScanPagesAndCollections(sourceDir string, collections map[string][]models.ArticleMeta) ([]models.MenuItem, error) {
 	var menu []models.MenuItem
-	
+
 	// Scan root directory for MD files
 	entries, err := os.ReadDir(sourceDir)
 	if err != nil {
@@ -127,35 +127,35 @@ func ScanPagesAndCollections(sourceDir string, collections map[string][]models.A
 				continue
 			}
 			fm, _ := ParseFrontMatter(content)
-			
+
 			if fm.Hidden {
 				continue
 			}
 
-            // Determine Label
-            label := fm.MenuLabel
-            if label == "" {
-                // Special case for index.md
-                if entry.Name() == "index.md" {
-                    label = "Home"
-                } else {
-                    // Title Case filename
-                    base := strings.TrimSuffix(entry.Name(), ".md")
-                    label = strings.Title(base)
-                }
-            }
+			// Determine Label
+			label := fm.MenuLabel
+			if label == "" {
+				// Special case for index.md
+				if entry.Name() == "index.md" {
+					label = "Home"
+				} else {
+					// Title Case filename
+					base := strings.TrimSuffix(entry.Name(), ".md")
+					label = strings.Title(base)
+				}
+			}
 
-            // Determine URL
-            url := strings.TrimSuffix(entry.Name(), ".md") + ".html"
-            
-            // Determine Order
-            order := fm.MenuOrder
-            
-            menu = append(menu, models.MenuItem{
-                Title: label,
-                URL:   url,
-                Order: order,
-            })
+			// Determine URL
+			url := strings.TrimSuffix(entry.Name(), ".md") + ".html"
+
+			// Determine Order
+			order := fm.MenuOrder
+
+			menu = append(menu, models.MenuItem{
+				Title: label,
+				URL:   url,
+				Order: order,
+			})
 		}
 	}
 
@@ -164,18 +164,18 @@ func ScanPagesAndCollections(sourceDir string, collections map[string][]models.A
 		title := strings.Title(name)
 		menu = append(menu, models.MenuItem{
 			Title: title,
-			URL:   name + ".html", 
+			URL:   name + ".html",
 			Order: 99, // User specified default high order for collections
 		})
 	}
-    
-    // Sort Menu
-    sort.Slice(menu, func(i, j int) bool {
-        if menu[i].Order != menu[j].Order {
-            return menu[i].Order < menu[j].Order
-        }
-        return menu[i].Title < menu[j].Title
-    })
+
+	// Sort Menu
+	sort.Slice(menu, func(i, j int) bool {
+		if menu[i].Order != menu[j].Order {
+			return menu[i].Order < menu[j].Order
+		}
+		return menu[i].Title < menu[j].Title
+	})
 
 	return menu, nil
 }

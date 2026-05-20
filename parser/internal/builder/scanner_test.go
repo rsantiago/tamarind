@@ -59,7 +59,7 @@ Content`
 	if err != nil {
 		t.Fatalf("ScanCollections failed: %v", err)
 	}
-	
+
 	items, ok := collections["articles"]
 	if !ok {
 		t.Fatalf("Expected 'articles' collection not found")
@@ -81,7 +81,7 @@ Content`
 	if err != nil {
 		t.Fatalf("ScanCollections failed: %v", err)
 	}
-	
+
 	itemsDrafts, ok := collectionsDrafts["articles"]
 	if !ok {
 		t.Fatalf("Expected 'articles' collection not found")

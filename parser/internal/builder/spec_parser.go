@@ -11,10 +11,10 @@ import (
 // Requirement represents a single testable requirement from THEME_SPEC.md
 type Requirement struct {
 	Name        string `yaml:"name"`
-	Type        string `yaml:"type"`        // "css-variable", "css-selector", "media-query"
-	Scope       string `yaml:"scope"`       // ":root", "global", "@media"
+	Type        string `yaml:"type"`  // "css-variable", "css-selector", "media-query"
+	Scope       string `yaml:"scope"` // ":root", "global", "@media"
 	Required    bool   `yaml:"required"`
-	Category    string `yaml:"-"`           // Set from parent block
+	Category    string `yaml:"-"` // Set from parent block
 	Description string `yaml:"description"`
 }
 

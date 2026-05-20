@@ -11,11 +11,11 @@ import (
 
 // ThemeReport holds the verification results for a single theme.
 type ThemeReport struct {
-	Name       string
-	Passed     []Requirement
-	Failed     []Requirement
-	TotalReq   int
-	PassedReq  int
+	Name      string
+	Passed    []Requirement
+	Failed    []Requirement
+	TotalReq  int
+	PassedReq int
 }
 
 // GenerateComplianceReport runs the verifier against all themes and writes

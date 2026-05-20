@@ -1,4 +1,4 @@
-/* Theme: Canvas (Notion Style Workspace) */
+/* Theme: Canvas (Clean Workspace Style) */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
@@ -9,7 +9,7 @@
     --text-color: #37352f;
     --text-secondary: #9a9a97;
     --primary-color: #eb5757;
-    /* Notion often uses soft red/orange or just black for main actions */
+    /* Theme uses soft red/orange or just black for main actions */
     --border-color: #ededed;
     --card-bg: #ffffff;
     --hover-bg: #efefef;

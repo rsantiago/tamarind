@@ -36,7 +36,7 @@ func LoadDataFiles(sourceDir string) (map[string]interface{}, error) {
 		ext := strings.ToLower(filepath.Ext(name))
 		baseName := strings.TrimSuffix(name, ext)
 		// Use filename as key directly (e.g. "authors" -> "authors")
-		key := baseName 
+		key := baseName
 
 		filePath := filepath.Join(dataDir, name)
 		content, err := os.ReadFile(filePath)

@@ -26,7 +26,7 @@ func TestOptimizeImage(t *testing.T) {
 	// We want to verify it scales down to 1200, 800, 480.
 	imgName := "test-image.jpg"
 	srcPath := filepath.Join(srcDir, imgName)
-	
+
 	// Create a red image
 	img := image.NewRGBA(image.Rect(0, 0, 2000, 1000))
 	for y := 0; y < 1000; y++ {
@@ -50,13 +50,13 @@ func TestOptimizeImage(t *testing.T) {
 
 	// 4. Verify Outputs
 	expectedWidths := []int{480, 800, 1200}
-	
+
 	for _, w := range expectedWidths {
 		variantName := "test-image-" + "480w" + ".jpg" // wait, logic is "%s-%dw%s"
 		// Need to match exact format from implementation
 		// newFileName := fmt.Sprintf("%s-%dw%s", baseName, bp, ext)
 		// ext includes dot.
-		
+
 		variantName = "test-image-" + keyStr(w) + "w.jpg"
 		variantPath := filepath.Join(destDir, variantName)
 
@@ -81,7 +81,7 @@ func TestOptimizeImage(t *testing.T) {
 		if cfg.Width != w {
 			t.Errorf("Variant %s: expected width %d, got %d", variantName, w, cfg.Width)
 		}
-		
+
 		// Expected Height: 2000x1000 (2:1 ratio) => 480 -> 240
 		expectedHeight := w / 2
 		if cfg.Height != expectedHeight {
@@ -90,12 +90,18 @@ func TestOptimizeImage(t *testing.T) {
 	}
 }
 
-// Helper to convert int to string manually to avoid import fmt if not needed, 
+// Helper to convert int to string manually to avoid import fmt if not needed,
 // strictly speaking fmt is fine in tests.
 func keyStr(i int) string {
 	// Start basic
-	if i == 480 { return "480" }
-	if i == 800 { return "800" }
-	if i == 1200 { return "1200" }
+	if i == 480 {
+		return "480"
+	}
+	if i == 800 {
+		return "800"
+	}
+	if i == 1200 {
+		return "1200"
+	}
 	return ""
 }

@@ -34,9 +34,9 @@ func Start(port string, webDir string, liveReload bool) error {
 
 			clientChan := make(chan bool)
 			clients = append(clients, clientChan)
-			
+
 			notify := w.(http.CloseNotifier).CloseNotify()
-			
+
 			go func() {
 				<-notify
 				// Remove client (simple leak for now, proper map needed for production but fine for local tool)
@@ -60,7 +60,7 @@ func KillPort(port string) {
 	// Try to kill process on port using fuser (common on Linux)
 	cmd := exec.Command("fuser", "-k", port+"/tcp")
 	cmd.Run() // Ignore error, it just means no process was found or fuser isn't installed
-    
-    // Give it a moment to release the port
-    time.Sleep(500 * time.Millisecond)
+
+	// Give it a moment to release the port
+	time.Sleep(500 * time.Millisecond)
 }

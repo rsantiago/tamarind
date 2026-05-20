@@ -10,8 +10,8 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/yuin/goldmark"
 	"github.com/rsantiago/tamarind/parser/internal/models"
+	"github.com/yuin/goldmark"
 )
 
 const LiveReloadScript = `
@@ -79,7 +79,7 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 
 	relPath, _ := filepath.Rel(sourceDir, srcPath)
 	targetPath := filepath.Join(websiteDir, strings.TrimSuffix(relPath, ".md")+".html")
-	
+
 	depth := strings.Count(relPath, string(os.PathSeparator))
 	relPrefix := strings.Repeat("../", depth)
 
@@ -91,14 +91,14 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 	}
 
 	// Determine Author
-    author := fm.Author
-    if author == "" {
-    	if info, ok := siteData["info"].(map[string]interface{}); ok {
-    		if siteAuthor, ok := info["author"].(string); ok {
-    			author = siteAuthor
-    		}
-    	}
-    }
+	author := fm.Author
+	if author == "" {
+		if info, ok := siteData["info"].(map[string]interface{}); ok {
+			if siteAuthor, ok := info["author"].(string); ok {
+				author = siteAuthor
+			}
+		}
+	}
 
 	data := models.PageData{
 		Title:        fm.Title,
@@ -117,7 +117,7 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		CustomCSS:    customCSS,
 		Hidden:       fm.Hidden,
 		Data:         siteData,
-        Author:       author,
+		Author:       author,
 	}
 
 	templateName := "page.mdt"
@@ -154,7 +154,7 @@ func generateCollectionIndex(name string, items []models.ArticleMeta, tmpl *temp
 			pageSize = limit
 		}
 	}
-	
+
 	totalItems := len(items)
 	totalPages := (totalItems + pageSize - 1) / pageSize
 	if totalPages == 0 {
@@ -172,7 +172,7 @@ func generateCollectionIndex(name string, items []models.ArticleMeta, tmpl *temp
 		if end > totalItems {
 			end = totalItems
 		}
-		
+
 		var pageItems []models.ArticleMeta
 		if totalItems > 0 {
 			pageItems = items[start:end]
@@ -187,7 +187,7 @@ func generateCollectionIndex(name string, items []models.ArticleMeta, tmpl *temp
 		} else {
 			outputRelPath = fmt.Sprintf("%s-page-%d.html", name, page)
 		}
-		
+
 		targetPath := filepath.Join(websiteDir, outputRelPath)
 
 		// Paginator Logic
@@ -265,7 +265,7 @@ func generateCollectionIndex(name string, items []models.ArticleMeta, tmpl *temp
 		if err := os.WriteFile(targetPath, output.Bytes(), 0644); err != nil {
 			return err
 		}
-		
+
 		log.Printf("Generated Collection Page: %s", targetPath)
 	}
 	return nil

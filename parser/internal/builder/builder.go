@@ -9,12 +9,12 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/rsantiago/tamarind/parser/internal/models"
+	"github.com/rsantiago/tamarind/parser/internal/seo"
 	"github.com/yuin/goldmark"
 	"github.com/yuin/goldmark/extension"
 	"github.com/yuin/goldmark/parser"
 	"github.com/yuin/goldmark/renderer/html"
-	"github.com/rsantiago/tamarind/parser/internal/models"
-	"github.com/rsantiago/tamarind/parser/internal/seo"
 )
 
 // Build generates the static website
@@ -31,18 +31,18 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 			return strings.ToLower(strings.ReplaceAll(s, " ", "-"))
 		},
 	}
-	
+
 	tmpl := template.New("").Funcs(funcMap)
-	
+
 	// Load Theme Templates AND Shared Templates
 	// Note: We need to parse them cumulatively.
-	
+
 	// First, parse theme templates
 	themeFiles, err := filepath.Glob(filepath.Join(templateDir, "*.mdt"))
 	if err != nil {
 		return fmt.Errorf("failed to list theme templates: %w", err)
 	}
-	
+
 	// Second, parse shared templates
 	// Assuming templateDir is ".../themes/blue", we go up to ".../themes" then "shared"
 	baseTemplateDir := filepath.Dir(templateDir) // parser/assets/templates
@@ -52,9 +52,9 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 		// It's okay if shared doesn't exist? Maybe stricter is better.
 		// For now log warning or ignore.
 	}
-	
+
 	allFiles := append(themeFiles, sharedFiles...)
-	
+
 	if len(allFiles) > 0 {
 		_, err = tmpl.ParseFiles(allFiles...)
 		if err != nil {
@@ -77,7 +77,7 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 
 	var articles []models.ArticleMeta
 	var tagsMap = make(map[string][]models.ArticleMeta)
-	
+
 	// Collect Site Name from config or default
 	siteName := "Tamarind"
 	if val, ok := themeConfig["site_name"]; ok {
@@ -105,18 +105,18 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 	if err != nil {
 		return fmt.Errorf("failed to scan content: %w", err)
 	}
-    
-    // 3b. Generate Dynamic Menu (After scanning collections so we know them)
-    menu, err := ScanPagesAndCollections(sourceDir, collections)
-    if err != nil {
-        log.Printf("Warning: Failed to scan menu: %v", err)
-        // Fallback? nil is handled by templates usually (empty menu)
-    }
+
+	// 3b. Generate Dynamic Menu (After scanning collections so we know them)
+	menu, err := ScanPagesAndCollections(sourceDir, collections)
+	if err != nil {
+		log.Printf("Warning: Failed to scan menu: %v", err)
+		// Fallback? nil is handled by templates usually (empty menu)
+	}
 
 	// Flatten collections into articles list, build tags map, and generate INDICES
 	for name, items := range collections {
 		articles = append(articles, items...)
-		
+
 		for _, article := range items {
 			for _, tag := range article.Tags {
 				t := strings.ToLower(tag)
@@ -135,29 +135,31 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 		return articles[i].Date > articles[j].Date
 	})
 
-
-
 	// Adjust Menu URLs based on context? No, they are relative from root.
 	// Wait, relPrefix handles it.
 
 	// Re-walk to generate pages injecting articles list
 	err = filepath.Walk(sourceDir, func(path string, info os.FileInfo, err error) error {
-		if err != nil { return err }
-		if info.IsDir() || filepath.Ext(path) != ".md" { return nil }
-		
+		if err != nil {
+			return err
+		}
+		if info.IsDir() || filepath.Ext(path) != ".md" {
+			return nil
+		}
+
 		relPath, _ := filepath.Rel(sourceDir, path)
-		if strings.HasPrefix(relPath, ".") { return nil }
-		
+		if strings.HasPrefix(relPath, ".") {
+			return nil
+		}
+
 		// If generating docs index or similar, we might want a subset of articles?
 		// Currently passing all articles.
-		
+
 		return generatePage(path, sourceDir, websiteDir, md, tmpl, articles, menu, siteName, baseURL, template.CSS(""), siteData, liveReload)
 	})
 	if err != nil {
 		return fmt.Errorf("failed to generate pages: %w", err)
 	}
-
-
 
 	// Generate Tag Pages
 	if err := os.MkdirAll(filepath.Join(websiteDir, "tags"), 0755); err != nil {
@@ -168,7 +170,7 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 		sort.Slice(taggedArticles, func(i, j int) bool {
 			return taggedArticles[i].Date > taggedArticles[j].Date
 		})
-		
+
 		if err := generateCollectionIndex("tags/"+tag, taggedArticles, tmpl, menu, siteName, baseURL, websiteDir, "", siteData, themeConfig, liveReload); err != nil {
 			return fmt.Errorf("failed to generate tag page %s: %w", tag, err)
 		}
@@ -195,19 +197,19 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 	// We need to re-scan or track them.
 	// For now, let's manually add the important collection pages we just built.
 	var generatedPages []models.PageData
-	
+
 	// Articles Index
 	generatedPages = append(generatedPages, models.PageData{
-		Title: "Articles",
-		Description: "Index of all articles.",
+		Title:        "Articles",
+		Description:  "Index of all articles.",
 		CanonicalURL: "articles.html",
 	})
-	
+
 	// Add Tag Pages
 	for tag := range tagsMap {
 		generatedPages = append(generatedPages, models.PageData{
-			Title: "Tag: " + tag,
-			Description: "Articles tagged with " + tag,
+			Title:        "Tag: " + tag,
+			Description:  "Articles tagged with " + tag,
 			CanonicalURL: "tags/" + tag + ".html",
 		})
 	}
@@ -228,10 +230,10 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 	if val, ok := themeConfig["site_description"]; ok {
 		siteDescription = val
 	}
-    
-    // Attempt to read description from index.md (Re-using logic or just reading it again)
-    // We already read index.md at the start of Build function, but we didn't store the description in a variable accessible here.
-    // Let's read it again for simplicity/local scoping.
+
+	// Attempt to read description from index.md (Re-using logic or just reading it again)
+	// We already read index.md at the start of Build function, but we didn't store the description in a variable accessible here.
+	// Let's read it again for simplicity/local scoping.
 	if content, err := os.ReadFile(filepath.Join(sourceDir, "index.md")); err == nil {
 		fm, _ := ParseFrontMatter(content)
 		if fm.Description != "" {
@@ -244,5 +246,3 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 
 	return nil
 }
-
-

@@ -62,7 +62,7 @@ func generateLLMsTxt(websiteDir string, articles []models.ArticleMeta, pages []m
 
 	sb.WriteString("# Site Context\n")
 	sb.WriteString(fmt.Sprintf("Base URL: %s\n\n", baseURL))
-	
+
 	sb.WriteString("## Core Pages\n")
 	// For "generatedPages" passed from builder, we need to handle their URLs.
 	// Since PageData struct doesn't have a generic "URL" field for itself (it has RelPrefix, CanonicalURL, etc which are context dependent),
@@ -73,13 +73,13 @@ func generateLLMsTxt(websiteDir string, articles []models.ArticleMeta, pages []m
 		// If CanonicalURL is not set (it usually isn't unless explicitly set), try to infer or skip.
 		// In builder.go we will set CanonicalURL to the relative path e.g. "articles.html" or "tags/foo.html"
 		if url == "" {
-			continue 
+			continue
 		}
-		
+
 		fullURL := baseURL + url
 		sb.WriteString(fmt.Sprintf("- [%s](%s): %s\n", p.Title, fullURL, p.Description))
 	}
-	
+
 	sb.WriteString("\n## Articles\n")
 	for _, a := range articles {
 		if a.Hidden {
@@ -92,7 +92,7 @@ func generateLLMsTxt(websiteDir string, articles []models.ArticleMeta, pages []m
 		}
 		sb.WriteString(fmt.Sprintf("- [%s](%s): %s\n", a.Title, url, desc))
 	}
-	
+
 	return os.WriteFile(filepath.Join(websiteDir, "llms.txt"), []byte(sb.String()), 0644)
 }
 
@@ -106,9 +106,8 @@ func generateLLMsFullTxt(websiteDir string, articles []models.ArticleMeta, pages
 		if a.Hidden {
 			continue
 		}
-		
+
 		sb.WriteString(fmt.Sprintf("---\nTitle: %s\nDate: %s\nURL: %s\n---\n\n", a.Title, a.Date, a.URL))
-		
 
 		// Read source content
 		if a.SourcePath != "" {
@@ -123,6 +122,6 @@ func generateLLMsFullTxt(websiteDir string, articles []models.ArticleMeta, pages
 			}
 		}
 	}
-	
+
 	return os.WriteFile(filepath.Join(websiteDir, "llms_full.txt"), []byte(sb.String()), 0644)
 }

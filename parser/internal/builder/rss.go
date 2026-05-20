@@ -3,10 +3,10 @@ package builder
 import (
 	"encoding/xml"
 	"fmt"
+	"github.com/rsantiago/tamarind/parser/internal/models"
 	"os"
 	"path/filepath"
 	"time"
-	"github.com/rsantiago/tamarind/parser/internal/models"
 )
 
 type RSS struct {
@@ -79,9 +79,9 @@ func parseDate(dateStr string) string {
 	layout := "2006-01-02"
 	t, err := time.Parse(layout, dateStr)
 	if err != nil {
-		// If fails, try to return as is or current time? 
+		// If fails, try to return as is or current time?
 		// Ideally valid RSS date: RFC1123Z
-		return dateStr 
+		return dateStr
 	}
 	return t.Format(time.RFC1123Z)
 }

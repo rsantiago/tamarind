@@ -36,7 +36,7 @@ func GenerateSEOFiles(websiteDir, baseURL string) error {
 			rel, _ := filepath.Rel(websiteDir, path)
 			// Normalize path separators to forward slashes for URLs
 			rel = filepath.ToSlash(rel)
-			
+
 			// Handle index.html nicely (e.g. root)
 			if rel == "index.html" {
 				urls = append(urls, baseURL+"/")

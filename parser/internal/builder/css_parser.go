@@ -62,11 +62,11 @@ func extractSelectors(css string, analysis *CSSAnalysis) {
 	// Match class selectors safely (starts with dot, then letter, then words/dashes).
 	// This avoids catastrophic backtracking on large strings without brackets.
 	selectorPattern := regexp.MustCompile(`\.([a-zA-Z][\w-]*)`)
-	
+
 	matches := selectorPattern.FindAllStringSubmatch(cleaned, -1)
 	for _, m := range matches {
 		if len(m) > 1 {
-			analysis.Selectors["." + m[1]] = true
+			analysis.Selectors["."+m[1]] = true
 		}
 	}
 
@@ -78,7 +78,7 @@ func extractSelectors(css string, analysis *CSSAnalysis) {
 			selectorPart = selectorPart[idx+1:]
 		}
 		selectorPart = strings.TrimSpace(selectorPart)
-		
+
 		// Helper matching word boundaries
 		matchWord := func(s, word string) bool {
 			r := regexp.MustCompile(`\b` + regexp.QuoteMeta(word) + `\b`)

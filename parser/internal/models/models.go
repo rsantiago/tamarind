@@ -13,23 +13,23 @@ type PageData struct {
 	Articles     []ArticleMeta
 	Menu         []MenuItem
 	SiteName     string
-	BaseURL      string // SEO
-	CanonicalURL string // SEO
-	Image        string // SEO (OG Image)
+	BaseURL      string       // SEO
+	CanonicalURL string       // SEO
+	Image        string       // SEO (OG Image)
 	CustomCSS    template.CSS // Config
 	Paginator    Paginator
 	Hidden       bool
 	Data         map[string]interface{} // Data Files Support
-    Author       string // Page-specific or Global Author
+	Author       string                 // Page-specific or Global Author
 }
 
 type Paginator struct {
-	CurrentPage int
-	TotalPages  int
-	HasPrev     bool
-	HasNext     bool
-	PrevURL     string
-	NextURL     string
+	CurrentPage  int
+	TotalPages   int
+	HasPrev      bool
+	HasNext      bool
+	PrevURL      string
+	NextURL      string
 	VisiblePages []PageLink
 }
 
@@ -40,16 +40,16 @@ type PageLink struct {
 }
 
 type ArticleMeta struct {
-	Title    string
-	Subtitle string
-	Date     string
-	URL      string
-	Tags     []string
-	Hidden   bool
-	Draft    bool // New Draft Field
+	Title       string
+	Subtitle    string
+	Date        string
+	URL         string
+	Tags        []string
+	Hidden      bool
+	Draft       bool // New Draft Field
 	Description string
 	SourcePath  string
-    Author      string // Metadata
+	Author      string // Metadata
 }
 
 type MenuItem struct {
@@ -64,11 +64,11 @@ type FrontMatter struct {
 	Date        string   `yaml:"date"`
 	Tags        []string `yaml:"tags"`
 	Description string   `yaml:"description"` // SEO
-    Image       string   `yaml:"image"`       // SEO
+	Image       string   `yaml:"image"`       // SEO
 	Hidden      bool     `yaml:"hidden"`
-	Draft       bool     `yaml:"draft"`       // New Draft Field
-	SiteName    string   `yaml:"site_name"`   // Override Site Name
-	MenuLabel   string   `yaml:"menu_label"`  // Custom Menu Title
-	MenuOrder   int      `yaml:"menu_order"`  // Menu Sorting Order
-    Author      string   `yaml:"author"`      // Override Author
+	Draft       bool     `yaml:"draft"`      // New Draft Field
+	SiteName    string   `yaml:"site_name"`  // Override Site Name
+	MenuLabel   string   `yaml:"menu_label"` // Custom Menu Title
+	MenuOrder   int      `yaml:"menu_order"` // Menu Sorting Order
+	Author      string   `yaml:"author"`     // Override Author
 }

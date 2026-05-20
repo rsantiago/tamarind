@@ -84,7 +84,7 @@ func copySiteResources(sourceDir, websiteDir string) error {
 			// Log warning but don't fail, maybe just not an image we can handle or read error
 			// fmt.Printf("Warning: Failed to optimize image %s: %v\n", relPath, err)
 		}
-		
+
 		return nil
 	})
 }

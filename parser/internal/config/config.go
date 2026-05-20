@@ -23,7 +23,7 @@ func CreateDefaultConfig() error {
 		return nil
 	}
 
-    // We write the raw string to ensure it is commented out by default
+	// We write the raw string to ensure it is commented out by default
 	defaultConfigContent := `# Tamarind Configuration File
 # ------------------------
 # This file allows you to override the default theme settings.

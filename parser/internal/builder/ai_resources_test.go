@@ -39,9 +39,9 @@ func TestGenerateAIResources(t *testing.T) {
 			SourcePath:  sourceFile, // Reuse same source for simplicity
 		},
 	}
-	
+
 	// Mock pages (Tags are currently not passed as Models to this function, but Pages are)
-	// We need to verify if Tags pages should be in llms.txt. 
+	// We need to verify if Tags pages should be in llms.txt.
 	// Usually LLMs prefer content, but navigation nodes (tags) are useful.
 	pages := []models.PageData{
 		{
@@ -75,7 +75,7 @@ func TestGenerateAIResources(t *testing.T) {
 		t.Fatalf("Failed to read llms.txt: %v", err)
 	}
 	llmsContent := string(llmsBytes)
-	
+
 	expectedURLs := []string{
 		"https://example.com/articles/test-1.html",
 		"https://example.com/articles/test-2.html",
@@ -85,7 +85,7 @@ func TestGenerateAIResources(t *testing.T) {
 			t.Errorf("llms.txt missing URL: %s", url)
 		}
 	}
-	
+
 	if !strings.Contains(llmsContent, "Description 1") {
 		t.Errorf("llms.txt missing descriptions")
 	}
@@ -96,11 +96,11 @@ func TestGenerateAIResources(t *testing.T) {
 		t.Fatalf("Failed to read llms_full.txt: %v", err)
 	}
 	fullContent := string(fullBytes)
-	
+
 	if !strings.Contains(fullContent, "Title: Test Article 1") {
 		t.Errorf("llms_full.txt missing article title metadata")
 	}
-	
+
 	// Critical Check: Does it contain the Body Content?
 	if !strings.Contains(fullContent, sourceContent) {
 		t.Errorf("llms_full.txt missing raw markdown body content. Got:\n%s", fullContent)

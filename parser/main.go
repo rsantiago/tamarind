@@ -10,7 +10,7 @@ import (
 	"strings"
 	"time"
 
-    "github.com/fsnotify/fsnotify"
+	"github.com/fsnotify/fsnotify"
 	"github.com/rsantiago/tamarind/parser/internal/builder"
 	"github.com/rsantiago/tamarind/parser/internal/config"
 	"github.com/rsantiago/tamarind/parser/internal/server"
@@ -59,7 +59,6 @@ func main() {
 		drafts := buildCmd.Bool("drafts", false, "Include draft content in build")
 		buildCmd.Parse(os.Args[2:])
 
-
 		if *theme == "" {
 			fmt.Println("Error: You must specify a theme to build the website.")
 			fmt.Println("Usage: tamarind build -theme <name> [-drafts]")
@@ -78,7 +77,7 @@ func main() {
 		theme := serveCmd.String("theme", "", "Theme to use (required if watch is enabled)")
 		sourcePath := serveCmd.String("source", DefaultStructureDir, "Path to the source directory")
 		displayDrafts := serveCmd.Bool("drafts", false, "Include draft content in build (only if watch is enabled)")
-		
+
 		serveCmd.Parse(os.Args[2:])
 
 		if *watch {
@@ -170,7 +169,7 @@ func runBuild(theme, sourcePath, baseURL string, includeDrafts bool, liveReload 
 
 	// 3. Extract Theme Templates
 	themeTmpDir := filepath.Join(masterTmpDir, theme)
-	
+
 	assetPath := filepath.Join("assets", "templates", theme)
 	// Check if theme exists in embedded assets
 	if _, err := embeddedAssets.ReadDir(assetPath); err != nil {
@@ -225,7 +224,7 @@ func runServe(port string, watch bool, theme string, sourcePath string, displayD
 		if theme == "" {
 			return fmt.Errorf("theme is required for live reloading")
 		}
-		
+
 		// Initial Build
 		fmt.Println("Performing initial build...")
 		if err := runBuild(theme, sourcePath, "http://localhost:"+port, displayDrafts, true); err != nil {
@@ -245,7 +244,7 @@ func runServe(port string, watch bool, theme string, sourcePath string, displayD
 			if err := watcher.Add(sourcePath); err != nil {
 				log.Printf("Warning: failed to watch source path: %v", err)
 			}
-			
+
 			// Recursively watch subdirectories
 			filepath.Walk(sourcePath, func(path string, info os.FileInfo, err error) error {
 				if info.IsDir() {
@@ -253,7 +252,7 @@ func runServe(port string, watch bool, theme string, sourcePath string, displayD
 				}
 				return nil
 			})
-			
+
 			log.Println("Watching for file changes...")
 			for {
 				select {
@@ -263,10 +262,10 @@ func runServe(port string, watch bool, theme string, sourcePath string, displayD
 					}
 					if event.Op&fsnotify.Write == fsnotify.Write || event.Op&fsnotify.Create == fsnotify.Create || event.Op&fsnotify.Remove == fsnotify.Remove {
 						log.Printf("File modified: %s. Rebuilding...", event.Name)
-						
+
 						// Debounce
-						time.Sleep(100 * time.Millisecond) 
-						
+						time.Sleep(100 * time.Millisecond)
+
 						if err := runBuild(theme, sourcePath, "http://localhost:"+port, displayDrafts, true); err != nil {
 							log.Printf("Rebuild failed: %v", err)
 						} else {
@@ -282,7 +281,7 @@ func runServe(port string, watch bool, theme string, sourcePath string, displayD
 				}
 			}
 		}()
-		
+
 		return server.Start(port, WebsiteDir, true)
 	} else {
 		return server.Start(port, WebsiteDir, false)

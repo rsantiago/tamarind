@@ -1,7 +1,6 @@
 package utils
 
 import (
-
 	"io/fs"
 	"log"
 	"os"
@@ -15,10 +14,10 @@ func ExtractDir(srcFS fs.FS, srcPrefix, dstRoot string, force bool) error {
 		log.Printf("Directory %s already exists. Use --force to overwrite files.", dstRoot)
 	}
 
-    // Ensure root exists
-    if err := os.MkdirAll(dstRoot, 0755); err != nil {
-        return err
-    }
+	// Ensure root exists
+	if err := os.MkdirAll(dstRoot, 0755); err != nil {
+		return err
+	}
 
 	return fs.WalkDir(srcFS, srcPrefix, func(path string, d fs.DirEntry, err error) error {
 		if err != nil {

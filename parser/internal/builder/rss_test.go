@@ -2,10 +2,10 @@ package builder
 
 import (
 	"encoding/xml"
+	"github.com/rsantiago/tamarind/parser/internal/models"
 	"os"
 	"path/filepath"
 	"testing"
-	"github.com/rsantiago/tamarind/parser/internal/models"
 )
 
 func TestGenerateRSS(t *testing.T) {
@@ -26,10 +26,10 @@ func TestGenerateRSS(t *testing.T) {
 			Hidden:      false,
 		},
 		{
-			Title:       "Test Draft",
-			Date:        "2023-10-28",
-			URL:         "articles/draft.html",
-			Draft:       true,
+			Title: "Test Draft",
+			Date:  "2023-10-28",
+			URL:   "articles/draft.html",
+			Draft: true,
 		},
 	}
 

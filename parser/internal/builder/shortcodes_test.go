@@ -41,7 +41,7 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 
 	// Create test images with different sizes
 	// Breakpoints are 480, 800, 1200
-	
+
 	// 1. Small Image (300w) -> No breakpoints
 	if err := createTestImage(tmpDir, "small.png", 300, 300); err != nil {
 		t.Fatal(err)
@@ -63,10 +63,10 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 	}
 
 	tests := []struct {
-		name         string
-		input        string
-		expected     []string // substrings expected in output
-		notExpected  []string // substrings that should NOT be in output
+		name        string
+		input       string
+		expected    []string // substrings expected in output
+		notExpected []string // substrings that should NOT be in output
 	}{
 		{
 			name:  "Small Image (No Scaling)",
@@ -93,7 +93,7 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 			name:  "Large Image (1000px)",
 			input: `{{ figure src="large.png" caption="Large" }}`,
 			expected: []string{
-				`large-480w.png 480w`, 
+				`large-480w.png 480w`,
 				`large-800w.png 800w`,
 			},
 			notExpected: []string{
@@ -104,7 +104,7 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 			name:  "Huge Image (1500px)",
 			input: `{{ figure src="huge.png" caption="Huge" }}`,
 			expected: []string{
-				`huge-480w.png 480w`, 
+				`huge-480w.png 480w`,
 				`huge-800w.png 800w`,
 				`huge-1200w.png 1200w`,
 			},
@@ -115,7 +115,7 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 			expected: []string{
 				`<figure>`,
 				`<img src="medium.png"`,
-				`alt=""`, 
+				`alt=""`,
 			},
 		},
 		{
@@ -129,7 +129,7 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 			},
 		},
 		{
-			name: "File Not Found (Fallback)",
+			name:  "File Not Found (Fallback)",
 			input: `{{ figure src="missing.png" caption="Missing" }}`,
 			expected: []string{
 				`<img src="missing.png" alt="Missing">`,
@@ -139,7 +139,7 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 			},
 		},
 		{
-			name: "With Width",
+			name:  "With Width",
 			input: `{{ figure src="medium.png" width="50%" }}`,
 			expected: []string{
 				`style="width: 50%; margin: 0 auto; display: block;"`,
@@ -151,12 +151,12 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := processShortcodes(tt.input, tmpDir)
-			
+
 			// Handle "Small Image" specific logic check from earlier comment
-			// If 300px < 480px, loop produces 0 sources. 
+			// If 300px < 480px, loop produces 0 sources.
 			// Code: if len(sources) > 0 { return ... } return fallback.
 			// So small image should match Fallback format (no srcset).
-			
+
 			for _, exp := range tt.expected {
 				if !strings.Contains(got, exp) {
 					t.Errorf("[%s] Expected output to contain:\n%s\nGot:\n%s", tt.name, exp, got)

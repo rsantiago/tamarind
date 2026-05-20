@@ -48,7 +48,7 @@ bob:
 	if !ok {
 		t.Fatal("Expected 'authors' key from authors.yaml")
 	}
-	
+
 	authorsMap, ok := authors.(map[string]interface{})
 	if !ok {
 		t.Fatalf("Expected Authors to be map, got %T", authors)

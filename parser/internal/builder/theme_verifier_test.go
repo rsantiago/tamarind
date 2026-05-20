@@ -15,7 +15,7 @@ func getAssetsDir() string {
 	_, filename, _, _ := runtime.Caller(0)
 	// filename is .../parser/internal/builder/theme_verifier_test.go
 	// We need .../parser/assets/templates
-	builderDir := filepath.Dir(filename)       // .../parser/internal/builder
+	builderDir := filepath.Dir(filename)                // .../parser/internal/builder
 	parserRoot := filepath.Join(builderDir, "..", "..") // .../parser
 	return filepath.Join(parserRoot, "assets", "templates")
 }
