@@ -111,6 +111,7 @@ a:hover {
     align-items: center;
     gap: 8px;
     letter-spacing: -0.02em;
+    flex: 1;
 }
 
 .logo svg {
@@ -122,6 +123,7 @@ a:hover {
     gap: 20px;
     list-style: none;
     align-items: center;
+    justify-content: center;
 }
 
 .nav-links a {
@@ -142,6 +144,8 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 16px;
+    flex: 1;
+    justify-content: flex-end;
 }
 
 /* Layout */
@@ -778,6 +782,15 @@ p code, li code {
         flex-direction: column;
         gap: 16px;
         padding: 16px 24px;
+    }
+    
+    .logo {
+        flex: none;
+    }
+    
+    .header-actions {
+        flex: none;
+        justify-content: center;
     }
     
     .site-header {

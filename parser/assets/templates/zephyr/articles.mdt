@@ -31,12 +31,12 @@
                 </svg>
                 {{ .SiteName }}
             </a>
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
             <div class="header-actions">
-                <ul class="nav-links">
-                    {{ range .Menu }}
-                    <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
-                    {{ end }}
-                </ul>
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                     <span class="theme-toggle-icon sun">☀️</span>
                     <span class="theme-toggle-icon moon">🌙</span>
@@ -89,19 +89,8 @@
     </section>
 
     <main class="layout-container" id="feed">
-        <!-- Sidebar Navigation -->
-        <aside class="sidebar">
-            <h3>Explore</h3>
-            <nav class="sidebar-nav">
-                <a href="{{ .RelPrefix }}index.html" class="active">All Stories</a>
-                {{ range .Menu }}
-                <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
-                {{ end }}
-            </nav>
-        </aside>
-
         <!-- Articles Grid Feed -->
-        <section style="flex: 1; min-width: 0;">
+        <section style="width: 100%;">
             <div class="grid-feed">
                 {{ range .Articles }}
                 <div class="grid-item">
