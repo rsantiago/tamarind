@@ -387,13 +387,13 @@ main {
 }
 
 .article-content {
-    font-size: 1.1rem;
+    font-size: 1.125rem;
     line-height: 1.75;
 }
 
 .article-content p {
-    font-weight: 300;
-    color: var(--text-secondary);
+    font-weight: 400;
+    color: var(--text-color);
     margin-bottom: 24px;
 }
 
@@ -425,8 +425,8 @@ main {
 }
 
 .article-content li {
-    font-weight: 300;
-    color: var(--text-secondary);
+    font-weight: 400;
+    color: var(--text-color);
     margin-bottom: 8px;
 }
 
