@@ -17,7 +17,7 @@
     --header-bg: rgba(255, 255, 255, 0.85); /* Translucent sticky header */
     --text-color: #374151;          /* Body gray 700 (premium slate matching hermes-agent.org) */
     --text-secondary: #4b5563;      /* Secondary gray 600 */
-    --heading-color: #1f2937;       /* Soft charcoal slate-black */
+    --heading-color: #334155;       /* Softer slate-700 to reduce harsh contrast */
     --border-color: #e5e7eb;        /* Slate border 200 */
     
     /* Typography */
@@ -45,7 +45,7 @@
     --header-bg: rgba(8, 11, 17, 0.85);
     --text-color: #e2e8f0;          /* Slate 200 */
     --text-secondary: #94a3b8;      /* Slate 400 */
-    --heading-color: #e2e8f0;       /* Soft slate off-white */
+    --heading-color: #cbd5e1;       /* Softer slate-300 to reduce harsh contrast */
     --border-color: #1e293b;        /* Slate 800 */
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
