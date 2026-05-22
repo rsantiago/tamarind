@@ -23,24 +23,18 @@
 
     <div class="layout-container">
 
-        <!-- Main Questions Feed -->
+        <!-- Main Articles Feed -->
         <main class="main-content">
             
             <!-- Page Header Bar -->
             <div style="margin-bottom: 24px;">
-                <h1 style="font-size: 24px; font-weight: 400; color: #232629; font-family: var(--font-heading);">All Questions</h1>
+                <h1 style="font-size: 24px; font-weight: 500; color: var(--text-color); font-family: var(--font-heading);">Documentation</h1>
             </div>
 
-            <!-- Question Sub-filters info -->
-            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
+            <!-- Articles count info -->
+            <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border-color); padding-bottom: 12px; margin-bottom: 16px;">
                 <div style="font-size: 15px; color: var(--text-secondary);">
-                    {{ if .Articles }}{{ len .Articles }}{{ else }}0{{ end }} questions
-                </div>
-                
-                <div class="button-group">
-                    <button class="btn btn-secondary btn-sm" style="border-radius: 3px; font-size: 12px;">Newest</button>
-                    <button class="btn btn-ghost btn-sm" style="border: 1px solid var(--border-color); border-radius: 3px; font-size: 12px;">Active</button>
-                    <button class="btn btn-ghost btn-sm" style="border: 1px solid var(--border-color); border-radius: 3px; font-size: 12px;">Unanswered</button>
+                    {{ if .Articles }}{{ len .Articles }}{{ else }}0{{ end }} articles
                 </div>
             </div>
 
@@ -48,7 +42,7 @@
                 <div class="post-list">
                     {{ range $index, $element := .Articles }}
                     <div class="question-row">
-                        <!-- Right main body excerpt -->
+                        <!-- Main body excerpt -->
                         <div class="question-content">
                             <h3 class="question-title">
                                 <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
@@ -56,7 +50,7 @@
                             {{ if .Description }}
                             <p class="question-excerpt">{{ .Description }}</p>
                             {{ else }}
-                            <p class="question-excerpt">Seeking advice on the best implementation patterns, code verification practices, and standard CSS rules inside Tamarind templates. Read the detailed description.</p>
+                            <p class="question-excerpt">Explore the full details and content of this technical document compiled using Tamarind.</p>
                             {{ end }}
                             
                             <div class="question-meta">
@@ -72,7 +66,7 @@
                                 </div>
                                 <div class="meta-author">
                                     <div class="author-avatar"></div>
-                                    <span>asked {{ .Date }} by <strong style="color: #0074cc;">{{ if .Author }}{{ .Author }}{{ else }}Tamarind Author{{ end }}</strong></span>
+                                    <span>published {{ .Date }} by <strong style="color: #0074cc;">{{ if .Author }}{{ .Author }}{{ else }}Tamarind Author{{ end }}</strong></span>
                                 </div>
                             </div>
                         </div>

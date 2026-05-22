@@ -11,10 +11,10 @@
     --background-color: #F2F2F7; /* Apple System Gray 6 */
     --header-bg: rgba(242, 242, 247, 0.8);
     --text-color: #1C1C1E;
-    --text-secondary: #8E8E93;
-    --primary-color: #32ADE6; /* Neon Teal / Cyan */
-    --primary-dark: #00A0D6;
-    --border-color: #E5E5EA;
+    --text-secondary: #4E4E52; /* Much higher contrast than #8E8E93 */
+    --primary-color: #0076A8; /* High legibility cyan blue */
+    --primary-dark: #005A82;
+    --border-color: #D1D1D6;
     --card-bg: #FFFFFF;
 
     /* Typography */
@@ -38,7 +38,7 @@
     --background-color: #000000;
     --header-bg: rgba(0, 0, 0, 0.8);
     --text-color: #F2F2F7;
-    --text-secondary: #98989D;
+    --text-secondary: #C7C7CC; /* Higher contrast than #98989D */
     --primary-color: #64D2FF;
     --border-color: #2C2C2E;
     --card-bg: #1C1C1E;
@@ -258,12 +258,12 @@ a:hover {
 .article-content h2 { font-size: 1.75rem; }
 .article-content h3 { font-size: 1.35rem; }
 
-.article-content p { margin-bottom: 1.5rem; color: var(--text-secondary); }
+.article-content p { margin-bottom: 1.5rem; color: var(--text-color); }
 
 .article-content ul, .article-content ol {
     margin-bottom: 1.5rem;
     padding-left: 24px;
-    color: var(--text-secondary);
+    color: var(--text-color);
 }
 
 .article-content blockquote {
@@ -429,5 +429,7 @@ a:hover {
     .grid-feed > .grid-item { grid-column: 1 / -1 !important; }
     .article-header { padding: 40px 24px; }
     .article-content { padding: 32px 24px; }
-    .nav-links { display: none; }
+    .site-header { height: auto; padding: 12px 0; }
+    .nav-container { flex-direction: column; gap: 12px; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 }

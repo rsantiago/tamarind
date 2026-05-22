@@ -95,3 +95,35 @@ func VerifyTheme(analysis *CSSAnalysis, requirements []Requirement) []string {
 
 	return failures
 }
+
+// VerifyResponsiveNavigation checks if primary navigation containers are hidden on mobile viewports.
+func VerifyResponsiveNavigation(analysis *CSSAnalysis) []string {
+	var failures []string
+
+	// Match hidden elements specifically (ignoring spacing)
+	navLinksHidden := regexp.MustCompile(`\.nav-links\s*\{\s*display\s*:\s*none`)
+	sidebarHidden  := regexp.MustCompile(`\.sidebar\s*\{\s*display\s*:\s*none`)
+
+	for _, block := range analysis.MediaBlocks {
+		cond := strings.ToLower(block.Condition)
+
+		// Target responsive mobile/tablet breakpoints
+		if strings.Contains(cond, "max-width") && (strings.Contains(cond, "768") || strings.Contains(cond, "600")) {
+			if navLinksHidden.MatchString(block.Content) {
+				failures = append(failures, fmt.Sprintf(
+					"[accessibility] Mobile navigation hidden in media query '%s'. The '.nav-links' element must remain visible and accessible on mobile.",
+					block.Condition,
+				))
+			}
+			if sidebarHidden.MatchString(block.Content) {
+				failures = append(failures, fmt.Sprintf(
+					"[accessibility] Sidebar hidden in media query '%s'. Sidebar contains primary navigation and must remain visible or render horizontally on mobile.",
+					block.Condition,
+				))
+			}
+		}
+	}
+
+	return failures
+}
+

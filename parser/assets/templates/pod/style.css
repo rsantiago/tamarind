@@ -57,7 +57,7 @@ body {
     color: var(--text-color);
     font-family: var(--font-body);
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.65;
     -webkit-font-smoothing: antialiased;
 }
 
@@ -246,11 +246,11 @@ a:hover {
 
 .article-content {
     font-size: 1.1rem;
-    line-height: 1.6;
+    line-height: 1.7;
     color: var(--text-secondary);
 }
 
-.article-content p { margin-bottom: 1.5em; }
+.article-content p { margin-bottom: 1.5rem; }
 
 .article-content h1, .article-content h2, .article-content h3 {
     font-family: var(--font-heading);
@@ -273,6 +273,38 @@ a:hover {
 .article-content a:hover {
     color: var(--primary-color);
 }
+
+.article-content ul,
+.article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+    color: var(--text-secondary);
+}
+
+.article-content li {
+    margin-bottom: 0.5rem;
+}
+
+.article-content ul ul,
+.article-content ol ul,
+.article-content ul ol,
+.article-content ol ol {
+    margin-top: 0.5rem;
+    margin-bottom: 0;
+    padding-left: 1.5rem;
+}
+
+.article-content blockquote {
+    border-left: 4px solid var(--primary-color);
+    background: var(--card-bg);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--text-color);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
 
 /* UI Spec */
 .btn {
@@ -337,7 +369,175 @@ a:hover {
 .terminal { background: #000; border-radius: var(--radius-sm); margin: 32px 0; overflow: hidden; }
 .terminal-header { background: #282828; padding: 8px 16px; display: flex; gap: 8px; }
 .terminal-header .dot { width: 12px; height: 12px; border-radius: 50%; background: #535353; }
+.terminal { background: #000; border-radius: var(--radius-sm); margin: 32px 0; overflow: hidden; }
+.terminal-header { background: #282828; padding: 8px 16px; display: flex; gap: 8px; }
+.terminal-header .dot { width: 12px; height: 12px; border-radius: 50%; background: #535353; }
 .terminal-content { padding: 24px; color: #1DB954; font-family: monospace; font-size: 0.95rem; overflow-x: auto; }
+
+/* Playlist Table & Podcast Banner Styling */
+.podcast-header-card {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 40px;
+    background: linear-gradient(180deg, var(--card-bg) 0%, rgba(24, 24, 24, 0.4) 100%);
+    border-radius: var(--radius-md);
+    margin-bottom: 40px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow);
+}
+
+[data-theme="light"] .podcast-header-card {
+    background: linear-gradient(180deg, var(--card-bg) 0%, rgba(248, 248, 248, 0.4) 100%);
+}
+
+.podcast-cover-large-wrapper {
+    width: 180px;
+    height: 180px;
+    background-color: var(--hover-bg);
+    border-radius: var(--radius-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+    flex-shrink: 0;
+}
+
+.podcast-cover-large-svg {
+    width: 72px;
+    height: 72px;
+}
+
+.podcast-meta-info {
+    flex: 1;
+}
+
+.podcast-type {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    display: inline-block;
+}
+
+.playlist-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.playlist-table th {
+    text-align: left;
+    padding: 12px 16px;
+    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.playlist-index {
+    width: 60px;
+    text-align: center;
+}
+
+.playlist-row {
+    border-bottom: 1px solid transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.playlist-row:hover {
+    background-color: var(--hover-bg);
+    border-radius: var(--radius-sm);
+}
+
+.playlist-row td {
+    padding: 16px 16px;
+    vertical-align: middle;
+}
+
+.playlist-row:hover .index-num {
+    display: none;
+}
+
+.playlist-row:hover .row-play-icon {
+    display: inline-block !important;
+    color: var(--primary-color);
+}
+
+.playlist-title-cell {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.playlist-cover-mock {
+    width: 40px;
+    height: 40px;
+    background-color: var(--hover-bg);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-secondary);
+    flex-shrink: 0;
+}
+
+.playlist-row:hover .playlist-cover-mock {
+    color: var(--primary-color);
+    background-color: var(--card-bg);
+}
+
+.playlist-track-play-svg {
+    width: 18px;
+    height: 18px;
+}
+
+.playlist-title-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.playlist-track-link {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--text-color) !important;
+}
+
+.playlist-track-link:hover {
+    text-decoration: underline !important;
+}
+
+.playlist-track-author {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 2px;
+}
+
+.playlist-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo-svg {
+    color: var(--primary-color);
+    width: 24px;
+    height: 24px;
+}
 
 .site-footer {
     text-align: center;
@@ -352,5 +552,10 @@ a:hover {
 @media (max-width: 768px) {
     .profile-header { flex-direction: column; align-items: flex-start; }
     .profile-pic-placeholder { width: 120px; height: 120px; }
-    .nav-links { display: none; }
+    .site-header { height: auto; padding: 12px 0; }
+    .nav-container { flex-direction: column; gap: 12px; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .podcast-header-card { flex-direction: column; align-items: flex-start; padding: 24px; gap: 20px; }
+    .podcast-cover-large-wrapper { width: 120px; height: 120px; }
+    .podcast-cover-large-svg { width: 48px; height: 48px; }
 }

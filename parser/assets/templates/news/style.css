@@ -450,6 +450,49 @@ a:hover {
 .terminal-header .dot { display: none; }
 .terminal-content { padding: 24px; overflow-x: auto; font-size: 0.9rem; }
 
+/* Story Cards for Editorial Listing separation */
+.story-card {
+    border-top: 3px solid var(--text-color);
+    padding-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    flex-direction: column;
+}
+
+.story-meta {
+    font-family: var(--font-sans);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+}
+
+.story-title {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 12px;
+}
+
+.story-title a {
+    color: var(--text-color);
+}
+
+.story-title a:hover {
+    text-decoration: underline;
+    opacity: 0.8;
+}
+
+.story-summary {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-color);
+    text-align: justify;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
     .logo { font-size: 3rem; text-align: center; }

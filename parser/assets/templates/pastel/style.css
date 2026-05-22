@@ -10,14 +10,15 @@
     /* Colors */
     --background-color: #FAF8FC; /* Lilac-Cream */
     --header-bg: rgba(250, 248, 252, 0.85);
-    --text-color: #4A4A4A; /* Soft Charcoal */
-    --text-secondary: #8A8A8A; /* Soft Gray */
+    --text-color: #2C2C2C; /* Darker charcoal for readability */
+    --text-secondary: #605E65; /* Slate gray for high-contrast secondary text */
     --primary-color: #FFB7B2; /* Peach / Soft Coral */
     --primary-dark: #FF9E99;
     --secondary-color: #E2D1F9; /* Soft Lavender */
     --accent-color: #B5EAD7; /* Mint */
     --border-color: #F0E6F7;
     --card-bg: #FFFFFF;
+    --code-color: #88509E; /* Orchid purple for high-contrast inline code */
 
     --shadow-soft: 0 10px 25px rgba(226, 209, 249, 0.25);
     --shadow-hover: 0 15px 35px rgba(255, 183, 178, 0.3);
@@ -46,6 +47,7 @@
     --secondary-color: #B5EAD7;
     --card-bg: #383252;
     --border-color: #4A436D;
+    --code-color: #FFB7B2; /* Peach color for high contrast inline code in dark mode */
     
     --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.2);
     --shadow-hover: 0 15px 35px rgba(255, 183, 178, 0.15);
@@ -201,14 +203,14 @@ a:hover {
 
 .article-content p {
     margin-bottom: 1.5rem;
-    color: var(--text-secondary);
+    color: var(--text-color);
 }
 
 .article-content ul,
 .article-content ol {
     margin-bottom: 1.5rem;
     padding-left: 24px;
-    color: var(--text-secondary);
+    color: var(--text-color);
 }
 
 .article-content li {
@@ -238,7 +240,7 @@ a:hover {
     border-radius: 12px;
     font-family: monospace;
     font-size: 0.9em;
-    color: var(--primary-dark);
+    color: var(--code-color);
 }
 
 .article-content pre {
@@ -482,5 +484,7 @@ a:hover {
     .article-content { padding: 32px 24px; }
     .article-content h1 { font-size: 2rem; }
     .grid-feed { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
+    .site-header { height: auto; padding: 12px 0; }
+    .nav-container { flex-direction: column; gap: 12px; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 }

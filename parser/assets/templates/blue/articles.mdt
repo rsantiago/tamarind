@@ -22,17 +22,23 @@
     <div class="layout-container">
         <!-- Main Feed -->
         <main>
-            {{ range .Articles }}
-            <article class="card feed-item">
-                <div class="post-content nopad">
-                    <span class="article-category">Article</span>
-                    <h2><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></h2>
-                    <p class="article-subtitle">{{ .Subtitle }}</p>
-                    <div class="article-meta">
-                        {{ .Date }} <span class="dot">&middot;</span> Read More &rarr;
+            {{ if .Title }}
+            <h1 class="page-title" style="margin-bottom: 24px;">{{ .Title }}</h1>
+            {{ end }}
+
+            {{ if .Articles }}
+            <div class="grid-feed">
+                {{ range .Articles }}
+                <a href="{{ $.RelPrefix }}{{ .URL }}" class="grid-item">
+                    <span class="grid-item-category">Article</span>
+                    <h3>{{ .Title }}</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.25rem; font-size: 0.95rem; line-height: 1.5;">{{ .Subtitle }}</p>
+                    <div class="grid-item-date">
+                        {{ .Date }} <span style="margin-left: auto;">Read More &rarr;</span>
                     </div>
-                </div>
-            </article>
+                </a>
+                {{ end }}
+            </div>
             {{ end }}
 
             {{ if gt .Paginator.TotalPages 1 }}

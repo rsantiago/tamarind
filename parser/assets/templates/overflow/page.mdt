@@ -30,7 +30,7 @@
                 <div class="article-header">
                     <h1 class="page-title">{{ .Title }}</h1>
                     <div class="page-subtitle">
-                        <span>Asked <strong>{{ .Date }}</strong></span>
+                        <span>Published <strong>{{ .Date }}</strong></span>
                     </div>
                 </div>
 
@@ -54,7 +54,7 @@
                         <!-- Author Card block -->
                         <div style="display: flex; justify-content: flex-end; margin-top: 32px;">
                             <div style="background-color: #e1ecf4; border-radius: var(--radius-sm); padding: 8px 12px; font-size: 12px; width: 200px;">
-                                <div style="color: var(--text-secondary); margin-bottom: 6px;">asked {{ .Date }}</div>
+                                <div style="color: var(--text-secondary); margin-bottom: 6px;">published {{ .Date }}</div>
                                 <div style="display: flex; align-items: center; gap: 8px;">
                                     <div class="author-avatar" style="width: 32px; height: 32px; background-color: #0074cc; border-radius: var(--radius-sm);"></div>
                                     <div>

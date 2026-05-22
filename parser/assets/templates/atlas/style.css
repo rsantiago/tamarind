@@ -472,7 +472,24 @@ main {
 /* Responsive */
 @media (max-width: 768px) {
     .layout-container { flex-direction: column; padding: 0; }
-    .sidebar { display: none; }
+    .sidebar {
+        width: 100%;
+        height: auto;
+        padding: 16px 24px;
+        position: static;
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        box-sizing: border-box;
+    }
+    .sidebar h3 {
+        display: none;
+    }
+    .sidebar-nav {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px;
+    }
     main { padding: 32px 24px; }
     .grid-feed { grid-template-columns: 1fr; }
     .page-title { font-size: 2.25rem; }

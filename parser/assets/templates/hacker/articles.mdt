@@ -23,24 +23,25 @@
     </header>
 
     <div class="layout-container">
-        
+        {{ if .Title }}
+            <h1 class="page-title">{{ .Title }}</h1>
+        {{ end }}
+
         {{ if .Articles }}
-            <ol class="hn-feed">
+            <div class="grid-feed">
                 {{ range $index, $element := .Articles }}
-                <li class="hn-row">
+                <div class="grid-item">
                     <span class="hn-index">{{ add $index 1 }}.</span>
-                    <div class="hn-main">
-                        <div class="hn-title-line">
-                            <a href="{{ $.RelPrefix }}{{ .URL }}" class="hn-link">{{ .Title }}</a>
-                        </div>
-                        <div class="hn-meta-line">
-                            by <span style="font-weight: bold; color: var(--text-secondary);">{{ if .Author }}{{ .Author }}{{ else }}Tamarind Author{{ end }}</span> 
-                            <span>{{ .Date }}</span>
-                        </div>
-                    </div>
-                </li>
+                    <h3>
+                        <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
+                    </h3>
+                    <span class="grid-item-meta">
+                        by <span class="grid-author">{{ if .Author }}{{ .Author }}{{ else }}Tamarind Author{{ end }}</span> 
+                        <span>· {{ .Date }}</span>
+                    </span>
+                </div>
                 {{ end }}
-            </ol>
+            </div>
         {{ else }}
             <div style="padding: 20px 0;">
                 <p>No news links found.</p>

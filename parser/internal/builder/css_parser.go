@@ -5,20 +5,28 @@ import (
 	"strings"
 )
 
+// MediaBlock holds a media query condition and its raw CSS block content.
+type MediaBlock struct {
+	Condition string
+	Content   string
+}
+
 // CSSAnalysis holds the parsed structure of a CSS file for verification.
 type CSSAnalysis struct {
-	Variables  map[string]bool // CSS custom properties found in :root (e.g. "--primary-color")
-	Selectors  map[string]bool // CSS class selectors found (e.g. ".btn-primary")
-	MediaRules []string        // Media query conditions (e.g. "(max-width: 768px)")
+	Variables   map[string]bool // CSS custom properties found in :root (e.g. "--primary-color")
+	Selectors   map[string]bool // CSS class selectors found (e.g. ".btn-primary")
+	MediaRules  []string        // Media query conditions (e.g. "(max-width: 768px)")
+	MediaBlocks []MediaBlock    // Raw media query blocks for accessibility check
 }
 
 // AnalyzeCSS parses a CSS string and extracts variables, selectors, and media queries.
 // This is a lightweight parser focused on verification, not a full CSS parser.
 func AnalyzeCSS(cssContent string) (*CSSAnalysis, error) {
 	analysis := &CSSAnalysis{
-		Variables:  make(map[string]bool),
-		Selectors:  make(map[string]bool),
-		MediaRules: []string{},
+		Variables:   make(map[string]bool),
+		Selectors:   make(map[string]bool),
+		MediaRules:  []string{},
+		MediaBlocks: []MediaBlock{},
 	}
 
 	// 1. Extract CSS variables from :root blocks (including [data-theme="dark"])
@@ -94,15 +102,55 @@ func extractSelectors(css string, analysis *CSSAnalysis) {
 	}
 }
 
-// extractMediaQueries finds all @media query conditions.
+// extractMediaQueries finds all @media query conditions and their inner contents.
 func extractMediaQueries(css string, analysis *CSSAnalysis) {
-	mediaPattern := regexp.MustCompile(`@media\s*([^{]+)\{`)
-	matches := mediaPattern.FindAllStringSubmatch(css, -1)
+	// Remove comments first to avoid tracking braces inside comments
+	commentPattern := regexp.MustCompile(`/\*[\s\S]*?\*/`)
+	cleaned := commentPattern.ReplaceAllString(css, "")
 
-	for _, m := range matches {
-		if len(m) > 1 {
-			condition := strings.TrimSpace(m[1])
-			analysis.MediaRules = append(analysis.MediaRules, condition)
+	pos := 0
+	for {
+		idx := strings.Index(cleaned[pos:], "@media")
+		if idx == -1 {
+			break
+		}
+
+		mediaPos := pos + idx
+		openBraceIdx := strings.Index(cleaned[mediaPos:], "{")
+		if openBraceIdx == -1 {
+			break
+		}
+
+		condition := strings.TrimSpace(cleaned[mediaPos+6 : mediaPos+openBraceIdx])
+		analysis.MediaRules = append(analysis.MediaRules, condition)
+
+		// State machine to find the matching closing brace for the media query block
+		startIdx := mediaPos + openBraceIdx + 1
+		nBraces := 1
+		endIdx := startIdx
+
+		for endIdx < len(cleaned) {
+			char := cleaned[endIdx]
+			if char == '{' {
+				nBraces++
+			} else if char == '}' {
+				nBraces--
+				if nBraces == 0 {
+					break
+				}
+			}
+			endIdx++
+		}
+
+		if nBraces == 0 && endIdx < len(cleaned) {
+			content := cleaned[startIdx:endIdx]
+			analysis.MediaBlocks = append(analysis.MediaBlocks, MediaBlock{
+				Condition: condition,
+				Content:   content,
+			})
+			pos = endIdx + 1
+		} else {
+			pos = mediaPos + openBraceIdx + 1
 		}
 	}
 }

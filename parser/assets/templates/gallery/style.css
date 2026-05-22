@@ -11,8 +11,8 @@
     --background-color: #F9F9F8; /* Cream off-white */
     --header-bg: rgba(249, 249, 248, 0.9);
     --text-color: #0A0A0A; /* Ink Black */
-    --text-secondary: #6A6A6A;
-    --primary-color: #8C7B6B; /* Muted Gold / Taupe Accent */
+    --text-secondary: #4E4E52; /* Elite contrast secondary gray */
+    --primary-color: #5C4D3F; /* Premium deep editorial bronze (High contrast) */
     --border-color: #E0E0E0; /* Silver */
     --card-bg: #FFFFFF;
 
@@ -37,8 +37,8 @@
     --background-color: #0D0D0D;
     --header-bg: rgba(13, 13, 13, 0.9);
     --text-color: #F0F0F0;
-    --text-secondary: #999999;
-    --primary-color: #B8A38E;
+    --text-secondary: #B5B5BA; /* High contrast dark secondary gray */
+    --primary-color: #C5B3A1; /* Lighter luxury bronze for dark bg */
     --border-color: #2A2A2A;
     --card-bg: #141414;
     --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -55,8 +55,10 @@ body {
     color: var(--text-color);
     font-family: var(--font-body);
     font-size: 16px;
+    font-weight: 400;
     line-height: 1.7;
-    -webkit-font-smoothing: antialiased;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
 }
 
 a {
@@ -173,6 +175,7 @@ h1, h2, h3, h4 {
     font-size: 1.15rem;
     font-family: var(--font-heading);
     font-style: italic;
+    font-weight: 500;
     color: var(--text-secondary);
 }
 
@@ -206,6 +209,7 @@ h1, h2, h3, h4 {
 
 .grid-item h3 {
     font-size: 2rem;
+    font-weight: 600;
     margin-bottom: 16px;
     line-height: 1.2;
     color: var(--text-color);
@@ -235,7 +239,7 @@ h1, h2, h3, h4 {
 .page-title {
     font-family: var(--font-heading);
     font-size: 4rem;
-    font-weight: 500;
+    font-weight: 600;
     text-align: center;
     line-height: 1.1;
     margin-bottom: 24px;
@@ -253,10 +257,11 @@ h1, h2, h3, h4 {
 }
 
 .article-content {
-    font-size: 1.15rem;
+    font-size: 1.45rem;
     line-height: 1.9;
     color: var(--text-color);
     font-family: var(--font-heading); /* Serif body for editorial feel */
+    font-weight: 500; /* Set to 500 to make the editorial serif thick, robust, and highly readable */
 }
 
 /* Revert structural tags to Sans-Serif inside article */
@@ -270,14 +275,25 @@ h1, h2, h3, h4 {
     letter-spacing: 0.05em;
     margin-top: 4rem;
     margin-bottom: 1.5rem;
-    font-weight: 500;
+    font-weight: 600;
 }
 
 .article-content h1 { font-size: 2rem; }
 .article-content h2 { font-size: 1.5rem; }
 .article-content h3 { font-size: 1.25rem; }
 
-.article-content p { margin-bottom: 2rem; }
+.article-content p {
+    font-size: 1.45rem;
+    font-weight: 500;
+    line-height: 1.9;
+    margin-bottom: 2rem;
+}
+.article-content li {
+    font-size: 1.45rem;
+    font-weight: 500;
+    line-height: 1.9;
+    margin-bottom: 0.5rem;
+}
 .article-content ul, .article-content ol { padding-left: 24px; margin-bottom: 2rem; }
 
 .article-content blockquote {
@@ -411,8 +427,35 @@ h1, h2, h3, h4 {
 .callout-error { border-top: 4px solid #8C2A2A; }
 .callout-tip { border-top: 4px solid #4A6B52; }
 
-.article-content pre { background: var(--card-bg); border: 1px solid var(--border-color); padding: 32px; font-family: monospace; font-size: 0.9rem; overflow-x: auto; margin: 40px 0; }
-.article-content code { background: var(--border-color); padding: 2px 6px; font-family: monospace; font-size: 0.9em; }
+.article-content pre {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 24px;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace, monospace;
+    font-size: 0.82rem;
+    line-height: 1.6;
+    overflow-x: auto;
+    margin: 32px 0;
+}
+
+.article-content code {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 0.15em 0.35em;
+    font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Monaco, Consolas, "Liberation Mono", monospace, monospace;
+    font-size: 0.82rem;
+    border-radius: 3px;
+}
+
+[data-theme="dark"] .article-content code {
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.article-content pre code {
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    border-radius: 0;
+}
 
 .video-container { position: relative; padding-bottom: 56.25%; height: 0; margin: 40px 0; border: 1px solid var(--border-color); }
 .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }

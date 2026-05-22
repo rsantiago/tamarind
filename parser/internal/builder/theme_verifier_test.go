@@ -85,6 +85,8 @@ func TestAllThemesCompliance(t *testing.T) {
 
 			// Run verification
 			failures := VerifyTheme(analysis, requirements)
+			navFailures := VerifyResponsiveNavigation(analysis)
+			failures = append(failures, navFailures...)
 
 			if len(failures) > 0 {
 				for _, f := range failures {

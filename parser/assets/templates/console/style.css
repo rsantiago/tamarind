@@ -193,7 +193,11 @@ a:hover {
 .article-content h2 { font-size: 1.5rem; }
 .article-content h3 { font-size: 1.25rem; }
 
-.article-content p { margin-bottom: 1.5rem; }
+.article-content p {
+    font-size: 1.05rem;
+    line-height: 1.65;
+    margin-bottom: 1.5rem;
+}
 
 .article-content ul, .article-content ol {
     margin-bottom: 1.5rem;
@@ -416,7 +420,9 @@ a:hover {
 
 /* Responsive */
 @media (max-width: 768px) {
-    .nav-links { display: none; }
+    .site-header { height: auto; padding: 12px 0; }
+    .nav-container { flex-direction: column; gap: 12px; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
     .layout-container { padding: 24px 16px; }
     .page-title { font-size: 1.75rem; }
     .article-content h1 { font-size: 1.5rem; }

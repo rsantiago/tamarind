@@ -10,7 +10,9 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="{{ .RelPrefix }}index.html" class="logo">
-                <div class="logo-icon">🎵</div>
+                <div class="logo-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="logo-svg"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                </div>
                 TamarindPod
             </a>
             
@@ -28,8 +30,10 @@
         <main class="main-content">
             
             <!-- Playlist Banner -->
-            <div class="podcast-header-card" style="border-bottom: none; margin-bottom: 0;">
-                <div class="podcast-cover-large">🎙️</div>
+            <div class="podcast-header-card">
+                <div class="podcast-cover-large-wrapper">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="podcast-cover-large-svg"><path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path><path d="M19 10v1a7 7 0 0 1-14 0v-1"></path><line x1="12" x2="12" y1="19" y2="22"></line></svg>
+                </div>
                 <div class="podcast-meta-info">
                     <span class="podcast-type">Public Playlist</span>
                     <h1 class="page-title">Weekly Dev Digest</h1>
@@ -49,13 +53,20 @@
                     <tbody>
                         {{ range $index, $element := .Articles }}
                         <tr class="playlist-row" onclick="window.location.href='{{ $.RelPrefix }}{{ .URL }}'">
-                            <td class="playlist-index">{{ add $index 1 }}</td>
+                            <td class="playlist-index">
+                                <span class="index-num">{{ add $index 1 }}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="row-play-icon" width="14" height="14" style="display: none;"><polygon points="6 3 20 12 6 21 6 3"></polygon></svg>
+                            </td>
                             <td>
                                 <div class="playlist-title-cell">
-                                    <div class="playlist-cover-mock">🎧</div>
+                                    <div class="playlist-cover-mock">
+                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="playlist-track-play-svg"><path d="M9 18V5l12-2v13"></path><circle cx="6" cy="18" r="3"></circle><circle cx="18" cy="16" r="3"></circle></svg>
+                                    </div>
                                     <div class="playlist-title-text">
-                                        <span class="playlist-track-name">{{ .Title }}</span>
-                                        <span class="playlist-track-author">{{ if .Author }}{{ .Author }}{{ else }}Tamarind host{{ end }}</span>
+                                        <a href="{{ $.RelPrefix }}{{ .URL }}" class="playlist-track-link">
+                                            <span class="playlist-track-name">{{ .Title }}</span>
+                                        </a>
+                                        <span class="playlist-track-author">{{ if .Author }}{{ .Author }}{{ else }}Tamarind Host{{ end }}</span>
                                     </div>
                                 </div>
                             </td>
@@ -73,7 +84,7 @@
 
             <!-- Pagination -->
             {{ if gt .Paginator.TotalPages 1 }}
-            <div style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
+            <div class="pagination-container" style="display: flex; justify-content: center; gap: 8px; margin-top: 40px;">
                 {{ if .Paginator.HasPrev }}
                 <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm">&larr;</a>
                 {{ end }}
@@ -95,8 +106,6 @@
         </main>
 
     </div>
-
-
 
     {{ template "footer.mdt" . }}
 

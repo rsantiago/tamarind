@@ -483,6 +483,8 @@ a:hover {
     .page-title { font-size: 3rem; }
     .article-content h1 { font-size: 2.25rem; }
     .grid-feed { grid-template-columns: 1fr; }
-    .nav-links { display: none; }
+    .site-header { height: auto; padding: 12px 0; }
+    .nav-container { flex-direction: column; gap: 12px; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
     .logo { font-size: 1.5rem; }
 }

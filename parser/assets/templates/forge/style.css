@@ -200,8 +200,9 @@ a:hover {
 .article-content h3 { font-size: 1.5rem; border-bottom: none; }
 
 .article-content p {
+    font-size: 1.1rem;
+    line-height: 1.65;
     margin-bottom: 1.5rem;
-    font-size: 1.05rem;
 }
 
 .article-content ul,

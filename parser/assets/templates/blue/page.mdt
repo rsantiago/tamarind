@@ -22,30 +22,25 @@
     <div class="layout-container">
         <!-- Main Content -->
         <main>
-            <article class="card">
-                <header class="post-header">
-                     <h1>{{ .Title }}</h1>
-                     {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
-                     
-                    <div class="post-meta">
-                        <div>
-                             {{ .Date }} <span class="dot">&middot;</span> By {{ .Author }}
-                        </div>
-                    </div>
-                </header>
+            <header class="article-header">
+                 <h1 class="page-title">{{ .Title }}</h1>
+                 {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
+                 
+                <div class="post-meta" style="font-size: 0.9rem; color: var(--text-secondary); margin-top: 16px;">
+                     {{ .Date }} <span class="dot">&middot;</span> By {{ .Author }}
+                </div>
+            </header>
+
+            <article class="article-content">
+                {{ .Body }}
 
                 {{ if .Tags }}
-                <div class="post-meta tags-container">
+                <div class="tags-container" style="margin-top: 2rem;">
                      {{ range .Tags }}
-                    <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="post-tag">#{{ . }}</a>
+                     <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">#{{ . }}</a>
                      {{ end }}
                 </div>
                 {{ end }}
-
-                <div class="post-content">
-                    {{ .Body }}
-                </div>
-                
             </article>
         </main>
     </div>
