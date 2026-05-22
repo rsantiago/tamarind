@@ -454,9 +454,96 @@ items:
     description: "Responsive figure block formatting"
 ```
 
+
 ---
 
-## 5. Bootstrapping / Updating Guide
+## 5. Accessibility & Mobile Navigation (The "Responsive Contract")
+All themes must ensure that primary navigation elements are never hidden on mobile viewports.
+
+```yaml requirements
+category: accessibility
+items:
+  - name: "mobile-nav-visible"
+    type: responsive-nav
+    required: true
+    description: "The site navigation (.nav-links) must not be hidden (display: none) on mobile viewports (<768px)"
+  - name: "mobile-sidebar-visible"
+    type: responsive-nav
+    required: true
+    description: "The primary document sidebar (.sidebar) must not be hidden (display: none) on mobile viewports (<768px)"
+```
+
+---
+
+## 6. Article Content Elements (The "Typographic Contract")
+All themes must explicitly style long-form article elements, either globally or scoped under `.article-content`.
+
+```yaml requirements
+category: article-content
+items:
+  - name: "ul"
+    type: article-markup
+    required: true
+    description: "Unordered lists (ul) must be explicitly styled"
+  - name: "ol"
+    type: article-markup
+    required: true
+    description: "Ordered lists (ol) must be explicitly styled"
+  - name: "li"
+    type: article-markup
+    required: true
+    description: "List items (li) must be explicitly styled"
+  - name: "blockquote"
+    type: article-markup
+    required: true
+    description: "Blockquotes must be explicitly styled"
+  - name: "code"
+    type: article-markup
+    required: true
+    description: "Inline code blocks must be explicitly styled"
+  - name: "pre"
+    type: article-markup
+    required: true
+    description: "Preformatted code blocks (pre) must be explicitly styled"
+  - name: "table"
+    type: article-markup
+    required: true
+    description: "Data tables must be explicitly styled"
+```
+
+---
+
+## 7. Brand Compliance & Menu Deduplication (The "Brand Contract")
+All themes' page and article templates must include core promotional branding and must not duplicate menu loops.
+
+```yaml requirements
+category: templates
+items:
+  - name: "articles.mdt:tamarind-ghost-badge"
+    type: template-feature
+    required: true
+    description: "articles.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'"
+  - name: "articles.mdt:footer-promo"
+    type: template-feature
+    required: true
+    description: "articles.mdt template must contain the 'footer-promo' class or render 'footer.mdt'"
+  - name: "page.mdt:tamarind-ghost-badge"
+    type: template-feature
+    required: true
+    description: "page.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'"
+  - name: "page.mdt:footer-promo"
+    type: template-feature
+    required: true
+    description: "page.mdt template must contain the 'footer-promo' class or render 'footer.mdt'"
+  - name: "menu-no-duplication"
+    type: template-feature
+    required: true
+    description: "Templates must not duplicate the main menu rendering (must not loop over .Menu more than once)"
+```
+
+---
+
+## 8. Bootstrapping / Updating Guide
 
 ### How to Create a New Theme
 1.  **Duplicate**: Copy an existing theme folder (e.g., `cp -r basic my-new-theme`).

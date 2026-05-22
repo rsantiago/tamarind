@@ -82,27 +82,11 @@ func TestAllThemesCompliance(t *testing.T) {
 			if err != nil {
 				t.Fatalf("Failed to analyze CSS for theme %s: %v", theme, err)
 			}
+			analysis.ThemeDir = filepath.Join(assetsDir, theme)
+			analysis.RawCSS = combinedCSS
 
 			// Run verification
 			failures := VerifyTheme(analysis, requirements)
-			navFailures := VerifyResponsiveNavigation(analysis)
-			failures = append(failures, navFailures...)
-
-			// Verify HTML templates contain the 'Use Tamarind' ghost badge and footer promo or include footer.mdt
-			for _, filename := range []string{"articles.mdt", "page.mdt"} {
-				tplPath := filepath.Join(assetsDir, theme, filename)
-				tplContent, err := os.ReadFile(tplPath)
-				if err != nil {
-					t.Fatalf("Failed to read %s template %s: %v", theme, filename, err)
-				}
-				tplStr := string(tplContent)
-				if !strings.Contains(tplStr, "tamarind-ghost-badge") && !strings.Contains(tplStr, "footer.mdt") {
-					failures = append(failures, fmt.Sprintf("[template] Template '%s' is missing the 'Use Tamarind' ghost badge. All templates must either contain the element with class 'tamarind-ghost-badge' or render 'footer.mdt'.", filename))
-				}
-				if !strings.Contains(tplStr, "footer-promo") && !strings.Contains(tplStr, "footer.mdt") {
-					failures = append(failures, fmt.Sprintf("[template] Template '%s' is missing the footer promotion reference. All templates must either contain the element with class 'footer-promo' or render 'footer.mdt'.", filename))
-				}
-			}
 
 			if len(failures) > 0 {
 				for _, f := range failures {

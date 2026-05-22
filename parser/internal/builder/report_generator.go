@@ -68,6 +68,8 @@ func GenerateComplianceReport(specPath, templatesDir, outputPath string) error {
 		if err != nil {
 			return fmt.Errorf("failed to analyze CSS for %s: %w", theme, err)
 		}
+		analysis.ThemeDir = filepath.Join(templatesDir, theme)
+		analysis.RawCSS = combinedCSS
 
 		report := ThemeReport{Name: theme}
 		required := filterRequired(requirements)
@@ -96,20 +98,7 @@ func GenerateComplianceReport(specPath, templatesDir, outputPath string) error {
 }
 
 func checkRequirement(analysis *CSSAnalysis, req Requirement) bool {
-	switch req.Type {
-	case "css-variable":
-		return analysis.Variables[req.Name]
-	case "css-selector":
-		return analysis.Selectors[req.Name]
-	case "media-query":
-		for _, rule := range analysis.MediaRules {
-			if strings.Contains(rule, req.Name) {
-				return true
-			}
-		}
-		return false
-	}
-	return false
+	return CheckRequirement(analysis, req)
 }
 
 func filterRequired(requirements []Requirement) []Requirement {

@@ -50,9 +50,9 @@
 
     <div class="layout-container">
         <aside class="sidebar">
-            <h3>Resources</h3>
+            <h3>Recent Articles</h3>
             <nav class="sidebar-nav">
-                {{ range .Menu }}
+                {{ range .Articles }}
                 <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
                 {{ end }}
             </nav>

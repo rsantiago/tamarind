@@ -48,7 +48,7 @@
         <aside class="sidebar">
             <h3>Archival Index</h3>
             <nav class="sidebar-nav">
-                {{ range .Menu }}
+                {{ range .Articles }}
                 <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
                 {{ end }}
             </nav>

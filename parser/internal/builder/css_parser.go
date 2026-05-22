@@ -17,6 +17,8 @@ type CSSAnalysis struct {
 	Selectors   map[string]bool // CSS class selectors found (e.g. ".btn-primary")
 	MediaRules  []string        // Media query conditions (e.g. "(max-width: 768px)")
 	MediaBlocks []MediaBlock    // Raw media query blocks for accessibility check
+	ThemeDir    string          // Path to the theme directory for template-based validation
+	RawCSS      string          // Raw CSS content for custom markup styling validation
 }
 
 // AnalyzeCSS parses a CSS string and extracts variables, selectors, and media queries.
