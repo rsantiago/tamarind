@@ -187,4 +187,3 @@ func CheckRequirement(analysis *CSSAnalysis, req Requirement) bool {
 
 	return false
 }
-
