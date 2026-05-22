@@ -371,7 +371,7 @@ main {
 
 .page-title {
     font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(2.5rem, 5.5vw, 3.75rem); /* Large premium heading matching hermes-agent.org hero */
     font-weight: 800;
     color: var(--heading-color);
     letter-spacing: -0.03em;
@@ -401,15 +401,16 @@ main {
     font-family: var(--font-heading);
     color: var(--heading-color);
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em; /* Tight letter-spacing for premium brand impact */
     margin-top: 48px;
-    margin-bottom: 16px;
-    line-height: 1.25;
+    margin-bottom: 20px;
+    line-height: 1.15; /* Snug line-height for large, bold headings */
 }
 
-.article-content h1 { font-size: 2.25rem; }
-.article-content h2 { font-size: 1.75rem; }
-.article-content h3 { font-size: 1.4rem; }
+.article-content h1 { font-size: clamp(2.5rem, 4.5vw, 3.5rem); } /* Dynamic 40px to 56px */
+.article-content h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); }  /* Dynamic 32px to 44px (e.g. Everything You Need in One Agent) */
+.article-content h3 { font-size: clamp(1.4rem, 2.5vw, 1.85rem); }  /* Dynamic 22.4px to 29.6px */
+.article-content h4 { font-size: clamp(1.15rem, 1.8vw, 1.45rem); } /* Dynamic 18.4px to 23.2px */
 
 .article-content blockquote {
     border-left: 4px solid var(--accent-color);
