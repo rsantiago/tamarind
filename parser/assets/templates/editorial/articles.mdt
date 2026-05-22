@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+    <!-- Theme Specific: Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=block" rel="stylesheet">
+    <!-- Theme Specific: Dark Mode Toggle Script -->
+    <script>
+        (function() {
+            try {
+                var localTheme = localStorage.getItem('site-theme');
+                var support = window.matchMedia('(prefers-color-scheme: dark)');
+                if (localTheme === 'dark' || (!localTheme && support.matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            <div class="header-actions">
+                <ul class="nav-links">
+                    {{ range .Menu }}
+                    <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                    {{ end }}
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle-icon sun">☀️</span>
+                    <span class="theme-toggle-icon moon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="layout-container">
+        <div class="post-header">
+            <h1>{{ .Title }}</h1>
+            <p class="post-subtitle">{{ .Subtitle }}</p>
+        </div>
+
+        <section class="journal-list">
+            {{ range .Articles }}
+            <article class="journal-entry">
+                <span class="post-date">{{ .Date }}</span>
+                <h2 class="journal-title"><a href="{{ $.RelPrefix }}{{ .URL }}" class="journal-link">{{ .Title }}</a></h2>
+                <p class="journal-subtitle">{{ .Subtitle }}</p>
+                <a href="{{ $.RelPrefix }}{{ .URL }}" class="read-more">Read Article &rarr;</a>
+            </article>
+            {{ end }}
+
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div class="pagination">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" class="pagination-arrow">&larr;</a>
+                {{ end }}
+
+                <div class="pagination-numbers">
+                    {{ range .Paginator.VisiblePages }}
+                        {{ if .IsCurrent }}
+                            <span class="page-number active">{{ .Number }}</span>
+                        {{ else }}
+                            <a href="{{ .URL }}" class="page-number">{{ .Number }}</a>
+                        {{ end }}
+                    {{ end }}
+                </div>
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" class="pagination-arrow">&rarr;</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </section>
+    </main>
+
+    {{ template "footer.mdt" . }}
+
+    <script src="{{ .RelPrefix }}theme-toggle.js"></script>
+</body>
+
+</html>

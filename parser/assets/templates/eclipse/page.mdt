@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <div class="layout-container">
+        
+        <main>
+            <article class="article-container">
+
+
+                <!-- "Image" Area (Title as the visual) -->
+                <!-- Title Area -->
+                <!-- Title Area -->
+                <div class="article-header centered">
+                     <h1 class="page-title">{{ .Title }}</h1>
+                     {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
+                </div>
+                
+                <!-- Interaction Bar Removed -->
+
+                <div class="article-content">
+                    {{ .Body }}
+                    
+                    {{ if .Tags }}
+                    <div class="tags-container">
+                        {{ range .Tags }}
+                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">#{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+
+                    <div class="meta-info">
+                        {{ .Date }} • By {{ .Author }}
+                    </div>
+                </div>
+            </article>
+        </main>
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>

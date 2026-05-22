@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {{ template "head.mdt" . }}
+</head>
+<body>
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </div>
+    </header>
+
+    <main class="layout-container">
+        <header class="article-header" style="text-align: left; border-bottom: 1px solid var(--border-color); margin-bottom: 64px; padding-bottom: 24px;">
+            {{ if .Title }}
+            <h1 class="page-title">{{ .Title }}</h1>
+            {{ end }}
+            <div class="article-content" style="margin-top: 16px;">
+                {{ .Body }}
+            </div>
+        </header>
+        
+        <div class="feed-content">
+            {{ range .Articles }}
+            <a href="{{ $.RelPrefix }}{{ .URL }}" class="feed-item">
+                <div class="feed-meta">
+                    <span class="badge">{{ if .Tags }}{{ index .Tags 0 }}{{ else }}Story{{ end }}</span>
+                    <span>{{ .Date }}</span>
+                </div>
+                <h2 class="feed-title">{{ .Title }}</h2>
+                {{ if .Subtitle }}<p class="feed-preview">{{ .Subtitle }}</p>{{ end }}
+            </a>
+            {{ end }}
+        </div>
+
+        {{ if gt .Paginator.TotalPages 1 }}
+        <div class="pagination">
+            {{ if .Paginator.HasPrev }}
+            <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary">&larr; Newer</a>
+            {{ else }}
+            <div></div> <!-- empty placeholder to push next button to right -->
+            {{ end }}
+
+            {{ if .Paginator.HasNext }}
+            <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary">Older &rarr;</a>
+            {{ end }}
+        </div>
+        {{ end }}
+    </main>
+
+    {{ template "footer.mdt" . }}
+</body>
+</html>

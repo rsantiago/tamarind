@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+    <!-- Theme Specific: Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=block" rel="stylesheet">
+    <!-- Theme Specific: Dark Mode Toggle Script -->
+    <script>
+        (function() {
+            try {
+                var localTheme = localStorage.getItem('site-theme');
+                var support = window.matchMedia('(prefers-color-scheme: dark)');
+                if (localTheme === 'dark' || (!localTheme && support.matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            <div class="header-actions">
+                <ul class="nav-links">
+                    {{ range .Menu }}
+                    <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                    {{ end }}
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle-icon sun">☀️</span>
+                    <span class="theme-toggle-icon moon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="layout-container">
+        <article class="post">
+            <header class="post-header">
+                {{ if .Date }}<p class="post-meta">{{ .Date }} by {{ .Author }}</p>{{ end }}
+                <h1>{{ .Title }}</h1>
+                {{ if .Subtitle }}<p class="post-subtitle">{{ .Subtitle }}</p>{{ end }}
+            </header>
+
+            <div class="post-content">
+                {{ .Body }}
+            </div>
+            
+            {{ if .Tags }}
+            <footer class="post-footer">
+                <div class="tags">
+                    {{ range .Tags }}
+                    <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html">#{{ . }}</a>
+                    {{ end }}
+                </div>
+            </footer>
+            {{ end }}
+        </article>
+    </main>
+
+    {{ template "footer.mdt" . }}
+
+    <script src="{{ .RelPrefix }}theme-toggle.js"></script>
+</body>
+
+</html>

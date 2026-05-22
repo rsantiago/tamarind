@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+        </nav>
+    </header>
+
+    <div class="layout-container">
+        <!-- Main Feed -->
+        <main>
+            {{ range .Articles }}
+            <article class="card feed-item">
+                <div class="post-content nopad">
+                    <span class="article-category">Article</span>
+                    <h2><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></h2>
+                    <p class="article-subtitle">{{ .Subtitle }}</p>
+                    <div class="article-meta">
+                        {{ .Date }} <span class="dot">&middot;</span> Read More &rarr;
+                    </div>
+                </div>
+            </article>
+            {{ end }}
+
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div class="pagination">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" class="pagination-link arrow">&larr; Prev</a>
+                {{ end }}
+
+                <div class="pagination-numbers">
+                    {{ range .Paginator.VisiblePages }}
+                        {{ if .IsCurrent }}
+                            <span class="page-number active">{{ .Number }}</span>
+                        {{ else }}
+                            <a href="{{ .URL }}" class="page-number">{{ .Number }}</a>
+                        {{ end }}
+                    {{ end }}
+                </div>
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" class="pagination-link arrow">Next &rarr;</a>
+                {{ end }}
+            </div>
+            {{ end }}
+        </main>
+    </div>
+
+    {{ template "footer.mdt" . }}
+
+</body>
+</html>
