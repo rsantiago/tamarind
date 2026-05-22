@@ -385,6 +385,11 @@ items:
     scope: global
     required: true
     description: "Site footer"
+  - name: ".tamarind-ghost-badge"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Floating Use Tamarind badge element"
 ```
 
 ### Mobile Behavior (Refactor Implemented)

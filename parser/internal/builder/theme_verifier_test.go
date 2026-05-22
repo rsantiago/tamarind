@@ -88,6 +88,19 @@ func TestAllThemesCompliance(t *testing.T) {
 			navFailures := VerifyResponsiveNavigation(analysis)
 			failures = append(failures, navFailures...)
 
+			// Verify HTML templates contain the 'Use Tamarind' ghost badge or include footer.mdt
+			for _, filename := range []string{"articles.mdt", "page.mdt"} {
+				tplPath := filepath.Join(assetsDir, theme, filename)
+				tplContent, err := os.ReadFile(tplPath)
+				if err != nil {
+					t.Fatalf("Failed to read %s template %s: %v", theme, filename, err)
+				}
+				tplStr := string(tplContent)
+				if !strings.Contains(tplStr, "tamarind-ghost-badge") && !strings.Contains(tplStr, "footer.mdt") {
+					failures = append(failures, fmt.Sprintf("[template] Template '%s' is missing the 'Use Tamarind' ghost badge. All templates must either contain the element with class 'tamarind-ghost-badge' or render 'footer.mdt'.", filename))
+				}
+			}
+
 			if len(failures) > 0 {
 				for _, f := range failures {
 					t.Errorf("  ✗ %s", f)
