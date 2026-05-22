@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+    <!-- Theme Specific: Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Theme Specific: Dark Mode Toggle Script -->
+    <script>
+        (function() {
+            try {
+                var localTheme = localStorage.getItem('site-theme');
+                var support = window.matchMedia('(prefers-color-scheme: dark)');
+                if (localTheme === 'dark' || (!localTheme && support.matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 3l14 9-14 9V3z"/>
+                </svg>
+                {{ .SiteName }}
+            </a>
+            <div class="header-actions">
+                <ul class="nav-links">
+                    {{ range .Menu }}
+                    <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                    {{ end }}
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle-icon sun">☀️</span>
+                    <span class="theme-toggle-icon moon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-badge">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+            </svg>
+            <span>Open Source · MIT License · Sleek Dev Vibe</span>
+        </div>
+        <h1 class="hero-title">{{ .Title }}</h1>
+        {{ if .Subtitle }}
+        <p class="hero-subtitle">{{ .Subtitle }}</p>
+        {{ end }}
+        <p class="hero-desc">
+            An elegant static ecosystem powered by Tamarind. Extremely premium typography, responsive layouts, glassmorphic headers, and responsive modular components built for maximum visual delight.
+        </p>
+        <div class="button-group" style="justify-content: center;">
+            <a href="#feed" class="btn btn-primary">Browse Articles</a>
+            <a href="https://github.com/rsantiago/tamarind" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+                View GitHub
+            </a>
+        </div>
+        
+        <!-- Stats Section -->
+        <div class="stats-grid">
+            <div class="stat-item">
+                <div class="stat-val">100%</div>
+                <div class="stat-lbl">Static HTML</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val">0ms</div>
+                <div class="stat-lbl">Load Telemetry</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val">46+</div>
+                <div class="stat-lbl">Spec Rules</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-val">MIT</div>
+                <div class="stat-lbl">License</div>
+            </div>
+        </div>
+    </section>
+
+    <main class="layout-container" id="feed">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h3>Explore</h3>
+            <nav class="sidebar-nav">
+                <a href="{{ .RelPrefix }}index.html" class="active">All Stories</a>
+                {{ range .Menu }}
+                <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
+                {{ end }}
+            </nav>
+        </aside>
+
+        <!-- Articles Grid Feed -->
+        <section style="flex: 1; min-width: 0;">
+            <div class="grid-feed">
+                {{ range .Articles }}
+                <div class="grid-item">
+                    <div class="grid-item-content">
+                        <div class="grid-item-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="16" y1="13" x2="8" y2="13"></line>
+                                <line x1="16" y1="17" x2="8" y2="17"></line>
+                                <polyline points="10 9 9 9 8 9"></polyline>
+                            </svg>
+                        </div>
+                        <div class="grid-item-category">STORY</div>
+                        <h3><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></h3>
+                        {{ if .Subtitle }}
+                        <p class="grid-item-desc">{{ .Subtitle }}</p>
+                        {{ end }}
+                    </div>
+                    <div class="grid-item-date">{{ .Date }}</div>
+                </div>
+                {{ end }}
+            </div>
+
+            <!-- Pagination block -->
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div class="pagination">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm">&larr; Previous</a>
+                {{ else }}
+                <div></div>
+                {{ end }}
+
+                <div class="pagination-numbers" style="display:flex; gap:8px; align-items:center;">
+                    {{ range .Paginator.VisiblePages }}
+                        {{ if .IsCurrent }}
+                            <span class="badge" style="background:var(--primary-color); color:var(--background-color);">{{ .Number }}</span>
+                        {{ else }}
+                            <a href="{{ .URL }}" style="color:var(--text-secondary); font-weight: 600; padding: 4px 8px;">{{ .Number }}</a>
+                        {{ end }}
+                    {{ end }}
+                </div>
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary btn-sm">Next &rarr;</a>
+                {{ else }}
+                <div></div>
+                {{ end }}
+            </div>
+            {{ end }}
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="layout-container" style="flex-direction:column; gap:8px; padding:0 24px;">
+            <p>&copy; 2026 {{ .SiteName }}. All rights reserved.</p>
+            <p style="font-size:0.75rem; opacity:0.75;">Powered by Tamarind Static Site Generator. Zephyr theme by Nous Research.</p>
+        </div>
+    </footer>
+
+    <script src="{{ .RelPrefix }}theme-toggle.js"></script>
+</body>
+
+</html>

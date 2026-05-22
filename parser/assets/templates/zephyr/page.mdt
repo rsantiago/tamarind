@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+    <!-- Theme Specific: Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Theme Specific: Dark Mode Toggle Script -->
+    <script>
+        (function() {
+            try {
+                var localTheme = localStorage.getItem('site-theme');
+                var support = window.matchMedia('(prefers-color-scheme: dark)');
+                if (localTheme === 'dark' || (!localTheme && support.matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 3l14 9-14 9V3z"/>
+                </svg>
+                {{ .SiteName }}
+            </a>
+            <div class="header-actions">
+                <ul class="nav-links">
+                    {{ range .Menu }}
+                    <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                    {{ end }}
+                </ul>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle-icon sun">☀️</span>
+                    <span class="theme-toggle-icon moon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="layout-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h3>Explore</h3>
+            <nav class="sidebar-nav">
+                <a href="{{ .RelPrefix }}index.html">All Stories</a>
+                {{ range .Menu }}
+                <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
+                {{ end }}
+            </nav>
+        </aside>
+
+        <!-- Main content block -->
+        <section style="flex: 1; min-width: 0;">
+            <article class="article-container">
+                <header class="article-header">
+                    <h1 class="page-title">{{ .Title }}</h1>
+                    {{ if .Subtitle }}
+                    <p class="page-subtitle">{{ .Subtitle }}</p>
+                    {{ end }}
+                    {{ if .Date }}
+                    <div style="font-size:0.875rem; color:var(--text-secondary); margin-top:16px; font-weight:500;">
+                        Published on {{ .Date }} {{ if .Author }}by {{ .Author }}{{ end }}
+                    </div>
+                    {{ end }}
+                </header>
+
+                <div class="article-content">
+                    {{ .Body }}
+                    
+                    {{ if .Tags }}
+                    <div class="tags-container">
+                        {{ range .Tags }}
+                        <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">#{{ . }}</a>
+                        {{ end }}
+                    </div>
+                    {{ end }}
+                </div>
+            </article>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="layout-container" style="flex-direction:column; gap:8px; padding:0 24px;">
+            <p>&copy; 2026 {{ .SiteName }}. All rights reserved.</p>
+            <p style="font-size:0.75rem; opacity:0.75;">Powered by Tamarind Static Site Generator. Zephyr theme by Nous Research.</p>
+        </div>
+    </footer>
+
+    <script src="{{ .RelPrefix }}theme-toggle.js"></script>
+</body>
+
+</html>
