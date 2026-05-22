@@ -390,6 +390,11 @@ items:
     scope: global
     required: true
     description: "Floating Use Tamarind badge element"
+  - name: ".footer-promo"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Website promotional reference in the footer"
 ```
 
 ### Mobile Behavior (Refactor Implemented)

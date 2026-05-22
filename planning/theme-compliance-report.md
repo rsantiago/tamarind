@@ -1,42 +1,42 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-05-22 02:26:05
+**Generated**: 2026-05-22 02:40:33
 
-**Total Requirements**: 47 required, 5 optional
+**Total Requirements**: 48 required, 5 optional
 
 ## Summary
 
 | Theme | Status | Passed | Failed | Score |
 |-------|--------|--------|--------|-------|
-| **atlas** | ✅ PASS | 47 | 0 | 100% |
-| **basic** | ✅ PASS | 47 | 0 | 100% |
-| **bento** | ✅ PASS | 47 | 0 | 100% |
-| **bird** | ✅ PASS | 47 | 0 | 100% |
-| **blue** | ✅ PASS | 47 | 0 | 100% |
-| **brutal** | ✅ PASS | 47 | 0 | 100% |
-| **canvas** | ✅ PASS | 47 | 0 | 100% |
-| **classic** | ✅ PASS | 47 | 0 | 100% |
-| **console** | ✅ PASS | 47 | 0 | 100% |
-| **forge** | ✅ PASS | 47 | 0 | 100% |
-| **gallery** | ✅ PASS | 47 | 0 | 100% |
-| **gram** | ✅ PASS | 47 | 0 | 100% |
-| **hacker** | ✅ PASS | 47 | 0 | 100% |
-| **midnight** | ✅ PASS | 47 | 0 | 100% |
-| **neon** | ✅ PASS | 47 | 0 | 100% |
-| **news** | ✅ PASS | 47 | 0 | 100% |
-| **overflow** | ✅ PASS | 47 | 0 | 100% |
-| **pastel** | ✅ PASS | 47 | 0 | 100% |
-| **pod** | ✅ PASS | 47 | 0 | 100% |
-| **prose** | ✅ PASS | 47 | 0 | 100% |
-| **stream** | ✅ PASS | 47 | 0 | 100% |
-| **tube** | ✅ PASS | 47 | 0 | 100% |
-| **zephyr** | ✅ PASS | 47 | 0 | 100% |
+| **atlas** | ✅ PASS | 48 | 0 | 100% |
+| **basic** | ✅ PASS | 48 | 0 | 100% |
+| **bento** | ✅ PASS | 48 | 0 | 100% |
+| **bird** | ✅ PASS | 48 | 0 | 100% |
+| **blue** | ✅ PASS | 48 | 0 | 100% |
+| **brutal** | ✅ PASS | 48 | 0 | 100% |
+| **canvas** | ✅ PASS | 48 | 0 | 100% |
+| **classic** | ✅ PASS | 48 | 0 | 100% |
+| **console** | ✅ PASS | 48 | 0 | 100% |
+| **forge** | ✅ PASS | 48 | 0 | 100% |
+| **gallery** | ✅ PASS | 48 | 0 | 100% |
+| **gram** | ✅ PASS | 48 | 0 | 100% |
+| **hacker** | ✅ PASS | 48 | 0 | 100% |
+| **midnight** | ✅ PASS | 48 | 0 | 100% |
+| **neon** | ✅ PASS | 48 | 0 | 100% |
+| **news** | ✅ PASS | 48 | 0 | 100% |
+| **overflow** | ✅ PASS | 48 | 0 | 100% |
+| **pastel** | ✅ PASS | 48 | 0 | 100% |
+| **pod** | ✅ PASS | 48 | 0 | 100% |
+| **prose** | ✅ PASS | 48 | 0 | 100% |
+| **stream** | ✅ PASS | 48 | 0 | 100% |
+| **tube** | ✅ PASS | 48 | 0 | 100% |
+| **zephyr** | ✅ PASS | 48 | 0 | 100% |
 
 ---
 
 ## Theme: atlas — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -80,6 +80,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -121,7 +122,7 @@
 
 ## Theme: basic — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -165,6 +166,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -206,7 +208,7 @@
 
 ## Theme: bento — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -250,6 +252,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -291,7 +294,7 @@
 
 ## Theme: bird — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -335,6 +338,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -376,7 +380,7 @@
 
 ## Theme: blue — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -420,6 +424,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -461,7 +466,7 @@
 
 ## Theme: brutal — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -505,6 +510,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -546,7 +552,7 @@
 
 ## Theme: canvas — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -590,6 +596,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -631,7 +638,7 @@
 
 ## Theme: classic — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -675,6 +682,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -716,7 +724,7 @@
 
 ## Theme: console — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -760,6 +768,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -801,7 +810,7 @@
 
 ## Theme: forge — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -845,6 +854,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -886,7 +896,7 @@
 
 ## Theme: gallery — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -930,6 +940,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -971,7 +982,7 @@
 
 ## Theme: gram — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1015,6 +1026,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1056,7 +1068,7 @@
 
 ## Theme: hacker — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1100,6 +1112,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1141,7 +1154,7 @@
 
 ## Theme: midnight — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1185,6 +1198,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1226,7 +1240,7 @@
 
 ## Theme: neon — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1270,6 +1284,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1311,7 +1326,7 @@
 
 ## Theme: news — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1355,6 +1370,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1396,7 +1412,7 @@
 
 ## Theme: overflow — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1440,6 +1456,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1481,7 +1498,7 @@
 
 ## Theme: pastel — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1525,6 +1542,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1566,7 +1584,7 @@
 
 ## Theme: pod — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1610,6 +1628,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1651,7 +1670,7 @@
 
 ## Theme: prose — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1695,6 +1714,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1736,7 +1756,7 @@
 
 ## Theme: stream — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1780,6 +1800,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1821,7 +1842,7 @@
 
 ## Theme: tube — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1865,6 +1886,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
@@ -1906,7 +1928,7 @@
 
 ## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 47/47 (100%)
+**Score**: 48/48 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1950,6 +1972,7 @@
 - `.nav-links` — Navigation links container
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
 
 #### responsive
 
