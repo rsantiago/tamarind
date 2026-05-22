@@ -237,10 +237,10 @@ main {
 }
 
 .hero-subtitle {
-    font-size: clamp(1.125rem, 2vw, 1.5rem);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
     color: var(--text-secondary);
     font-weight: 300;
-    max-w: 700px;
+    max-width: 700px;
     margin: 0 auto 16px auto;
 }
 
@@ -380,18 +380,20 @@ main {
 }
 
 .page-subtitle {
-    font-size: 1.25rem;
+    font-size: 1.4rem;
     color: var(--text-secondary);
     font-weight: 300;
     line-height: 1.5;
 }
 
 .article-content {
-    font-size: 1.05rem;
-    line-height: 1.7;
+    font-size: 1.1rem;
+    line-height: 1.75;
 }
 
 .article-content p {
+    font-weight: 300;
+    color: var(--text-secondary);
     margin-bottom: 24px;
 }
 
@@ -405,9 +407,9 @@ main {
     line-height: 1.25;
 }
 
-.article-content h1 { font-size: 2rem; }
-.article-content h2 { font-size: 1.5rem; }
-.article-content h3 { font-size: 1.25rem; }
+.article-content h1 { font-size: 2.25rem; }
+.article-content h2 { font-size: 1.75rem; }
+.article-content h3 { font-size: 1.4rem; }
 
 .article-content blockquote {
     border-left: 4px solid var(--accent-color);
@@ -423,6 +425,8 @@ main {
 }
 
 .article-content li {
+    font-weight: 300;
+    color: var(--text-secondary);
     margin-bottom: 8px;
 }
 
