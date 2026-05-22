@@ -228,10 +228,10 @@ main {
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 6vw, 5rem);
+    font-size: clamp(3.5rem, 8vw, 6rem);
     font-weight: 800;
     color: var(--heading-color);
-    letter-spacing: -0.04em;
+    letter-spacing: -0.05em;
     line-height: 0.95;
     margin-bottom: 24px;
 }
@@ -338,12 +338,12 @@ main {
 
 .grid-item h3 {
     font-family: var(--font-heading);
-    font-size: 1.25rem;
-    font-weight: 700;
+    font-size: clamp(1.35rem, 2.2vw, 1.6rem);
+    font-weight: 800;
     color: var(--heading-color);
     margin-bottom: 12px;
-    line-height: 1.35;
-    letter-spacing: -0.02em;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
 }
 
 .grid-item-desc {
@@ -366,21 +366,22 @@ main {
 }
 
 .article-header {
+    text-align: center;
     margin-bottom: 40px;
 }
 
 .page-title {
     font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5.5vw, 3.75rem); /* Large premium heading matching hermes-agent.org hero */
+    font-size: clamp(3rem, 6vw, 4.5rem);
     font-weight: 800;
     color: var(--heading-color);
-    letter-spacing: -0.03em;
-    line-height: 1.15;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
     margin-bottom: 16px;
 }
 
 .page-subtitle {
-    font-size: 1.4rem;
+    font-size: clamp(1.35rem, 2vw, 1.6rem);
     color: var(--text-secondary);
     font-weight: 400; /* Crisp weight matching hermes-agent.org */
     line-height: 1.5;
@@ -401,16 +402,16 @@ main {
     font-family: var(--font-heading);
     color: var(--heading-color);
     font-weight: 800;
-    letter-spacing: -0.03em; /* Tight letter-spacing for premium brand impact */
-    margin-top: 48px;
-    margin-bottom: 20px;
-    line-height: 1.15; /* Snug line-height for large, bold headings */
+    letter-spacing: -0.04em; /* snuggest high-contrast tracking */
+    margin-top: 56px;
+    margin-bottom: 24px;
+    line-height: 1.1; /* snuggest line-height */
 }
 
-.article-content h1 { font-size: clamp(2.5rem, 4.5vw, 3.5rem); } /* Dynamic 40px to 56px */
-.article-content h2 { font-size: clamp(2rem, 3.5vw, 2.75rem); }  /* Dynamic 32px to 44px (e.g. Everything You Need in One Agent) */
-.article-content h3 { font-size: clamp(1.4rem, 2.5vw, 1.85rem); }  /* Dynamic 22.4px to 29.6px */
-.article-content h4 { font-size: clamp(1.15rem, 1.8vw, 1.45rem); } /* Dynamic 18.4px to 23.2px */
+.article-content h1 { font-size: clamp(3rem, 6vw, 4.25rem); } /* Dynamic 48px to 68px */
+.article-content h2 { font-size: clamp(2.25rem, 4.5vw, 3.25rem); } /* Dynamic 36px to 52px (e.g. Everything You Need in One Agent) */
+.article-content h3 { font-size: clamp(1.6rem, 3vw, 2.25rem); } /* Dynamic 25.6px to 36px */
+.article-content h4 { font-size: clamp(1.25rem, 2vw, 1.6rem); } /* Dynamic 20px to 25.6px */
 
 .article-content blockquote {
     border-left: 4px solid var(--accent-color);
