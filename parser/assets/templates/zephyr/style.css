@@ -17,7 +17,7 @@
     --header-bg: rgba(255, 255, 255, 0.85); /* Translucent sticky header */
     --text-color: #374151;          /* Body gray 700 (premium slate matching hermes-agent.org) */
     --text-secondary: #4b5563;      /* Secondary gray 600 */
-    --heading-color: #111827;       /* Headline slate-black */
+    --heading-color: #1f2937;       /* Soft charcoal slate-black */
     --border-color: #e5e7eb;        /* Slate border 200 */
     
     /* Typography */
@@ -45,7 +45,7 @@
     --header-bg: rgba(8, 11, 17, 0.85);
     --text-color: #e2e8f0;          /* Slate 200 */
     --text-secondary: #94a3b8;      /* Slate 400 */
-    --heading-color: #f8fafc;       /* Slate 50 */
+    --heading-color: #e2e8f0;       /* Soft slate off-white */
     --border-color: #1e293b;        /* Slate 800 */
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
@@ -228,10 +228,10 @@ main {
 
 .hero-title {
     font-family: var(--font-heading);
-    font-size: clamp(3.5rem, 8vw, 6rem);
+    font-size: clamp(3rem, 6.5vw, 4.75rem);
     font-weight: 800;
     color: var(--heading-color);
-    letter-spacing: -0.05em;
+    letter-spacing: -0.04em;
     line-height: 0.95;
     margin-bottom: 24px;
 }
@@ -361,7 +361,7 @@ main {
 
 /* Article view */
 .article-container {
-    max-width: 800px;
+    max-width: 920px;
     margin: 0 auto;
 }
 
@@ -372,7 +372,7 @@ main {
 
 .page-title {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-size: clamp(2.5rem, 5.5vw, 3.75rem);
     font-weight: 800;
     color: var(--heading-color);
     letter-spacing: -0.04em;
@@ -402,16 +402,17 @@ main {
     font-family: var(--font-heading);
     color: var(--heading-color);
     font-weight: 800;
-    letter-spacing: -0.04em; /* snuggest high-contrast tracking */
+    letter-spacing: -0.03em; /* sleek tracking */
     margin-top: 56px;
     margin-bottom: 24px;
     line-height: 1.1; /* snuggest line-height */
+    text-align: center; /* Center-aligned section headings */
 }
 
-.article-content h1 { font-size: clamp(3rem, 6vw, 4.25rem); } /* Dynamic 48px to 68px */
-.article-content h2 { font-size: clamp(2.25rem, 4.5vw, 3.25rem); } /* Dynamic 36px to 52px (e.g. Everything You Need in One Agent) */
-.article-content h3 { font-size: clamp(1.6rem, 3vw, 2.25rem); } /* Dynamic 25.6px to 36px */
-.article-content h4 { font-size: clamp(1.25rem, 2vw, 1.6rem); } /* Dynamic 20px to 25.6px */
+.article-content h1 { font-size: clamp(2.4rem, 4.8vw, 3.25rem); } /* Dynamic 38.4px to 52px */
+.article-content h2 { font-size: clamp(1.85rem, 3.6vw, 2.5rem); }  /* Dynamic 29.6px to 40px */
+.article-content h3 { font-size: clamp(1.4rem, 2.6vw, 1.85rem); }  /* Dynamic 22.4px to 29.6px */
+.article-content h4 { font-size: clamp(1.15rem, 1.8vw, 1.35rem); } /* Dynamic 18.4px to 21.6px */
 
 .article-content blockquote {
     border-left: 4px solid var(--accent-color);
