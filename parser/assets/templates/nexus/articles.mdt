@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{ template "head.mdt" . }}
+    <!-- Theme Specific: Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Theme Specific: Dark/Light Mode Bootstrapper -->
+    <script>
+        (function() {
+            try {
+                var localTheme = localStorage.getItem('site-theme');
+                var support = window.matchMedia('(prefers-color-scheme: dark)');
+                if (localTheme === 'dark' || (!localTheme && support.matches)) {
+                    document.documentElement.setAttribute('data-theme', 'dark');
+                } else {
+                    document.documentElement.setAttribute('data-theme', 'light');
+                }
+            } catch (e) {}
+        })();
+    </script>
+</head>
+
+<body>
+
+    <header class="site-header">
+        <nav class="nav-container">
+            <a href="{{ .RelPrefix }}index.html" class="logo">
+                {{ .SiteName }}
+            </a>
+            <ul class="nav-links">
+                {{ range .Menu }}
+                <li><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></li>
+                {{ end }}
+            </ul>
+            <div class="header-actions" style="display:flex; align-items:center; gap:16px;">
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <span class="theme-toggle-icon sun">☀️</span>
+                    <span class="theme-toggle-icon moon">🌙</span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="layout-container" id="feed">
+        <section style="width: 100%;">
+            <div class="article-header">
+                <span class="badge">SCHOLARLY PAPERS</span>
+                <h1 class="page-title">Scholarly Index & Logs</h1>
+                <p class="page-subtitle">A collection of research archives, technical dissertations, and longform literature.</p>
+            </div>
+
+            <!-- Articles Grid Feed -->
+            <div class="grid-feed">
+                {{ range .Articles }}
+                <div class="grid-item">
+                    <div class="grid-item-category">SECTION I</div>
+                    <h3><a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a></h3>
+                    {{ if .Subtitle }}
+                    <p class="grid-item-desc">{{ .Subtitle }}</p>
+                    {{ end }}
+                    <div class="grid-item-date">Published: {{ .Date }}</div>
+                </div>
+                {{ end }}
+            </div>
+
+            <!-- Pagination block -->
+            {{ if gt .Paginator.TotalPages 1 }}
+            <div class="pagination">
+                {{ if .Paginator.HasPrev }}
+                <a href="{{ .Paginator.PrevURL }}" class="btn btn-secondary btn-sm">&larr; Previous</a>
+                {{ else }}
+                <div></div>
+                {{ end }}
+
+                <div class="pagination-numbers" style="display:flex; gap:8px; align-items:center;">
+                    {{ range .Paginator.VisiblePages }}
+                        {{ if .IsCurrent }}
+                            <span class="badge" style="background:var(--primary-color); color:var(--background-color);">{{ .Number }}</span>
+                        {{ else }}
+                            <a href="{{ .URL }}" style="color:var(--text-secondary); font-weight: 600; padding: 4px 8px;">{{ .Number }}</a>
+                        {{ end }}
+                    {{ end }}
+                </div>
+
+                {{ if .Paginator.HasNext }}
+                <a href="{{ .Paginator.NextURL }}" class="btn btn-secondary btn-sm">Next &rarr;</a>
+                {{ else }}
+                <div></div>
+                {{ end }}
+            </div>
+            {{ end }}
+        </section>
+    </main>
+
+    {{ template "footer.mdt" . }}
+
+    <script src="{{ .RelPrefix }}theme-toggle.js"></script>
+</body>
+
+</html>
