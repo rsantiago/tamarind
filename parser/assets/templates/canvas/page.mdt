@@ -48,14 +48,14 @@
                     </div>
                 </article>
             </main>
+            <footer class="site-footer">
+                <p class="footer-promo">
+                    This website was easily built with <a href="https://usetamarind.com" target="_blank" class="footer-link-tamarind">Tamarind</a>. 
+                    <a href="https://usetamarind.com" target="_blank" class="footer-link-cta">Start your own in 1 minute &rarr;</a>
+                </p>
+            </footer>
         </div>
     </div>
-    <footer class="site-footer">
-        <p class="footer-promo">
-            This website was easily built with <a href="https://usetamarind.com" target="_blank" class="footer-link-tamarind">Tamarind</a>. 
-            <a href="https://usetamarind.com" target="_blank" class="footer-link-cta">Start your own in 1 minute &rarr;</a>
-        </p>
-    </footer>
 
     <!-- Ghost Badge -->
     <a href="https://usetamarind.com" target="_blank" class="tamarind-ghost-badge">
