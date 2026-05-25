@@ -6,11 +6,10 @@ set -e
 echo "Compiling parser..."
 (cd parser && go build -o ../tamarind)
 
-# Ensure writer-sandbox structure exists
-if [ ! -d writer-sandbox ]; then
-    echo "Initializing writer-sandbox structure..."
-    ./tamarind init
-fi
+# Refresh writer-sandbox structure from latest binary assets
+echo "Initializing fresh writer-sandbox structure..."
+rm -rf writer-sandbox
+./tamarind init
 
 echo "Cleaning previous builds..."
 rm -rf public-all website

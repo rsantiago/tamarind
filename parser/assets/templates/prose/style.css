@@ -436,3 +436,86 @@ a:hover {
     .nav-container { flex-direction: column; gap: 1rem; padding: 10px; }
     .site-header { height: auto; padding: 1rem 0; }
 }
+
+/* --- Theme Design System Components (Compliance Spec) --- */
+.card {
+    background-color: #F5EFEB;
+    border: 1px solid #D7D1CC;
+    border-radius: var(--radius-lg, 8px);
+    box-shadow: var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.04));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 2rem auto 3rem auto !important;
+    display: block;
+}
+.card-padding {
+    padding: 24px;
+}
+.form-input, .form-textarea, .form-select {
+    border: 1px solid #D7D1CC !important;
+    background-color: #FAF8F5 !important;
+}
+[data-theme="dark"] .card {
+    background-color: #121824;
+    border-color: #334155;
+}
+[data-theme="dark"] .form-input, [data-theme="dark"] .form-textarea, [data-theme="dark"] .form-select {
+    border-color: #334155 !important;
+    background-color: #0A0F1D !important;
+}
+
+/* Badges & Tags */
+.badge-primary {
+    background-color: var(--primary-color, #000);
+    color: var(--background-color, #fff);
+}
+.badge-secondary {
+    background-color: var(--secondary-color, #6c757d);
+    color: var(--background-color, #fff);
+}
+.badge-success {
+    background-color: #28a745;
+    color: #fff;
+}
+.badge-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+.badge-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Alerts & Callouts */
+.alert {
+    padding: 16px;
+    border-radius: var(--radius-sm, 4px);
+    margin: 16px 0;
+    border-left: 4px solid var(--border-color, #e0e0e0);
+    background-color: var(--card-bg, #ffffff);
+    color: var(--text-color, #000);
+}
+.alert-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-family: var(--font-heading, inherit);
+}
+.alert-content {
+    font-size: 0.95em;
+    color: var(--text-secondary, #666);
+}
+.alert-info {
+    border-left-color: var(--primary-color, #007bff);
+    background-color: rgba(0, 123, 255, 0.05);
+}
+.alert-warn {
+    border-left-color: #ffc107;
+    background-color: rgba(255, 193, 7, 0.05);
+}
+.alert-error {
+    border-left-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.05);
+}
+.alert-tip {
+    border-left-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.05);
+}

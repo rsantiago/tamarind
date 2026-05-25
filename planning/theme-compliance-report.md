@@ -1,50 +1,50 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-05-22 18:59:10
+**Generated**: 2026-05-25 14:05:15
 
-**Total Requirements**: 62 required, 5 optional
+**Total Requirements**: 76 required, 3 optional
 
 ## Summary
 
 | Theme | Status | Passed | Failed | Score |
 |-------|--------|--------|--------|-------|
-| **atlas** | ✅ PASS | 62 | 0 | 100% |
-| **basic** | ✅ PASS | 62 | 0 | 100% |
-| **bento** | ✅ PASS | 62 | 0 | 100% |
-| **bird** | ✅ PASS | 62 | 0 | 100% |
-| **blue** | ✅ PASS | 62 | 0 | 100% |
-| **brutal** | ✅ PASS | 62 | 0 | 100% |
-| **canvas** | ✅ PASS | 62 | 0 | 100% |
-| **classic** | ✅ PASS | 62 | 0 | 100% |
-| **console** | ✅ PASS | 62 | 0 | 100% |
-| **cupertino** | ✅ PASS | 62 | 0 | 100% |
-| **eclipse** | ✅ PASS | 62 | 0 | 100% |
-| **editorial** | ✅ PASS | 62 | 0 | 100% |
-| **forge** | ✅ PASS | 62 | 0 | 100% |
-| **gallery** | ✅ PASS | 62 | 0 | 100% |
-| **gram** | ✅ PASS | 62 | 0 | 100% |
-| **hacker** | ✅ PASS | 62 | 0 | 100% |
-| **midnight** | ✅ PASS | 62 | 0 | 100% |
-| **neon** | ✅ PASS | 62 | 0 | 100% |
-| **network** | ✅ PASS | 62 | 0 | 100% |
-| **news** | ✅ PASS | 62 | 0 | 100% |
-| **nexus** | ✅ PASS | 62 | 0 | 100% |
-| **nordic** | ✅ PASS | 62 | 0 | 100% |
-| **overflow** | ✅ PASS | 62 | 0 | 100% |
-| **pastel** | ✅ PASS | 62 | 0 | 100% |
-| **pod** | ✅ PASS | 62 | 0 | 100% |
-| **prose** | ✅ PASS | 62 | 0 | 100% |
-| **protocol** | ✅ PASS | 62 | 0 | 100% |
-| **scribe** | ✅ PASS | 62 | 0 | 100% |
-| **stream** | ✅ PASS | 62 | 0 | 100% |
-| **tube** | ✅ PASS | 62 | 0 | 100% |
-| **zephyr** | ✅ PASS | 62 | 0 | 100% |
+| **atlas** | ✅ PASS | 76 | 0 | 100% |
+| **basic** | ✅ PASS | 76 | 0 | 100% |
+| **bento** | ✅ PASS | 76 | 0 | 100% |
+| **bird** | ✅ PASS | 76 | 0 | 100% |
+| **blue** | ✅ PASS | 76 | 0 | 100% |
+| **brutal** | ✅ PASS | 76 | 0 | 100% |
+| **canvas** | ✅ PASS | 76 | 0 | 100% |
+| **classic** | ✅ PASS | 76 | 0 | 100% |
+| **console** | ✅ PASS | 76 | 0 | 100% |
+| **cupertino** | ✅ PASS | 76 | 0 | 100% |
+| **eclipse** | ✅ PASS | 76 | 0 | 100% |
+| **editorial** | ✅ PASS | 76 | 0 | 100% |
+| **forge** | ✅ PASS | 76 | 0 | 100% |
+| **gallery** | ✅ PASS | 76 | 0 | 100% |
+| **gram** | ✅ PASS | 76 | 0 | 100% |
+| **hacker** | ✅ PASS | 76 | 0 | 100% |
+| **midnight** | ✅ PASS | 76 | 0 | 100% |
+| **neon** | ✅ PASS | 76 | 0 | 100% |
+| **network** | ✅ PASS | 76 | 0 | 100% |
+| **news** | ✅ PASS | 76 | 0 | 100% |
+| **nexus** | ✅ PASS | 76 | 0 | 100% |
+| **nordic** | ✅ PASS | 76 | 0 | 100% |
+| **overflow** | ✅ PASS | 76 | 0 | 100% |
+| **pastel** | ✅ PASS | 76 | 0 | 100% |
+| **pod** | ✅ PASS | 76 | 0 | 100% |
+| **prose** | ✅ PASS | 76 | 0 | 100% |
+| **protocol** | ✅ PASS | 76 | 0 | 100% |
+| **scribe** | ✅ PASS | 76 | 0 | 100% |
+| **stream** | ✅ PASS | 76 | 0 | 100% |
+| **tube** | ✅ PASS | 76 | 0 | 100% |
+| **zephyr** | ✅ PASS | 76 | 0 | 100% |
 
 ---
 
 ## Theme: atlas — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -63,9 +63,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -83,6 +98,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -153,7 +173,7 @@
 
 ## Theme: basic — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -172,9 +192,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -192,6 +227,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -262,7 +302,7 @@
 
 ## Theme: bento — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -281,9 +321,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -301,6 +356,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -371,7 +431,7 @@
 
 ## Theme: bird — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -390,9 +450,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -410,6 +485,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -480,7 +560,7 @@
 
 ## Theme: blue — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -499,9 +579,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -519,6 +614,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -589,7 +689,7 @@
 
 ## Theme: brutal — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -608,9 +708,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -628,6 +743,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -698,7 +818,7 @@
 
 ## Theme: canvas — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -717,9 +837,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -737,6 +872,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -807,7 +947,7 @@
 
 ## Theme: classic — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -826,9 +966,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -846,6 +1001,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -916,7 +1076,7 @@
 
 ## Theme: console — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -935,9 +1095,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -955,6 +1130,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -1025,7 +1205,7 @@
 
 ## Theme: cupertino — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1044,9 +1224,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -1064,6 +1259,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -1134,7 +1334,7 @@
 
 ## Theme: eclipse — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1153,9 +1353,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -1173,6 +1388,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -1243,7 +1463,7 @@
 
 ## Theme: editorial — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1262,9 +1482,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -1282,6 +1517,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -1352,7 +1592,7 @@
 
 ## Theme: forge — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1371,9 +1611,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -1391,6 +1646,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -1461,7 +1721,7 @@
 
 ## Theme: gallery — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1480,9 +1740,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -1500,6 +1775,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -1570,7 +1850,7 @@
 
 ## Theme: gram — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1589,9 +1869,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -1609,6 +1904,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -1679,7 +1979,7 @@
 
 ## Theme: hacker — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1698,9 +1998,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -1718,6 +2033,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -1788,7 +2108,7 @@
 
 ## Theme: midnight — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1807,9 +2127,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -1827,6 +2162,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -1897,7 +2237,7 @@
 
 ## Theme: neon — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1916,9 +2256,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -1936,6 +2291,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2006,7 +2366,7 @@
 
 ## Theme: network — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2025,9 +2385,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -2045,6 +2420,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2115,7 +2495,7 @@
 
 ## Theme: news — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2134,9 +2514,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -2154,6 +2549,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2224,7 +2624,7 @@
 
 ## Theme: nexus — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2243,9 +2643,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -2263,6 +2678,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2333,7 +2753,7 @@
 
 ## Theme: nordic — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2352,9 +2772,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -2372,6 +2807,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2442,7 +2882,7 @@
 
 ## Theme: overflow — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2461,9 +2901,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -2481,6 +2936,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2551,7 +3011,7 @@
 
 ## Theme: pastel — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2570,9 +3030,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -2590,6 +3065,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2660,7 +3140,7 @@
 
 ## Theme: pod — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2679,9 +3159,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -2699,6 +3194,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2769,7 +3269,7 @@
 
 ## Theme: prose — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2788,9 +3288,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -2808,6 +3323,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2878,7 +3398,7 @@
 
 ## Theme: protocol — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2897,9 +3417,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -2917,6 +3452,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -2987,7 +3527,7 @@
 
 ## Theme: scribe — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3006,9 +3546,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -3026,6 +3581,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -3096,7 +3656,7 @@
 
 ## Theme: stream — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3115,9 +3675,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -3135,6 +3710,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -3205,7 +3785,7 @@
 
 ## Theme: tube — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3224,9 +3804,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -3244,6 +3839,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 
@@ -3314,7 +3914,7 @@
 
 ## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 62/62 (100%)
+**Score**: 76/76 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3333,9 +3933,24 @@
 - `pre` — Preformatted code blocks (pre) must be explicitly styled
 - `table` — Data tables must be explicitly styled
 
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
 #### components-badges
 
 - `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
 
 #### components-buttons
 
@@ -3353,6 +3968,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
 
 #### components-forms
 

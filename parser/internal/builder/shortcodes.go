@@ -219,6 +219,106 @@ func processShortcodes(markdown, sourceDir string) string {
 		return fmt.Sprintf(`<figure><img src="%s" alt="%s"%s>%s</figure>`, src, caption, styleAttr, figcaptionHTML)
 	})
 
+	// 7. Button (Block): {{ button href="url" ... }}Label{{ /button }}
+	reButton := regexp.MustCompile(`(?s){{<?\s*button\s+(.*?)\s*>??}}(.*?){{<?\s*/?\s*button\s*>??}}`)
+	markdown = reButton.ReplaceAllStringFunc(markdown, func(match string) string {
+		parts := reButton.FindStringSubmatch(match)
+		attrs := parts[1]
+		content := parts[2]
+
+		reHref := regexp.MustCompile(`href="([^"]+)"`)
+		reType := regexp.MustCompile(`type="([^"]+)"`)
+		reSize := regexp.MustCompile(`size="([^"]+)"`)
+		reTarget := regexp.MustCompile(`target="([^"]+)"`)
+
+		href := ""
+		if m := reHref.FindStringSubmatch(attrs); len(m) > 1 {
+			href = m[1]
+		}
+		typ := "primary"
+		if m := reType.FindStringSubmatch(attrs); len(m) > 1 {
+			typ = m[1]
+		}
+		size := ""
+		if m := reSize.FindStringSubmatch(attrs); len(m) > 1 {
+			size = m[1]
+		}
+		target := ""
+		if m := reTarget.FindStringSubmatch(attrs); len(m) > 1 {
+			target = m[1]
+		}
+
+		classAttr := "btn"
+		if typ != "" {
+			classAttr += " btn-" + typ
+		}
+		if size != "" {
+			classAttr += " btn-" + size
+		}
+
+		targetAttr := ""
+		if target != "" {
+			targetAttr = fmt.Sprintf(` target="%s"`, target)
+		}
+
+		return fmt.Sprintf(`<a href="%s" class="%s"%s>%s</a>`, href, classAttr, targetAttr, content)
+	})
+
+	// 8. Card (Block): {{ card }}...{{ /card }}
+	reCard := regexp.MustCompile(`(?s){{<?\s*card(?:\s+padding="([^"]*)")?\s*>??}}(.*?){{<?\s*/?\s*card\s*>??}}`)
+	markdown = reCard.ReplaceAllStringFunc(markdown, func(match string) string {
+		parts := reCard.FindStringSubmatch(match)
+		paddingVal := parts[1]
+		content := parts[2]
+
+		paddingClass := " card-padding"
+		if paddingVal == "false" {
+			paddingClass = ""
+		}
+		return fmt.Sprintf(`<div class="card%s">%s</div>`, paddingClass, content)
+	})
+
+	// 9. Alert (Block): {{ alert type="info" title="Title" }}...{{ /alert }}
+	reAlert := regexp.MustCompile(`(?s){{<?\s*alert\s+(.*?)\s*>??}}(.*?){{<?\s*/?\s*alert\s*>??}}`)
+	markdown = reAlert.ReplaceAllStringFunc(markdown, func(match string) string {
+		parts := reAlert.FindStringSubmatch(match)
+		attrs := parts[1]
+		content := parts[2]
+
+		reType := regexp.MustCompile(`type="([^"]+)"`)
+		reTitle := regexp.MustCompile(`title="([^"]+)"`)
+
+		typ := "info"
+		if m := reType.FindStringSubmatch(attrs); len(m) > 1 {
+			typ = m[1]
+		}
+		title := ""
+		if m := reTitle.FindStringSubmatch(attrs); len(m) > 1 {
+			title = m[1]
+		}
+
+		html := fmt.Sprintf(`<div class="callout callout-%s alert alert-%s">`, typ, typ)
+		if title != "" {
+			html += fmt.Sprintf(`<div class="callout-title alert-title">%s</div>`, title)
+		}
+		html += fmt.Sprintf(`<div class="callout-content alert-content">%s</div></div>`, content)
+		return html
+	})
+
+	// 10. Badge (Block): {{ badge type="primary" }}...{{ /badge }}
+	reBadge := regexp.MustCompile(`(?s){{<?\s*badge(?:\s+type="([^"]*)")?\s*>??}}(.*?){{<?\s*/?\s*badge\s*>??}}`)
+	markdown = reBadge.ReplaceAllStringFunc(markdown, func(match string) string {
+		parts := reBadge.FindStringSubmatch(match)
+		typ := parts[1]
+		content := parts[2]
+
+		classAttr := "badge"
+		if typ != "" {
+			classAttr += " badge-" + typ
+		}
+		return fmt.Sprintf(`<span class="%s">%s</span>`, classAttr, content)
+	})
+
 	// Cleanup Escape Token {{!}}
 	markdown = strings.ReplaceAll(markdown, "{{!}}", "")
 

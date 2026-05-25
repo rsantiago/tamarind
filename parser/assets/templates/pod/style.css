@@ -14,9 +14,9 @@
     --text-secondary: #B3B3B3;
     --primary-color: #1DB954; /* Signature Green */
     --primary-dark: #1ED760;
-    --border-color: #282828;
-    --card-bg: #181818;
-    --hover-bg: #282828;
+    --border-color: #2E2E2E;    /* Premium charcoal carbon border */
+    --card-bg: #242424;         /* Lighter, beautiful standout carbon gray card bg */
+    --hover-bg: #2E2E2E;
 
     /* Typography */
     --font-heading: 'Outfit', sans-serif;
@@ -40,8 +40,8 @@
     --text-color: #121212;
     --text-secondary: #535353;
     --primary-color: #1DB954;
-    --border-color: #EAEAEA;
-    --card-bg: #F8F8F8;
+    --border-color: #E2E2E2;     /* Softer light border */
+    --card-bg: #FAFAFA;          /* Cleaner standout card bg */
     --hover-bg: #EAEAEA;
     --shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
@@ -558,4 +558,87 @@ a:hover {
     .podcast-header-card { flex-direction: column; align-items: flex-start; padding: 24px; gap: 20px; }
     .podcast-cover-large-wrapper { width: 120px; height: 120px; }
     .podcast-cover-large-svg { width: 48px; height: 48px; }
+}
+
+/* --- Theme Design System Components (Compliance Spec) --- */
+.card {
+    background-color: var(--card-bg, #1F1F1F);
+    border: 1px solid var(--border-color, #2C2C2C);
+    border-radius: var(--radius-lg, 8px);
+    box-shadow: var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.5));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 2rem auto 3rem auto !important;
+    display: block;
+}
+.card-padding {
+    padding: 24px;
+}
+.form-input, .form-textarea, .form-select {
+    border: 1px solid var(--border-color, #2C2C2C) !important;
+    background-color: #161616 !important;
+}
+[data-theme="light"] .card {
+    background-color: #FAFAFA;
+    border-color: #E2E2E2;
+}
+[data-theme="light"] .form-input, [data-theme="light"] .form-textarea, [data-theme="light"] .form-select {
+    border-color: #E2E2E2 !important;
+    background-color: #FFFFFF !important;
+}
+
+/* Badges & Tags */
+.badge-primary {
+    background-color: var(--primary-color, #000);
+    color: var(--background-color, #fff);
+}
+.badge-secondary {
+    background-color: var(--secondary-color, #6c757d);
+    color: var(--background-color, #fff);
+}
+.badge-success {
+    background-color: #28a745;
+    color: #fff;
+}
+.badge-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+.badge-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Alerts & Callouts */
+.alert {
+    padding: 16px;
+    border-radius: var(--radius-sm, 4px);
+    margin: 16px 0;
+    border-left: 4px solid var(--border-color, #e0e0e0);
+    background-color: var(--card-bg, #ffffff);
+    color: var(--text-color, #000);
+}
+.alert-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-family: var(--font-heading, inherit);
+}
+.alert-content {
+    font-size: 0.95em;
+    color: var(--text-secondary, #666);
+}
+.alert-info {
+    border-left-color: var(--primary-color, #007bff);
+    background-color: rgba(0, 123, 255, 0.05);
+}
+.alert-warn {
+    border-left-color: #ffc107;
+    background-color: rgba(255, 193, 7, 0.05);
+}
+.alert-error {
+    border-left-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.05);
+}
+.alert-tip {
+    border-left-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.05);
 }

@@ -171,3 +171,83 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 		})
 	}
 }
+
+func TestProcessShortcodes_UIComponents(t *testing.T) {
+	tests := []struct {
+		name     string
+		input    string
+		expected []string
+	}{
+		{
+			name:  "Button Primary",
+			input: `{{ button href="/about" type="primary" }}About{{ /button }}`,
+			expected: []string{
+				`<a href="/about" class="btn btn-primary">About</a>`,
+			},
+		},
+		{
+			name:  "Button Secondary Small Target",
+			input: `{{< button href="https://example.com" type="secondary" size="sm" target="_blank" >}}External{{</ button >}}`,
+			expected: []string{
+				`<a href="https://example.com" class="btn btn-secondary btn-sm" target="_blank">External</a>`,
+			},
+		},
+		{
+			name:  "Card Standard",
+			input: `{{ card }}Hello Card{{ /card }}`,
+			expected: []string{
+				`<div class="card card-padding">Hello Card</div>`,
+			},
+		},
+		{
+			name:  "Card No Padding",
+			input: `{{< card padding="false" >}}No Padding{{</ card >}}`,
+			expected: []string{
+				`<div class="card">No Padding</div>`,
+			},
+		},
+		{
+			name:  "Alert standard info",
+			input: `{{ alert type="info" title="Important info" }}This is content{{ /alert }}`,
+			expected: []string{
+				`<div class="callout callout-info alert alert-info">`,
+				`<div class="callout-title alert-title">Important info</div>`,
+				`<div class="callout-content alert-content">This is content</div>`,
+			},
+		},
+		{
+			name:  "Alert warn no title",
+			input: `{{< alert type="warn" >}}Warn content{{</ alert >}}`,
+			expected: []string{
+				`<div class="callout callout-warn alert alert-warn">`,
+				`<div class="callout-content alert-content">Warn content</div>`,
+			},
+		},
+		{
+			name:  "Badge primary",
+			input: `{{ badge type="primary" }}Active{{ /badge }}`,
+			expected: []string{
+				`<span class="badge badge-primary">Active</span>`,
+			},
+		},
+		{
+			name:  "Badge standard no type",
+			input: `{{< badge >}}New{{</ badge >}}`,
+			expected: []string{
+				`<span class="badge">New</span>`,
+			},
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			got := processShortcodes(tt.input, "")
+			for _, exp := range tt.expected {
+				if !strings.Contains(got, exp) {
+					t.Errorf("[%s] Expected output to contain:\n%s\nGot:\n%s", tt.name, exp, got)
+				}
+			}
+		})
+	}
+}
+

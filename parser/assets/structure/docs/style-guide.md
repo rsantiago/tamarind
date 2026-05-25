@@ -29,15 +29,22 @@ This is a **bold text**, *italic text*, and `inline code` sample.
 ---
 
 ## 2. Buttons
-<div class="button-group">
-    <a href="#" class="btn btn-primary">Primary Button</a>
-    <a href="#" class="btn btn-secondary">Secondary Button</a>
-    <a href="#" class="btn btn-ghost">Ghost Button</a>
+
+### Standard Actions
+The standard button components are designed for primary calls to action, secondary operations, and discrete navigation.
+
+<div class="button-group" style="margin-top: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 24px; justify-content: flex-start;">
+    {{< button href="#" type="primary" >}}Primary Button{{</ button >}}
+    {{< button href="#" type="secondary" >}}Secondary Button{{</ button >}}
+    {{< button href="#" type="ghost" >}}Ghost Button{{</ button >}}
 </div>
 
-<div class="button-group">
-    <a href="#" class="btn btn-primary btn-sm">Small Primary</a>
-    <a href="#" class="btn btn-secondary btn-sm">Small Secondary</a>
+### Compact Actions
+Smaller button variations are optimized for card-level actions, sidebars, or inline operations.
+
+<div class="button-group" style="margin-top: 1.5rem; margin-bottom: 2rem; flex-wrap: wrap; gap: 20px; justify-content: flex-start;">
+    {{< button href="#" type="primary" size="sm" >}}Small Primary{{</ button >}}
+    {{< button href="#" type="secondary" size="sm" >}}Small Secondary{{</ button >}}
 </div>
 
 ---
@@ -88,42 +95,38 @@ This is a **bold text**, *italic text*, and `inline code` sample.
 
 ## 4. Cards & Badges
 
-<div class="card card-padding">
+{{< card >}}
     <h3>Feature Card</h3>
     <p>This is a standard card component. It uses <code>var(--card-bg)</code>.</p>
-    <span class="badge badge-primary">New</span>
-</div>
+    {{< badge type="primary" >}}New{{</ badge >}}
+{{</ card >}}
 <br>
-<div class="card card-padding">
+{{< card >}}
     <h3>Another Card</h3>
     <p>Cards are great for grouping related content in a grid layout.</p>
-    <span class="badge">Legacy</span>
-</div>
+    {{< badge >}}Legacy{{</ badge >}}
+{{</ card >}}
 
 ---
 
 ## 5. Shortcodes
 
 ### Callouts
-<div class="callout callout-info">
-    <div class="callout-title">Info</div>
-    This is an informational callout.
-</div>
+{{< alert type="info" title="Info" >}}
+This is an informational callout.
+{{</ alert >}}
 
-<div class="callout callout-warn">
-    <div class="callout-title">Warning</div>
-    This is a warning callout.
-</div>
+{{< alert type="warn" title="Warning" >}}
+This is a warning callout.
+{{</ alert >}}
 
-<div class="callout callout-error">
-    <div class="callout-title">Error</div>
-    This is an error callout.
-</div>
+{{< alert type="error" title="Error" >}}
+This is an error callout.
+{{</ alert >}}
 
-<div class="callout callout-tip">
-    <div class="callout-title">Tip</div>
-    This is a tip callout.
-</div>
+{{< alert type="tip" title="Tip" >}}
+This is a tip callout.
+{{</ alert >}}
 
 ### Terminal
 <div class="terminal">

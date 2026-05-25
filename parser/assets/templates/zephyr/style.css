@@ -37,16 +37,16 @@
 }
 
 [data-theme="dark"] {
-    --primary-color: #f8fafc;       /* Bright slate-white */
-    --secondary-color: #94a3b8;     /* Gray 400 */
+    --primary-color: #f4f4f5;       /* Clean neutral zinc-100 */
+    --secondary-color: #a1a1aa;     /* Zinc-400 */
     --accent-color: #3b82f6;        /* Bright blue accent */
-    --background-color: #080b11;    /* Obsidian deep blue */
-    --card-bg: #0f172a;             /* Slate 900 */
-    --header-bg: rgba(8, 11, 17, 0.85);
-    --text-color: #e2e8f0;          /* Slate 200 */
-    --text-secondary: #94a3b8;      /* Slate 400 */
-    --heading-color: #cbd5e1;       /* Softer slate-300 to reduce harsh contrast */
-    --border-color: #1e293b;        /* Slate 800 */
+    --background-color: #09090b;    /* Pure elegant obsidian zinc-950 */
+    --card-bg: #18181b;             /* Elegant neutral charcoal zinc-900 */
+    --header-bg: rgba(9, 9, 11, 0.85);
+    --text-color: #f4f4f5;          /* Zinc-100 */
+    --text-secondary: #a1a1aa;      /* Zinc-400 */
+    --heading-color: #e4e4e7;       /* Soft zinc-200 */
+    --border-color: #27272a;        /* Neutral zinc-800 border */
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
     --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
 }
@@ -636,16 +636,16 @@ main {
 }
 
 .terminal {
-    background-color: #0b0f19;
+    background-color: #09090b;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-lg);
     margin: 32px 0;
     overflow: hidden;
-    border: 1px solid #1e293b;
+    border: 1px solid #27272a;
 }
 
 .terminal-header {
-    background-color: #1e293b;
+    background-color: #27272a;
     padding: 12px 16px;
     display: flex;
     gap: 8px;
@@ -693,7 +693,7 @@ figcaption {
 }
 
 pre {
-    background-color: #0f172a;
+    background-color: #18181b;
     border-radius: var(--radius-md);
     padding: 20px;
     overflow-x: auto;
@@ -715,7 +715,7 @@ p code, li code {
 }
 
 [data-theme="dark"] p code, [data-theme="dark"] li code {
-    background-color: #1e293b;
+    background-color: #27272a;
     color: #f8fafc;
 }
 
@@ -819,4 +819,86 @@ p code, li code {
         grid-template-columns: repeat(2, 1fr);
         gap: 16px;
     }
+}
+
+/* --- Theme Design System Components (Compliance Spec) --- */
+.card {
+    background-color: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #E5E7EB);
+    border-radius: var(--radius-lg, 8px);
+    box-shadow: var(--shadow, 0 1px 3px rgba(0,0,0,0.05));
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin: 2rem auto 3rem auto !important;
+    display: block;
+}
+.card-padding {
+    padding: 24px;
+}
+.form-input, .form-textarea, .form-select {
+    border: 1px solid var(--border-color, #E5E7EB) !important;
+}
+[data-theme="dark"] .card {
+    background-color: #18181b;
+    border-color: #27272a;
+}
+[data-theme="dark"] .form-input, [data-theme="dark"] .form-textarea, [data-theme="dark"] .form-select {
+    border-color: #27272a !important;
+    background-color: #09090b !important;
+}
+
+/* Badges & Tags */
+.badge-primary {
+    background-color: var(--primary-color, #000);
+    color: var(--background-color, #fff);
+}
+.badge-secondary {
+    background-color: var(--secondary-color, #6c757d);
+    color: var(--background-color, #fff);
+}
+.badge-success {
+    background-color: #28a745;
+    color: #fff;
+}
+.badge-warning {
+    background-color: #ffc107;
+    color: #000;
+}
+.badge-danger {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Alerts & Callouts */
+.alert {
+    padding: 16px;
+    border-radius: var(--radius-sm, 4px);
+    margin: 16px 0;
+    border-left: 4px solid var(--border-color, #e0e0e0);
+    background-color: var(--card-bg, #ffffff);
+    color: var(--text-color, #000);
+}
+.alert-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-family: var(--font-heading, inherit);
+}
+.alert-content {
+    font-size: 0.95em;
+    color: var(--text-secondary, #666);
+}
+.alert-info {
+    border-left-color: var(--primary-color, #007bff);
+    background-color: rgba(0, 123, 255, 0.05);
+}
+.alert-warn {
+    border-left-color: #ffc107;
+    background-color: rgba(255, 193, 7, 0.05);
+}
+.alert-error {
+    border-left-color: #dc3545;
+    background-color: rgba(220, 53, 69, 0.05);
+}
+.alert-tip {
+    border-left-color: #28a745;
+    background-color: rgba(40, 167, 69, 0.05);
 }

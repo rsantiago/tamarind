@@ -292,12 +292,12 @@ items:
   - name: ".card"
     type: css-selector
     scope: global
-    required: false
+    required: true
     description: "Card surface component"
   - name: ".card-padding"
     type: css-selector
     scope: global
-    required: false
+    required: true
     description: "Card padding utility"
 ```
 
@@ -313,6 +313,77 @@ items:
     scope: global
     required: true
     description: "Badge/tag label"
+  - name: ".badge-primary"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Primary badge variant"
+  - name: ".badge-secondary"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Secondary badge variant"
+  - name: ".badge-success"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Success badge variant"
+  - name: ".badge-warning"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Warning badge variant"
+  - name: ".badge-danger"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Danger badge variant"
+```
+
+### Alerts & Callouts
+**Standard**: `<div class="callout callout-info alert alert-info"><div class="callout-title alert-title">Title</div><div class="callout-content alert-content">Content</div></div>`
+*   `.alert`: Container class for user notifications.
+*   `.alert-title`: Title font weight bold/margin bottom.
+*   `.alert-content`: Inner text wrapper.
+
+```yaml requirements
+category: components-alerts
+items:
+  - name: ".alert"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Alert wrapper container"
+  - name: ".alert-title"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Alert title element"
+  - name: ".alert-content"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Alert body content"
+  - name: ".alert-info"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Info alert variant styling"
+  - name: ".alert-warn"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Warning alert variant styling"
+  - name: ".alert-error"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Error alert variant styling"
+  - name: ".alert-tip"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Tip alert variant styling"
 ```
 
 ### Callouts (Already Present in All Themes)
