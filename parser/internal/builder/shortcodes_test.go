@@ -214,17 +214,17 @@ func TestProcessShortcodes_UIComponents(t *testing.T) {
 			name:  "Alert standard info",
 			input: `{{ alert type="info" title="Important info" }}This is content{{ /alert }}`,
 			expected: []string{
-				`<div class="callout callout-info alert alert-info">`,
-				`<div class="callout-title alert-title">Important info</div>`,
-				`<div class="callout-content alert-content">This is content</div>`,
+				`<div class="alert-container alert-info">`,
+				`<h4 class="alert-title">Important info</h4>`,
+				`<p class="alert-message">This is content</p>`,
 			},
 		},
 		{
 			name:  "Alert warn no title",
 			input: `{{< alert type="warn" >}}Warn content{{</ alert >}}`,
 			expected: []string{
-				`<div class="callout callout-warn alert alert-warn">`,
-				`<div class="callout-content alert-content">Warn content</div>`,
+				`<div class="alert-container alert-warn">`,
+				`<p class="alert-message">Warn content</p>`,
 			},
 		},
 		{

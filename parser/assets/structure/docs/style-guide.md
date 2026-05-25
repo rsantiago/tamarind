@@ -141,3 +141,187 @@ This is a tip callout.
         > Done!
     </div>
 </div>
+
+---
+
+## 6. Premium UI Components
+
+These premium, theme-aware, zero-config responsive components are built directly into the Tamarind static engine.
+
+### 6.1 Stats & Metrics Grid
+Perfect for high-authority SaaS homepages or landing pages displaying key product metrics.
+
+**Shortcode Syntax:**
+```markdown
+{{ metrics }}
+  {{ metric value="40+" label="Built-in Skills" }}
+  {{ metric value="12" label="Global Integrations" }}
+  {{ metric value="100%" label="Open Source" }}
+  {{ metric value="BSL" label="Tier Moat License" }}
+{{ /metrics }}
+```
+
+**Live Output:**
+{{ metrics }}
+  {{ metric value="40+" label="Built-in Skills" }}
+  {{ metric value="12" label="Global Integrations" }}
+  {{ metric value="100%" label="Open Source" }}
+  {{ metric value="BSL" label="Tier Moat License" }}
+{{ /metrics }}
+
+---
+
+### 6.2 Gradient Icon Feature Cards
+Modern, soft-bordered card grid featuring custom SVG icon boxes wrapped in diagonal gradient accent panels.
+
+**Shortcode Syntax:**
+```markdown
+{{ features }}
+  {{ feature title="Persistent Memory" gradient="blue-cyan" icon="sparkles" }}
+    Remembers preferences, projects, and environment parameters across active sessions.
+  {{ /feature }}
+  {{ feature title="Lightning Core" gradient="purple-pink" icon="bolt" }}
+    Ultra-low latency static builds powered by parallel multi-core rendering.
+  {{ /feature }}
+  {{ feature title="Secure Isolation" gradient="orange-red" icon="shield" }}
+    Enterprise-grade air-gapped sandboxes running on standard local runtimes.
+  {{ /feature }}
+{{ /features }}
+```
+
+**Live Output:**
+{{ features }}
+  {{ feature title="Persistent Memory" gradient="blue-cyan" icon="sparkles" }}
+    Remembers preferences, projects, and environment parameters across active sessions.
+  {{ /feature }}
+  {{ feature title="Lightning Core" gradient="purple-pink" icon="bolt" }}
+    Ultra-low latency static builds powered by parallel multi-core rendering.
+  {{ /feature }}
+  {{ feature title="Secure Isolation" gradient="orange-red" icon="shield" }}
+    Enterprise-grade air-gapped sandboxes running on standard local runtimes.
+  {{ /feature }}
+{{ /features }}
+
+---
+
+### 6.3 Capabilities Checklist Card
+A dense tabular card detailing list capabilities, statuses, and description metadata.
+
+**Shortcode Syntax:**
+```markdown
+{{ capabilities-grid }}
+  {{ capabilities title="Compiler Capabilities" }}
+    {{ capability name="Zero-Config CSS" desc="Automatic token harvesting" status="success" statusLabel="Ready" }}
+    {{ capability name="AST Checking" desc="Validates themes against spec" status="success" statusLabel="Ready" }}
+    {{ capability name="Image Optimizer" desc="Vivid multi-viewport generation" status="warning" statusLabel="Beta" }}
+    {{ capability name="WASM Extensions" desc="Custom Go plugins" status="pending" statusLabel="Planned" }}
+  {{ /capabilities }}
+{{ /capabilities-grid }}
+```
+
+**Live Output:**
+{{ capabilities-grid }}
+  {{ capabilities title="Compiler Capabilities" }}
+    {{ capability name="Zero-Config CSS" desc="Automatic token harvesting" status="success" statusLabel="Ready" }}
+    {{ capability name="AST Checking" desc="Validates themes against spec" status="success" statusLabel="Ready" }}
+    {{ capability name="Image Optimizer" desc="Vivid multi-viewport generation" status="warning" statusLabel="Beta" }}
+    {{ capability name="WASM Extensions" desc="Custom Go plugins" status="pending" statusLabel="Planned" }}
+  {{ /capabilities }}
+{{ /capabilities-grid }}
+
+---
+
+### 6.4 Vertical Quick Start Timeline
+An interactive vertical progress timeline optimized for tutorials, quick starts, and user guides.
+
+**Shortcode Syntax:**
+```markdown
+{{ timeline }}
+  {{ item title="Initialize Tamarind" number="1" }}
+    Spin up your local sandbox by running `tamarind init` in a fresh workspace directory.
+  {{ /item }}
+  {{ item title="Configure Cortex" number="2" }}
+    Tweak visual design tokens directly in `style.css` using theme variables.
+  {{ /item }}
+  {{ item title="Compile static site" number="3" }}
+    Build all production-ready HTML and responsive media assets in seconds.
+  {{ /item }}
+{{ /timeline }}
+```
+
+**Live Output:**
+{{ timeline }}
+  {{ item title="Initialize Tamarind" number="1" }}
+    Spin up your local sandbox by running `tamarind init` in a fresh workspace directory.
+  {{ /item }}
+  {{ item title="Configure Cortex" number="2" }}
+    Tweak visual design tokens directly in `style.css` using theme variables.
+  {{ /item }}
+  {{ item title="Compile static site" number="3" }}
+    Build all production-ready HTML and responsive media assets in seconds.
+  {{ /item }}
+{{ /timeline }}
+
+---
+
+### 6.5 Premium Semantic Alert Containers
+HSL-tinted notices with automated vector icon injections for hints, alerts, tips, and warnings.
+
+**Shortcode Syntax:**
+```markdown
+{{ alert type="info" title="Info Banner" }}
+A standard informational callout container with automatic vector icon rendering.
+{{ /alert }}
+
+{{ alert type="warning" title="Security Warning" }}
+A cautionary alert specifying a potential configuration bottleneck.
+{{ /alert }}
+
+{{ alert type="success" title="Recompilation Complete" }}
+A successful confirmation notice representing a clean pipeline execution.
+{{ /alert }}
+
+{{ alert type="sparkles" title="Beta Feature" }}
+An elevated sparkles notice emphasizing a brand new premium feature.
+{{ /alert }}
+```
+
+**Live Output:**
+{{ alert type="info" title="Info Banner" }}
+A standard informational callout container with automatic vector icon rendering.
+{{ /alert }}
+
+{{ alert type="warning" title="Security Warning" }}
+A cautionary alert specifying a potential configuration bottleneck.
+{{ /alert }}
+
+{{ alert type="success" title="Recompilation Complete" }}
+A successful confirmation notice representing a clean pipeline execution.
+{{ /alert }}
+
+{{ alert type="sparkles" title="Beta Feature" }}
+An elevated sparkles notice emphasizing a brand new premium feature.
+{{ /alert }}
+
+---
+
+### 6.6 Custom Interactive Dropdowns
+Theme-aware dropdown selectors with custom chevrons and hover animations.
+
+**Shortcode Syntax:**
+```markdown
+{{ dropdown id="doc-language" label="Select Language" }}
+  {{ option value="en" selected="true" }}English (US){{ /option }}
+  {{ option value="es" }}Español{{ /option }}
+  {{ option value="pt" }}Português{{ /option }}
+  {{ option value="ja" }}日本語{{ /option }}
+{{ /dropdown }}
+```
+
+**Live Output:**
+{{ dropdown id="doc-language" label="Select Language" }}
+  {{ option value="en" selected="true" }}English (US){{ /option }}
+  {{ option value="es" }}Español{{ /option }}
+  {{ option value="pt" }}Português{{ /option }}
+  {{ option value="ja" }}日本語{{ /option }}
+{{ /dropdown }}

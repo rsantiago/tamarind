@@ -614,6 +614,187 @@ items:
 
 ---
 
+## 9. Premium UI Components (The "Premium Components Contract")
+All themes must support the 6 premium layout components built into the Tamarind static engine:
+
+```yaml requirements
+category: premium-components
+items:
+  # 1. Stats & Metrics Grid
+  - name: ".metrics-grid"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Container for the metrics grid layout"
+  - name: ".metric-card"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Individual metric block container"
+  - name: ".metric-value"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Stylized numeric or main text value inside a metric card"
+  - name: ".metric-label"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Stylized supporting label underneath the metric value"
+
+  # 2. Gradient Icon Feature Cards
+  - name: ".features-grid"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Container for the features card grid"
+  - name: ".feature-card"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Individual feature card block container"
+  - name: ".feature-icon-box"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Vivid diagonal gradient icon wrapper box"
+  - name: ".feature-title"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Feature headline font weight and styling"
+  - name: ".feature-desc"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Feature supporting detail text color and alignment"
+
+  # 3. Capabilities Checklist Card
+  - name: ".capabilities-grid"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Multi-column layout wrapper for checklist cards"
+  - name: ".capability-card"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Checklist card wrapper container"
+  - name: ".capability-header"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Checklist header separator styling"
+  - name: ".capability-card-title"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Checklist card heading typography styling"
+  - name: ".capability-row"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Flex row grouping detail columns and status label"
+  - name: ".capability-name"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Checkbox items title styling"
+  - name: ".capability-desc"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Checkbox description detail styling"
+  - name: ".capability-status"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Status indicator badge container"
+
+  # 4. Vertical Quick Start Timeline
+  - name: ".timeline-container"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Timeline absolute tracking wrapper container"
+  - name: ".timeline-item"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Relative timeline segment node"
+  - name: ".timeline-badge"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Circular step sequence bullet container"
+  - name: ".timeline-badge-number"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Bold numeric indicator text inside timeline badge"
+  - name: ".timeline-content"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Segment description card container styling"
+  - name: ".timeline-title"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Segment headline typography styling"
+  - name: ".timeline-desc"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Segment description detail styling"
+
+  # 5. Semantic Alert Containers
+  - name: ".alert-container"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Flex alert wrapper banner"
+  - name: ".alert-icon-box"
+    type: css-selector
+    scope: global
+    required: true
+    description: "SVG symbol flex align wrapper box"
+  - name: ".alert-content"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Text content block column layout wrapper"
+  - name: ".alert-title"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Semantic alert heading typography"
+  - name: ".alert-message"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Supporting details alert body description text"
+
+  # 6. Custom Interactive Dropdowns
+  - name: ".tamarind-select-wrapper"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Outer wrapper positioning the standard selector controls"
+  - name: ".tamarind-select"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Stylized select reset button element overrides"
+  - name: ".tamarind-select-chevron"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Chevron arrow vector flex alignment container"
+```
+
+---
+
 ## 8. Bootstrapping / Updating Guide
 
 ### How to Create a New Theme

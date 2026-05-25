@@ -205,3 +205,456 @@ hr {
 .article-content tr:nth-child(even) {
     background-color: rgba(0, 0, 0, 0.015);
 }
+
+/* ==========================================================================
+   Tamarind Premium UI Components
+   ========================================================================== */
+
+/* 1. Stats & Metrics Grid */
+.metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin: 2.5rem 0;
+  width: 100%;
+}
+
+.metric-card {
+  text-align: center;
+  padding: 2rem 1.5rem;
+  background-color: var(--card-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 12px);
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color, rgba(59, 130, 246, 0.4));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.04);
+}
+
+.metric-value {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--heading-color, var(--text-color, #111827));
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.03em;
+  background: linear-gradient(135deg, var(--text-color, #111827) 30%, var(--primary-color, #3B82F6) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary, #6B7280);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* 2. Gradient Icon Feature Cards */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  margin: 2.5rem 0;
+  width: 100%;
+}
+
+.feature-card {
+  background-color: var(--card-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 12px);
+  padding: 2.25rem 2rem;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--primary-color, rgba(59, 130, 246, 0.4));
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+}
+
+.feature-icon-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.85rem;
+  border-radius: var(--radius-md, 10px);
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  width: 46px;
+  height: 46px;
+}
+
+.feature-icon-box svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Diagonal Gradients */
+.gradient-blue-cyan {
+  background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
+}
+.gradient-purple-pink {
+  background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+}
+.gradient-orange-red {
+  background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+}
+.gradient-green-emerald {
+  background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+}
+
+.feature-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--heading-color, var(--text-color, #111827));
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.01em;
+}
+
+.feature-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary, #6B7280);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 3. Capabilities Checklist Card */
+.capabilities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.75rem;
+  margin: 2.5rem 0;
+  width: 100%;
+}
+
+.capability-card {
+  background-color: var(--card-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.capability-card:hover {
+  border-color: var(--border-color, rgba(59, 130, 246, 0.2));
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.02);
+}
+
+.capability-header {
+  border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  padding-bottom: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.capability-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--heading-color, var(--text-color, #111827));
+  letter-spacing: -0.01em;
+}
+
+.capability-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px dashed var(--border-color, rgba(255, 255, 255, 0.04));
+}
+
+.capability-row:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.capability-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 0.2rem;
+  padding-right: 1rem;
+}
+
+.capability-name {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--text-color, #111827);
+}
+
+.capability-desc {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #6B7280);
+}
+
+.capability-status {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.25rem 0.65rem;
+  border-radius: 99px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+/* Capability status variations */
+.status-success {
+  background-color: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+}
+.status-warning {
+  background-color: rgba(245, 158, 11, 0.1);
+  color: #f59e0b;
+}
+.status-pending {
+  background-color: rgba(107, 114, 128, 0.1);
+  color: #6b7280;
+}
+.status-error {
+  background-color: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+}
+
+/* 4. Vertical Quick Start Timeline */
+.timeline-container {
+  position: relative;
+  max-width: 800px;
+  margin: 3rem 0;
+  padding-left: 2.5rem;
+}
+
+.timeline-container::before {
+  content: "";
+  position: absolute;
+  left: 11px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: var(--border-color, rgba(255, 255, 255, 0.08));
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2.5rem;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-badge {
+  position: absolute;
+  left: -2.5rem;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--background-color, #ffffff);
+  border: 2px solid var(--primary-color, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.timeline-badge-number {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--primary-color, #3b82f6);
+}
+
+.timeline-content {
+  text-align: left;
+  background-color: var(--card-bg, rgba(255, 255, 255, 0.02));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.06));
+  border-radius: var(--radius-md, 10px);
+  padding: 1.5rem;
+  transition: transform 0.2s ease;
+}
+
+.timeline-content:hover {
+  transform: translateX(4px);
+}
+
+.timeline-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--heading-color, var(--text-color, #111827));
+  margin-bottom: 0.5rem;
+}
+
+.timeline-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary, #6B7280);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 5. Semantic Alert Containers */
+.alert-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-md, 8px);
+  margin: 2rem 0;
+  text-align: left;
+  border: 1px solid transparent;
+}
+
+.alert-icon-box {
+  flex-shrink: 0;
+  display: inline-flex;
+  padding: 0.25rem;
+}
+
+.alert-icon-box svg {
+  width: 20px;
+  height: 20px;
+}
+
+.alert-content {
+  flex-grow: 1;
+}
+
+.alert-title {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.alert-message {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Alert variations */
+.alert-info {
+  background-color: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.15);
+  color: var(--text-color);
+}
+.alert-info .alert-title {
+  color: #3b82f6;
+}
+.alert-info .alert-icon-box {
+  color: #3b82f6;
+}
+
+.alert-warning {
+  background-color: rgba(245, 158, 11, 0.08);
+  border-color: rgba(245, 158, 11, 0.15);
+  color: var(--text-color);
+}
+.alert-warning .alert-title {
+  color: #f59e0b;
+}
+.alert-warning .alert-icon-box {
+  color: #f59e0b;
+}
+
+.alert-success {
+  background-color: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.15);
+  color: var(--text-color);
+}
+.alert-success .alert-title {
+  color: #10b981;
+}
+.alert-success .alert-icon-box {
+  color: #10b981;
+}
+
+.alert-sparkles {
+  background-color: rgba(139, 92, 246, 0.08);
+  border-color: rgba(139, 92, 246, 0.15);
+  color: var(--text-color);
+}
+.alert-sparkles .alert-title {
+  color: #8b5cf6;
+}
+.alert-sparkles .alert-icon-box {
+  color: #8b5cf6;
+}
+
+/* 6. Custom Interactive Dropdowns */
+.tamarind-select-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  max-width: 320px;
+  margin: 1rem 0;
+  text-align: left;
+}
+
+.tamarind-select-label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-secondary, #6B7280);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.tamarind-select-control {
+  position: relative;
+  display: block;
+  width: 100%;
+}
+
+.tamarind-select {
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: var(--card-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-md, 8px);
+  padding: 0.75rem 2.5rem 0.75rem 1rem;
+  font-size: 0.95rem;
+  color: var(--text-color, #111827);
+  font-family: inherit;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.tamarind-select:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--border-color, rgba(59, 130, 246, 0.2));
+}
+
+.tamarind-select:focus {
+  border-color: var(--primary-color, #3b82f6);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+.tamarind-select-chevron {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: var(--text-secondary, #9CA3AF);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tamarind-select-chevron svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

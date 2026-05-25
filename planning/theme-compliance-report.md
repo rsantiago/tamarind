@@ -1,50 +1,50 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-05-25 16:39:10
+**Generated**: 2026-05-25 20:47:23
 
-**Total Requirements**: 76 required, 3 optional
+**Total Requirements**: 108 required, 3 optional
 
 ## Summary
 
 | Theme | Status | Passed | Failed | Score |
 |-------|--------|--------|--------|-------|
-| **atlas** | ✅ PASS | 76 | 0 | 100% |
-| **basic** | ✅ PASS | 76 | 0 | 100% |
-| **bento** | ✅ PASS | 76 | 0 | 100% |
-| **bird** | ✅ PASS | 76 | 0 | 100% |
-| **blue** | ✅ PASS | 76 | 0 | 100% |
-| **brutal** | ✅ PASS | 76 | 0 | 100% |
-| **canvas** | ✅ PASS | 76 | 0 | 100% |
-| **classic** | ✅ PASS | 76 | 0 | 100% |
-| **console** | ✅ PASS | 76 | 0 | 100% |
-| **cupertino** | ✅ PASS | 76 | 0 | 100% |
-| **eclipse** | ✅ PASS | 76 | 0 | 100% |
-| **editorial** | ✅ PASS | 76 | 0 | 100% |
-| **forge** | ✅ PASS | 76 | 0 | 100% |
-| **gallery** | ✅ PASS | 76 | 0 | 100% |
-| **gram** | ✅ PASS | 76 | 0 | 100% |
-| **hacker** | ✅ PASS | 76 | 0 | 100% |
-| **midnight** | ✅ PASS | 76 | 0 | 100% |
-| **neon** | ✅ PASS | 76 | 0 | 100% |
-| **network** | ✅ PASS | 76 | 0 | 100% |
-| **news** | ✅ PASS | 76 | 0 | 100% |
-| **nexus** | ✅ PASS | 76 | 0 | 100% |
-| **nordic** | ✅ PASS | 76 | 0 | 100% |
-| **overflow** | ✅ PASS | 76 | 0 | 100% |
-| **pastel** | ✅ PASS | 76 | 0 | 100% |
-| **pod** | ✅ PASS | 76 | 0 | 100% |
-| **prose** | ✅ PASS | 76 | 0 | 100% |
-| **protocol** | ✅ PASS | 76 | 0 | 100% |
-| **scribe** | ✅ PASS | 76 | 0 | 100% |
-| **stream** | ✅ PASS | 76 | 0 | 100% |
-| **tube** | ✅ PASS | 76 | 0 | 100% |
-| **zephyr** | ✅ PASS | 76 | 0 | 100% |
+| **atlas** | ✅ PASS | 108 | 0 | 100% |
+| **basic** | ✅ PASS | 108 | 0 | 100% |
+| **bento** | ✅ PASS | 108 | 0 | 100% |
+| **bird** | ✅ PASS | 108 | 0 | 100% |
+| **blue** | ✅ PASS | 108 | 0 | 100% |
+| **brutal** | ✅ PASS | 108 | 0 | 100% |
+| **canvas** | ✅ PASS | 108 | 0 | 100% |
+| **classic** | ✅ PASS | 108 | 0 | 100% |
+| **console** | ✅ PASS | 108 | 0 | 100% |
+| **cupertino** | ✅ PASS | 108 | 0 | 100% |
+| **eclipse** | ✅ PASS | 108 | 0 | 100% |
+| **editorial** | ✅ PASS | 108 | 0 | 100% |
+| **forge** | ✅ PASS | 108 | 0 | 100% |
+| **gallery** | ✅ PASS | 108 | 0 | 100% |
+| **gram** | ✅ PASS | 108 | 0 | 100% |
+| **hacker** | ✅ PASS | 108 | 0 | 100% |
+| **midnight** | ✅ PASS | 108 | 0 | 100% |
+| **neon** | ✅ PASS | 108 | 0 | 100% |
+| **network** | ✅ PASS | 108 | 0 | 100% |
+| **news** | ✅ PASS | 108 | 0 | 100% |
+| **nexus** | ✅ PASS | 108 | 0 | 100% |
+| **nordic** | ✅ PASS | 108 | 0 | 100% |
+| **overflow** | ✅ PASS | 108 | 0 | 100% |
+| **pastel** | ✅ PASS | 108 | 0 | 100% |
+| **pod** | ✅ PASS | 108 | 0 | 100% |
+| **prose** | ✅ PASS | 108 | 0 | 100% |
+| **protocol** | ✅ PASS | 108 | 0 | 100% |
+| **scribe** | ✅ PASS | 108 | 0 | 100% |
+| **stream** | ✅ PASS | 108 | 0 | 100% |
+| **tube** | ✅ PASS | 108 | 0 | 100% |
+| **zephyr** | ✅ PASS | 108 | 0 | 100% |
 
 ---
 
 ## Theme: atlas — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -124,6 +124,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -173,7 +208,7 @@
 
 ## Theme: basic — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -253,6 +288,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -302,7 +372,7 @@
 
 ## Theme: bento — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -382,6 +452,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -431,7 +536,7 @@
 
 ## Theme: bird — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -511,6 +616,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -560,7 +700,7 @@
 
 ## Theme: blue — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -640,6 +780,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -689,7 +864,7 @@
 
 ## Theme: brutal — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -769,6 +944,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -818,7 +1028,7 @@
 
 ## Theme: canvas — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -898,6 +1108,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -947,7 +1192,7 @@
 
 ## Theme: classic — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1027,6 +1272,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -1076,7 +1356,7 @@
 
 ## Theme: console — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1156,6 +1436,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -1205,7 +1520,7 @@
 
 ## Theme: cupertino — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1285,6 +1600,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -1334,7 +1684,7 @@
 
 ## Theme: eclipse — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1414,6 +1764,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -1463,7 +1848,7 @@
 
 ## Theme: editorial — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1543,6 +1928,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -1592,7 +2012,7 @@
 
 ## Theme: forge — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1672,6 +2092,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -1721,7 +2176,7 @@
 
 ## Theme: gallery — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1801,6 +2256,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -1850,7 +2340,7 @@
 
 ## Theme: gram — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1930,6 +2420,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -1979,7 +2504,7 @@
 
 ## Theme: hacker — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2059,6 +2584,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -2108,7 +2668,7 @@
 
 ## Theme: midnight — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2188,6 +2748,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -2237,7 +2832,7 @@
 
 ## Theme: neon — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2317,6 +2912,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -2366,7 +2996,7 @@
 
 ## Theme: network — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2446,6 +3076,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -2495,7 +3160,7 @@
 
 ## Theme: news — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2575,6 +3240,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -2624,7 +3324,7 @@
 
 ## Theme: nexus — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2704,6 +3404,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -2753,7 +3488,7 @@
 
 ## Theme: nordic — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2833,6 +3568,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -2882,7 +3652,7 @@
 
 ## Theme: overflow — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2962,6 +3732,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -3011,7 +3816,7 @@
 
 ## Theme: pastel — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3091,6 +3896,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -3140,7 +3980,7 @@
 
 ## Theme: pod — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3220,6 +4060,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -3269,7 +4144,7 @@
 
 ## Theme: prose — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3349,6 +4224,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -3398,7 +4308,7 @@
 
 ## Theme: protocol — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3478,6 +4388,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -3527,7 +4472,7 @@
 
 ## Theme: scribe — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3607,6 +4552,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -3656,7 +4636,7 @@
 
 ## Theme: stream — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3736,6 +4716,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -3785,7 +4800,7 @@
 
 ## Theme: tube — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3865,6 +4880,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
@@ -3914,7 +4964,7 @@
 
 ## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 76/76 (100%)
+**Score**: 108/108 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3994,6 +5044,41 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
 
 #### responsive
 
