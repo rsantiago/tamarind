@@ -356,6 +356,9 @@ figcaption { margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-light); }
     border-radius: var(--radius-lg, 8px);
     box-shadow: var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.05));
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 .card-padding {
     padding: 24px;
@@ -460,6 +463,17 @@ figcaption { margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-light); }
 .timeline-badge-number {
     color: var(--text-color, #1a1a1a) !important;
     font-weight: 700 !important;
+}
+
+/* Card Badge Bottom Alignment Override */
+.card .badge,
+.card .badge-primary,
+.card .badge-secondary,
+.card .badge-success,
+.card .badge-warning,
+.card .badge-danger {
+    margin-top: auto !important;
+    align-self: flex-start !important;
 }
 
 

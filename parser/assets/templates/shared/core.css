@@ -884,3 +884,20 @@ hr {
 .canvas-mode-active .tamarind-ghost-badge {
     display: flex !important; /* Retain standard floating promo badge */
 }
+
+/* --- Card Alignment and Bottom Badge Support --- */
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.card .badge,
+.card .badge-primary,
+.card .badge-secondary,
+.card .badge-success,
+.card .badge-warning,
+.card .badge-danger {
+    margin-top: auto !important;
+    align-self: flex-start !important;
+}
