@@ -296,17 +296,13 @@ func postProcessCanvas(html string, isCanvas, hideMenu, hideFooter bool) string 
 		html = reSidebar.ReplaceAllString(html, "")
 	}
 
-	if isCanvas || hideFooter {
+	if hideFooter {
 		// Strip Footer
 		reFooter := regexp.MustCompile(`(?s)<footer[^>]*class="[^"]*site-footer[^"]*"[^>]*>.*?</footer>`)
 		html = reFooter.ReplaceAllString(html, "")
 	}
 
 	if isCanvas {
-		// Strip Ghost Badge
-		reBadge := regexp.MustCompile(`(?s)<a[^>]*class="[^"]*tamarind-ghost-badge[^"]*"[^>]*>.*?</a>`)
-		html = reBadge.ReplaceAllString(html, "")
-
 		// Inject canvas spacing resets to layout wrapper
 		html = strings.ReplaceAll(html, "class=\"layout-container\"", "class=\"layout-container canvas-mode-active\"")
 		html = strings.ReplaceAll(html, "class=\"layout-container page-container\"", "class=\"layout-container page-container canvas-mode-active\"")

@@ -648,6 +648,11 @@ hr {
   transition: all 0.2s ease;
 }
 
+.tamarind-select option {
+  background-color: var(--background-color, #ffffff) !important;
+  color: var(--text-color, #111827) !important;
+}
+
 .tamarind-select:hover {
   background-color: rgba(255, 255, 255, 0.06);
   border-color: var(--border-color, rgba(59, 130, 246, 0.2));
@@ -680,6 +685,74 @@ hr {
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* --- Interactive Accordion Component --- */
+.tamarind-accordion-container {
+  margin: 1.5rem 0;
+}
+
+.tamarind-accordion {
+  background-color: var(--card-bg, rgba(255, 255, 255, 0.03));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.25rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.tamarind-accordion:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--border-color, rgba(59, 130, 246, 0.2));
+  transform: translateY(-1px);
+}
+
+.tamarind-accordion[open] {
+  background-color: var(--card-bg, rgba(255, 255, 255, 0.04));
+  border-color: var(--primary-color, #3b82f6);
+}
+
+.tamarind-accordion-summary {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--heading-color, var(--text-color, #111827));
+  font-family: var(--font-heading, inherit);
+  list-style: none;
+  outline: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+}
+
+.tamarind-accordion-summary::-webkit-details-marker {
+  display: none;
+}
+
+.tamarind-accordion-summary::after {
+  content: "+";
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--text-secondary, #9CA3AF);
+  transition: transform 0.25s ease;
+}
+
+.tamarind-accordion[open] .tamarind-accordion-summary::after {
+  content: "−";
+  transform: rotate(180deg);
+  color: var(--primary-color, #3b82f6);
+}
+
+.tamarind-accordion-content {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary, #4B5563);
+  line-height: 1.6;
+}
+
+.tamarind-accordion-content p:last-child {
+  margin-bottom: 0;
 }
 
 /* --- Global Spacing Specificity Collision Fixes & Premium Component Typography Resets --- */
@@ -744,6 +817,11 @@ hr {
     background-color: var(--background-color) !important;
 }
 
+.canvas-mode-active p {
+    text-align: justify !important;
+    text-justify: inter-word;
+}
+
 .canvas-width-limit {
     max-width: 1200px; /* Spacious width for robust multi-column grids */
     margin: 0 auto;
@@ -754,4 +832,51 @@ hr {
     .canvas-width-limit {
         padding: 40px 16px;
     }
+}
+
+/* --- Canvas Mode Global Title & Spacing Resets --- */
+.canvas-mode-active .page-title,
+.canvas-mode-active .article-header,
+.canvas-mode-active .article-header-visual,
+.canvas-mode-active .post-header,
+.canvas-mode-active .timeline-header,
+.canvas-mode-active .feed-header,
+.canvas-mode-active .page-header {
+    display: none !important;
+}
+
+/* --- Minimalist Canvas Mode Footer & Promo Badge Overrides --- */
+.canvas-mode-active .site-footer {
+    border: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    margin-top: 4rem !important;
+    padding: 2rem 0 !important;
+}
+
+.canvas-mode-active .site-footer p:not(.footer-promo) {
+    display: none !important;
+}
+
+.canvas-mode-active .site-footer .footer-promo {
+    display: block !important;
+    text-align: center !important;
+    font-size: 0.9rem !important;
+    color: var(--text-secondary) !important;
+    margin: 0 auto !important;
+    max-width: 600px !important;
+}
+
+/* --- Center timeline under Canvas Mode --- */
+.canvas-mode-active .timeline-container {
+    max-width: 800px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 56px !important;
+    padding-right: 56px !important;
+    box-sizing: border-box !important;
+}
+
+.canvas-mode-active .tamarind-ghost-badge {
+    display: flex !important; /* Retain standard floating promo badge */
 }

@@ -791,6 +791,43 @@ items:
     scope: global
     required: true
     description: "Chevron arrow vector flex alignment container"
+
+  # 7. Collapsible Accordions (FAQ Details)
+  - name: ".tamarind-accordion"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Collapsible HTML5 details accordion card block"
+  - name: ".tamarind-accordion-summary"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Interactive summary header text inside details card"
+  - name: ".tamarind-accordion-content"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Expanded text content inside details accordion block"
+```
+
+---
+
+## 10. Canvas Mode Layouts (The "Canvas Mode Contract")
+All themes must support the Canvas Mode layouts provided by the Tamarind engine to render naked landing pages:
+
+```yaml requirements
+category: components-canvas
+items:
+  - name: ".canvas-mode-active"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins"
+  - name: ".canvas-width-limit"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width"
 ```
 
 ---

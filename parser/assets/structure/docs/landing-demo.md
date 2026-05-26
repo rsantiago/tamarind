@@ -5,7 +5,7 @@ canvas: true
 ---
 
 <!-- Hero Section (Naked Layout Showcase) -->
-<div style="text-align: center; margin: 4rem auto 3rem auto; max-width: 800px;">
+<div style="text-align: center; margin: 4rem auto 2rem auto; max-width: 800px;">
   <div style="display: inline-block; background: linear-gradient(135deg, var(--primary-color, #2563eb), #a855f7); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">
     Announcing Canvas Mode
   </div>
@@ -17,8 +17,18 @@ canvas: true
   </p>
   <div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap;">
     {{ button href="#quick-start" type="primary" }}Deploy in 5 Seconds{{ /button }}
-    {{ button href="docs/style-guide.html" }}Explore Style Guide{{ /button }}
+    {{ button href="style-guide.html" }}Explore Style Guide{{ /button }}
   </div>
+</div>
+
+<!-- Sales Letter Intro Paragraphs -->
+<div style="margin: 3rem auto; max-width: 800px; line-height: 1.8; font-size: 1.1rem; color: var(--text-color);">
+  <p style="margin-bottom: 1.5rem;">
+    Every high-performing sales letter and landing page relies on clean, high-contrast readability. When standard site navigation is stripped away, the reader is guided down a focused conversion path. Tamarind's native Canvas Mode combines raw markdown writing speed with a premium design system that morphs to fit any aesthetic—whether it's Apple's clean minimalist white, modern SaaS slate blue, or a high-contrast terminal console screen.
+  </p>
+  <p>
+    By placing interactive elements, feature grids, and vertical quick starts directly alongside standard paragraphs of copy, you can construct authoritative marketing sites, product launches, or book announcements in under a minute.
+  </p>
 </div>
 
 ---
@@ -27,6 +37,12 @@ canvas: true
 <div style="text-align: center; margin: 4rem 0 1rem 0;">
   <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--font-heading, inherit);">Key Platform Performance Metrics</h2>
   <p style="color: var(--text-secondary, #64748b); max-width: 600px; margin: 0 auto 2rem auto;">Highlighting real data points and platform speeds establishes immediate trust with new readers.</p>
+</div>
+
+<div style="max-width: 800px; margin: 2rem auto; line-height: 1.8; font-size: 1.1rem; color: var(--text-color);">
+  <p style="margin-bottom: 1.5rem;">
+    Speed is the single most critical factor for conversion rates. Every additional second of load time reduces conversions by up to 20%. Because Tamarind compiles down to fully hydrated, static HTML with zero external script dependencies, it delivers global load speeds under 50ms, earning perfect scores across every performance index.
+  </p>
 </div>
 
 {{ metrics }}
@@ -64,12 +80,18 @@ canvas: true
   <p style="color: var(--text-secondary, #64748b); max-width: 600px; margin: 0 auto 2rem auto;">Illustrate detailed feature sets, licenses, and variants with distinct visual indicators.</p>
 </div>
 
+<div style="max-width: 800px; margin: 2rem auto; line-height: 1.8; font-size: 1.1rem; color: var(--text-color);">
+  <p style="margin-bottom: 1.5rem;">
+    Whether you are selling a SaaS subscription, launching a developer tool, or distributing a digital book, readers deserve a transparent feature breakdown. The capability comparison grid highlights key strengths, platform dependencies, and pending features, formatted as a cozy, responsive, and legible checklist card.
+  </p>
+</div>
+
 {{ capabilities title="Feature Matrix Comparison" }}
-  {{ capability name="Static Compiler Binary" desc="Ultra-fast single Go executable compiler" check="true" }}
-  {{ capability name="Premium Component Library" desc="Metrics, Feature cards, Checklists, and Timelines built-in" check="true" }}
-  {{ capability name="Naked Canvas Template Mode" desc="Distraction-free single page layout overrides" check="true" }}
-  {{ capability name="Custom CDN Dependecies" desc="Third party analytics scripts or web fonts" check="warn" }}
-  {{ capability name="Heavy Single Page JS Runtimes" desc="Bypass heavy client-side hydrate frames" check="false" }}
+  {{ capability name="Static Compiler Binary" desc="Ultra-fast single Go executable compiler" status="success" statusLabel="Yes" }}
+  {{ capability name="Premium Component Library" desc="Metrics, Feature cards, Checklists, and Timelines built-in" status="success" statusLabel="Yes" }}
+  {{ capability name="Naked Canvas Template Mode" desc="Distraction-free single page layout overrides" status="success" statusLabel="Yes" }}
+  {{ capability name="Custom CDN Dependencies" desc="Third party analytics scripts or web fonts" status="warning" statusLabel="Partial" }}
+  {{ capability name="Heavy Single Page JS Runtimes" desc="Bypass heavy client-side hydrate frames" status="error" statusLabel="No" }}
 {{ /capabilities }}
 
 ---
@@ -80,43 +102,75 @@ canvas: true
   <p style="color: var(--text-secondary, #64748b); max-width: 600px; margin: 0 auto 2rem auto;">Our mathematically aligned vertical timeline maps a tight quick start flow with no overlaps.</p>
 </div>
 
+<div style="max-width: 800px; margin: 2rem auto; line-height: 1.8; font-size: 1.1rem; color: var(--text-color);">
+  <p style="margin-bottom: 1.5rem;">
+    Setting up a brand-new publishing platform shouldn't require complex configuration files or setting up heavy node package structures. The three-step vertical progress timeline illustrates how easy it is to initialize a sandbox, configure design variables, and generate a fully optimized static directory in seconds.
+  </p>
+</div>
+
 {{ timeline }}
-  {{ timeline-item step="1" title="Initialize the Workspace" }}
+  {{ item title="Initialize the Workspace" number="1" }}
     Run our zero-config setup command to extract default styles, configurations, and showcase documents:
     {{ terminal }}
     $ tamarind init
     {{ /terminal }}
-  {{ /timeline-item }}
-  {{ timeline-item step="2" title="Toggle the Canvas Flag" }}
+  {{ /item }}
+  {{ item title="Toggle the Canvas Flag" number="2" }}
     Enable the landing page layout by writing `canvas: true` directly in your YAML front matter.
-  {{ /timeline-item }}
-  {{ timeline-item step="3" title="Compile and Publish" }}
+  {{ /item }}
+  {{ item title="Compile and Publish" number="3" }}
     Run a lightning-fast build using any of our premium themes and deploy the naked folder to any host:
     {{ terminal }}
     $ tamarind build -theme blue
     {{ /terminal }}
-  {{ /timeline-item }}
+  {{ /item }}
 {{ /timeline }}
 
 ---
 
-<!-- 5. Interactive FAQ Grid (Dropdown Accordions) -->
+<!-- 5. Interactive Plan Selector (Combo Box) -->
 <div style="text-align: center; margin: 4rem 0 1rem 0;">
-  <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--font-heading, inherit);">Frequently Asked Questions</h2>
-  <p style="color: var(--text-secondary, #64748b); max-width: 600px; margin: 0 auto 2rem auto;">Interactive, clean FAQ accordions with smooth micro-animations.</p>
+  <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--font-heading, inherit);">Interactive License Selector</h2>
+  <p style="color: var(--text-secondary, #64748b); max-width: 600px; margin: 0 auto 2rem auto;">Test our customized, responsive select menu styling designed to blend perfectly with theme colors.</p>
 </div>
 
-{{ dropdown title="Frequently Asked Questions Grid" icon="sparkles" }}
-  {{ dropdown-item label="Does Canvas Mode support custom styling overrides?" desc="Yes! Standard markdown supports raw HTML/CSS injection, and any custom CSS can be passed in the `custom_css` metadata attribute to override your theme palette directly." url="#" }}
-  {{ dropdown-item label="Can I combine Canvas Mode pages with normal pages?" desc="Absolutely. You can have 10 standard pages displaying site chrome (menus/footers) alongside 2 naked Canvas landing pages in the same compiler repository." url="#" }}
-  {{ dropdown-item label="Do the buttons support active form actions?" desc="Yes, our standard buttons can be placed inside custom HTML form grids to trigger standard POST actions, mail subscriptions, or sales integrations." url="#" }}
-{{ /dropdown }}
+<div style="max-width: 600px; margin: 0 auto 3rem auto;">
+  {{ dropdown id="plan-selector" label="Select a Tamarind License Plan:" }}
+    {{ option value="free" }}Tamarind Community Edition (Open Source, Free){{ /option }}
+    {{ option value="pro" selected="true" }}Tamarind Pro Canvas License ($49/one-time){{ /option }}
+    {{ option value="enterprise" }}Tamarind Enterprise Bundle (Unlimited Sites){{ /option }}
+  {{ /dropdown }}
+</div>
+
+---
+
+<!-- 6. Frequently Asked Questions (Native Accordion Details) -->
+<div style="text-align: center; margin: 4rem 0 1rem 0;">
+  <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--font-heading, inherit);">Frequently Asked Questions</h2>
+  <p style="color: var(--text-secondary, #64748b); max-width: 600px; margin: 0 auto 2rem auto;">Native HTML5 collapsible details cards that look stunning across all premium templates.</p>
+</div>
+
+<div style="max-width: 800px; margin: 0 auto 4rem auto;">
+  {{ accordion }}
+    {{ accordion-item title="Does Canvas Mode support custom styling overrides?" }}
+      Yes! Standard markdown supports raw HTML/CSS injection, and any custom CSS can be passed in the `custom_css` metadata attribute to override your theme palette directly.
+    {{ /accordion-item }}
+
+    {{ accordion-item title="Can I combine Canvas Mode pages with normal pages?" }}
+      Absolutely. You can have 10 standard pages displaying site chrome (menus/footers) alongside 2 naked Canvas landing pages in the same compiler repository.
+    {{ /accordion-item }}
+
+    {{ accordion-item title="Do the buttons support active form actions?" }}
+      Yes, our standard buttons can be placed inside custom HTML form grids to trigger standard POST actions, mail subscriptions, or sales integrations.
+    {{ /accordion-item }}
+  {{ /accordion }}
+</div>
 
 ---
 
 <!-- Call to Action Info Notification -->
 {{ alert type="tip" title="Deployment Tip" }}
-Static landing pages are incredibly cheap and performant to host. Deploying Tamarind's compiled single-page output directly to Netlify, Vercel, or GitHub Pages guarantees standard response times under **50ms** anywhere globally.
+Static landing pages are incredibly cheap and performant to host. Deploying Tamarind's compiled single-page output directly to Netlify, Vercel, or GitHub Pages guarantees response times under **50ms** anywhere globally.
 {{ /alert }}
 
 <div style="text-align: center; margin: 4rem auto 2rem auto; max-width: 600px;">

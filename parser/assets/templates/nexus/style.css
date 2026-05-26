@@ -709,3 +709,9 @@ figcaption {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* --- Canvas Mode Overrides (Centering & Sidenote Removal) --- */
+.canvas-mode-active main {
+    padding-right: 0 !important;
+}
+

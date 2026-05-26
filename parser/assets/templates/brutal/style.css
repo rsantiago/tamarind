@@ -579,3 +579,84 @@ figcaption { font-family: var(--font-heading); font-size: 1rem; font-weight: 700
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* --- Canvas Mode Scoped Overrides --- */
+.canvas-mode-active .card,
+.canvas-mode-active .feature-card,
+.canvas-mode-active .metric-card,
+.canvas-mode-active .timeline-content,
+.canvas-mode-active .alert-container,
+.canvas-mode-active .alert,
+.canvas-mode-active .callout,
+.canvas-mode-active .capability-card {
+    border-radius: 0px !important;
+    border: 3px solid #000000 !important;
+    box-shadow: 8px 8px 0px #000000 !important;
+}
+
+/* Constrain canvas layout width and cozy top margin for Brutal */
+.canvas-mode-active .canvas-width-limit {
+    max-width: 900px !important;
+    margin-top: 50px !important;
+}
+
+/* Ensure the Announcing tag has high-contrast brutalist borders and text for extreme readability */
+.canvas-mode-active div[style*="Announcing Canvas Mode"] {
+    background: var(--primary-color, #FFFF00) !important;
+    color: #000000 !important;
+    border: 3px solid #000000 !important;
+    box-shadow: 4px 4px 0px #000000 !important;
+    border-radius: 0px !important;
+    text-shadow: none !important;
+}
+
+/* Brutal theme timeline high-contrast badge and track overrides */
+.timeline-badge {
+    border-radius: 0px !important;
+    background-color: var(--primary-color, #FFFF00) !important;
+    border: 3px solid var(--border-color, #000000) !important;
+    color: var(--text-color, #000000) !important;
+    box-shadow: 4px 4px 0px var(--border-color, #000000) !important;
+    box-sizing: border-box !important;
+}
+
+.timeline-badge-number {
+    color: var(--text-color, #000000) !important;
+    font-weight: 800 !important;
+}
+
+.timeline-container::before {
+    background-color: var(--border-color, #000000) !important;
+    width: 4px !important;
+    left: 26px !important;
+}
+
+/* Brutal theme accordion overrides */
+.tamarind-accordion {
+    border-radius: 0px !important;
+    border: 3px solid var(--border-color, #000000) !important;
+    box-shadow: 4px 4px 0px var(--border-color, #000000) !important;
+    background-color: var(--card-bg, #FFFFFF) !important;
+    padding: 1.25rem !important;
+    transform: none !important;
+}
+
+.tamarind-accordion:hover {
+    box-shadow: 6px 6px 0px var(--border-color, #000000) !important;
+}
+
+.tamarind-accordion[open] {
+    background-color: var(--card-bg, #FFFFFF) !important;
+}
+
+.tamarind-accordion-summary::after {
+    font-weight: 800 !important;
+    color: var(--text-color, #000000) !important;
+}
+
+.tamarind-accordion[open] .tamarind-accordion-summary::after {
+    color: var(--primary-color, #FF00FF) !important;
+}
+
+
+

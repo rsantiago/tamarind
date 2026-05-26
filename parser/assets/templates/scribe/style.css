@@ -640,3 +640,50 @@ a:hover {
     border-left-color: var(--primary-color, #1a8917) !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4) !important;
 }
+
+/* --- Canvas Mode Absolute Layout and Typography Resets --- */
+.canvas-mode-active {
+    font-size: 16px !important;
+}
+
+.canvas-mode-active h1,
+.canvas-mode-active h2,
+.canvas-mode-active h3,
+.canvas-mode-active h4,
+.canvas-mode-active h5,
+.canvas-mode-active h6 {
+    margin-top: 0 !important;
+    margin-bottom: 12px !important;
+    line-height: 1.25 !important;
+}
+
+.canvas-mode-active p {
+    font-size: 20px !important; /* Premium cozier editorial text size */
+    line-height: 1.8 !important;
+    margin-bottom: 18px !important;
+}
+
+.canvas-mode-active .metrics-grid,
+.canvas-mode-active .features-grid,
+.canvas-mode-active .capabilities-grid {
+    gap: 20px !important;
+}
+
+.canvas-mode-active .metric-card,
+.canvas-mode-active .feature-card,
+.canvas-mode-active .capability-card,
+.canvas-mode-active .alert-container {
+    padding: 24px !important;
+}
+
+.canvas-mode-active .metric-value {
+    font-size: 36px !important;
+}
+
+.canvas-mode-active .metric-label,
+.canvas-mode-active .feature-desc,
+.canvas-mode-active .capability-desc,
+.canvas-mode-active .alert-message {
+    font-size: 14px !important;
+}
+

@@ -59,8 +59,8 @@
                 </article>
             </div>
             
-            <!-- Articles List (if present) -->
-             {{ if .Articles }}
+            <!-- Articles List (if present and not in canvas mode) -->
+             {{ if and .Articles (not .Canvas) }}
             <div class="feed-posts">
                 {{ range .Articles }}
                 <article class="post">

@@ -393,3 +393,31 @@ Theme-aware dropdown selectors with custom chevrons and hover animations.
   {{ option value="pt" }}Português{{ /option }}
   {{ option value="ja" }}日本語{{ /option }}
 {{ /dropdown }}
+
+---
+
+### 6.7 Collapsible Accordions (FAQ Cards)
+Theme-aware native details/summary collapsible accordions featuring clean expand icons and interactive reveals.
+
+**Shortcode Syntax:**
+```markdown
+{{{{!}}accordion}}
+  {{{{!}}accordion-item title="Is Tamarind compatible with Astro?"}}
+    Yes. Because Tamarind compiles down to fully hydrated, static HTML...
+  {{{{!}}/accordion-item}}
+  {{{{!}}accordion-item title="Can I customize theme variables?"}}
+    Absolutely. Set variable DNA keys under the `:root` pseudo-class...
+  {{{{!}}/accordion-item}}
+{{{{!}}/accordion}}
+```
+
+**Live Output:**
+{{ accordion }}
+  {{ accordion-item title="Is Tamarind compatible with Astro?" }}
+    Yes. Because Tamarind compiles down to fully hydrated, static HTML, you can deploy them directly to self-hosted static environments.
+  {{ /accordion-item }}
+  {{ accordion-item title="Can I customize theme variables?" }}
+    Absolutely. Set variable DNA keys under the `:root` pseudo-class in your style sheet to dynamically rebrand all premium components.
+  {{ /accordion-item }}
+{{ /accordion }}
+

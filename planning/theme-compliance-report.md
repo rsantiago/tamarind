@@ -1,50 +1,50 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-05-26 03:08:42
+**Generated**: 2026-05-26 14:08:33
 
-**Total Requirements**: 108 required, 3 optional
+**Total Requirements**: 113 required, 3 optional
 
 ## Summary
 
 | Theme | Status | Passed | Failed | Score |
 |-------|--------|--------|--------|-------|
-| **atlas** | ✅ PASS | 108 | 0 | 100% |
-| **basic** | ✅ PASS | 108 | 0 | 100% |
-| **bento** | ✅ PASS | 108 | 0 | 100% |
-| **bird** | ✅ PASS | 108 | 0 | 100% |
-| **blue** | ✅ PASS | 108 | 0 | 100% |
-| **brutal** | ✅ PASS | 108 | 0 | 100% |
-| **canvas** | ✅ PASS | 108 | 0 | 100% |
-| **classic** | ✅ PASS | 108 | 0 | 100% |
-| **console** | ✅ PASS | 108 | 0 | 100% |
-| **cupertino** | ✅ PASS | 108 | 0 | 100% |
-| **eclipse** | ✅ PASS | 108 | 0 | 100% |
-| **editorial** | ✅ PASS | 108 | 0 | 100% |
-| **forge** | ✅ PASS | 108 | 0 | 100% |
-| **gallery** | ✅ PASS | 108 | 0 | 100% |
-| **gram** | ✅ PASS | 108 | 0 | 100% |
-| **hacker** | ✅ PASS | 108 | 0 | 100% |
-| **midnight** | ✅ PASS | 108 | 0 | 100% |
-| **neon** | ✅ PASS | 108 | 0 | 100% |
-| **network** | ✅ PASS | 108 | 0 | 100% |
-| **news** | ✅ PASS | 108 | 0 | 100% |
-| **nexus** | ✅ PASS | 108 | 0 | 100% |
-| **nordic** | ✅ PASS | 108 | 0 | 100% |
-| **overflow** | ✅ PASS | 108 | 0 | 100% |
-| **pastel** | ✅ PASS | 108 | 0 | 100% |
-| **pod** | ✅ PASS | 108 | 0 | 100% |
-| **prose** | ✅ PASS | 108 | 0 | 100% |
-| **protocol** | ✅ PASS | 108 | 0 | 100% |
-| **scribe** | ✅ PASS | 108 | 0 | 100% |
-| **stream** | ✅ PASS | 108 | 0 | 100% |
-| **tube** | ✅ PASS | 108 | 0 | 100% |
-| **zephyr** | ✅ PASS | 108 | 0 | 100% |
+| **atlas** | ✅ PASS | 113 | 0 | 100% |
+| **basic** | ✅ PASS | 113 | 0 | 100% |
+| **bento** | ✅ PASS | 113 | 0 | 100% |
+| **bird** | ✅ PASS | 113 | 0 | 100% |
+| **blue** | ✅ PASS | 113 | 0 | 100% |
+| **brutal** | ✅ PASS | 113 | 0 | 100% |
+| **canvas** | ✅ PASS | 113 | 0 | 100% |
+| **classic** | ✅ PASS | 113 | 0 | 100% |
+| **console** | ✅ PASS | 113 | 0 | 100% |
+| **cupertino** | ✅ PASS | 113 | 0 | 100% |
+| **eclipse** | ✅ PASS | 113 | 0 | 100% |
+| **editorial** | ✅ PASS | 113 | 0 | 100% |
+| **forge** | ✅ PASS | 113 | 0 | 100% |
+| **gallery** | ✅ PASS | 113 | 0 | 100% |
+| **gram** | ✅ PASS | 113 | 0 | 100% |
+| **hacker** | ✅ PASS | 113 | 0 | 100% |
+| **midnight** | ✅ PASS | 113 | 0 | 100% |
+| **neon** | ✅ PASS | 113 | 0 | 100% |
+| **network** | ✅ PASS | 113 | 0 | 100% |
+| **news** | ✅ PASS | 113 | 0 | 100% |
+| **nexus** | ✅ PASS | 113 | 0 | 100% |
+| **nordic** | ✅ PASS | 113 | 0 | 100% |
+| **overflow** | ✅ PASS | 113 | 0 | 100% |
+| **pastel** | ✅ PASS | 113 | 0 | 100% |
+| **pod** | ✅ PASS | 113 | 0 | 100% |
+| **prose** | ✅ PASS | 113 | 0 | 100% |
+| **protocol** | ✅ PASS | 113 | 0 | 100% |
+| **scribe** | ✅ PASS | 113 | 0 | 100% |
+| **stream** | ✅ PASS | 113 | 0 | 100% |
+| **tube** | ✅ PASS | 113 | 0 | 100% |
+| **zephyr** | ✅ PASS | 113 | 0 | 100% |
 
 ---
 
 ## Theme: atlas — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -98,6 +98,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -159,6 +164,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -208,7 +216,7 @@
 
 ## Theme: basic — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -262,6 +270,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -323,6 +336,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -372,7 +388,7 @@
 
 ## Theme: bento — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -426,6 +442,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -487,6 +508,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -536,7 +560,7 @@
 
 ## Theme: bird — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -590,6 +614,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -651,6 +680,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -700,7 +732,7 @@
 
 ## Theme: blue — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -754,6 +786,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -815,6 +852,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -864,7 +904,7 @@
 
 ## Theme: brutal — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -918,6 +958,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -979,6 +1024,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -1028,7 +1076,7 @@
 
 ## Theme: canvas — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1082,6 +1130,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -1143,6 +1196,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -1192,7 +1248,7 @@
 
 ## Theme: classic — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1246,6 +1302,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -1307,6 +1368,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -1356,7 +1420,7 @@
 
 ## Theme: console — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1410,6 +1474,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -1471,6 +1540,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -1520,7 +1592,7 @@
 
 ## Theme: cupertino — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1574,6 +1646,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -1635,6 +1712,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -1684,7 +1764,7 @@
 
 ## Theme: eclipse — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1738,6 +1818,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -1799,6 +1884,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -1848,7 +1936,7 @@
 
 ## Theme: editorial — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1902,6 +1990,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -1963,6 +2056,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -2012,7 +2108,7 @@
 
 ## Theme: forge — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2066,6 +2162,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -2127,6 +2228,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -2176,7 +2280,7 @@
 
 ## Theme: gallery — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2230,6 +2334,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -2291,6 +2400,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -2340,7 +2452,7 @@
 
 ## Theme: gram — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2394,6 +2506,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -2455,6 +2572,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -2504,7 +2624,7 @@
 
 ## Theme: hacker — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2558,6 +2678,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -2619,6 +2744,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -2668,7 +2796,7 @@
 
 ## Theme: midnight — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2722,6 +2850,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -2783,6 +2916,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -2832,7 +2968,7 @@
 
 ## Theme: neon — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2886,6 +3022,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -2947,6 +3088,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -2996,7 +3140,7 @@
 
 ## Theme: network — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3050,6 +3194,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -3111,6 +3260,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -3160,7 +3312,7 @@
 
 ## Theme: news — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3214,6 +3366,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -3275,6 +3432,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -3324,7 +3484,7 @@
 
 ## Theme: nexus — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3378,6 +3538,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -3439,6 +3604,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -3488,7 +3656,7 @@
 
 ## Theme: nordic — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3542,6 +3710,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -3603,6 +3776,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -3652,7 +3828,7 @@
 
 ## Theme: overflow — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3706,6 +3882,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -3767,6 +3948,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -3816,7 +4000,7 @@
 
 ## Theme: pastel — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3870,6 +4054,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -3931,6 +4120,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -3980,7 +4172,7 @@
 
 ## Theme: pod — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4034,6 +4226,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -4095,6 +4292,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -4144,7 +4344,7 @@
 
 ## Theme: prose — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4198,6 +4398,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -4259,6 +4464,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -4308,7 +4516,7 @@
 
 ## Theme: protocol — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4362,6 +4570,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -4423,6 +4636,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -4472,7 +4688,7 @@
 
 ## Theme: scribe — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4526,6 +4742,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -4587,6 +4808,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -4636,7 +4860,7 @@
 
 ## Theme: stream — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4690,6 +4914,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -4751,6 +4980,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -4800,7 +5032,7 @@
 
 ## Theme: tube — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4854,6 +5086,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -4915,6 +5152,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 
@@ -4964,7 +5204,7 @@
 
 ## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 108/108 (100%)
+**Score**: 113/113 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5018,6 +5258,11 @@
 - `.callout-warn` — Warning callout variant
 - `.callout-error` — Error callout variant
 - `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
 
 #### components-cards
 
@@ -5079,6 +5324,9 @@
 - `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
 - `.tamarind-select` — Stylized select reset button element overrides
 - `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
 
 #### responsive
 

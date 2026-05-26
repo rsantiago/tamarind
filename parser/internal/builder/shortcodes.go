@@ -82,11 +82,13 @@ func processShortcodes(markdown, sourceDir string) string {
 		title := submatch[1]
 		content := submatch[2]
 
-		reCapability := regexp.MustCompile(`{{\s*capability\s+name="([^"]+)"\s+desc="([^"]+)"\s+status="([^"]+)"(?:\s+statusLabel="([^"]*)")?\s*}}`)
+		// Support status="..." statusLabel="..." OR check="..." style attributes!
+		reCapabilityStatus := regexp.MustCompile(`{{\s*capability\s+name="([^"]+)"\s+desc="([^"]+)"\s+status="([^"]+)"(?:\s+statusLabel="([^"]*)")?\s*}}`)
+		reCapabilityCheck := regexp.MustCompile(`{{\s*capability\s+name="([^"]+)"\s+desc="([^"]+)"\s+check="([^"]+)"\s*}}`)
 		rowsHtml := ""
 		
-		capMatches := reCapability.FindAllStringSubmatch(content, -1)
-		for _, itemSubmatch := range capMatches {
+		statusMatches := reCapabilityStatus.FindAllStringSubmatch(content, -1)
+		for _, itemSubmatch := range statusMatches {
 			name := itemSubmatch[1]
 			desc := itemSubmatch[2]
 			status := itemSubmatch[3]
@@ -96,6 +98,31 @@ func processShortcodes(markdown, sourceDir string) string {
 			}
 
 			rowsHtml += fmt.Sprintf(`<div class="capability-row"><div class="capability-info"><span class="capability-name">%s</span><span class="capability-desc">%s</span></div><span class="capability-status status-%s">%s</span></div>`, name, desc, status, statusLabel)
+		}
+
+		// Fallback to check="..." attributes
+		if len(statusMatches) == 0 {
+			checkMatches := reCapabilityCheck.FindAllStringSubmatch(content, -1)
+			for _, itemSubmatch := range checkMatches {
+				name := itemSubmatch[1]
+				desc := itemSubmatch[2]
+				checkVal := itemSubmatch[3]
+
+				status := "pending"
+				statusLabel := "Pending"
+				if checkVal == "true" {
+					status = "success"
+					statusLabel = "Yes"
+				} else if checkVal == "warn" {
+					status = "warning"
+					statusLabel = "Partial"
+				} else if checkVal == "false" {
+					status = "error"
+					statusLabel = "No"
+				}
+
+				rowsHtml += fmt.Sprintf(`<div class="capability-row"><div class="capability-info"><span class="capability-name">%s</span><span class="capability-desc">%s</span></div><span class="capability-status status-%s">%s</span></div>`, name, desc, status, statusLabel)
+			}
 		}
 
 		headerHtml := ""
@@ -112,11 +139,13 @@ func processShortcodes(markdown, sourceDir string) string {
 		submatch := reTimeline.FindStringSubmatch(match)
 		content := submatch[1]
 
-		reItem := regexp.MustCompile(`(?s){{\s*item\s+title="([^"]+)"(?:\s+number="([^"]*)")?\s*}}(.*?){{\s*/item\s*}}`)
+		// Support {{ item title="..." number="..." }} OR {{ timeline-item step="..." title="..." }} syntaxes!
+		reItem1 := regexp.MustCompile(`(?s){{\s*item\s+title="([^"]+)"(?:\s+number="([^"]*)")?\s*}}(.*?){{\s*/item\s*}}`)
+		reItem2 := regexp.MustCompile(`(?s){{\s*timeline-item\s+step="([^"]+)"\s+title="([^"]+)"\s*}}(.*?){{\s*/timeline-item\s*}}`)
 		itemsHtml := ""
 		
-		itemMatches := reItem.FindAllStringSubmatch(content, -1)
-		for _, itemSubmatch := range itemMatches {
+		item1Matches := reItem1.FindAllStringSubmatch(content, -1)
+		for _, itemSubmatch := range item1Matches {
 			title := itemSubmatch[1]
 			num := itemSubmatch[2]
 			desc := itemSubmatch[3]
@@ -129,6 +158,25 @@ func processShortcodes(markdown, sourceDir string) string {
 			}
 
 			itemsHtml += fmt.Sprintf(`<div class="timeline-item">%s<div class="timeline-content"><h3 class="timeline-title">%s</h3><div class="timeline-desc">%s</div></div></div>`, badgeHtml, title, strings.TrimSpace(desc))
+		}
+
+		// Fallback to timeline-item step="..." title="..."
+		if len(item1Matches) == 0 {
+			item2Matches := reItem2.FindAllStringSubmatch(content, -1)
+			for _, itemSubmatch := range item2Matches {
+				num := itemSubmatch[1]
+				title := itemSubmatch[2]
+				desc := itemSubmatch[3]
+
+				badgeHtml := ""
+				if num != "" {
+					badgeHtml = fmt.Sprintf(`<div class="timeline-badge"><span class="timeline-badge-number">%s</span></div>`, num)
+				} else {
+					badgeHtml = `<div class="timeline-badge"></div>`
+				}
+
+				itemsHtml += fmt.Sprintf(`<div class="timeline-item">%s<div class="timeline-content"><h3 class="timeline-title">%s</h3><div class="timeline-desc">%s</div></div></div>`, badgeHtml, title, strings.TrimSpace(desc))
+			}
 		}
 
 		return fmt.Sprintf(`<div class="timeline-container">%s</div>`, itemsHtml)
@@ -183,6 +231,26 @@ func processShortcodes(markdown, sourceDir string) string {
 		chevronSvg := getBuiltInIconSvg("chevron")
 
 		return fmt.Sprintf(`<div class="tamarind-select-wrapper">%s<div class="tamarind-select-control"><select class="tamarind-select"%s>%s</select><div class="tamarind-select-chevron">%s</div></div></div>`, labelHtml, idAttr, optionsHtml, chevronSvg)
+	})
+
+	// Accordion: {{ accordion }} ... {{ /accordion }}
+	reAccordion := regexp.MustCompile(`(?s){{\s*accordion\s*}}(.*?){{\s*/accordion\s*}}`)
+	markdown = reAccordion.ReplaceAllStringFunc(markdown, func(match string) string {
+		submatch := reAccordion.FindStringSubmatch(match)
+		content := submatch[1]
+
+		reAccordionItem := regexp.MustCompile(`(?s){{\s*accordion-item\s+title="([^"]+)"\s*}}(.*?){{\s*/accordion-item\s*}}`)
+		itemsHtml := ""
+
+		itemMatches := reAccordionItem.FindAllStringSubmatch(content, -1)
+		for _, itemSubmatch := range itemMatches {
+			title := itemSubmatch[1]
+			desc := itemSubmatch[2]
+
+			itemsHtml += fmt.Sprintf(`<details class="tamarind-accordion"><summary class="tamarind-accordion-summary">%s</summary><div class="tamarind-accordion-content">%s</div></details>`, title, strings.TrimSpace(desc))
+		}
+
+		return fmt.Sprintf(`<div class="tamarind-accordion-container">%s</div>`, itemsHtml)
 	})
 
 	// 3. Terminal (Block): {{ terminal }}...{{ /terminal }}

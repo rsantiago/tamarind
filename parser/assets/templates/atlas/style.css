@@ -566,3 +566,11 @@ main {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* --- Canvas Mode Overrides (Centering & Sidebar Removal) --- */
+.canvas-mode-active main {
+    margin: 0 auto !important;
+    max-width: var(--max-width, 1060px) !important;
+    width: 100% !important;
+}
+
