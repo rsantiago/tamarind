@@ -944,22 +944,37 @@ figcaption {
 }
 
 /* --- Theme Design System Components (Compliance Spec) --- */
-.card {
+.card,
+.features-grid .feature-card,
+.feature-card,
+.metric-card,
+.capability-card,
+.timeline-content,
+.tamarind-accordion {
     background-color: #151821 !important; /* Standout deep obsidian-steel */
     border: 1px solid rgba(102, 252, 241, 0.25) !important; /* Glowing electric-cyan border */
     border-radius: var(--radius-lg, 12px) !important;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6), 0 0 15px rgba(102, 252, 241, 0.05) !important;
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.card:hover,
+.features-grid .feature-card:hover,
+.feature-card:hover,
+.metric-card:hover,
+.capability-card:hover,
+.timeline-content:hover,
+.tamarind-accordion:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(102, 252, 241, 0.7) !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(102, 252, 241, 0.2) !important;
+}
+
+.card {
     margin: 2rem auto 3rem auto !important;
     display: flex;
     flex-direction: column;
     height: 100%;
-}
-
-.card:hover {
-    transform: translateY(-4px) !important;
-    border-color: rgba(102, 252, 241, 0.7) !important;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.7), 0 0 25px rgba(102, 252, 241, 0.2) !important;
 }
 .card-padding {
     padding: 24px;
