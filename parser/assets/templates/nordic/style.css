@@ -978,15 +978,21 @@ figcaption {
 
 /* --- Theme Design System Components (Compliance Spec) --- */
 .card {
-    background-color: var(--card-bg, #343B49) !important;
-    border: 1px solid #3F4756 !important;
-    border-radius: var(--radius-lg, 8px);
-    box-shadow: var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.1));
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    background-color: #2E3646 !important; /* Beautiful standout polar night slate-blue */
+    border: 1px solid rgba(136, 192, 208, 0.25) !important; /* Subtly glowing frosty border */
+    border-radius: var(--radius-lg, 12px) !important;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25), 0 0 15px rgba(136, 192, 208, 0.05) !important;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease !important;
     margin: 2rem auto 3rem auto !important;
     display: flex;
     flex-direction: column;
     height: 100%;
+}
+
+.card:hover {
+    transform: translateY(-4px) !important;
+    border-color: rgba(136, 192, 208, 0.6) !important;
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35), 0 0 25px rgba(136, 192, 208, 0.15) !important;
 }
 .card-padding {
     padding: 24px;

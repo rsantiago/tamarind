@@ -324,15 +324,19 @@ hr {
 /* Diagonal Gradients */
 .gradient-blue-cyan {
   background: linear-gradient(135deg, #2563eb 0%, #0891b2 100%);
+  box-shadow: 0 4px 14px rgba(8, 145, 178, 0.4);
 }
 .gradient-purple-pink {
   background: linear-gradient(135deg, #7c3aed 0%, #db2777 100%);
+  box-shadow: 0 4px 14px rgba(219, 39, 119, 0.4);
 }
 .gradient-orange-red {
   background: linear-gradient(135deg, #ea580c 0%, #dc2626 100%);
+  box-shadow: 0 4px 14px rgba(220, 38, 38, 0.4);
 }
 .gradient-green-emerald {
   background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
+  box-shadow: 0 4px 14px rgba(13, 148, 136, 0.4);
 }
 
 .feature-title {
