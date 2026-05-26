@@ -887,9 +887,9 @@ hr {
 
 /* --- Card Alignment and Bottom Badge Support --- */
 .card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
 }
 
 .card .badge,

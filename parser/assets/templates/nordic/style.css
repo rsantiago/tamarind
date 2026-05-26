@@ -984,7 +984,9 @@ figcaption {
     box-shadow: var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.1));
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     margin: 2rem auto 3rem auto !important;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 .card-padding {
     padding: 24px;
@@ -1079,4 +1081,15 @@ figcaption {
 
 .timeline-badge-number {
     color: var(--primary-color, #88C0D0) !important;
+}
+
+/* Card Badge Bottom Alignment Override */
+.card .badge,
+.card .badge-primary,
+.card .badge-secondary,
+.card .badge-success,
+.card .badge-warning,
+.card .badge-danger {
+    margin-top: auto !important;
+    align-self: flex-start !important;
 }
