@@ -417,3 +417,27 @@ figcaption { margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-light); }
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* --- Premium Feature Card Standout Overrides --- */
+.features-grid .feature-card,
+.feature-card {
+    background-color: var(--card-bg, #ffffff) !important;
+    border: 1px solid var(--border-color, #eaeaea) !important;
+    border-radius: var(--radius-md, 12px) !important;
+    box-shadow: var(--shadow) !important;
+    padding: 2.25rem 2rem !important;
+}
+
+.feature-card .feature-title {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-color) !important;
+}
+
+.feature-card .feature-desc {
+    margin-bottom: 0 !important;
+    color: var(--text-secondary) !important;
+}
+
