@@ -128,7 +128,7 @@ func processShortcodes(markdown, sourceDir string) string {
 				badgeHtml = `<div class="timeline-badge"></div>`
 			}
 
-			itemsHtml += fmt.Sprintf(`<div class="timeline-item">%s<div class="timeline-content"><h3 class="timeline-title">%s</h3><p class="timeline-desc">%s</p></div></div>`, badgeHtml, title, strings.TrimSpace(desc))
+			itemsHtml += fmt.Sprintf(`<div class="timeline-item">%s<div class="timeline-content"><h3 class="timeline-title">%s</h3><div class="timeline-desc">%s</div></div></div>`, badgeHtml, title, strings.TrimSpace(desc))
 		}
 
 		return fmt.Sprintf(`<div class="timeline-container">%s</div>`, itemsHtml)
@@ -187,7 +187,11 @@ func processShortcodes(markdown, sourceDir string) string {
 
 	// 3. Terminal (Block): {{ terminal }}...{{ /terminal }}
 	reTerm := regexp.MustCompile(`(?s){{\s*terminal\s*}}(.*?){{\s*/terminal\s*}}`)
-	markdown = reTerm.ReplaceAllString(markdown, `<div class="terminal"><div class="terminal-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><pre class="terminal-content"><code>$1</code></pre></div>`)
+	markdown = reTerm.ReplaceAllStringFunc(markdown, func(match string) string {
+		sub := reTerm.FindStringSubmatch(match)
+		content := strings.TrimSpace(sub[1])
+		return fmt.Sprintf(`<div class="terminal"><div class="terminal-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><pre class="terminal-content"><code>%s</code></pre></div>`, content)
+	})
 
 	// 4. Code Include: {{ include src="file.go" lines="1-10" lang="go" }}
 	reInclude := regexp.MustCompile(`{{\s*include\s+src="([^"]+)"(?:\s+lines="([0-9]+-[0-9]+)")?(?:\s+lang="([^"]+)")?\s*}}`)
@@ -406,7 +410,7 @@ func processShortcodes(markdown, sourceDir string) string {
 			targetAttr = fmt.Sprintf(` target="%s"`, target)
 		}
 
-		return fmt.Sprintf(`<a href="%s" class="%s"%s>%s</a>`, href, classAttr, targetAttr, content)
+		return fmt.Sprintf(`<a href="%s" class="%s"%s>%s</a>`, href, classAttr, targetAttr, strings.TrimSpace(content))
 	})
 
 	// 8. Card (Block): {{ card }}...{{ /card }}
@@ -420,7 +424,7 @@ func processShortcodes(markdown, sourceDir string) string {
 		if paddingVal == "false" {
 			paddingClass = ""
 		}
-		return fmt.Sprintf(`<div class="card%s">%s</div>`, paddingClass, content)
+		return fmt.Sprintf(`<div class="card%s">%s</div>`, paddingClass, strings.TrimSpace(content))
 	})
 
 	// 9. Alert (Block): {{ alert type="info" title="Title" }}...{{ /alert }} / {{ callout }}
@@ -474,7 +478,213 @@ func processShortcodes(markdown, sourceDir string) string {
 		if typ != "" {
 			classAttr += " badge-" + typ
 		}
-		return fmt.Sprintf(`<span class="%s">%s</span>`, classAttr, content)
+		return fmt.Sprintf(`<span class="%s">%s</span>`, classAttr, strings.TrimSpace(content))
+	})
+
+	// 11. Form (Block): {{ form action="..." method="..." }}...{{ /form }}
+	reForm := regexp.MustCompile(`(?s){{<?\s*form\s+(.*?)\s*>??}}(.*?){{<?\s*/?\s*form\s*>??}}`)
+	markdown = reForm.ReplaceAllStringFunc(markdown, func(match string) string {
+		parts := reForm.FindStringSubmatch(match)
+		attrs := parts[1]
+		content := parts[2]
+
+		reAction := regexp.MustCompile(`action="([^"]+)"`)
+		reMethod := regexp.MustCompile(`method="([^"]+)"`)
+
+		action := "#"
+		if m := reAction.FindStringSubmatch(attrs); len(m) > 1 {
+			action = m[1]
+		}
+		method := "POST"
+		if mMethod := reMethod.FindStringSubmatch(attrs); len(mMethod) > 1 {
+			method = mMethod[1]
+		}
+
+		return fmt.Sprintf(`<form action="%s" method="%s">%s</form>`, action, method, strings.TrimSpace(content))
+	})
+
+	// 12. Form Input: {{ form-input label="..." type="..." placeholder="..." }}
+	reFormInput := regexp.MustCompile(`{{<?\s*form-input\s+(.*?)\s*/?>??}}`)
+	markdown = reFormInput.ReplaceAllStringFunc(markdown, func(match string) string {
+		attrs := reFormInput.FindStringSubmatch(match)[1]
+
+		reLabel := regexp.MustCompile(`label="([^"]+)"`)
+		reType := regexp.MustCompile(`type="([^"]+)"`)
+		rePlaceholder := regexp.MustCompile(`placeholder="([^"]+)"`)
+
+		label := ""
+		if m := reLabel.FindStringSubmatch(attrs); len(m) > 1 {
+			label = m[1]
+		}
+		typ := "text"
+		if m := reType.FindStringSubmatch(attrs); len(m) > 1 {
+			typ = m[1]
+		}
+		placeholder := ""
+		if m := rePlaceholder.FindStringSubmatch(attrs); len(m) > 1 {
+			placeholder = m[1]
+		}
+
+		labelHtml := ""
+		if label != "" {
+			labelHtml = fmt.Sprintf(`<label class="form-label">%s</label>`, label)
+		}
+
+		return fmt.Sprintf(`<div class="form-group">%s<input type="%s" class="form-input" placeholder="%s"></div>`, labelHtml, typ, placeholder)
+	})
+
+	// 13. Form Textarea: {{ form-textarea label="..." placeholder="..." rows="..." }}
+	reFormTextarea := regexp.MustCompile(`{{<?\s*form-textarea\s+(.*?)\s*/?>??}}`)
+	markdown = reFormTextarea.ReplaceAllStringFunc(markdown, func(match string) string {
+		attrs := reFormTextarea.FindStringSubmatch(match)[1]
+
+		reLabel := regexp.MustCompile(`label="([^"]+)"`)
+		rePlaceholder := regexp.MustCompile(`placeholder="([^"]+)"`)
+		reRows := regexp.MustCompile(`rows="([^"]+)"`)
+
+		label := ""
+		if m := reLabel.FindStringSubmatch(attrs); len(m) > 1 {
+			label = m[1]
+		}
+		placeholder := ""
+		if m := rePlaceholder.FindStringSubmatch(attrs); len(m) > 1 {
+			placeholder = m[1]
+		}
+		rows := "4"
+		if m := reRows.FindStringSubmatch(attrs); len(m) > 1 {
+			rows = m[1]
+		}
+
+		labelHtml := ""
+		if label != "" {
+			labelHtml = fmt.Sprintf(`<label class="form-label">%s</label>`, label)
+		}
+
+		return fmt.Sprintf(`<div class="form-group">%s<textarea class="form-textarea" rows="%s" placeholder="%s"></textarea></div>`, labelHtml, rows, placeholder)
+	})
+
+	// 14. Form Select (Block): {{ form-select label="..." }}...{{ /form-select }}
+	reFormSelect := regexp.MustCompile(`(?s){{<?\s*form-select\s+(.*?)\s*>??}}(.*?){{<?\s*/?\s*form-select\s*>??}}`)
+	markdown = reFormSelect.ReplaceAllStringFunc(markdown, func(match string) string {
+		parts := reFormSelect.FindStringSubmatch(match)
+		attrs := parts[1]
+		content := parts[2]
+
+		reLabel := regexp.MustCompile(`label="([^"]+)"`)
+		label := ""
+		if m := reLabel.FindStringSubmatch(attrs); len(m) > 1 {
+			label = m[1]
+		}
+
+		// Parse simple options: {{ option }}Text{{ /option }} or with value/selected
+		reOptionSimple := regexp.MustCompile(`(?s){{\s*option\s*}}(.*?){{\s*/option\s*}}`)
+		content = reOptionSimple.ReplaceAllString(content, `<option>$1</option>`)
+
+		reOptionAttr := regexp.MustCompile(`(?s){{\s*option\s+value="([^"]+)"(?:\s+selected="([^"]*)")?\s*}}(.*?){{\s*/option\s*}}`)
+		content = reOptionAttr.ReplaceAllStringFunc(content, func(optMatch string) string {
+			optParts := reOptionAttr.FindStringSubmatch(optMatch)
+			val := optParts[1]
+			sel := optParts[2]
+			text := optParts[3]
+
+			selectedAttr := ""
+			if sel == "true" {
+				selectedAttr = " selected"
+			}
+			return fmt.Sprintf(`<option value="%s"%s>%s</option>`, val, selectedAttr, strings.TrimSpace(text))
+		})
+
+		labelHtml := ""
+		if label != "" {
+			labelHtml = fmt.Sprintf(`<label class="form-label">%s</label>`, label)
+		}
+
+		return fmt.Sprintf(`<div class="form-group">%s<select class="form-select">%s</select></div>`, labelHtml, strings.TrimSpace(content))
+	})
+
+	// 15. Form Checkbox: {{ form-checkbox label="..." checked="..." }}
+	reFormCheckbox := regexp.MustCompile(`{{<?\s*form-checkbox\s+(.*?)\s*/?>??}}`)
+	markdown = reFormCheckbox.ReplaceAllStringFunc(markdown, func(match string) string {
+		attrs := reFormCheckbox.FindStringSubmatch(match)[1]
+
+		reLabel := regexp.MustCompile(`label="([^"]+)"`)
+		reChecked := regexp.MustCompile(`checked="([^"]+)"`)
+
+		label := ""
+		if m := reLabel.FindStringSubmatch(attrs); len(m) > 1 {
+			label = m[1]
+		}
+		checked := ""
+		if m := reChecked.FindStringSubmatch(attrs); len(m) > 1 && m[1] == "true" {
+			checked = " checked"
+		}
+
+		return fmt.Sprintf(`<div class="form-group"><label class="form-label"><input type="checkbox" class="form-checkbox"%s> %s</label></div>`, checked, label)
+	})
+
+	// 16. Form Radio Group (Block): {{ form-radio-group label="..." }}...{{ /form-radio-group }}
+	reFormRadioGroup := regexp.MustCompile(`(?s){{<?\s*form-radio-group\s+(.*?)\s*>??}}(.*?){{<?\s*/?\s*form-radio-group\s*>??}}`)
+	markdown = reFormRadioGroup.ReplaceAllStringFunc(markdown, func(match string) string {
+		parts := reFormRadioGroup.FindStringSubmatch(match)
+		attrs := parts[1]
+		content := parts[2]
+
+		reLabel := regexp.MustCompile(`label="([^"]+)"`)
+		label := ""
+		if m := reLabel.FindStringSubmatch(attrs); len(m) > 1 {
+			label = m[1]
+		}
+
+		// Inside form-radio-group, we parse form-radios: {{ form-radio name="..." label="..." checked="..." }}
+		reFormRadio := regexp.MustCompile(`{{<?\s*form-radio\s+(.*?)\s*/?>??}}`)
+		parsedContent := reFormRadio.ReplaceAllStringFunc(content, func(radioMatch string) string {
+			radioAttrs := reFormRadio.FindStringSubmatch(radioMatch)[1]
+
+			reName := regexp.MustCompile(`name="([^"]+)"`)
+			reRadioLabel := regexp.MustCompile(`label="([^"]+)"`)
+			reRadioChecked := regexp.MustCompile(`checked="([^"]+)"`)
+
+			name := ""
+			if m := reName.FindStringSubmatch(radioAttrs); len(m) > 1 {
+				name = m[1]
+			}
+			radioLabel := ""
+			if m := reRadioLabel.FindStringSubmatch(radioAttrs); len(m) > 1 {
+				radioLabel = m[1]
+			}
+			radioChecked := ""
+			if m := reRadioChecked.FindStringSubmatch(radioAttrs); len(m) > 1 && m[1] == "true" {
+				radioChecked = " checked"
+			}
+
+			return fmt.Sprintf(`<label class="form-label"><input type="radio" name="%s" class="form-radio"%s> %s</label>`, name, radioChecked, radioLabel)
+		})
+
+		labelHtml := ""
+		if label != "" {
+			labelHtml = fmt.Sprintf(`<label class="form-label">%s</label>`, label)
+		}
+
+		return fmt.Sprintf(`<div class="form-group">%s%s</div>`, labelHtml, strings.TrimSpace(parsedContent))
+	})
+
+	// 17. Form File: {{ form-file label="..." }}
+	reFormFile := regexp.MustCompile(`{{<?\s*form-file\s+(.*?)\s*/?>??}}`)
+	markdown = reFormFile.ReplaceAllStringFunc(markdown, func(match string) string {
+		attrs := reFormFile.FindStringSubmatch(match)[1]
+
+		reLabel := regexp.MustCompile(`label="([^"]+)"`)
+		label := ""
+		if m := reLabel.FindStringSubmatch(attrs); len(m) > 1 {
+			label = m[1]
+		}
+
+		labelHtml := ""
+		if label != "" {
+			labelHtml = fmt.Sprintf(`<label class="form-label">%s</label>`, label)
+		}
+
+		return fmt.Sprintf(`<div class="form-group">%s<input type="file" class="form-file"></div>`, labelHtml)
 	})
 
 	// Cleanup Escape Token {{!}}

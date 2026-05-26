@@ -526,7 +526,7 @@ figcaption { font-family: var(--font-heading); font-size: 1rem; font-weight: 700
 /* Badges & Tags */
 .badge-primary {
     background-color: var(--primary-color, #000);
-    color: var(--background-color, #fff);
+    color: #000000 !important;
 }
 .badge-secondary {
     background-color: var(--secondary-color, #6c757d);

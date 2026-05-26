@@ -603,3 +603,90 @@ a:hover {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* --- UI Component Custom Overrides & Compliance Polish --- */
+
+/* 1. Prevent 9999px pill shapes on cards from --radius-lg */
+.metric-card,
+.feature-card,
+.capability-card {
+    border-radius: var(--radius-md, 16px) !important;
+}
+
+/* 1a. Metric Card Contrast and Border Styling */
+.metric-card {
+    background-color: #F7F9F9 !important; /* Slate off-white */
+    border: 1px solid #CFD9DE !important;
+}
+
+/* 1b. Feature Card Contrast and Border Styling */
+.feature-card {
+    background-color: #F7F9F9 !important; /* Slate off-white */
+    border: 1px solid #CFD9DE !important;
+}
+
+/* 2. Timeline Contrast and Premium Elevation Styling */
+.timeline-container::before {
+    background: #CFD9DE !important; /* Stronger vertical line */
+}
+
+.timeline-content {
+    background-color: #F7F9F9 !important; /* Elegant slate off-white */
+    border: 1px solid #CFD9DE !important; /* Clearly defined borders */
+}
+
+.timeline-badge {
+    background-color: #FFFFFF !important;
+    border: 2px solid var(--primary-color) !important;
+}
+
+/* 3. Checklist Card Contrast and Border Styling */
+.capability-card {
+    background-color: #F7F9F9 !important; /* Slate off-white */
+    border: 1px solid #CFD9DE !important;
+}
+
+.capability-header {
+    border-bottom: 1px solid #CFD9DE !important;
+}
+
+.capability-row {
+    border-bottom: 1px dashed #CFD9DE !important;
+}
+
+/* Dark Mode Overrides for Timeline, Checklist, Feature/Metric Cards, and Contrast */
+[data-theme="dark"] .timeline-container::before {
+    background: #38444D !important;
+}
+
+[data-theme="dark"] .timeline-content {
+    background-color: #1E2732 !important; /* Elevated slate dim */
+    border: 1px solid #38444D !important;
+}
+
+[data-theme="dark"] .timeline-badge {
+    background-color: #15202B !important;
+}
+
+[data-theme="dark"] .capability-card {
+    background-color: #1E2732 !important; /* Slate dim */
+    border: 1px solid #38444D !important;
+}
+
+[data-theme="dark"] .capability-header {
+    border-bottom: 1px solid #38444D !important;
+}
+
+[data-theme="dark"] .capability-row {
+    border-bottom: 1px dashed #38444D !important;
+}
+
+[data-theme="dark"] .feature-card {
+    background-color: #1E2732 !important; /* Slate dim */
+    border: 1px solid #38444D !important;
+}
+
+[data-theme="dark"] .metric-card {
+    background-color: #1E2732 !important; /* Slate dim */
+    border: 1px solid #38444D !important;
+}

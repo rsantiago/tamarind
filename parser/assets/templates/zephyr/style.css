@@ -902,3 +902,289 @@ p code, li code {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* Premium Components Grid Alignment & Custom Overrides */
+.metrics-grid .card, 
+.features-grid .card,
+.features-grid .feature-card,
+.metrics-grid .metric-card {
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column;
+    height: 100%;
+}
+
+.capability-card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-left: 4px solid var(--accent-color, #2563eb) !important;
+    border-radius: var(--radius-lg, 16px) !important;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+    margin: 2rem 0 !important;
+    padding: 1.75rem !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.capability-card:hover {
+    border-color: var(--accent-color, #2563eb) !important;
+    box-shadow: 0 16px 20px -8px rgba(37, 99, 235, 0.12), 0 4px 10px -4px rgba(37, 99, 235, 0.04) !important;
+}
+
+[data-theme="light"] .capability-card {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .capability-card {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+}
+
+.feature-card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-left: 4px solid var(--accent-color, #2563eb) !important;
+    border-radius: var(--radius-md, 12px) !important;
+    padding: 1.75rem 1.5rem !important;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin: 0 !important;
+}
+
+.feature-card:hover {
+    border-color: var(--accent-color, #2563eb) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.15), 0 10px 10px -5px rgba(37, 99, 235, 0.05) !important;
+}
+
+[data-theme="light"] .feature-card {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .feature-card {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+}
+
+.metric-card {
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-top: 4px solid var(--accent-color, #2563eb) !important;
+    border-radius: var(--radius-md, 12px) !important;
+    padding: 2rem 1.5rem !important;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    margin: 0 !important;
+}
+
+.metric-card:hover {
+    border-color: var(--accent-color, #2563eb) !important;
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.15), 0 10px 10px -5px rgba(37, 99, 235, 0.05) !important;
+}
+
+[data-theme="light"] .metric-card {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .metric-card {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+}
+
+/* Timeline Custom Component Overrides */
+.timeline-container {
+    padding-left: 3.5rem;
+    margin: 2rem 0;
+}
+
+.timeline-container::before {
+    left: 27px;
+    background-color: var(--border-color) !important;
+}
+
+.timeline-item {
+    margin-bottom: 1.5rem;
+}
+
+.timeline-badge {
+    left: -46px;
+    width: 36px;
+    height: 36px;
+    background-color: var(--background-color) !important;
+    border: 2px solid var(--accent-color, #2563eb) !important;
+}
+
+.timeline-badge-number {
+    color: var(--accent-color, #2563eb) !important;
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.timeline-content {
+    padding: 1.25rem 1.5rem !important;
+    border-radius: var(--radius-md, 12px) !important;
+    background-color: var(--card-bg) !important;
+    border: 1px solid var(--border-color) !important;
+    border-left: 4px solid var(--accent-color, #2563eb) !important;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.timeline-content:hover {
+    transform: translateX(4px) !important;
+    border-color: var(--accent-color, #2563eb) !important;
+    box-shadow: 0 16px 20px -8px rgba(37, 99, 235, 0.15), 0 4px 10px -4px rgba(37, 99, 235, 0.05) !important;
+}
+
+[data-theme="light"] .timeline-content {
+    background-color: #f8fafc !important;
+    border-color: #e2e8f0 !important;
+}
+
+[data-theme="dark"] .timeline-content {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+}
+
+.timeline-title {
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--primary-color) !important;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+}
+
+/* Premium Alert / Callout Overrides */
+.alert-container {
+    padding: 1.25rem 1.5rem !important;
+    border-radius: var(--radius-md, 12px) !important;
+    border: 1px solid var(--border-color) !important;
+    background-color: var(--card-bg) !important;
+    margin: 1.5rem 0 !important;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.03), 0 2px 6px -1px rgba(15, 23, 42, 0.01) !important;
+    transition: border-color 0.2s ease !important;
+}
+
+.alert-info {
+    border-left: 4px solid var(--accent-color, #2563eb) !important;
+    background-color: #f0f6ff !important;
+    border-color: #cbd5e1 !important;
+}
+
+[data-theme="dark"] .alert-info {
+    background-color: rgba(37, 99, 235, 0.1) !important;
+    border-color: rgba(37, 99, 235, 0.25) !important;
+}
+
+.alert-warn {
+    border-left: 4px solid #d97706 !important;
+    background-color: #fffbeb !important;
+    border-color: #fef3c7 !important;
+}
+
+[data-theme="dark"] .alert-warn {
+    border-left-color: #f59e0b !important;
+    background-color: rgba(245, 158, 11, 0.1) !important;
+    border-color: rgba(245, 158, 11, 0.25) !important;
+}
+
+.alert-error {
+    border-left: 4px solid #dc2626 !important;
+    background-color: #fef2f2 !important;
+    border-color: #fee2e2 !important;
+}
+
+[data-theme="dark"] .alert-error {
+    border-left-color: #ef4444 !important;
+    background-color: rgba(239, 68, 68, 0.1) !important;
+    border-color: rgba(239, 68, 68, 0.25) !important;
+}
+
+.alert-tip {
+    border-left: 4px solid #059669 !important;
+    background-color: #f0fdf4 !important;
+    border-color: #dcfce7 !important;
+}
+
+[data-theme="dark"] .alert-tip {
+    border-left-color: #10b981 !important;
+    background-color: rgba(16, 185, 129, 0.1) !important;
+    border-color: rgba(16, 185, 129, 0.25) !important;
+}
+
+/* --- Premium Component Spacing & Alignment Fixes --- */
+
+/* Fix aggressive global article-content heading styles inside premium components and cards */
+.card h1, .card h2, .card h3, .card h4,
+.feature-card h1, .feature-card h2, .feature-card h3, .feature-card h4,
+.metric-card h1, .metric-card h2, .metric-card h3, .metric-card h4,
+.timeline-content h1, .timeline-content h2, .timeline-content h3, .timeline-content h4,
+.alert-container h1, .alert-container h2, .alert-container h3, .alert-container h4,
+.callout h1, .callout h2, .callout h3, .callout h4 {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+    text-align: left !important;
+}
+
+/* Fix aggressive paragraph margins inside premium cards and alerts to preserve snug padding */
+.card p,
+.feature-card p,
+.metric-card p,
+.timeline-content p,
+.alert-container p,
+.alert-container .alert-message,
+.callout p {
+    margin-bottom: 0 !important;
+}
+
+/* Ensure secondary paragraph elements inside premium cards have clean spacing if stacked */
+.card p + p,
+.feature-card p + p,
+.timeline-content p + p,
+.alert-container p + p,
+.callout p + p {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Timeline Specific Spacing Tweaks */
+.timeline-content pre {
+    margin: 0.75rem 0 !important;
+}
+.timeline-content pre code {
+    font-size: 0.85rem !important;
+}
+
+/* Alert Container Icon & Content Alignment Alignment */
+.alert-container {
+    align-items: flex-start !important;
+}
+.alert-container .alert-icon-box {
+    margin-top: 2px !important; /* Perfectly centers icon with first line of title */
+}
+
+/* Generic Callout Standout Overrides */
+.callout {
+    padding: 24px !important;
+    margin: 32px 0 !important;
+    border-radius: var(--radius-md, 8px) !important;
+    background-color: #f8fafc !important;
+    border: 1px solid #e2e8f0 !important;
+    border-left: 4px solid var(--accent-color, #2563eb) !important;
+    box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.03), 0 2px 6px -1px rgba(15, 23, 42, 0.01) !important;
+}
+
+[data-theme="dark"] .callout {
+    background-color: #0f172a !important;
+    border-color: #1e293b !important;
+}
+

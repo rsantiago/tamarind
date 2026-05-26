@@ -551,3 +551,52 @@ a:hover {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* --- Premium Feature Card Standout Overrides --- */
+.features-grid .feature-card,
+.feature-card {
+    background-color: #F0F9FF !important; /* Soft distinct sky blue background in light mode */
+    border: 1px solid #BEE3F8 !important; /* Soft sky blue border */
+    border-left: 4px solid var(--primary-color, #06B6D4) !important; /* Vibrant Tech Cyan left accent */
+    border-radius: var(--radius-md, 12px) !important;
+    padding: 2rem 1.75rem !important;
+    box-shadow: 0 4px 6px -1px rgba(6, 182, 212, 0.05), 0 2px 4px -2px rgba(6, 182, 212, 0.05) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.features-grid .feature-card:hover,
+.feature-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: var(--primary-color, #06B6D4) !important;
+    box-shadow: 0 20px 25px -5px rgba(6, 182, 212, 0.15), 0 10px 10px -5px rgba(6, 182, 212, 0.05) !important;
+}
+
+.feature-card .feature-title {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+    text-align: left !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-color) !important;
+}
+
+.feature-card .feature-desc {
+    margin-bottom: 0 !important;
+    color: var(--text-secondary) !important;
+}
+
+/* Dark Mode Overrides for Feature Cards */
+[data-theme="dark"] .features-grid .feature-card,
+[data-theme="dark"] .feature-card {
+    background-color: #0F1E36 !important; /* Gorgeous deep navy slate tech-blue in dark mode */
+    border: 1px solid #1E293B !important;
+    border-left: 4px solid var(--primary-color, #22D3EE) !important; /* Lighter Tech Cyan left accent */
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3) !important;
+}
+
+[data-theme="dark"] .features-grid .feature-card:hover,
+[data-theme="dark"] .feature-card:hover {
+    border-color: var(--primary-color, #22D3EE) !important;
+    box-shadow: 0 20px 25px -5px rgba(34, 211, 238, 0.15), 0 10px 10px -5px rgba(34, 211, 238, 0.05) !important;
+}
+

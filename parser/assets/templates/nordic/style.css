@@ -1058,3 +1058,25 @@ figcaption {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* Timeline Custom Component Overrides */
+.timeline-content {
+    background-color: #2E3440 !important; /* Standout Nord polar night card surface */
+    border: 1px solid #4C566A !important; /* Higher contrast Nord 3 border */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15) !important;
+    transition: border-color 0.2s ease, transform 0.2s ease !important;
+}
+
+.timeline-content:hover {
+    border-color: var(--primary-color, #88C0D0) !important; /* Elegant cyan frost highlight */
+    transform: translateX(4px);
+}
+
+.timeline-badge {
+    background-color: var(--background-color, #242933) !important;
+    border: 2px solid var(--primary-color, #88C0D0) !important;
+}
+
+.timeline-badge-number {
+    color: var(--primary-color, #88C0D0) !important;
+}

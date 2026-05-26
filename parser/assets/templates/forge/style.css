@@ -595,3 +595,56 @@ a:hover {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* Timeline Custom Component Overrides */
+.timeline-container {
+    margin: 2rem 0;
+    padding-left: 3.5rem;
+}
+.timeline-container::before {
+    left: 27px;
+    background: var(--border-color);
+    width: 2px;
+}
+.timeline-item {
+    margin-bottom: 1.5rem;
+}
+.timeline-badge {
+    left: -46px;
+    width: 36px;
+    height: 36px;
+    border-radius: 0px;
+    border: 2px solid var(--primary-color);
+    background: var(--background-color);
+}
+.timeline-badge-number {
+    font-size: 1rem;
+    font-family: var(--font-body);
+    color: var(--primary-color);
+}
+.timeline-content {
+    padding: 1.25rem;
+    background-color: var(--background-color) !important;
+    border: 2px solid var(--border-color) !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    transition: border-color 0.2s ease, transform 0.2s ease;
+}
+.timeline-content:hover {
+    transform: translateX(4px);
+    border-color: var(--primary-color) !important;
+}
+.timeline-title {
+    font-size: 1rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    margin-bottom: 0.25rem;
+    color: var(--primary-color);
+}
+.timeline-desc {
+    font-size: 0.85rem;
+    font-family: var(--font-body);
+    color: var(--text-color);
+}

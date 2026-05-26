@@ -547,3 +547,77 @@ a:hover {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* Timeline Custom Component Overrides */
+.timeline-container {
+    padding-left: 3.5rem;
+    margin: 2.5rem 0;
+}
+
+.timeline-container::before {
+    left: 27px;
+    width: 3px;
+    background: linear-gradient(to bottom, var(--primary-color, #E50914) 0%, rgba(229, 9, 20, 0.05) 100%) !important; /* Glowing cinematic red gradient track beam! */
+}
+
+.timeline-item {
+    margin-bottom: 2rem;
+}
+
+.timeline-badge {
+    left: -46px;
+    width: 36px;
+    height: 36px;
+    border-radius: 4px; /* Cinematic square tag */
+    background-color: #000000 !important;
+    border: 2px solid var(--primary-color, #E50914) !important;
+    box-shadow: 0 0 8px rgba(229, 9, 20, 0.4) !important; /* Subtle red glow */
+}
+
+.timeline-badge-number {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 900;
+    color: #FFFFFF !important;
+}
+
+.timeline-content {
+    padding: 1.25rem 1.5rem !important;
+    border-radius: var(--radius-sm, 4px) !important; /* Sharp movie cover corners */
+    background-color: var(--card-bg, #181818) !important;
+    border: 1px solid var(--border-color, #333333) !important;
+    box-shadow: var(--shadow) !important;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important; /* Smooth slow transition */
+}
+
+.timeline-content:hover {
+    transform: scale(1.02) translateX(4px) !important; /* Zoom card like Netflix hover */
+    border-color: var(--primary-color, #E50914) !important;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6), 0 0 15px rgba(229, 9, 20, 0.3) !important; /* Cinematic red backdrop glow! */
+}
+
+.timeline-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 0.35rem;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.timeline-title::before {
+    content: "▶"; /* Play icon indicator! */
+    font-size: 0.75rem;
+    color: var(--primary-color, #E50914);
+}
+
+.timeline-desc {
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}

@@ -498,3 +498,47 @@ a:hover {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* --- Premium Component Spacing & Spacing Overrides --- */
+
+/* Fix aggressive global article-content heading styles inside premium components and cards */
+.card h1, .card h2, .card h3, .card h4,
+.feature-card h1, .feature-card h2, .feature-card h3, .feature-card h4,
+.metric-card h1, .metric-card h2, .metric-card h3, .metric-card h4,
+.timeline-content h1, .timeline-content h2, .timeline-content h3, .timeline-content h4,
+.alert-container h1, .alert-container h2, .alert-container h3, .alert-container h4,
+.callout h1, .callout h2, .callout h3, .callout h4 {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+    text-transform: none !important; /* Keep casing natural for cards */
+}
+
+/* Fix aggressive paragraph margins inside premium cards and alerts to preserve snug padding */
+.card p,
+.feature-card p,
+.metric-card p,
+.timeline-content p,
+.alert-container p,
+.alert-container .alert-message,
+.callout p {
+    margin-bottom: 0 !important;
+}
+
+/* Ensure secondary paragraph elements inside premium cards have clean spacing if stacked */
+.card p + p,
+.feature-card p + p,
+.timeline-content p + p,
+.alert-container p + p,
+.callout p + p {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0 !important;
+}
+
+/* Timeline Specific Spacing Tweaks */
+.timeline-content pre {
+    margin: 0.75rem 0 !important;
+}
+.timeline-content pre code {
+    font-size: 0.85rem !important;
+}
+

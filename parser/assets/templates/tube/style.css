@@ -556,3 +556,55 @@ a {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* Stats, Metrics, Features, Capabilities, and Timeline Cards Custom Overrides */
+.metric-card, .feature-card, .capability-card, .timeline-content {
+    background-color: #FFFFFF !important; /* Standout white on off-white background in light mode */
+    border: 1px solid var(--border-color, #E5E5E5) !important;
+    border-radius: var(--radius-md, 12px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03) !important;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.metric-card:hover, .feature-card:hover, .capability-card:hover {
+    transform: translateY(-4px) !important;
+    border-color: var(--primary-color, #FF0000) !important; /* Signature neon red on hover! */
+    box-shadow: 0 12px 24px rgba(255, 0, 0, 0.08) !important; /* Glowing red shadow shadow */
+}
+
+.timeline-content:hover {
+    transform: translateX(4px) !important; /* Slides right to keep track aligned */
+    border-color: var(--primary-color, #FF0000) !important;
+    box-shadow: 0 12px 24px rgba(255, 0, 0, 0.08) !important;
+}
+
+.timeline-badge {
+    background-color: var(--background-color) !important;
+    border: 2px solid var(--primary-color, #FF0000) !important;
+}
+
+.timeline-badge-number {
+    color: var(--primary-color, #FF0000) !important;
+}
+
+/* Dark Mode Overrides */
+[data-theme="dark"] .metric-card, 
+[data-theme="dark"] .feature-card, 
+[data-theme="dark"] .capability-card, 
+[data-theme="dark"] .timeline-content {
+    background-color: #1F1F1F !important; /* Standout dark charcoal on pitch black in dark mode */
+    border-color: var(--border-color, #272727) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4) !important;
+}
+
+[data-theme="dark"] .metric-card:hover, 
+[data-theme="dark"] .feature-card:hover, 
+[data-theme="dark"] .capability-card:hover {
+    border-color: var(--primary-color, #FF0000) !important;
+    box-shadow: 0 12px 28px rgba(255, 0, 0, 0.15) !important;
+}
+
+[data-theme="dark"] .timeline-content:hover {
+    border-color: var(--primary-color, #FF0000) !important;
+    box-shadow: 0 12px 28px rgba(255, 0, 0, 0.15) !important;
+}

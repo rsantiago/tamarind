@@ -571,3 +571,55 @@ a:hover {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* Timeline Custom Component Overrides */
+.timeline-container {
+    padding-left: 3.5rem;
+    margin: 2rem 0;
+}
+.timeline-container::before {
+    left: 27px;
+    background: var(--border-color) !important;
+}
+.timeline-item {
+    margin-bottom: 1.5rem;
+}
+.timeline-badge {
+    left: -46px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: var(--background-color) !important;
+    border: 2px solid var(--text-color) !important;
+}
+.timeline-badge-number {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-color) !important;
+}
+.timeline-content {
+    padding: 0.85rem 1.15rem !important;
+    border-radius: 0px !important;
+    border: 1px solid var(--border-color) !important;
+    background-color: var(--card-bg) !important;
+    box-shadow: none !important;
+    transition: transform 0.2s ease;
+}
+.timeline-content:hover {
+    transform: translateX(4px);
+    border-color: var(--text-color) !important;
+}
+.timeline-title {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 0.3rem;
+    color: var(--text-color);
+}
+.timeline-desc {
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}

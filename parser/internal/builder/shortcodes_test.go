@@ -241,6 +241,80 @@ func TestProcessShortcodes_UIComponents(t *testing.T) {
 				`<span class="badge">New</span>`,
 			},
 		},
+		{
+			name:  "Form standard",
+			input: `{{ form action="/contact" method="POST" }}FormContent{{ /form }}`,
+			expected: []string{
+				`<form action="/contact" method="POST">FormContent</form>`,
+			},
+		},
+		{
+			name:  "Form-input text field",
+			input: `{{ form-input label="Full Name" type="text" placeholder="John Doe" }}`,
+			expected: []string{
+				`<div class="form-group">`,
+				`<label class="form-label">Full Name</label>`,
+				`<input type="text" class="form-input" placeholder="John Doe">`,
+			},
+		},
+		{
+			name:  "Form-textarea custom rows",
+			input: `{{ form-textarea label="Bio" placeholder="Tell us about yourself..." rows="6" }}`,
+			expected: []string{
+				`<div class="form-group">`,
+				`<label class="form-label">Bio</label>`,
+				`<textarea class="form-textarea" rows="6" placeholder="Tell us about yourself..."></textarea>`,
+			},
+		},
+		{
+			name:  "Form-select dropdown options",
+			input: `{{ form-select label="Priority" }}{{ option value="high" selected="true" }}High{{ /option }}{{ option }}Low{{ /option }}{{ /form-select }}`,
+			expected: []string{
+				`<div class="form-group">`,
+				`<label class="form-label">Priority</label>`,
+				`<select class="form-select">`,
+				`<option value="high" selected>High</option>`,
+				`<option>Low</option>`,
+			},
+		},
+		{
+			name:  "Form-checkbox checked",
+			input: `{{ form-checkbox label="I agree" checked="true" }}`,
+			expected: []string{
+				`<div class="form-group"><label class="form-label"><input type="checkbox" class="form-checkbox" checked> I agree</label></div>`,
+			},
+		},
+		{
+			name:  "Form-radio-group with sub-options",
+			input: `{{ form-radio-group label="Gender" }}{{ form-radio name="gender" label="Male" checked="true" }}{{ form-radio name="gender" label="Female" }}{{ /form-radio-group }}`,
+			expected: []string{
+				`<div class="form-group">`,
+				`<label class="form-label">Gender</label>`,
+				`<label class="form-label"><input type="radio" name="gender" class="form-radio" checked> Male</label>`,
+				`<label class="form-label"><input type="radio" name="gender" class="form-radio"> Female</label>`,
+			},
+		},
+		{
+			name:  "Form-file upload field",
+			input: `{{ form-file label="Resume" }}`,
+			expected: []string{
+				`<div class="form-group">`,
+				`<label class="form-label">Resume</label>`,
+				`<input type="file" class="form-file">`,
+			},
+		},
+		{
+			name:  "Vertical Timeline with nested HTML console block",
+			input: `{{ timeline }}{{ item title="Setup" number="1" }}Initialize <pre><code>tamarind init</code></pre>{{ /item }}{{ /timeline }}`,
+			expected: []string{
+				`<div class="timeline-container">`,
+				`<div class="timeline-item">`,
+				`<div class="timeline-badge"><span class="timeline-badge-number">1</span></div>`,
+				`<div class="timeline-content">`,
+				`<h3 class="timeline-title">Setup</h3>`,
+				`<div class="timeline-desc">Initialize <pre><code>tamarind init</code></pre></div>`,
+			},
+		},
 	}
 
 	for _, tt := range tests {

@@ -183,6 +183,29 @@ hr {
     font-size: 0.875rem;
 }
 
+/* Prevent inherited pre/code borders, margins, and backgrounds inside terminals */
+.terminal pre,
+.article-content .terminal pre {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    border-width: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+
+.terminal pre code,
+.article-content .terminal pre code {
+    background-color: transparent !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    color: inherit !important;
+    font-family: inherit !important;
+    font-size: inherit !important;
+    line-height: inherit !important;
+}
+
 .article-content table {
     width: 100%;
     border-collapse: collapse;
@@ -425,23 +448,23 @@ hr {
 .timeline-container {
   position: relative;
   max-width: 800px;
-  margin: 3rem 0;
-  padding-left: 2.5rem;
+  margin: 2rem 0;
+  padding-left: 3.5rem;
 }
 
 .timeline-container::before {
   content: "";
   position: absolute;
-  left: 11px;
+  left: 27px;
   top: 8px;
   bottom: 8px;
   width: 2px;
-  background: var(--border-color, rgba(255, 255, 255, 0.08));
+  background: var(--border-color, rgba(255, 255, 255, 0.1));
 }
 
 .timeline-item {
   position: relative;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.75rem;
 }
 
 .timeline-item:last-child {
@@ -450,9 +473,9 @@ hr {
 
 .timeline-badge {
   position: absolute;
-  left: -2.5rem;
-  width: 24px;
-  height: 24px;
+  left: -46px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   background: var(--background-color, #ffffff);
   border: 2px solid var(--primary-color, #3b82f6);
@@ -463,7 +486,7 @@ hr {
 }
 
 .timeline-badge-number {
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--primary-color, #3b82f6);
 }
@@ -471,9 +494,9 @@ hr {
 .timeline-content {
   text-align: left;
   background-color: var(--card-bg, rgba(255, 255, 255, 0.02));
-  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.06));
+  border: 1px solid var(--border-color, rgba(255, 255, 255, 0.12));
   border-radius: var(--radius-md, 10px);
-  padding: 1.5rem;
+  padding: 1.25rem;
   transition: transform 0.2s ease;
 }
 
@@ -482,14 +505,14 @@ hr {
 }
 
 .timeline-title {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--heading-color, var(--text-color, #111827));
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.4rem;
 }
 
 .timeline-desc {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-secondary, #6B7280);
   line-height: 1.6;
   margin: 0;
@@ -657,4 +680,54 @@ hr {
   stroke-width: 2.5;
   stroke-linecap: round;
   stroke-linejoin: round;
+}
+
+/* --- Global Spacing Specificity Collision Fixes & Premium Component Typography Resets --- */
+
+/* Snug top-left aligned typography inside standard and premium components across all themes */
+.article-content .card h1, .article-content .card h2, .article-content .card h3, .article-content .card h4, .article-content .card h5, .article-content .card h6,
+.post-content .card h1, .post-content .card h2, .post-content .card h3, .post-content .card h4, .post-content .card h5, .post-content .card h6,
+.card-padding h1, .card-padding h2, .card-padding h3, .card-padding h4, .card-padding h5, .card-padding h6,
+.feature-card h1, .feature-card h2, .feature-card h3, .feature-card h4, .feature-card h5, .feature-card h6,
+.metric-card h1, .metric-card h2, .metric-card h3, .metric-card h4, .metric-card h5, .metric-card h6,
+.timeline-content h1, .timeline-content h2, .timeline-content h3, .timeline-content h4, .timeline-content h5, .timeline-content h6,
+.alert-container h1, .alert-container h2, .alert-container h3, .alert-container h4, .alert-container h5, .alert-container h6,
+.alert h1, .alert h2, .alert h3, .alert h4, .alert h5, .alert h6,
+.callout h1, .callout h2, .callout h3, .callout h4, .callout h5, .callout h6,
+.capability-card h1, .capability-card h2, .capability-card h3, .capability-card h4, .capability-card h5, .capability-card h6 {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+    text-align: left !important;
+}
+
+/* Suppress aggressive global paragraph margins inside standard and premium components */
+.article-content .card p,
+.post-content .card p,
+.card-padding p,
+.feature-card p,
+.feature-card .feature-desc,
+.metric-card p,
+.timeline-content p,
+.timeline-content .timeline-desc,
+.alert-container p,
+.alert-container .alert-message,
+.alert p,
+.callout p,
+.capability-card p {
+    margin-bottom: 0 !important;
+}
+
+/* Clean, standard margin between consecutive paragraphs inside components */
+.article-content .card p + p,
+.post-content .card p + p,
+.card-padding p + p,
+.feature-card p + p,
+.metric-card p + p,
+.timeline-content p + p,
+.alert-container p + p,
+.alert p + p,
+.callout p + p,
+.capability-card p + p {
+    margin-top: 0.5rem !important;
+    margin-bottom: 0 !important;
 }
