@@ -84,10 +84,15 @@ cat <<EOF > public-all/index.html
             list-style: none; 
             margin-top: 32px;
         }
+        .card {
+            display: flex;
+            flex-direction: column;
+        }
         .card a { 
             display: flex; 
             flex-direction: column;
             justify-content: space-between;
+            flex-grow: 1;
             padding: 24px; 
             background: #ffffff; 
             border-radius: 12px; 
@@ -97,7 +102,6 @@ cat <<EOF > public-all/index.html
             border: 1px solid #e5e7eb; 
             transition: all 0.2s ease-in-out;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-            height: 100%;
             box-sizing: border-box;
         }
         .card a:hover { 

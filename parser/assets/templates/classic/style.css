@@ -603,3 +603,59 @@ a:hover {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* --- Premium Retro Component Overrides --- */
+.features-grid .feature-card,
+.feature-card {
+    background-color: var(--background-color, #C0C0C0) !important;
+    border-top: 1px solid var(--win-high, #FFFFFF) !important;
+    border-left: 1px solid var(--win-high, #FFFFFF) !important;
+    border-bottom: 1px solid var(--win-dark, #808080) !important;
+    border-right: 1px solid var(--win-dark, #808080) !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    padding: 2.25rem 2rem !important;
+}
+
+.feature-card .feature-title {
+    margin-top: 0 !important;
+    margin-bottom: 0.5rem !important;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-color) !important;
+}
+
+.feature-card .feature-desc {
+    margin-bottom: 0 !important;
+    color: var(--text-secondary) !important;
+}
+
+.metric-card,
+.capability-card,
+.timeline-content,
+.tamarind-accordion {
+    background-color: var(--background-color, #C0C0C0) !important;
+    border-top: 1px solid var(--win-high, #FFFFFF) !important;
+    border-left: 1px solid var(--win-high, #FFFFFF) !important;
+    border-bottom: 1px solid var(--win-dark, #808080) !important;
+    border-right: 1px solid var(--win-dark, #808080) !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    padding: 1.75rem !important;
+}
+
+.timeline-badge {
+    border-radius: 0px !important;
+    background-color: var(--background-color, #C0C0C0) !important;
+    border-top: 1px solid var(--win-high, #FFFFFF) !important;
+    border-left: 1px solid var(--win-high, #FFFFFF) !important;
+    border-bottom: 1px solid var(--win-dark, #808080) !important;
+    border-right: 1px solid var(--win-dark, #808080) !important;
+    box-shadow: none !important;
+}
+
+.timeline-badge-number {
+    color: var(--text-color, #000) !important;
+    font-weight: bold !important;
+}
+
