@@ -731,3 +731,27 @@ hr {
     margin-top: 0.5rem !important;
     margin-bottom: 0 !important;
 }
+
+/* --- Canvas Mode & Naked Landing Page Resets --- */
+
+.canvas-mode-active {
+    max-width: 100% !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+    background-color: var(--background-color) !important;
+}
+
+.canvas-width-limit {
+    max-width: 1200px; /* Spacious width for robust multi-column grids */
+    margin: 0 auto;
+    padding: 80px 24px;
+}
+
+@media (max-width: 768px) {
+    .canvas-width-limit {
+        padding: 40px 16px;
+    }
+}

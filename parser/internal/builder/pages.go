@@ -11,6 +11,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"regexp"
 	"strconv"
 	"strings"
 
@@ -120,6 +121,9 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		Image:        fm.Image,
 		CustomCSS:    customCSS,
 		Hidden:       fm.Hidden,
+		Canvas:       fm.Canvas,
+		HideMenu:     fm.HideMenu,
+		HideFooter:   fm.HideFooter,
 		Data:         siteData,
 		Author:       author,
 	}
@@ -134,8 +138,14 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		return fmt.Errorf("template execute %s: %w", srcPath, err)
 	}
 
+	htmlStr := output.String()
+	htmlStr = postProcessCanvas(htmlStr, data.Canvas, data.HideMenu, data.HideFooter)
+
+	var outputBytes []byte
 	if liveReload {
-		output.WriteString(LiveReloadScript)
+		outputBytes = []byte(htmlStr + LiveReloadScript)
+	} else {
+		outputBytes = []byte(htmlStr)
 	}
 
 	// Ensure target directory exists for nested pages (e.g., articles/foo.html)
@@ -143,7 +153,7 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		return fmt.Errorf("mkdir all %s: %w", filepath.Dir(targetPath), err)
 	}
 
-	if err := os.WriteFile(targetPath, output.Bytes(), 0644); err != nil {
+	if err := os.WriteFile(targetPath, outputBytes, 0644); err != nil {
 		return fmt.Errorf("write file %s: %w", targetPath, err)
 	}
 
@@ -273,4 +283,48 @@ func generateCollectionIndex(name string, items []models.ArticleMeta, tmpl *temp
 		log.Printf("Generated Collection Page: %s", targetPath)
 	}
 	return nil
+}
+
+func postProcessCanvas(html string, isCanvas, hideMenu, hideFooter bool) string {
+	if isCanvas || hideMenu {
+		// Strip Site Header
+		reHeader := regexp.MustCompile(`(?s)<header[^>]*class="[^"]*site-header[^"]*"[^>]*>.*?</header>`)
+		html = reHeader.ReplaceAllString(html, "")
+
+		// Strip Sidebar
+		reSidebar := regexp.MustCompile(`(?s)<aside[^>]*class="[^"]*sidebar[^"]*"[^>]*>.*?</aside>`)
+		html = reSidebar.ReplaceAllString(html, "")
+	}
+
+	if isCanvas || hideFooter {
+		// Strip Footer
+		reFooter := regexp.MustCompile(`(?s)<footer[^>]*class="[^"]*site-footer[^"]*"[^>]*>.*?</footer>`)
+		html = reFooter.ReplaceAllString(html, "")
+	}
+
+	if isCanvas {
+		// Strip Ghost Badge
+		reBadge := regexp.MustCompile(`(?s)<a[^>]*class="[^"]*tamarind-ghost-badge[^"]*"[^>]*>.*?</a>`)
+		html = reBadge.ReplaceAllString(html, "")
+
+		// Inject canvas spacing resets to layout wrapper
+		html = strings.ReplaceAll(html, "class=\"layout-container\"", "class=\"layout-container canvas-mode-active\"")
+		html = strings.ReplaceAll(html, "class=\"layout-container page-container\"", "class=\"layout-container page-container canvas-mode-active\"")
+		html = strings.ReplaceAll(html, "class=\"layout-container window\"", "class=\"layout-container window canvas-mode-active\"")
+		html = strings.ReplaceAll(html, "class=\"layout-container page-layout\"", "class=\"layout-container page-layout canvas-mode-active\"")
+
+		// Flatten the main post-article wrappers
+		html = strings.ReplaceAll(html, "<article class=\"card\">", "<article class=\"canvas-mode-active\">")
+		html = strings.ReplaceAll(html, "<article class=\"post\">", "<article class=\"canvas-mode-active\">")
+		html = strings.ReplaceAll(html, "<article class=\"article-container\">", "<article class=\"canvas-mode-active\">")
+		html = strings.ReplaceAll(html, "<article class=\"article-content\">", "<article class=\"canvas-mode-active\">")
+		html = strings.ReplaceAll(html, "<article class=\"post-content\">", "<article class=\"canvas-mode-active\">")
+
+		// Expand the reading container width limits
+		html = strings.ReplaceAll(html, "class=\"post-content\"", "class=\"canvas-width-limit\"")
+		html = strings.ReplaceAll(html, "class=\"article-content\"", "class=\"canvas-width-limit\"")
+		html = strings.ReplaceAll(html, "class=\"article-content style-guide\"", "class=\"canvas-width-limit style-guide\"")
+	}
+
+	return html
 }

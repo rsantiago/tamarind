@@ -23,6 +23,9 @@ type PageData struct {
 	CustomCSS    template.CSS // Config
 	Paginator    Paginator
 	Hidden       bool
+	Canvas       bool
+	HideMenu     bool
+	HideFooter   bool
 	Data         map[string]interface{} // Data Files Support
 	Author       string                 // Page-specific or Global Author
 }
@@ -70,6 +73,9 @@ type FrontMatter struct {
 	Description string   `yaml:"description"` // SEO
 	Image       string   `yaml:"image"`       // SEO
 	Hidden      bool     `yaml:"hidden"`
+	Canvas      bool     `yaml:"canvas"`
+	HideMenu    bool     `yaml:"hide_menu"`
+	HideFooter  bool     `yaml:"hide_footer"`
 	Draft       bool     `yaml:"draft"`      // New Draft Field
 	SiteName    string   `yaml:"site_name"`  // Override Site Name
 	MenuLabel   string   `yaml:"menu_label"` // Custom Menu Title
