@@ -54,11 +54,32 @@ body {
     background-color: var(--background-color);
     color: var(--text-color);
     font-family: var(--font-body);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 400;
     line-height: 1.7;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
+}
+
+/* Premium Editorial Timeline Overrides */
+.timeline-badge {
+    width: 44px !important;
+    height: 44px !important;
+    left: -50px !important;
+    background-color: var(--card-bg) !important;
+    border: 2px solid var(--primary-color) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05) !important;
+}
+
+.timeline-badge-number {
+    font-size: 1.2rem !important;
+    font-family: var(--font-heading) !important;
+    color: var(--primary-color) !important;
+    font-weight: 700 !important;
+}
+
+.timeline-content {
+    font-size: 1.05rem !important;
 }
 
 a {

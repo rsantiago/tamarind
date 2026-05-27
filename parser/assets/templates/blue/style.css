@@ -602,7 +602,7 @@ a:hover {
 
 /* --- Canvas Mode Overrides (Page Width Constraints & Cozy Top Margin) --- */
 .canvas-mode-active .canvas-width-limit {
-    max-width: 800px !important;
+    max-width: 680px !important;
     margin-top: 40px !important;
 }
 
