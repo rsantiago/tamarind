@@ -82,6 +82,11 @@ body {
     color: var(--header-text);
     text-decoration: none;
     letter-spacing: -0.5px;
+    border-bottom: none;
+}
+
+.logo:hover {
+    border-bottom: none;
 }
 
 .nav-links {
@@ -101,11 +106,13 @@ body {
     border-radius: 4px;
     transition: background-color 0.2s;
     opacity: 0.9;
+    border-bottom: none;
 }
 
 .nav-links a:hover {
     background-color: var(--nav-hover);
     opacity: 1;
+    border-bottom: none;
 }
 
 /* Layout - Single Column Professional */
