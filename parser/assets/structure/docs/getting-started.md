@@ -1,6 +1,6 @@
 ---
-title: Usage Guide
-subtitle: How to use Tamarind
+title: Getting Started
+subtitle: A comprehensive guide to starting with Tamarind
 date: 2025-12-03
 tags: [guide, help]
 contextual_sidebar: "docs"
