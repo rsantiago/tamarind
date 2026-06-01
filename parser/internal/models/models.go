@@ -85,8 +85,9 @@ type FrontMatter struct {
 	HideFooter        bool     `yaml:"hide_footer"`
 	Draft             bool     `yaml:"draft"`      // New Draft Field
 	SiteName          string   `yaml:"site_name"`  // Override Site Name
-	MenuLabel         string   `yaml:"menu_label"` // Custom Menu Title
-	MenuOrder         int      `yaml:"menu_order"` // Menu Sorting Order
-	Author            string   `yaml:"author"`     // Override Author
-	ContextualSidebar string   `yaml:"contextual_sidebar"`
+	MenuLabel         string      `yaml:"menu_label"` // Custom Menu Title
+	MenuOrder         int         `yaml:"menu_order"` // Menu Sorting Order
+	Author            string      `yaml:"author"`     // Override Author
+	Sidebar           interface{} `yaml:"sidebar"`
+	ContextualSidebar interface{} `yaml:"contextual_sidebar"`
 }

@@ -106,8 +106,10 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 	}
 
 	var contextualSidebar []models.SidebarItem
-	if fm.ContextualSidebar != "" && !fm.Canvas {
-		contextualSidebar = getContextualSidebar(sourceDir, websiteDir, srcPath, fm.ContextualSidebar, relPrefix)
+	if !fm.Canvas {
+		if sidebarFolder, ok := getSidebarFolder(fm, relPath); ok {
+			contextualSidebar = getContextualSidebar(sourceDir, websiteDir, srcPath, sidebarFolder, relPrefix)
+		}
 	}
 
 	data := models.PageData{
@@ -454,4 +456,70 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 	}
 
 	return htmlStr
+}
+
+func isSidebarDisabled(val interface{}) bool {
+	if val == nil {
+		return false
+	}
+	if b, ok := val.(bool); ok {
+		return !b
+	}
+	if s, ok := val.(string); ok {
+		s = strings.TrimSpace(strings.ToLower(s))
+		return s == "false"
+	}
+	return false
+}
+
+func getSidebarFolder(fm models.FrontMatter, relPath string) (string, bool) {
+	if isSidebarDisabled(fm.Sidebar) || isSidebarDisabled(fm.ContextualSidebar) {
+		return "", false
+	}
+
+	getFolderString := func(val interface{}) string {
+		if val == nil {
+			return ""
+		}
+		if s, ok := val.(string); ok {
+			s = strings.TrimSpace(s)
+			if s != "" && strings.ToLower(s) != "true" && strings.ToLower(s) != "false" {
+				return s
+			}
+		}
+		return ""
+	}
+
+	if folder := getFolderString(fm.Sidebar); folder != "" {
+		return folder, true
+	}
+	if folder := getFolderString(fm.ContextualSidebar); folder != "" {
+		return folder, true
+	}
+
+	isExplicitTrue := func(val interface{}) bool {
+		if val == nil {
+			return false
+		}
+		if b, ok := val.(bool); ok {
+			return b
+		}
+		if s, ok := val.(string); ok {
+			return strings.TrimSpace(strings.ToLower(s)) == "true"
+		}
+		return false
+	}
+
+	dir := filepath.ToSlash(filepath.Dir(relPath))
+	if dir != "." && dir != "" {
+		return dir, true
+	}
+
+	if isExplicitTrue(fm.Sidebar) || isExplicitTrue(fm.ContextualSidebar) {
+		if dir == "." || dir == "" {
+			return ".", true
+		}
+	}
+
+	return "", false
 }
