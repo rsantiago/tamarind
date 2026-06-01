@@ -415,7 +415,8 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 			actualEndIndex := startIndex + endIndex
 
 			var cb strings.Builder
-			cb.WriteString("\n    <h3 class=\"sidebar-title\" style=\"margin-top: 2rem;\">Section Navigation</h3>\n")
+			cb.WriteString("\n    <hr class=\"sidebar-divider\" style=\"margin: 2rem 0; border: 0; border-top: 1px solid var(--border-color, #e2e8f0); opacity: 0.6;\">\n")
+			cb.WriteString("    <h3 class=\"sidebar-title\">Section Navigation</h3>\n")
 			cb.WriteString("    <nav class=\"sidebar-nav\">\n")
 			for _, item := range sidebarItems {
 				activeClass := ""
