@@ -473,7 +473,7 @@ func isSidebarDisabled(val interface{}) bool {
 }
 
 func getSidebarFolder(fm models.FrontMatter, relPath string) (string, bool) {
-	if isSidebarDisabled(fm.Sidebar) || isSidebarDisabled(fm.ContextualSidebar) {
+	if isSidebarDisabled(fm.Sidebar) {
 		return "", false
 	}
 
@@ -491,9 +491,6 @@ func getSidebarFolder(fm models.FrontMatter, relPath string) (string, bool) {
 	}
 
 	if folder := getFolderString(fm.Sidebar); folder != "" {
-		return folder, true
-	}
-	if folder := getFolderString(fm.ContextualSidebar); folder != "" {
 		return folder, true
 	}
 
@@ -515,7 +512,7 @@ func getSidebarFolder(fm models.FrontMatter, relPath string) (string, bool) {
 		return dir, true
 	}
 
-	if isExplicitTrue(fm.Sidebar) || isExplicitTrue(fm.ContextualSidebar) {
+	if isExplicitTrue(fm.Sidebar) {
 		if dir == "." || dir == "" {
 			return ".", true
 		}

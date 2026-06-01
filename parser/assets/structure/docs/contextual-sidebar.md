@@ -16,7 +16,7 @@ By default, any page inside a subdirectory (nesting depth $\ge 1$) automatically
 
 ## Metadata Overrides
 
-You can explicitly control the sidebar behavior on a per-page basis using `sidebar` or `contextual_sidebar` in the page's markdown frontmatter.
+You can explicitly control the sidebar behavior on a per-page basis using the `sidebar` key in the page's markdown frontmatter.
 
 ### 1. Disabling the Sidebar Entirely
 

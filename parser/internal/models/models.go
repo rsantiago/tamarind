@@ -89,5 +89,4 @@ type FrontMatter struct {
 	MenuOrder         int         `yaml:"menu_order"` // Menu Sorting Order
 	Author            string      `yaml:"author"`     // Override Author
 	Sidebar           interface{} `yaml:"sidebar"`
-	ContextualSidebar interface{} `yaml:"contextual_sidebar"`
 }
