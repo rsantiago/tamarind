@@ -731,3 +731,16 @@ figcaption {
     max-width: 800px !important;
     margin: 0 auto !important;
 }
+
+/* Mobile top navigation alignment overrides */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 0 16px !important;
+        flex-direction: row !important;
+        justify-content: space-between !important;
+        width: 100% !important;
+    }
+    .nav-links {
+        gap: 12px !important;
+    }
+}

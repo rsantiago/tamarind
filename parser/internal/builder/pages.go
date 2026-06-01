@@ -392,6 +392,14 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 <label for="tamarind-sidebar-toggle" class="tamarind-sidebar-backdrop"></label>
 `
 
+	// Inject toggleHTML at the very start of body tag so it is a direct child of body
+	reBody := regexp.MustCompile(`(?i)<body[^>]*>`)
+	locBody := reBody.FindStringIndex(htmlStr)
+	if locBody != nil {
+		endBody := locBody[1]
+		htmlStr = htmlStr[:endBody] + "\n" + toggleHTML + htmlStr[endBody:]
+	}
+
 	reSidebar := regexp.MustCompile(`(?s)<aside[^>]*class="[^"]*sidebar[^"]*"[^>]*>`)
 	loc := reSidebar.FindStringIndex(htmlStr)
 	if loc != nil {
@@ -413,10 +421,6 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 			cb.WriteString("    </nav>\n")
 			injectedHTML := cb.String()
 
-			asideStart := loc[0]
-			htmlStr = htmlStr[:asideStart] + toggleHTML + htmlStr[asideStart:]
-			actualEndIndex += len(toggleHTML)
-
 			return htmlStr[:actualEndIndex] + injectedHTML + htmlStr[actualEndIndex:]
 		}
 	}
@@ -428,7 +432,6 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 	htmlStr = strings.Replace(htmlStr, "class=\"layout-container page-layout\"", "class=\"layout-container page-layout layout-has-sidebar\"", 1)
 
 	var sb strings.Builder
-	sb.WriteString(toggleHTML)
 	sb.WriteString("<aside class=\"sidebar sidebar-left context-sidebar\">\n")
 	sb.WriteString("    <nav class=\"sidebar-nav\">\n")
 	for _, item := range sidebarItems {

@@ -975,6 +975,13 @@ hr {
 
 /* Mobile Drawer Sidebar Navigation */
 @media (max-width: 768px) {
+    /* Safe mobile padding fallback for perfectly aligned top menus */
+    .nav-container {
+        padding-left: 16px !important;
+        padding-right: 16px !important;
+    }
+
+    /* Fixed floating toggle handle - high contrast under both light and dark themes */
     .tamarind-sidebar-handle {
         display: flex !important;
         position: fixed !important;
@@ -983,18 +990,26 @@ hr {
         width: 48px !important;
         height: 48px !important;
         border-radius: 50% !important;
-        background: var(--primary-color, #3b82f6) !important;
-        color: #ffffff !important;
+        background: #1f2937 !important; /* Premium dark charcoal */
+        color: #ffffff !important; /* Pure white hamburger icon */
+        border: 1px solid rgba(255,255,255,0.1) !important;
         box-shadow: 0 4px 16px rgba(0,0,0,0.25) !important;
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
-        z-index: 100001 !important;
+        z-index: 1000001 !important;
         transition: transform 0.2s ease, background-color 0.2s ease !important;
     }
     .tamarind-sidebar-handle:hover {
         transform: scale(1.05) !important;
     }
+    
+    [data-theme="dark"] .tamarind-sidebar-handle {
+        background: #ffffff !important; /* High contrast white circle */
+        color: #1f2937 !important; /* Charcoal dashes */
+        border: 1px solid rgba(0,0,0,0.1) !important;
+    }
+    
     .tamarind-sidebar-handle svg {
         width: 20px !important;
         height: 20px !important;
@@ -1011,23 +1026,39 @@ hr {
         background: rgba(0, 0, 0, 0.4) !important;
         backdrop-filter: blur(4px) !important;
         -webkit-backdrop-filter: blur(4px) !important;
-        z-index: 9999 !important;
+        z-index: 999999 !important;
     }
     
     .tamarind-sidebar-checkbox:checked ~ .tamarind-sidebar-backdrop {
         display: block !important;
     }
 
+    /* Reset layout container to prevent side-by-side column push */
+    .layout-has-sidebar {
+        display: block !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    .layout-has-sidebar > .main-content-wrapper,
+    .layout-has-sidebar > .main-area,
+    .layout-has-sidebar > main,
+    .layout-has-sidebar > article,
+    .layout-has-sidebar > section {
+        width: 100% !important;
+        max-width: 100% !important;
+        display: block !important;
+    }
+
+    /* Target only the active contextual sidebars or active theme sidebars */
     .sidebar-left,
     .context-sidebar,
-    .layout-has-sidebar .sidebar,
-    .layout-container .sidebar {
+    .layout-has-sidebar .sidebar {
         position: fixed !important;
         top: 0 !important;
         left: 0 !important;
         width: 280px !important;
         height: 100vh !important;
-        z-index: 10000 !important;
+        z-index: 1000000 !important;
         transform: translateX(-100%) !important;
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
         background-color: var(--background-color, #ffffff) !important;
