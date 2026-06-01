@@ -905,3 +905,61 @@ hr {
     margin-top: auto !important;
     align-self: flex-start !important;
 }
+
+/* --- Contextual Sidebar Layout Styling --- */
+.sidebar-left, .context-sidebar {
+    width: 260px;
+    flex-shrink: 0;
+    border-right: 1px solid var(--border-color, #e2e8f0);
+    padding: 2rem 1.5rem 2rem 0;
+    position: sticky;
+    top: 70px;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.sidebar-nav a {
+    display: block;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-sm, 6px);
+    color: var(--text-color, #334155);
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    border-left: 2px solid transparent;
+}
+
+.sidebar-nav a:hover {
+    background-color: var(--border-color, #f1f5f9);
+    color: var(--primary-color, #3b82f6);
+}
+
+.sidebar-nav a.active {
+    color: var(--primary-color, #3b82f6);
+    background-color: var(--border-color, #e2e8f0);
+    border-left-color: var(--primary-color, #3b82f6);
+    font-weight: 600;
+}
+
+/* Stack sidebar on mobile viewports */
+@media (max-width: 768px) {
+    .layout-container {
+        flex-direction: column !important;
+    }
+    
+    .sidebar-left, .context-sidebar {
+        width: 100% !important;
+        height: auto !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-color, #e2e8f0) !important;
+        padding: 1rem 0 !important;
+        position: static !important;
+    }
+}

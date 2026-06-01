@@ -105,27 +105,33 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		}
 	}
 
+	var contextualSidebar []models.SidebarItem
+	if fm.ContextualSidebar != "" && !fm.Canvas {
+		contextualSidebar = getContextualSidebar(sourceDir, websiteDir, srcPath, fm.ContextualSidebar, relPrefix)
+	}
+
 	data := models.PageData{
-		Title:        fm.Title,
-		Subtitle:     fm.Subtitle,
-		Date:         fm.Date,
-		Tags:         fm.Tags,
-		Body:         template.HTML(bodyHTML.String()),
-		RelPrefix:    relPrefix,
-		Articles:     articles,
-		Menu:         menu,
-		SiteName:     siteName,
-		BaseURL:      baseURL,
-		CanonicalURL: canonicalURL,
-		Description:  fm.Description,
-		Image:        fm.Image,
-		CustomCSS:    customCSS,
-		Hidden:       fm.Hidden,
-		Canvas:       fm.Canvas,
-		HideMenu:     fm.HideMenu,
-		HideFooter:   fm.HideFooter,
-		Data:         siteData,
-		Author:       author,
+		Title:             fm.Title,
+		Subtitle:          fm.Subtitle,
+		Date:              fm.Date,
+		Tags:              fm.Tags,
+		Body:              template.HTML(bodyHTML.String()),
+		RelPrefix:         relPrefix,
+		Articles:          articles,
+		Menu:              menu,
+		SiteName:          siteName,
+		BaseURL:           baseURL,
+		CanonicalURL:      canonicalURL,
+		Description:       fm.Description,
+		Image:             fm.Image,
+		CustomCSS:         customCSS,
+		Hidden:            fm.Hidden,
+		Canvas:            fm.Canvas,
+		HideMenu:          fm.HideMenu,
+		HideFooter:        fm.HideFooter,
+		Data:              siteData,
+		Author:            author,
+		ContextualSidebar: contextualSidebar,
 	}
 
 	templateName := "page.mdt"
@@ -139,6 +145,7 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 	}
 
 	htmlStr := output.String()
+	htmlStr = postProcessSidebar(htmlStr, data.ContextualSidebar)
 	htmlStr = postProcessCanvas(htmlStr, data.Canvas, data.HideMenu, data.HideFooter)
 
 	var outputBytes []byte
@@ -323,4 +330,84 @@ func postProcessCanvas(html string, isCanvas, hideMenu, hideFooter bool) string 
 	}
 
 	return html
+}
+
+func getContextualSidebar(sourceDir, websiteDir, currentSrcPath, folderName, relPrefix string) []models.SidebarItem {
+	if folderName == "" {
+		return nil
+	}
+
+	targetDir := filepath.Join(sourceDir, folderName)
+	entries, err := os.ReadDir(targetDir)
+	if err != nil {
+		log.Printf("Warning: Failed to read contextual sidebar folder %s: %v", targetDir, err)
+		return nil
+	}
+
+	var items []models.SidebarItem
+	for _, entry := range entries {
+		if entry.IsDir() || filepath.Ext(entry.Name()) != ".md" {
+			continue
+		}
+
+		filePath := filepath.Join(targetDir, entry.Name())
+		content, err := os.ReadFile(filePath)
+		if err != nil {
+			continue
+		}
+
+		fm, _ := ParseFrontMatter(content)
+		if fm.Hidden || fm.Draft {
+			continue
+		}
+
+		title := fm.Title
+		if title == "" {
+			title = strings.TrimSuffix(entry.Name(), ".md")
+		}
+
+		siblingWebPath := filepath.Join(folderName, strings.TrimSuffix(entry.Name(), ".md")+".html")
+		url := relPrefix + filepath.ToSlash(siblingWebPath)
+
+		isCurrent := (filepath.Clean(filePath) == filepath.Clean(currentSrcPath))
+
+		items = append(items, models.SidebarItem{
+			Title:     title,
+			URL:       url,
+			IsCurrent: isCurrent,
+		})
+	}
+	return items
+}
+
+func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) string {
+	if len(sidebarItems) == 0 {
+		return htmlStr
+	}
+
+	var sb strings.Builder
+	sb.WriteString("<aside class=\"sidebar sidebar-left context-sidebar\">\n")
+	sb.WriteString("    <nav class=\"sidebar-nav\">\n")
+	for _, item := range sidebarItems {
+		activeClass := ""
+		if item.IsCurrent {
+			activeClass = " class=\"active\""
+		}
+		sb.WriteString(fmt.Sprintf("        <a href=\"%s\"%s>%s</a>\n", item.URL, activeClass, template.HTMLEscapeString(item.Title)))
+	}
+	sb.WriteString("    </nav>\n")
+	sb.WriteString("</aside>\n")
+	sidebarHTML := sb.String()
+
+	reSidebar := regexp.MustCompile(`(?s)<aside[^>]*class="[^"]*sidebar[^"]*"[^>]*>.*?</aside>`)
+	if reSidebar.MatchString(htmlStr) {
+		return reSidebar.ReplaceAllString(htmlStr, sidebarHTML)
+	}
+
+	reLayout := regexp.MustCompile(`(?i)(<div[^>]*class="[^"]*layout-container[^"]*"[^>]*>|<main[^>]*class="[^"]*layout-container[^"]*"[^>]*>)`)
+	if reLayout.MatchString(htmlStr) {
+		return reLayout.ReplaceAllString(htmlStr, "$1\n"+sidebarHTML)
+	}
+
+	return htmlStr
 }

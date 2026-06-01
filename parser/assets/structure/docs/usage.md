@@ -3,6 +3,7 @@ title: Usage Guide
 subtitle: How to use Tamarind
 date: 2025-12-03
 tags: [guide, help]
+contextual_sidebar: "docs"
 ---
 
 # User Manual

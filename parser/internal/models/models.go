@@ -28,6 +28,13 @@ type PageData struct {
 	HideFooter   bool
 	Data         map[string]interface{} // Data Files Support
 	Author       string                 // Page-specific or Global Author
+	ContextualSidebar []SidebarItem      // Sibling pages sidebar list
+}
+
+type SidebarItem struct {
+	Title     string
+	URL       string
+	IsCurrent bool
 }
 
 type Paginator struct {
@@ -66,19 +73,20 @@ type MenuItem struct {
 }
 
 type FrontMatter struct {
-	Title       string   `yaml:"title"`
-	Subtitle    string   `yaml:"subtitle"`
-	Date        string   `yaml:"date"`
-	Tags        []string `yaml:"tags"`
-	Description string   `yaml:"description"` // SEO
-	Image       string   `yaml:"image"`       // SEO
-	Hidden      bool     `yaml:"hidden"`
-	Canvas      bool     `yaml:"canvas"`
-	HideMenu    bool     `yaml:"hide_menu"`
-	HideFooter  bool     `yaml:"hide_footer"`
-	Draft       bool     `yaml:"draft"`      // New Draft Field
-	SiteName    string   `yaml:"site_name"`  // Override Site Name
-	MenuLabel   string   `yaml:"menu_label"` // Custom Menu Title
-	MenuOrder   int      `yaml:"menu_order"` // Menu Sorting Order
-	Author      string   `yaml:"author"`     // Override Author
+	Title             string   `yaml:"title"`
+	Subtitle          string   `yaml:"subtitle"`
+	Date              string   `yaml:"date"`
+	Tags              []string `yaml:"tags"`
+	Description       string   `yaml:"description"` // SEO
+	Image             string   `yaml:"image"`       // SEO
+	Hidden            bool     `yaml:"hidden"`
+	Canvas            bool     `yaml:"canvas"`
+	HideMenu          bool     `yaml:"hide_menu"`
+	HideFooter        bool     `yaml:"hide_footer"`
+	Draft             bool     `yaml:"draft"`      // New Draft Field
+	SiteName          string   `yaml:"site_name"`  // Override Site Name
+	MenuLabel         string   `yaml:"menu_label"` // Custom Menu Title
+	MenuOrder         int      `yaml:"menu_order"` // Menu Sorting Order
+	Author            string   `yaml:"author"`     // Override Author
+	ContextualSidebar string   `yaml:"contextual_sidebar"`
 }
