@@ -684,3 +684,10 @@ main {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* --- Desktop Full-Width Glued Sidebar Overrides --- */
+.layout-has-sidebar {
+    max-width: 100% !important;
+    margin: 0 !important;
+    gap: 0 !important;
+}
