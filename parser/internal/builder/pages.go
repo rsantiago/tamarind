@@ -400,6 +400,12 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 		htmlStr = htmlStr[:endBody] + "\n" + toggleHTML + htmlStr[endBody:]
 	}
 
+	// ALWAYS add layout-has-sidebar class to enable flex layout and drawer styling (limit to first occurrence)
+	htmlStr = strings.Replace(htmlStr, "class=\"layout-container\"", "class=\"layout-container layout-has-sidebar\"", 1)
+	htmlStr = strings.Replace(htmlStr, "class=\"layout-container page-container\"", "class=\"layout-container page-container layout-has-sidebar\"", 1)
+	htmlStr = strings.Replace(htmlStr, "class=\"layout-container window\"", "class=\"layout-container window layout-has-sidebar\"", 1)
+	htmlStr = strings.Replace(htmlStr, "class=\"layout-container page-layout\"", "class=\"layout-container page-layout layout-has-sidebar\"", 1)
+
 	reSidebar := regexp.MustCompile(`(?s)<aside[^>]*class="[^"]*sidebar[^"]*"[^>]*>`)
 	loc := reSidebar.FindStringIndex(htmlStr)
 	if loc != nil {
@@ -424,12 +430,6 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 			return htmlStr[:actualEndIndex] + injectedHTML + htmlStr[actualEndIndex:]
 		}
 	}
-
-	// For themes without an existing sidebar, add layout-has-sidebar class to enable flex layout (limit to first occurrence)
-	htmlStr = strings.Replace(htmlStr, "class=\"layout-container\"", "class=\"layout-container layout-has-sidebar\"", 1)
-	htmlStr = strings.Replace(htmlStr, "class=\"layout-container page-container\"", "class=\"layout-container page-container layout-has-sidebar\"", 1)
-	htmlStr = strings.Replace(htmlStr, "class=\"layout-container window\"", "class=\"layout-container window layout-has-sidebar\"", 1)
-	htmlStr = strings.Replace(htmlStr, "class=\"layout-container page-layout\"", "class=\"layout-container page-layout layout-has-sidebar\"", 1)
 
 	var sb strings.Builder
 	sb.WriteString("<aside class=\"sidebar sidebar-left context-sidebar\">\n")
