@@ -732,3 +732,14 @@ figcaption {
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3) !important;
 }
 
+/* Redimension page when sidebar is NOT present */
+.layout-container:not(.layout-has-sidebar) main {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+
+/* Cupertino title top spacing override */
+.sidebar .sidebar-title {
+    margin-top: 0 !important;
+}
+

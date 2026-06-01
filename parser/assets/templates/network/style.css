@@ -125,8 +125,8 @@ body {
     /* Removed Grid */
 }
 
-/* Sidebars REMOVED visually */
-.sidebar-left,
+/* Sidebars REMOVED visually (except our contextual sidebar when active) */
+.sidebar-left:not(.context-sidebar),
 .sidebar-right {
     display: none;
 }

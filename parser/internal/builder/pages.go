@@ -410,11 +410,11 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 		}
 	}
 
-	// For themes without an existing sidebar, add layout-has-sidebar class to enable flex layout
-	htmlStr = strings.ReplaceAll(htmlStr, "class=\"layout-container\"", "class=\"layout-container layout-has-sidebar\"")
-	htmlStr = strings.ReplaceAll(htmlStr, "class=\"layout-container page-container\"", "class=\"layout-container page-container layout-has-sidebar\"")
-	htmlStr = strings.ReplaceAll(htmlStr, "class=\"layout-container window\"", "class=\"layout-container window layout-has-sidebar\"")
-	htmlStr = strings.ReplaceAll(htmlStr, "class=\"layout-container page-layout\"", "class=\"layout-container page-layout layout-has-sidebar\"")
+	// For themes without an existing sidebar, add layout-has-sidebar class to enable flex layout (limit to first occurrence)
+	htmlStr = strings.Replace(htmlStr, "class=\"layout-container\"", "class=\"layout-container layout-has-sidebar\"", 1)
+	htmlStr = strings.Replace(htmlStr, "class=\"layout-container page-container\"", "class=\"layout-container page-container layout-has-sidebar\"", 1)
+	htmlStr = strings.Replace(htmlStr, "class=\"layout-container window\"", "class=\"layout-container window layout-has-sidebar\"", 1)
+	htmlStr = strings.Replace(htmlStr, "class=\"layout-container page-layout\"", "class=\"layout-container page-layout layout-has-sidebar\"", 1)
 
 	var sb strings.Builder
 	sb.WriteString("<aside class=\"sidebar sidebar-left context-sidebar\">\n")
@@ -430,9 +430,11 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 	sb.WriteString("</aside>\n")
 	sidebarHTML := sb.String()
 
-	reLayout := regexp.MustCompile(`(?i)(class="[^"]*layout-has-sidebar[^"]*"[^>]*>)`)
-	if reLayout.MatchString(htmlStr) {
-		return reLayout.ReplaceAllString(htmlStr, "$1\n"+sidebarHTML)
+	reLayout := regexp.MustCompile(`(?i)class="[^"]*layout-has-sidebar[^"]*"[^>]*>`)
+	locLayout := reLayout.FindStringIndex(htmlStr)
+	if locLayout != nil {
+		endIndex := locLayout[1]
+		return htmlStr[:endIndex] + "\n" + sidebarHTML + htmlStr[endIndex:]
 	}
 
 	return htmlStr

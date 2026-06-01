@@ -690,3 +690,46 @@ a:hover {
     background-color: #1E2732 !important; /* Slate dim */
     border: 1px solid #38444D !important;
 }
+
+/* --- Bird Theme Custom Contextual Sidebar Overrides --- */
+@media (min-width: 1100px) {
+    .layout-has-sidebar {
+        display: block !important;
+        max-width: var(--max-width) !important; /* Keep original centered 600px width */
+        margin: 0 auto !important;
+        position: relative !important;
+    }
+
+    .layout-has-sidebar .context-sidebar {
+        position: fixed !important;
+        top: 80px !important;
+        /* Position the sidebar to the left of the centered 600px timeline container */
+        left: calc(50% - 300px - 260px - 40px) !important;
+        width: 260px !important;
+        border-right: none !important;
+        border-bottom: none !important;
+        height: calc(100vh - 120px) !important; /* Constrain height */
+        overflow-y: auto !important; /* Enable scrolling */
+        padding: 0 !important;
+        padding-bottom: 40px !important; /* Extra bottom breathing room */
+    }
+}
+
+@media (max-width: 1100px) and (min-width: 769px) {
+    .layout-has-sidebar {
+        display: flex !important;
+        flex-direction: column !important;
+        max-width: var(--max-width) !important;
+        margin: 0 auto !important;
+    }
+    
+    .layout-has-sidebar .context-sidebar {
+        position: static !important;
+        width: 100% !important;
+        border-right: none !important;
+        border-bottom: 1px solid var(--border-color) !important;
+        padding: 16px !important;
+        margin-bottom: 24px !important;
+        height: auto !important;
+    }
+}

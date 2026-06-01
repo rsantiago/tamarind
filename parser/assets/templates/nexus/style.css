@@ -715,3 +715,10 @@ figcaption {
     padding-right: 0 !important;
 }
 
+/* Redimension page when sidebar is NOT present */
+.layout-container:not(.layout-has-sidebar) main {
+    padding-right: 0 !important;
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}
+

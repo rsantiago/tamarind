@@ -19,22 +19,24 @@
     </header>
 
     <div class="layout-container">
-        <header class="article-header">
-            <h1 class="page-title">{{ .Title }}</h1>
-            {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
-            
-            {{ if .Tags }}
-            <div class="tags-container">
-                {{ range .Tags }}
-                <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">{{ . }}</a>
+        <div class="main-content-wrapper">
+            <header class="article-header">
+                <h1 class="page-title">{{ .Title }}</h1>
+                {{ if .Subtitle }}<p class="page-subtitle">{{ .Subtitle }}</p>{{ end }}
+                
+                {{ if .Tags }}
+                <div class="tags-container">
+                    {{ range .Tags }}
+                    <a href="{{ $.RelPrefix }}tags/{{ . | sanitizeTag }}.html" class="tag-link">{{ . }}</a>
+                    {{ end }}
+                </div>
                 {{ end }}
-            </div>
-            {{ end }}
-        </header>
+            </header>
 
-        <main class="article-content">
-            {{ .Body }}
-        </main>
+            <main class="article-content">
+                {{ .Body }}
+            </main>
+        </div>
     </div>
 
     {{ template "footer.mdt" . }}

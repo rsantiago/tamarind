@@ -45,15 +45,10 @@
     </header>
 
     <div class="layout-container">
+        {{ if .ContextualSidebar }}
         <aside class="sidebar">
-            <h3>Recent Articles</h3>
-            <nav class="sidebar-nav">
-                {{ range .Articles }}
-                <a href="{{ $.RelPrefix }}{{ .URL }}">{{ .Title }}</a>
-                {{ end }}
-            </nav>
         </aside>
-
+        {{ end }}
         <main>
             <article class="article-container">
                 <header class="article-header">

@@ -725,3 +725,9 @@ figcaption {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* Redimension page when sidebar is NOT present */
+.layout-container:not(.layout-has-sidebar) main {
+    max-width: 800px !important;
+    margin: 0 auto !important;
+}

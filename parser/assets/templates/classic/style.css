@@ -680,13 +680,57 @@ a:hover {
 }
 
 /* Card Badge Bottom Alignment Override */
-.card .badge,
-.card .badge-primary,
-.card .badge-secondary,
-.card .badge-success,
-.card .badge-warning,
 .card .badge-danger {
     margin-top: auto !important;
     align-self: flex-start !important;
+}
+
+/* --- Windows 95 Contextual Sidebar Retro Overrides --- */
+.sidebar-left, .context-sidebar {
+    border: 2px solid !important;
+    border-color: var(--win-high) var(--win-low) var(--win-low) var(--win-high) !important;
+    background-color: var(--background-color) !important;
+    box-shadow: inset -1px -1px 0px var(--win-dark), inset 1px 1px 0px var(--win-mid) !important;
+    padding: 16px 12px !important;
+    margin-right: 12px !important;
+}
+
+.sidebar-title {
+    font-size: 0.9rem !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    margin-bottom: 12px !important;
+    color: var(--win-blue) !important;
+}
+
+.sidebar-nav a {
+    color: var(--text-color) !important;
+    border: 1px solid transparent !important;
+    border-radius: 0 !important;
+    padding: 4px 8px !important;
+    font-family: var(--font-body) !important;
+    font-size: 0.95rem !important;
+}
+
+.sidebar-nav a:hover,
+.sidebar-nav a:focus,
+.sidebar-nav a:active,
+.sidebar-nav a.active {
+    background-color: var(--win-blue) !important;
+    color: #ffffff !important;
+    border-left-color: transparent !important;
+    text-decoration: none !important;
+}
+
+.sidebar-nav a.active {
+    border: 1px dotted #ffffff !important;
+    font-weight: normal !important;
+}
+
+/* Fix retro window button text color on hover */
+.btn:hover,
+.nav-links a.btn:hover {
+    color: var(--win-dark) !important;
+    text-decoration: none !important;
 }
 
