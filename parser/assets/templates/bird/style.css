@@ -178,6 +178,25 @@ a:hover {
 }
 
 @media (max-width: 600px) {
+    .site-header {
+        height: auto !important;
+    }
+    .nav-container {
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        height: auto !important;
+        padding: 12px 16px !important;
+    }
+    .logo {
+        margin-bottom: 12px !important;
+    }
+    .nav-links {
+        width: 100% !important;
+        justify-content: center !important;
+        flex-wrap: wrap !important;
+        gap: 6px !important;
+    }
     .nav-item .label {
         font-size: 0.85rem;
     }

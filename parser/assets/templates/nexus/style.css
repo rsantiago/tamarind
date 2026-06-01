@@ -724,19 +724,51 @@ figcaption {
 
 /* Mobile top navigation alignment overrides */
 @media (max-width: 768px) {
+    .site-header {
+        height: auto !important;
+    }
     .nav-container {
-        padding: 0 16px !important;
-        flex-direction: row !important;
-        justify-content: space-between !important;
+        padding: 12px 16px !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        justify-content: center !important;
+        position: relative !important;
+        gap: 12px !important;
         width: 100% !important;
-        align-items: center !important;
+    }
+    .logo {
+        max-width: calc(100% - 60px) !important;
+    }
+    .header-actions {
+        position: absolute !important;
+        top: 14px !important;
+        right: 16px !important;
     }
     .nav-links {
-        gap: 12px !important;
+        gap: 8px 12px !important;
         display: flex !important;
+        flex-wrap: wrap !important;
         align-items: center !important;
-        margin: 0 !important;
+        justify-content: center !important;
+        width: 100% !important;
+        margin: 4px 0 0 0 !important;
         padding: 0 !important;
+        list-style: none !important;
+    }
+    .nav-links a {
+        padding: 4px 8px !important;
+        font-size: 0.85rem !important;
+    }
+    main,
+    .layout-container:not(.layout-has-sidebar) main {
+        width: 100% !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+    pre, .article-content pre {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
     }
 }
 

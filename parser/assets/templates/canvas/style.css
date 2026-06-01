@@ -466,6 +466,28 @@ main {
     .page-title {
         font-size: 2.25rem;
     }
+
+    .site-header {
+        height: auto !important;
+        min-height: var(--header-height) !important;
+        padding: 12px 16px !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .nav-container {
+        padding: 0 !important;
+    }
+    .nav-links {
+        flex-wrap: wrap !important;
+        gap: 4px 8px !important;
+        font-size: 0.85rem !important;
+        width: 100% !important;
+        display: flex !important;
+        align-items: center !important;
+    }
+    .nav-links a {
+        padding: 4px 6px !important;
+    }
 }
 
 /* --- Required Spec Components --- */

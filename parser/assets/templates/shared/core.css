@@ -987,6 +987,13 @@ hr {
         padding-right: 16px;
     }
 
+    /* Enforce strict containment and horizontal scrolling for code blocks on mobile */
+    pre, code, .article-content pre {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        overflow-x: auto !important;
+    }
+
     /* Fixed floating toggle handle - dynamic high contrast based on theme's active colors */
     .tamarind-sidebar-handle {
         display: flex !important;
