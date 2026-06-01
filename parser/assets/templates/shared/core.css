@@ -966,19 +966,83 @@ hr {
     font-weight: 600;
 }
 
-/* Stack sidebar on mobile viewports */
+/* --- Tamarind Responsive Drawer Elements --- */
+.tamarind-sidebar-checkbox,
+.tamarind-sidebar-handle,
+.tamarind-sidebar-backdrop {
+    display: none !important;
+}
+
+/* Mobile Drawer Sidebar Navigation */
 @media (max-width: 768px) {
-    .layout-has-sidebar {
-        flex-direction: column !important;
-        gap: 1.5rem !important;
+    .tamarind-sidebar-handle {
+        display: flex !important;
+        position: fixed !important;
+        bottom: 24px !important;
+        left: 24px !important;
+        width: 48px !important;
+        height: 48px !important;
+        border-radius: 50% !important;
+        background: var(--primary-color, #3b82f6) !important;
+        color: #ffffff !important;
+        box-shadow: 0 4px 16px rgba(0,0,0,0.25) !important;
+        align-items: center !important;
+        justify-content: center !important;
+        cursor: pointer !important;
+        z-index: 100001 !important;
+        transition: transform 0.2s ease, background-color 0.2s ease !important;
+    }
+    .tamarind-sidebar-handle:hover {
+        transform: scale(1.05) !important;
+    }
+    .tamarind-sidebar-handle svg {
+        width: 20px !important;
+        height: 20px !important;
+        stroke-width: 2.5px !important;
+    }
+
+    .tamarind-sidebar-backdrop {
+        display: none !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        background: rgba(0, 0, 0, 0.4) !important;
+        backdrop-filter: blur(4px) !important;
+        -webkit-backdrop-filter: blur(4px) !important;
+        z-index: 9999 !important;
     }
     
-    .sidebar-left, .context-sidebar {
-        width: 100% !important;
-        height: auto !important;
-        border-right: none !important;
-        border-bottom: 1px solid var(--border-color, #e2e8f0) !important;
-        padding: 1rem 0 !important;
-        position: static !important;
+    .tamarind-sidebar-checkbox:checked ~ .tamarind-sidebar-backdrop {
+        display: block !important;
+    }
+
+    .sidebar-left,
+    .context-sidebar,
+    .layout-has-sidebar .sidebar,
+    .layout-container .sidebar {
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 280px !important;
+        height: 100vh !important;
+        z-index: 10000 !important;
+        transform: translateX(-100%) !important;
+        transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        background-color: var(--background-color, #ffffff) !important;
+        border-right: 1px solid var(--border-color, #e2e8f0) !important;
+        border-bottom: none !important;
+        padding: 2rem 1.5rem !important;
+        box-shadow: 4px 0 24px rgba(0,0,0,0.15) !important;
+        overflow-y: auto !important;
+        display: block !important;
+    }
+
+    .tamarind-sidebar-checkbox:checked ~ .sidebar-left,
+    .tamarind-sidebar-checkbox:checked ~ .context-sidebar,
+    .tamarind-sidebar-checkbox:checked ~ .sidebar,
+    .tamarind-sidebar-checkbox:checked ~ * .sidebar {
+        transform: translateX(0) !important;
     }
 }

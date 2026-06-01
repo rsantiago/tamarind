@@ -385,6 +385,13 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 		return htmlStr
 	}
 
+	const toggleHTML = `<input type="checkbox" id="tamarind-sidebar-toggle" class="tamarind-sidebar-checkbox">
+<label for="tamarind-sidebar-toggle" class="tamarind-sidebar-handle" aria-label="Toggle Navigation">
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+</label>
+<label for="tamarind-sidebar-toggle" class="tamarind-sidebar-backdrop"></label>
+`
+
 	reSidebar := regexp.MustCompile(`(?s)<aside[^>]*class="[^"]*sidebar[^"]*"[^>]*>`)
 	loc := reSidebar.FindStringIndex(htmlStr)
 	if loc != nil {
@@ -406,6 +413,10 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 			cb.WriteString("    </nav>\n")
 			injectedHTML := cb.String()
 
+			asideStart := loc[0]
+			htmlStr = htmlStr[:asideStart] + toggleHTML + htmlStr[asideStart:]
+			actualEndIndex += len(toggleHTML)
+
 			return htmlStr[:actualEndIndex] + injectedHTML + htmlStr[actualEndIndex:]
 		}
 	}
@@ -417,6 +428,7 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 	htmlStr = strings.Replace(htmlStr, "class=\"layout-container page-layout\"", "class=\"layout-container page-layout layout-has-sidebar\"", 1)
 
 	var sb strings.Builder
+	sb.WriteString(toggleHTML)
 	sb.WriteString("<aside class=\"sidebar sidebar-left context-sidebar\">\n")
 	sb.WriteString("    <nav class=\"sidebar-nav\">\n")
 	for _, item := range sidebarItems {
