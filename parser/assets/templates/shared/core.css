@@ -907,6 +907,20 @@ hr {
 }
 
 /* --- Contextual Sidebar Layout Styling --- */
+.layout-has-sidebar {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 3rem !important;
+    max-width: 1200px !important; /* Expand max-width to hold sidebar + content */
+    margin: 0 auto !important;
+}
+
+.layout-has-sidebar > main,
+.layout-has-sidebar > article {
+    flex-grow: 1 !important;
+    min-width: 0 !important;
+}
+
 .sidebar-left, .context-sidebar {
     width: 260px;
     flex-shrink: 0;
@@ -950,8 +964,9 @@ hr {
 
 /* Stack sidebar on mobile viewports */
 @media (max-width: 768px) {
-    .layout-container {
+    .layout-has-sidebar {
         flex-direction: column !important;
+        gap: 1.5rem !important;
     }
     
     .sidebar-left, .context-sidebar {

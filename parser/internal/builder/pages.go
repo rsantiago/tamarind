@@ -385,6 +385,37 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 		return htmlStr
 	}
 
+	reSidebar := regexp.MustCompile(`(?s)<aside[^>]*class="[^"]*sidebar[^"]*"[^>]*>`)
+	loc := reSidebar.FindStringIndex(htmlStr)
+	if loc != nil {
+		startIndex := loc[1]
+		endIndex := strings.Index(htmlStr[startIndex:], "</aside>")
+		if endIndex != -1 {
+			actualEndIndex := startIndex + endIndex
+
+			var cb strings.Builder
+			cb.WriteString("\n    <h3 class=\"sidebar-title\" style=\"margin-top: 2rem;\">Section Navigation</h3>\n")
+			cb.WriteString("    <nav class=\"sidebar-nav\">\n")
+			for _, item := range sidebarItems {
+				activeClass := ""
+				if item.IsCurrent {
+					activeClass = " class=\"active\""
+				}
+				cb.WriteString(fmt.Sprintf("        <a href=\"%s\"%s>%s</a>\n", item.URL, activeClass, template.HTMLEscapeString(item.Title)))
+			}
+			cb.WriteString("    </nav>\n")
+			injectedHTML := cb.String()
+
+			return htmlStr[:actualEndIndex] + injectedHTML + htmlStr[actualEndIndex:]
+		}
+	}
+
+	// For themes without an existing sidebar, add layout-has-sidebar class to enable flex layout
+	htmlStr = strings.ReplaceAll(htmlStr, "class=\"layout-container\"", "class=\"layout-container layout-has-sidebar\"")
+	htmlStr = strings.ReplaceAll(htmlStr, "class=\"layout-container page-container\"", "class=\"layout-container page-container layout-has-sidebar\"")
+	htmlStr = strings.ReplaceAll(htmlStr, "class=\"layout-container window\"", "class=\"layout-container window layout-has-sidebar\"")
+	htmlStr = strings.ReplaceAll(htmlStr, "class=\"layout-container page-layout\"", "class=\"layout-container page-layout layout-has-sidebar\"")
+
 	var sb strings.Builder
 	sb.WriteString("<aside class=\"sidebar sidebar-left context-sidebar\">\n")
 	sb.WriteString("    <nav class=\"sidebar-nav\">\n")
@@ -399,12 +430,7 @@ func postProcessSidebar(htmlStr string, sidebarItems []models.SidebarItem) strin
 	sb.WriteString("</aside>\n")
 	sidebarHTML := sb.String()
 
-	reSidebar := regexp.MustCompile(`(?s)<aside[^>]*class="[^"]*sidebar[^"]*"[^>]*>.*?</aside>`)
-	if reSidebar.MatchString(htmlStr) {
-		return reSidebar.ReplaceAllString(htmlStr, sidebarHTML)
-	}
-
-	reLayout := regexp.MustCompile(`(?i)(<div[^>]*class="[^"]*layout-container[^"]*"[^>]*>|<main[^>]*class="[^"]*layout-container[^"]*"[^>]*>)`)
+	reLayout := regexp.MustCompile(`(?i)(class="[^"]*layout-has-sidebar[^"]*"[^>]*>)`)
 	if reLayout.MatchString(htmlStr) {
 		return reLayout.ReplaceAllString(htmlStr, "$1\n"+sidebarHTML)
 	}
