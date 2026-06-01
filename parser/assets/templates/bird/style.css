@@ -179,10 +179,10 @@ a:hover {
 
 @media (max-width: 600px) {
     .nav-item .label {
-        display: none;
+        font-size: 0.85rem;
     }
     .nav-item {
-        padding: 8px;
+        padding: 8px 10px;
     }
 }
 

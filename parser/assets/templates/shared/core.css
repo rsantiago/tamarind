@@ -975,13 +975,19 @@ hr {
 
 /* Mobile Drawer Sidebar Navigation */
 @media (max-width: 768px) {
-    /* Safe mobile padding fallback for perfectly aligned top menus */
-    .nav-container {
-        padding-left: 16px !important;
-        padding-right: 16px !important;
+    /* Prevent horizontal scrolling and viewport shifting on mobile */
+    html, body {
+        max-width: 100% !important;
+        overflow-x: hidden !important;
     }
 
-    /* Fixed floating toggle handle - high contrast under both light and dark themes */
+    /* Safe mobile padding fallback for perfectly aligned top menus */
+    .nav-container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
+
+    /* Fixed floating toggle handle - dynamic high contrast based on theme's active colors */
     .tamarind-sidebar-handle {
         display: flex !important;
         position: fixed !important;
@@ -990,24 +996,21 @@ hr {
         width: 48px !important;
         height: 48px !important;
         border-radius: 50% !important;
-        background: #1f2937 !important; /* Premium dark charcoal */
-        color: #ffffff !important; /* Pure white hamburger icon */
-        border: 1px solid rgba(255,255,255,0.1) !important;
+        background: var(--text-color, #1f2937) !important;
+        color: var(--background-color, #ffffff) !important;
+        border: 1px solid var(--border-color, rgba(255,255,255,0.1)) !important;
         box-shadow: 0 4px 16px rgba(0,0,0,0.25) !important;
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
         z-index: 1000001 !important;
-        transition: transform 0.2s ease, background-color 0.2s ease !important;
+        transform: translate3d(0, 0, 0) !important;
+        -webkit-transform: translate3d(0, 0, 0) !important;
+        will-change: transform !important;
+        transition: transform 0.2s ease, background-color 0.2s ease, opacity 0.2s ease !important;
     }
     .tamarind-sidebar-handle:hover {
-        transform: scale(1.05) !important;
-    }
-    
-    [data-theme="dark"] .tamarind-sidebar-handle {
-        background: #ffffff !important; /* High contrast white circle */
-        color: #1f2937 !important; /* Charcoal dashes */
-        border: 1px solid rgba(0,0,0,0.1) !important;
+        transform: scale(1.05) translate3d(0, 0, 0) !important;
     }
     
     .tamarind-sidebar-handle svg {
@@ -1060,6 +1063,9 @@ hr {
         height: 100vh !important;
         z-index: 1000000 !important;
         transform: translateX(-100%) !important;
+        will-change: transform !important;
+        -webkit-backface-visibility: hidden !important;
+        backface-visibility: hidden !important;
         transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
         background-color: var(--background-color, #ffffff) !important;
         border-right: 1px solid var(--border-color, #e2e8f0) !important;

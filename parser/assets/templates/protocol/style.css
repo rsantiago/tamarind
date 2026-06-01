@@ -739,8 +739,14 @@ figcaption {
         flex-direction: row !important;
         justify-content: space-between !important;
         width: 100% !important;
+        align-items: center !important;
     }
     .nav-links {
         gap: 12px !important;
+        display: flex !important;
+        align-items: center !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        list-style: none !important;
     }
 }

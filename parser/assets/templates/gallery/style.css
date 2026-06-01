@@ -488,13 +488,13 @@ h1, h2, h3, h4 {
 .terminal-header .dot { display: none; }
 .terminal-content { padding: 32px; color: #E0E0E0; font-size: 0.95rem; overflow-x: auto; }
 
-/* Responsive */
 @media (max-width: 768px) {
     .nav-container { padding: 0 20px; flex-direction: column; gap: 16px; padding-top: 16px; }
     .site-header { height: auto; padding-bottom: 16px; }
-    .layout-container { padding: 0 20px; margin: 40px auto; }
-    .page-title { font-size: 3rem; }
-    .article-header { padding: 40px 0; }
+    .layout-container { padding: 0 20px; margin: 20px auto !important; }
+    .page-title { font-size: 2.25rem !important; text-align: center; }
+    .article-header { padding: 20px 0 10px 0 !important; }
+    .page-subtitle { margin-bottom: 24px !important; text-align: center; }
 }
 
 /* --- Theme Design System Components (Compliance Spec) --- */
