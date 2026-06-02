@@ -3,7 +3,6 @@ title: The Tamarind Philosophy
 subtitle: Principles of digital permanence
 date: 2025-12-05
 tags: [concept, guide]
-sidebar: false
 ---
 
 # Digital Permanence
