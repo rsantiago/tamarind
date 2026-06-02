@@ -832,6 +832,41 @@ items:
 
 ---
 
+## 11. Left Sidebar & Responsive Containment (The "Sidebar Contract")
+All themes must support the contextual left sidebar navigation layout and ensure strict mobile viewport boundary containment (no horizontal scrolling).
+
+```yaml requirements
+category: layout-sidebar
+items:
+  - name: ".layout-has-sidebar"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)"
+  - name: ".context-sidebar"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)"
+  - name: ".tamarind-sidebar-checkbox"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state"
+  - name: ".tamarind-sidebar-handle"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)"
+  - name: ".tamarind-sidebar-backdrop"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling"
+```
+
+---
+
 ## 8. Bootstrapping / Updating Guide
 
 ### How to Create a New Theme

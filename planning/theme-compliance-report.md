@@ -1,50 +1,50 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-06-01 20:59:57
+**Generated**: 2026-06-01 21:13:52
 
-**Total Requirements**: 113 required, 3 optional
+**Total Requirements**: 118 required, 3 optional
 
 ## Summary
 
 | Theme | Status | Passed | Failed | Score |
 |-------|--------|--------|--------|-------|
-| **atlas** | ✅ PASS | 113 | 0 | 100% |
-| **basic** | ✅ PASS | 113 | 0 | 100% |
-| **bento** | ✅ PASS | 113 | 0 | 100% |
-| **bird** | ✅ PASS | 113 | 0 | 100% |
-| **blue** | ✅ PASS | 113 | 0 | 100% |
-| **brutal** | ✅ PASS | 113 | 0 | 100% |
-| **canvas** | ✅ PASS | 113 | 0 | 100% |
-| **classic** | ✅ PASS | 113 | 0 | 100% |
-| **console** | ✅ PASS | 113 | 0 | 100% |
-| **cupertino** | ✅ PASS | 113 | 0 | 100% |
-| **eclipse** | ✅ PASS | 113 | 0 | 100% |
-| **editorial** | ✅ PASS | 113 | 0 | 100% |
-| **forge** | ✅ PASS | 113 | 0 | 100% |
-| **gallery** | ✅ PASS | 113 | 0 | 100% |
-| **gram** | ✅ PASS | 113 | 0 | 100% |
-| **hacker** | ✅ PASS | 113 | 0 | 100% |
-| **midnight** | ✅ PASS | 113 | 0 | 100% |
-| **neon** | ✅ PASS | 113 | 0 | 100% |
-| **network** | ✅ PASS | 113 | 0 | 100% |
-| **news** | ✅ PASS | 113 | 0 | 100% |
-| **nexus** | ✅ PASS | 113 | 0 | 100% |
-| **nordic** | ✅ PASS | 113 | 0 | 100% |
-| **overflow** | ✅ PASS | 113 | 0 | 100% |
-| **pastel** | ✅ PASS | 113 | 0 | 100% |
-| **pod** | ✅ PASS | 113 | 0 | 100% |
-| **prose** | ✅ PASS | 113 | 0 | 100% |
-| **protocol** | ✅ PASS | 113 | 0 | 100% |
-| **scribe** | ✅ PASS | 113 | 0 | 100% |
-| **stream** | ✅ PASS | 113 | 0 | 100% |
-| **tube** | ✅ PASS | 113 | 0 | 100% |
-| **zephyr** | ✅ PASS | 113 | 0 | 100% |
+| **atlas** | ✅ PASS | 118 | 0 | 100% |
+| **basic** | ✅ PASS | 118 | 0 | 100% |
+| **bento** | ✅ PASS | 118 | 0 | 100% |
+| **bird** | ✅ PASS | 118 | 0 | 100% |
+| **blue** | ✅ PASS | 118 | 0 | 100% |
+| **brutal** | ✅ PASS | 118 | 0 | 100% |
+| **canvas** | ✅ PASS | 118 | 0 | 100% |
+| **classic** | ✅ PASS | 118 | 0 | 100% |
+| **console** | ✅ PASS | 118 | 0 | 100% |
+| **cupertino** | ✅ PASS | 118 | 0 | 100% |
+| **eclipse** | ✅ PASS | 118 | 0 | 100% |
+| **editorial** | ✅ PASS | 118 | 0 | 100% |
+| **forge** | ✅ PASS | 118 | 0 | 100% |
+| **gallery** | ✅ PASS | 118 | 0 | 100% |
+| **gram** | ✅ PASS | 118 | 0 | 100% |
+| **hacker** | ✅ PASS | 118 | 0 | 100% |
+| **midnight** | ✅ PASS | 118 | 0 | 100% |
+| **neon** | ✅ PASS | 118 | 0 | 100% |
+| **network** | ✅ PASS | 118 | 0 | 100% |
+| **news** | ✅ PASS | 118 | 0 | 100% |
+| **nexus** | ✅ PASS | 118 | 0 | 100% |
+| **nordic** | ✅ PASS | 118 | 0 | 100% |
+| **overflow** | ✅ PASS | 118 | 0 | 100% |
+| **pastel** | ✅ PASS | 118 | 0 | 100% |
+| **pod** | ✅ PASS | 118 | 0 | 100% |
+| **prose** | ✅ PASS | 118 | 0 | 100% |
+| **protocol** | ✅ PASS | 118 | 0 | 100% |
+| **scribe** | ✅ PASS | 118 | 0 | 100% |
+| **stream** | ✅ PASS | 118 | 0 | 100% |
+| **tube** | ✅ PASS | 118 | 0 | 100% |
+| **zephyr** | ✅ PASS | 118 | 0 | 100% |
 
 ---
 
 ## Theme: atlas — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -129,6 +129,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -216,7 +224,7 @@
 
 ## Theme: basic — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -301,6 +309,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -388,7 +404,7 @@
 
 ## Theme: bento — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -473,6 +489,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -560,7 +584,7 @@
 
 ## Theme: bird — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -645,6 +669,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -732,7 +764,7 @@
 
 ## Theme: blue — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -817,6 +849,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -904,7 +944,7 @@
 
 ## Theme: brutal — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -989,6 +1029,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -1076,7 +1124,7 @@
 
 ## Theme: canvas — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1161,6 +1209,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -1248,7 +1304,7 @@
 
 ## Theme: classic — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1333,6 +1389,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -1420,7 +1484,7 @@
 
 ## Theme: console — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1505,6 +1569,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -1592,7 +1664,7 @@
 
 ## Theme: cupertino — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1677,6 +1749,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -1764,7 +1844,7 @@
 
 ## Theme: eclipse — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1849,6 +1929,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -1936,7 +2024,7 @@
 
 ## Theme: editorial — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2021,6 +2109,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -2108,7 +2204,7 @@
 
 ## Theme: forge — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2193,6 +2289,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -2280,7 +2384,7 @@
 
 ## Theme: gallery — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2365,6 +2469,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -2452,7 +2564,7 @@
 
 ## Theme: gram — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2537,6 +2649,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -2624,7 +2744,7 @@
 
 ## Theme: hacker — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2709,6 +2829,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -2796,7 +2924,7 @@
 
 ## Theme: midnight — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2881,6 +3009,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -2968,7 +3104,7 @@
 
 ## Theme: neon — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3053,6 +3189,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -3140,7 +3284,7 @@
 
 ## Theme: network — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3225,6 +3369,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -3312,7 +3464,7 @@
 
 ## Theme: news — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3397,6 +3549,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -3484,7 +3644,7 @@
 
 ## Theme: nexus — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3569,6 +3729,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -3656,7 +3824,7 @@
 
 ## Theme: nordic — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3741,6 +3909,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -3828,7 +4004,7 @@
 
 ## Theme: overflow — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3913,6 +4089,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -4000,7 +4184,7 @@
 
 ## Theme: pastel — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4085,6 +4269,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -4172,7 +4364,7 @@
 
 ## Theme: pod — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4257,6 +4449,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -4344,7 +4544,7 @@
 
 ## Theme: prose — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4429,6 +4629,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -4516,7 +4724,7 @@
 
 ## Theme: protocol — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4601,6 +4809,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -4688,7 +4904,7 @@
 
 ## Theme: scribe — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4773,6 +4989,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -4860,7 +5084,7 @@
 
 ## Theme: stream — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4945,6 +5169,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -5032,7 +5264,7 @@
 
 ## Theme: tube — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5117,6 +5349,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
@@ -5204,7 +5444,7 @@
 
 ## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 113/113 (100%)
+**Score**: 118/118 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5289,6 +5529,14 @@
 - `.site-footer` — Site footer
 - `.tamarind-ghost-badge` — Floating Use Tamarind badge element
 - `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
 
 #### premium-components
 
