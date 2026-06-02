@@ -168,6 +168,14 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 			return nil
 		}
 
+		// Skip collection overrides at the root (e.g., constitution.md) to prevent overwriting dynamic collection indices
+		if !strings.Contains(relPath, string(os.PathSeparator)) {
+			base := strings.TrimSuffix(relPath, ".md")
+			if _, isCollection := collections[base]; isCollection {
+				return nil
+			}
+		}
+
 		// If generating docs index or similar, we might want a subset of articles?
 		// Currently passing all articles.
 
