@@ -165,10 +165,21 @@ func ScanPagesAndCollections(sourceDir string, collections map[string][]models.A
 
 	// Add Collections (Order 99+)
 	for name := range collections {
+		url := name + ".html"
+		exists := false
+		for _, item := range menu {
+			if item.URL == url {
+				exists = true
+				break
+			}
+		}
+		if exists {
+			continue
+		}
 		title := strings.Title(name)
 		menu = append(menu, models.MenuItem{
 			Title: title,
-			URL:   name + ".html",
+			URL:   url,
 			Order: 99, // User specified default high order for collections
 		})
 	}
