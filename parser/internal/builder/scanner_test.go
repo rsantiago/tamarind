@@ -109,3 +109,100 @@ Content`
 		t.Errorf("Draft article expected but not found")
 	}
 }
+
+func TestScanPagesAndCollections_MenuOrdering(t *testing.T) {
+	// 1. Setup temporary directory
+	tempDir, err := os.MkdirTemp("", "tamarind-test-menu-*")
+	if err != nil {
+		t.Fatalf("Failed to create temp dir: %v", err)
+	}
+	defer os.RemoveAll(tempDir)
+
+	// 2. Setup root pages
+	// index.md (special case, default Home)
+	if err := os.WriteFile(filepath.Join(tempDir, "index.md"), []byte("---\ntitle: Home\n---\n"), 0644); err != nil {
+		t.Fatalf("Failed to write index.md: %v", err)
+	}
+	// about.md with explicit order 5
+	aboutContent := `---
+title: About Us
+menu_label: About
+menu_order: 5
+---
+`
+	if err := os.WriteFile(filepath.Join(tempDir, "about.md"), []byte(aboutContent), 0644); err != nil {
+		t.Fatalf("Failed to write about.md: %v", err)
+	}
+
+	// 3. Setup folder collections and override files
+	// docs collection directory
+	docsDir := filepath.Join(tempDir, "docs")
+	if err := os.Mkdir(docsDir, 0755); err != nil {
+		t.Fatalf("Failed to create docs dir: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(docsDir, "guide.md"), []byte("---\ntitle: Guide\n---\n"), 0644); err != nil {
+		t.Fatalf("Failed to write guide.md: %v", err)
+	}
+
+	// blog collection directory (no override file)
+	blogDir := filepath.Join(tempDir, "blog")
+	if err := os.Mkdir(blogDir, 0755); err != nil {
+		t.Fatalf("Failed to create blog dir: %v", err)
+	}
+	if err := os.WriteFile(filepath.Join(blogDir, "post.md"), []byte("---\ntitle: Post\n---\n"), 0644); err != nil {
+		t.Fatalf("Failed to write post.md: %v", err)
+	}
+
+	// docs.md override file at root setting order 10 and a custom label
+	docsOverride := `---
+title: Documentation Portal
+menu_label: Documentation
+menu_order: 10
+---
+`
+	if err := os.WriteFile(filepath.Join(tempDir, "docs.md"), []byte(docsOverride), 0644); err != nil {
+		t.Fatalf("Failed to write docs.md: %v", err)
+	}
+
+	// 4. Run Scanner
+	collections, err := ScanCollections(tempDir, false)
+	if err != nil {
+		t.Fatalf("ScanCollections failed: %v", err)
+	}
+
+	menu, err := ScanPagesAndCollections(tempDir, collections)
+	if err != nil {
+		t.Fatalf("ScanPagesAndCollections failed: %v", err)
+	}
+
+	// 5. Assertions
+	// Expected Order: Home (0) -> About (5) -> Documentation (10) -> Blog (99)
+	if len(menu) != 4 {
+		t.Fatalf("Expected exactly 4 menu items, got %d: %+v", len(menu), menu)
+	}
+
+	expected := []struct {
+		Title string
+		URL   string
+		Order int
+	}{
+		{Title: "Home", URL: "index.html", Order: 0},
+		{Title: "About", URL: "about.html", Order: 5},
+		{Title: "Documentation", URL: "docs.html", Order: 10},
+		{Title: "Blog", URL: "blog.html", Order: 99},
+	}
+
+	for i, exp := range expected {
+		item := menu[i]
+		if item.Title != exp.Title {
+			t.Errorf("At index %d: expected Title %q, got %q", i, exp.Title, item.Title)
+		}
+		if item.URL != exp.URL {
+			t.Errorf("At index %d: expected URL %q, got %q", i, exp.URL, item.URL)
+		}
+		if item.Order != exp.Order {
+			t.Errorf("At index %d: expected Order %d, got %d", i, exp.Order, item.Order)
+		}
+	}
+}
+
