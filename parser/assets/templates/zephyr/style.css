@@ -12,9 +12,9 @@
     --primary-color: #0f172a;       /* Sleek slate black */
     --secondary-color: #4b5563;     /* Gray 600 */
     --accent-color: #2563eb;        /* High-tech royal blue */
-    --background-color: #ffffff;    /* Pure crisp white */
+    --background-color: #f8fafc;    /* Premium slate-50 white */
     --card-bg: #ffffff;             /* Card background */
-    --header-bg: rgba(255, 255, 255, 0.85); /* Translucent sticky header */
+    --header-bg: rgba(248, 250, 252, 0.85); /* Translucent sticky header */
     --text-color: #374151;          /* Body gray 700 (premium slate matching hermes-agent.org) */
     --text-secondary: #4b5563;      /* Secondary gray 600 */
     --heading-color: #334155;       /* Softer slate-700 to reduce harsh contrast */

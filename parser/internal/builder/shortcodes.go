@@ -20,6 +20,7 @@ import (
 )
 
 func processShortcodes(markdown, sourceDir string) string {
+	pricingGridCount := 0
 	// 0. Agent (Comment): {{ agent "instruction" }} -> Removed from output
 	reAgent := regexp.MustCompile(`{{\s*agent\s+"(.*?)"\s*}}`)
 	markdown = reAgent.ReplaceAllString(markdown, "")
@@ -69,6 +70,258 @@ func processShortcodes(markdown, sourceDir string) string {
 		}
 
 		return fmt.Sprintf(`<div class="features-grid">%s</div>`, itemsHtml)
+	})
+
+	// Pricing Grid: {{ pricing monthly_label="..." annual_label="..." discount="..." }} ... {{ /pricing }}
+	rePricing := regexp.MustCompile(`(?s){{\s*pricing\s+(.*?)\s*}}(.*?){{\s*/pricing\s*}}`)
+	markdown = rePricing.ReplaceAllStringFunc(markdown, func(match string) string {
+		submatch := rePricing.FindStringSubmatch(match)
+		attrString := submatch[1]
+		content := submatch[2]
+
+		// Parse grid attributes
+		reAttr := regexp.MustCompile(`(\w+)="([^"]*)"`)
+		gridAttrs := make(map[string]string)
+		for _, attrMatch := range reAttr.FindAllStringSubmatch(attrString, -1) {
+			gridAttrs[attrMatch[1]] = attrMatch[2]
+		}
+
+		monthlyLabel := gridAttrs["monthly_label"]
+		if monthlyLabel == "" {
+			monthlyLabel = "Monthly"
+		}
+		annualLabel := gridAttrs["annual_label"]
+		if annualLabel == "" {
+			annualLabel = "Annual"
+		}
+		discount := gridAttrs["discount"]
+
+		pricingGridCount++
+		gridID := fmt.Sprintf("pricing-grid-%d", pricingGridCount)
+
+		// Structure to hold plan configuration
+		type planData struct {
+			title         string
+			priceMonthly  string
+			priceAnnual   string
+			periodMonthly string
+			periodAnnual  string
+			featuredClass string
+			badgeHtml     string
+			buttonText    string
+			urlMonthly    string
+			urlAnnual     string
+			bulletsHtml   string
+		}
+
+		var plans []planData
+
+		// Parse nested plans
+		rePlan := regexp.MustCompile(`(?s){{\s*plan\s+(.*?)\s*}}(.*?){{\s*/plan\s*}}`)
+		planMatches := rePlan.FindAllStringSubmatch(content, -1)
+
+		for _, planMatch := range planMatches {
+			planAttrStr := planMatch[1]
+			planContent := planMatch[2]
+
+			planAttrs := make(map[string]string)
+			for _, attrMatch := range reAttr.FindAllStringSubmatch(planAttrStr, -1) {
+				planAttrs[attrMatch[1]] = attrMatch[2]
+			}
+
+			title := planAttrs["title"]
+			price := planAttrs["price"]
+			priceMonthly := planAttrs["price_monthly"]
+			priceAnnual := planAttrs["price_annual"]
+			if priceMonthly == "" {
+				priceMonthly = price
+			}
+			if priceAnnual == "" {
+				priceAnnual = price
+			}
+
+			period := planAttrs["period"]
+			periodMonthly := planAttrs["period_monthly"]
+			periodAnnual := planAttrs["period_annual"]
+			if periodMonthly == "" {
+				periodMonthly = period
+			}
+			if periodAnnual == "" {
+				periodAnnual = period
+			}
+
+			url := planAttrs["url"]
+			urlMonthly := planAttrs["url_monthly"]
+			urlAnnual := planAttrs["url_annual"]
+			if urlMonthly == "" {
+				urlMonthly = url
+			}
+			if urlAnnual == "" {
+				urlAnnual = url
+			}
+
+			featured := planAttrs["featured"]
+			badge := planAttrs["badge"]
+			button := planAttrs["button"]
+			if button == "" {
+				button = "Get Started"
+			}
+
+			featuredClass := ""
+			if featured == "true" {
+				featuredClass = " featured"
+			}
+
+			badgeHtml := ""
+			if badge != "" {
+				badgeHtml = fmt.Sprintf(`<div class="card-badge-poc">%s</div>`, badge)
+			}
+
+			// Parse plan bullets (markdown list)
+			bulletsHtml := ""
+			reListItem := regexp.MustCompile(`(?m)^\s*[-\*]\s*(.*?)\s*$`)
+			listMatches := reListItem.FindAllStringSubmatch(planContent, -1)
+			for _, listMatch := range listMatches {
+				bulletsHtml += fmt.Sprintf(`<li>%s</li>`, strings.TrimSpace(listMatch[1]))
+			}
+
+			plans = append(plans, planData{
+				title:         title,
+				priceMonthly:  priceMonthly,
+				priceAnnual:   priceAnnual,
+				periodMonthly: periodMonthly,
+				periodAnnual:  periodAnnual,
+				featuredClass: featuredClass,
+				badgeHtml:     badgeHtml,
+				buttonText:    button,
+				urlMonthly:    urlMonthly,
+				urlAnnual:     urlAnnual,
+				bulletsHtml:   bulletsHtml,
+			})
+		}
+
+		// Auto-detect if dynamic toggle features are needed
+		hasToggle := false
+		for _, p := range plans {
+			if (p.priceMonthly != "" && p.priceAnnual != "" && p.priceMonthly != p.priceAnnual) ||
+				(p.periodMonthly != "" && p.periodAnnual != "" && p.periodMonthly != p.periodAnnual) ||
+				(p.urlMonthly != "" && p.urlAnnual != "" && p.urlMonthly != p.urlAnnual) {
+				hasToggle = true
+				break
+			}
+		}
+
+		formatPrice := func(p string) string {
+			if p == "" {
+				return ""
+			}
+			if strings.HasPrefix(p, "$") {
+				return p
+			}
+			return "$" + p
+		}
+
+		// Generate plan cards HTML
+		plansHtml := ""
+		for _, p := range plans {
+			var priceValHtml string
+			var periodHtml string
+			var buttonHtml string
+
+			if hasToggle {
+				priceValHtml = fmt.Sprintf(`<div class="price-val" data-monthly="%s" data-annual="%s">%s</div>`,
+					formatPrice(p.priceMonthly), formatPrice(p.priceAnnual), formatPrice(p.priceMonthly))
+				periodHtml = fmt.Sprintf(`<div class="price-period" data-monthly="%s" data-annual="%s">%s</div>`,
+					p.periodMonthly, p.periodAnnual, p.periodMonthly)
+
+				if p.urlMonthly != "" || p.urlAnnual != "" {
+					buttonHtml = fmt.Sprintf(`<a href="%s" class="pricing-btn" data-monthly-url="%s" data-annual-url="%s">%s</a>`,
+						p.urlMonthly, p.urlMonthly, p.urlAnnual, p.buttonText)
+				} else {
+					buttonHtml = fmt.Sprintf(`<button class="pricing-btn">%s</button>`, p.buttonText)
+				}
+			} else {
+				priceValHtml = fmt.Sprintf(`<div class="price-val">%s</div>`, formatPrice(p.priceMonthly))
+				periodHtml = fmt.Sprintf(`<div class="price-period">%s</div>`, p.periodMonthly)
+
+				if p.urlMonthly != "" {
+					buttonHtml = fmt.Sprintf(`<a href="%s" class="pricing-btn">%s</a>`, p.urlMonthly, p.buttonText)
+				} else {
+					buttonHtml = fmt.Sprintf(`<button class="pricing-btn">%s</button>`, p.buttonText)
+				}
+			}
+
+			plansHtml += fmt.Sprintf(`
+<div class="price-card%s">
+  %s
+  <div class="price-header">
+    <h4>%s</h4>
+    %s
+    %s
+  </div>
+  <ul>
+    %s
+  </ul>
+  %s
+</div>`, p.featuredClass, p.badgeHtml, p.title, priceValHtml, periodHtml, p.bulletsHtml, buttonHtml)
+		}
+
+		if !hasToggle {
+			return fmt.Sprintf(`
+<div class="pricing-wrapper" id="%s">
+  <div class="pricing-grid-poc">
+    %s
+  </div>
+</div>`, gridID, plansHtml)
+		}
+
+		discountBadgeHtml := ""
+		if discount != "" {
+			discountBadgeHtml = fmt.Sprintf(` <span style="color:#10b981; font-size:0.8rem;">(%s)</span>`, discount)
+		}
+
+		return fmt.Sprintf(`
+<div class="pricing-wrapper" id="%s">
+  <div class="billing-toggle">
+    <span>%s</span>
+    <label class="switch-poc">
+      <input type="checkbox" onchange="togglePricingGrid(this, '%s')">
+      <span class="slider-poc"></span>
+    </label>
+    <span>%s%s</span>
+  </div>
+  <div class="pricing-grid-poc">
+    %s
+  </div>
+</div>
+<script>
+if (typeof togglePricingGrid !== 'function') {
+  window.togglePricingGrid = function(checkbox, gridId) {
+    var container = document.getElementById(gridId);
+    if (!container) return;
+    var priceElements = container.querySelectorAll('.price-val');
+    priceElements.forEach(function(el) {
+      var monthly = el.getAttribute('data-monthly');
+      var annual = el.getAttribute('data-annual');
+      el.innerText = checkbox.checked ? annual : monthly;
+    });
+    var periodElements = container.querySelectorAll('.price-period');
+    periodElements.forEach(function(el) {
+      var monthly = el.getAttribute('data-monthly');
+      var annual = el.getAttribute('data-annual');
+      el.innerText = checkbox.checked ? annual : monthly;
+    });
+    var buttonElements = container.querySelectorAll('.pricing-btn');
+    buttonElements.forEach(function(el) {
+      var monthlyUrl = el.getAttribute('data-monthly-url');
+      var annualUrl = el.getAttribute('data-annual-url');
+      if (monthlyUrl && annualUrl) {
+        el.setAttribute('href', checkbox.checked ? annualUrl : monthlyUrl);
+      }
+    });
+  }
+}
+</script>`, gridID, monthlyLabel, gridID, annualLabel, discountBadgeHtml, plansHtml)
 	})
 
 	// Capabilities Grid: {{ capabilities-grid }} ... {{ /capabilities-grid }}

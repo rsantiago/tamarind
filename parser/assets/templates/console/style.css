@@ -558,4 +558,37 @@ a:hover {
     box-shadow: 0 0 8px rgba(0, 255, 65, 0.2) !important;
 }
 
+/* Pricing Card Component Readability Overrides */
+.card-badge-poc {
+    background-color: var(--primary-color) !important;
+    color: var(--background-color) !important;
+}
+
+[data-theme="light"] .card-badge-poc {
+    color: #FFFFFF !important;
+}
+
+.price-card.featured .pricing-btn {
+    background-color: var(--primary-color) !important;
+    color: var(--background-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.price-card.featured .pricing-btn:hover {
+    background-color: var(--text-color) !important;
+    color: var(--background-color) !important;
+    border-color: var(--text-color) !important;
+    box-shadow: 0 0 12px rgba(0, 255, 65, 0.4) !important;
+}
+
+[data-theme="light"] .price-card.featured .pricing-btn {
+    color: #FFFFFF !important;
+}
+
+[data-theme="light"] .price-card.featured .pricing-btn:hover {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    border-color: #000000 !important;
+}
+
 

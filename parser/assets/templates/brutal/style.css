@@ -12,8 +12,8 @@
     --secondary-color: #00FFFF; /* Cyan */
     --accent-color: #FF00FF; /* Magenta */
     --background-color: #FFFFFF;
-    --card-bg: #FFFFFF;
-    --header-bg: #FFFF00;
+    --card-bg:          #F3F4F6;
+    --header-bg:        #FFFF00;
     --text-color: #000000;
     --text-secondary: #000000;
     --heading-color: #000000;
@@ -36,8 +36,8 @@
 
 [data-theme="dark"] {
     --background-color: #000000;
-    --card-bg: #000000;
-    --header-bg: #000000;
+    --card-bg:          #111111;
+    --header-bg:        #000000;
     --text-color: #FFFFFF;
     --text-secondary: #FFFFFF;
     --heading-color: #FFFFFF;
@@ -590,8 +590,8 @@ figcaption { font-family: var(--font-heading); font-size: 1rem; font-weight: 700
 .canvas-mode-active .callout,
 .canvas-mode-active .capability-card {
     border-radius: 0px !important;
-    border: 3px solid #000000 !important;
-    box-shadow: 8px 8px 0px #000000 !important;
+    border: 3px solid var(--border-color, #000000) !important;
+    box-shadow: var(--shadow, 8px 8px 0px #000000) !important;
 }
 
 /* Constrain canvas layout width and cozy top margin for Brutal */
@@ -657,6 +657,168 @@ figcaption { font-family: var(--font-heading); font-size: 1rem; font-weight: 700
 .tamarind-accordion[open] .tamarind-accordion-summary::after {
     color: var(--primary-color, #FF00FF) !important;
 }
+
+/* Brutal pricing grid overrides */
+.price-card {
+    border: var(--border-width, 4px) solid var(--border-color, #000000) !important;
+    border-radius: 0px !important;
+    box-shadow: var(--shadow, 8px 8px 0px #000000) !important;
+    background-color: var(--card-bg, #FFFFFF) !important;
+    background-image: none !important;
+    transition: transform 0.1s, box-shadow 0.1s !important;
+}
+
+.price-card:hover {
+    transform: translate(-4px, -4px) !important;
+    box-shadow: var(--shadow-hover, 12px 12px 0px #000000) !important;
+    border-color: var(--border-color, #000000) !important;
+}
+
+.price-card.featured {
+    background-color: var(--primary-color, #FFFF00) !important;
+    border-color: var(--border-color, #000000) !important;
+    transform: none !important;
+    box-shadow: var(--shadow, 8px 8px 0px #000000) !important;
+}
+
+.price-card.featured:hover {
+    transform: translate(-4px, -4px) !important;
+    box-shadow: var(--shadow-hover, 12px 12px 0px #000000) !important;
+}
+
+/* Ensure perfect black text contrast inside the featured price card */
+.price-card.featured h1,
+.price-card.featured h2,
+.price-card.featured h3,
+.price-card.featured h4,
+.price-card.featured h5,
+.price-card.featured h6,
+.price-card.featured .price-val,
+.price-card.featured .price-period,
+.price-card.featured ul,
+.price-card.featured li,
+.price-card.featured li::before {
+    color: #000000 !important;
+}
+
+.pricing-btn {
+    border: var(--border-width, 4px) solid var(--border-color, #000000) !important;
+    border-radius: 0px !important;
+    background-color: var(--background-color, #FFFFFF) !important;
+    color: var(--text-color, #000000) !important;
+    box-shadow: 4px 4px 0px var(--border-color, #000000) !important;
+    transition: transform 0.1s, box-shadow 0.1s !important;
+    text-transform: uppercase;
+    font-family: var(--font-heading, inherit);
+}
+
+.pricing-btn:hover {
+    transform: translate(-2px, -2px) !important;
+    box-shadow: 6px 6px 0px var(--border-color, #000000) !important;
+    background-color: var(--primary-color, #FFFF00) !important;
+    color: #000000 !important;
+}
+
+.price-card.featured .pricing-btn {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+}
+
+.price-card.featured .pricing-btn:hover {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+.card-badge-poc {
+    border: var(--border-width, 4px) solid var(--border-color, #000000) !important;
+    border-radius: 0px !important;
+    background-color: var(--accent-color, #FF00FF) !important;
+    color: #000000 !important;
+    font-family: var(--font-heading, inherit);
+    text-transform: uppercase;
+}
+
+.billing-toggle .slider-poc {
+    border-radius: 0px !important;
+    border: 3px solid var(--border-color, #000000) !important;
+    background-color: #ffffff !important;
+    box-shadow: 3px 3px 0px var(--border-color, #000000) !important;
+}
+
+.billing-toggle .slider-poc:before {
+    border-radius: 0px !important;
+    border: 2px solid var(--border-color, #000000) !important;
+    background-color: var(--secondary-color, #00FFFF) !important;
+}
+
+.billing-toggle input:checked + .slider-poc {
+    background-color: var(--primary-color, #FFFF00) !important;
+}
+
+[data-theme="dark"] .pricing-btn {
+    color: #FFFFFF !important;
+    background-color: #000000 !important;
+}
+
+[data-theme="dark"] .pricing-btn:hover {
+    color: #000000 !important;
+}
+
+[data-theme="dark"] .price-card.featured .pricing-btn {
+    color: #FFFFFF !important;
+    background-color: #000000 !important;
+}
+
+[data-theme="dark"] .price-card.featured .pricing-btn:hover {
+    color: #000000 !important;
+    background-color: #FFFFFF !important;
+}
+
+[data-theme="dark"] .price-card.featured .card-badge-poc {
+    background-color: var(--secondary-color, #00FFFF) !important;
+    color: #000000 !important;
+}
+
+[data-theme="dark"] .card-badge-poc {
+    color: #000000 !important;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    color: #000000 !important;
+    background-color: var(--primary-color) !important;
+}
+
+/* Brutal dropdown overrides */
+.tamarind-select-wrapper {
+    max-width: 100% !important;
+}
+
+.tamarind-select {
+    border: var(--border-width, 4px) solid var(--border-color, #000000) !important;
+    border-radius: 0px !important;
+    background-color: var(--background-color, #FFFFFF) !important;
+    color: var(--text-color, #000000) !important;
+    box-shadow: 4px 4px 0px var(--border-color, #000000) !important;
+    font-family: var(--font-heading, inherit) !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+
+.tamarind-select:hover {
+    background-color: var(--primary-color, #FFFF00) !important;
+    color: #000000 !important;
+}
+
+.tamarind-select:focus {
+    border-color: var(--border-color, #000000) !important;
+    box-shadow: 6px 6px 0px var(--border-color, #000000) !important;
+}
+
+[data-theme="dark"] .tamarind-select:hover {
+    background-color: var(--primary-color, #FF00FF) !important;
+    color: #000000 !important;
+}
+
 
 
 

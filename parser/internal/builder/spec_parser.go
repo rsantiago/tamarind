@@ -87,6 +87,12 @@ func VerifyTheme(analysis *CSSAnalysis, requirements []Requirement) []string {
 // CheckRequirement evaluates if a single requirement is met by the given CSSAnalysis.
 func CheckRequirement(analysis *CSSAnalysis, req Requirement) bool {
 	switch req.Type {
+	case "contrast-ratio":
+		if req.Name == "background-contrast" {
+			return verifyBackgroundContrast(analysis)
+		}
+		return true
+
 	case "css-variable":
 		return analysis.Variables[req.Name]
 
@@ -190,4 +196,52 @@ func CheckRequirement(analysis *CSSAnalysis, req Requirement) bool {
 	}
 
 	return false
+}
+
+func verifyBackgroundContrast(analysis *CSSAnalysis) bool {
+	// 1. Resolve light mode variables
+	lightVars := analysis.LightVars
+	lightBgVal := ResolveVal(lightVars["--background-color"], lightVars)
+	lightCardVal := ResolveVal(lightVars["--card-bg"], lightVars)
+
+	// 2. Resolve dark mode variables (inheriting light mode ones)
+	darkVars := make(map[string]string)
+	for k, v := range analysis.LightVars {
+		darkVars[k] = v
+	}
+	for k, v := range analysis.DarkVars {
+		darkVars[k] = v
+	}
+	darkBgVal := ResolveVal(darkVars["--background-color"], darkVars)
+	darkCardVal := ResolveVal(darkVars["--card-bg"], darkVars)
+
+	// 3. Verify light mode contrast
+	r1, g1, b1, ok1 := ParseColor(lightBgVal)
+	r2, g2, b2, ok2 := ParseColor(lightCardVal)
+	if !ok1 || !ok2 {
+		return false
+	}
+	lLightBg := RelativeLuminance(r1, g1, b1)
+	lLightCard := RelativeLuminance(r2, g2, b2)
+	lightRatio := ContrastRatio(lLightBg, lLightCard)
+	
+	if lightRatio < 1.015 {
+		return false
+	}
+
+	// 4. Verify dark mode contrast
+	r3, g3, b3, ok3 := ParseColor(darkBgVal)
+	r4, g4, b4, ok4 := ParseColor(darkCardVal)
+	if !ok3 || !ok4 {
+		return false
+	}
+	lDarkBg := RelativeLuminance(r3, g3, b3)
+	lDarkCard := RelativeLuminance(r4, g4, b4)
+	darkRatio := ContrastRatio(lDarkBg, lDarkCard)
+
+	if darkRatio < 1.015 {
+		return false
+	}
+
+	return true
 }

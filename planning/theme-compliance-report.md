@@ -1,50 +1,50 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-06-01 23:32:31
+**Generated**: 2026-06-03 21:41:35
 
-**Total Requirements**: 118 required, 3 optional
+**Total Requirements**: 128 required, 3 optional
 
 ## Summary
 
 | Theme | Status | Passed | Failed | Score |
 |-------|--------|--------|--------|-------|
-| **atlas** | ✅ PASS | 118 | 0 | 100% |
-| **basic** | ✅ PASS | 118 | 0 | 100% |
-| **bento** | ✅ PASS | 118 | 0 | 100% |
-| **bird** | ✅ PASS | 118 | 0 | 100% |
-| **blue** | ✅ PASS | 118 | 0 | 100% |
-| **brutal** | ✅ PASS | 118 | 0 | 100% |
-| **canvas** | ✅ PASS | 118 | 0 | 100% |
-| **classic** | ✅ PASS | 118 | 0 | 100% |
-| **console** | ✅ PASS | 118 | 0 | 100% |
-| **cupertino** | ✅ PASS | 118 | 0 | 100% |
-| **eclipse** | ✅ PASS | 118 | 0 | 100% |
-| **editorial** | ✅ PASS | 118 | 0 | 100% |
-| **forge** | ✅ PASS | 118 | 0 | 100% |
-| **gallery** | ✅ PASS | 118 | 0 | 100% |
-| **gram** | ✅ PASS | 118 | 0 | 100% |
-| **hacker** | ✅ PASS | 118 | 0 | 100% |
-| **midnight** | ✅ PASS | 118 | 0 | 100% |
-| **neon** | ✅ PASS | 118 | 0 | 100% |
-| **network** | ✅ PASS | 118 | 0 | 100% |
-| **news** | ✅ PASS | 118 | 0 | 100% |
-| **nexus** | ✅ PASS | 118 | 0 | 100% |
-| **nordic** | ✅ PASS | 118 | 0 | 100% |
-| **overflow** | ✅ PASS | 118 | 0 | 100% |
-| **pastel** | ✅ PASS | 118 | 0 | 100% |
-| **pod** | ✅ PASS | 118 | 0 | 100% |
-| **prose** | ✅ PASS | 118 | 0 | 100% |
-| **protocol** | ✅ PASS | 118 | 0 | 100% |
-| **scribe** | ✅ PASS | 118 | 0 | 100% |
-| **stream** | ✅ PASS | 118 | 0 | 100% |
-| **tube** | ✅ PASS | 118 | 0 | 100% |
-| **zephyr** | ✅ PASS | 118 | 0 | 100% |
+| **atlas** | ✅ PASS | 128 | 0 | 100% |
+| **basic** | ✅ PASS | 128 | 0 | 100% |
+| **bento** | ✅ PASS | 128 | 0 | 100% |
+| **bird** | ✅ PASS | 128 | 0 | 100% |
+| **blue** | ✅ PASS | 128 | 0 | 100% |
+| **brutal** | ✅ PASS | 128 | 0 | 100% |
+| **canvas** | ✅ PASS | 128 | 0 | 100% |
+| **classic** | ✅ PASS | 128 | 0 | 100% |
+| **console** | ✅ PASS | 128 | 0 | 100% |
+| **cupertino** | ✅ PASS | 128 | 0 | 100% |
+| **eclipse** | ✅ PASS | 128 | 0 | 100% |
+| **editorial** | ✅ PASS | 128 | 0 | 100% |
+| **forge** | ✅ PASS | 128 | 0 | 100% |
+| **gallery** | ✅ PASS | 128 | 0 | 100% |
+| **gram** | ✅ PASS | 128 | 0 | 100% |
+| **hacker** | ✅ PASS | 128 | 0 | 100% |
+| **midnight** | ✅ PASS | 128 | 0 | 100% |
+| **neon** | ✅ PASS | 128 | 0 | 100% |
+| **network** | ✅ PASS | 128 | 0 | 100% |
+| **news** | ✅ PASS | 128 | 0 | 100% |
+| **nexus** | ✅ PASS | 128 | 0 | 100% |
+| **nordic** | ✅ PASS | 128 | 0 | 100% |
+| **overflow** | ✅ PASS | 128 | 0 | 100% |
+| **pastel** | ✅ PASS | 128 | 0 | 100% |
+| **pod** | ✅ PASS | 128 | 0 | 100% |
+| **prose** | ✅ PASS | 128 | 0 | 100% |
+| **protocol** | ✅ PASS | 128 | 0 | 100% |
+| **scribe** | ✅ PASS | 128 | 0 | 100% |
+| **stream** | ✅ PASS | 128 | 0 | 100% |
+| **tube** | ✅ PASS | 128 | 0 | 100% |
+| **zephyr** | ✅ PASS | 128 | 0 | 100% |
 
 ---
 
 ## Theme: atlas — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -175,6 +175,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -205,6 +214,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -224,7 +234,7 @@
 
 ## Theme: basic — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -355,6 +365,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -385,6 +404,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -404,7 +424,7 @@
 
 ## Theme: bento — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -535,6 +555,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -565,6 +594,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -584,7 +614,7 @@
 
 ## Theme: bird — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -715,6 +745,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -745,6 +784,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -764,7 +804,7 @@
 
 ## Theme: blue — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -895,6 +935,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -925,6 +974,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -944,7 +994,7 @@
 
 ## Theme: brutal — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1075,6 +1125,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -1105,6 +1164,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -1124,7 +1184,7 @@
 
 ## Theme: canvas — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1255,6 +1315,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -1285,6 +1354,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -1304,7 +1374,7 @@
 
 ## Theme: classic — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1435,6 +1505,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -1465,6 +1544,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -1484,7 +1564,7 @@
 
 ## Theme: console — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1615,6 +1695,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -1645,6 +1734,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -1664,7 +1754,7 @@
 
 ## Theme: cupertino — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1795,6 +1885,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -1825,6 +1924,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -1844,7 +1944,7 @@
 
 ## Theme: eclipse — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1975,6 +2075,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -2005,6 +2114,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -2024,7 +2134,7 @@
 
 ## Theme: editorial — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2155,6 +2265,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -2185,6 +2304,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -2204,7 +2324,7 @@
 
 ## Theme: forge — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2335,6 +2455,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -2365,6 +2494,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -2384,7 +2514,7 @@
 
 ## Theme: gallery — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2515,6 +2645,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -2545,6 +2684,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -2564,7 +2704,7 @@
 
 ## Theme: gram — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2695,6 +2835,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -2725,6 +2874,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -2744,7 +2894,7 @@
 
 ## Theme: hacker — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2875,6 +3025,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -2905,6 +3064,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -2924,7 +3084,7 @@
 
 ## Theme: midnight — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3055,6 +3215,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -3085,6 +3254,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -3104,7 +3274,7 @@
 
 ## Theme: neon — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3235,6 +3405,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -3265,6 +3444,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -3284,7 +3464,7 @@
 
 ## Theme: network — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3415,6 +3595,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -3445,6 +3634,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -3464,7 +3654,7 @@
 
 ## Theme: news — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3595,6 +3785,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -3625,6 +3824,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -3644,7 +3844,7 @@
 
 ## Theme: nexus — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3775,6 +3975,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -3805,6 +4014,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -3824,7 +4034,7 @@
 
 ## Theme: nordic — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3955,6 +4165,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -3985,6 +4204,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -4004,7 +4224,7 @@
 
 ## Theme: overflow — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4135,6 +4355,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -4165,6 +4394,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -4184,7 +4414,7 @@
 
 ## Theme: pastel — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4315,6 +4545,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -4345,6 +4584,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -4364,7 +4604,7 @@
 
 ## Theme: pod — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4495,6 +4735,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -4525,6 +4774,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -4544,7 +4794,7 @@
 
 ## Theme: prose — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4675,6 +4925,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -4705,6 +4964,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -4724,7 +4984,7 @@
 
 ## Theme: protocol — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4855,6 +5115,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -4885,6 +5154,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -4904,7 +5174,7 @@
 
 ## Theme: scribe — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5035,6 +5305,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -5065,6 +5344,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -5084,7 +5364,7 @@
 
 ## Theme: stream — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5215,6 +5495,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -5245,6 +5534,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -5264,7 +5554,7 @@
 
 ## Theme: tube — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5395,6 +5685,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -5425,6 +5724,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 
@@ -5444,7 +5744,7 @@
 
 ## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 118/118 (100%)
+**Score**: 128/128 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5575,6 +5875,15 @@
 - `.tamarind-accordion` — Collapsible HTML5 details accordion card block
 - `.tamarind-accordion-summary` — Interactive summary header text inside details card
 - `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
 
 #### responsive
 
@@ -5605,6 +5914,7 @@
 - `--text-color` — Main body text color
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
 
 #### variables-spacing
 

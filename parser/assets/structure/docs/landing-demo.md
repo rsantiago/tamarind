@@ -144,6 +144,34 @@ canvas: true
 
 ---
 
+<!-- 5.1 High-Impact Pricing Grid -->
+<div style="text-align: center; margin: 4rem 0 1rem 0;">
+  <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--font-heading, inherit);">Simple, Transparent Pricing</h2>
+  <p style="color: var(--text-secondary, #64748b); max-width: 600px; margin: 0 auto 2rem auto;">Choose the tier that matches your deployment scope. Cancel or switch plans at any time.</p>
+</div>
+
+{{ pricing monthly_label="Monthly Billing" annual_label="Annual Billing" discount="Save 20%" }}
+  {{ plan title="Personal" price_monthly="0" price_annual="0" period_monthly="Free forever" period_annual="Free forever" button="Get Started" }}
+    - 1 Project Site
+    - Basic Templates
+    - Community Support
+  {{ /plan }}
+  {{ plan title="Developer" price_monthly="19" price_annual="15" period_monthly="per month" period_annual="billed annually" featured="true" badge="Popular" button="Start Pro Trial" }}
+    - Unlimited Sites
+    - All 31 Pro Themes
+    - Contextual Sidebar
+    - Priority Email Support
+  {{ /plan }}
+  {{ plan title="Enterprise" price_monthly="99" price_annual="79" period_monthly="per month" period_annual="billed annually" button="Contact Sales" }}
+    - Multi-Seat Licensing
+    - WASM Custom Plugins
+    - Air-Gapped Deployment
+    - 24/7 Phone SLA
+  {{ /plan }}
+{{ /pricing }}
+
+---
+
 <!-- 6. Frequently Asked Questions (Native Accordion Details) -->
 <div style="text-align: center; margin: 4rem 0 1rem 0;">
   <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--font-heading, inherit);">Frequently Asked Questions</h2>

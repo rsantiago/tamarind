@@ -315,11 +315,57 @@ func TestProcessShortcodes_UIComponents(t *testing.T) {
 				`<div class="timeline-desc">Initialize <pre><code>tamarind init</code></pre></div>`,
 			},
 		},
+		{
+			name: "Pricing Grid with plans (Toggle Mode)",
+			input: `{{ pricing monthly_label="Monthly" annual_label="Annual" discount="Save 20%" }}
+  {{ plan title="Personal" price_monthly="19" price_annual="15" period_monthly="per month" period_annual="billed annually" button="Get Started" url_monthly="https://checkout.stripe.com/monthly-pro" url_annual="https://checkout.stripe.com/annual-pro" }}
+    - 1 Project Site
+  {{ /plan }}
+{{ /pricing }}`,
+			expected: []string{
+				`<div class="pricing-wrapper" id="pricing-grid-`,
+				`class="billing-toggle"`,
+				`<input type="checkbox" onchange="togglePricingGrid(this, 'pricing-grid-`,
+				`<div class="pricing-grid-poc">`,
+				`<div class="price-card">`,
+				`<h4>Personal</h4>`,
+				`<div class="price-val" data-monthly="$19" data-annual="$15">$19</div>`,
+				`<div class="price-period" data-monthly="per month" data-annual="billed annually">`,
+				`<li>1 Project Site</li>`,
+				`<a href="https://checkout.stripe.com/monthly-pro" class="pricing-btn" data-monthly-url="https://checkout.stripe.com/monthly-pro" data-annual-url="https://checkout.stripe.com/annual-pro">Get Started</a>`,
+			},
+		},
+		{
+			name: "Pricing Grid with plans (Static Mode)",
+			input: `{{ pricing }}
+  {{ plan title="Personal" price="0" period="Free forever" button="Get Started" url="https://personal.checkout" }}
+    - 1 Project Site
+  {{ /plan }}
+{{ /pricing }}`,
+			expected: []string{
+				`<div class="pricing-wrapper" id="pricing-grid-`,
+				`<div class="pricing-grid-poc">`,
+				`<div class="price-card">`,
+				`<h4>Personal</h4>`,
+				`<div class="price-val">$0</div>`,
+				`<div class="price-period">Free forever</div>`,
+				`<li>1 Project Site</li>`,
+				`<a href="https://personal.checkout" class="pricing-btn">Get Started</a>`,
+			},
+		},
 	}
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			got := processShortcodes(tt.input, "")
+			
+			// For Static Mode, assert billing-toggle is omitted
+			if tt.name == "Pricing Grid with plans (Static Mode)" {
+				if strings.Contains(got, "billing-toggle") {
+					t.Errorf("[%s] Expected output NOT to contain billing-toggle, but it did", tt.name)
+				}
+			}
+
 			for _, exp := range tt.expected {
 				if !strings.Contains(got, exp) {
 					t.Errorf("[%s] Expected output to contain:\n%s\nGot:\n%s", tt.name, exp, got)

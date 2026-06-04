@@ -7,6 +7,7 @@ Themes are the **sole owners** of the visual presentation.
 *   **No Inline Styles**: Content (Markdown) should never require inline `style="..."` attributes to look correct.
 *   **Class-Driven**: Visuals are applied via standard utility classes (e.g., `.card`, `.btn`).
 *   **Responsiveness**: The theme handles all responsive behavior. A `<div class="card">` must automatically look good on mobile and desktop without user intervention.
+*   **Background Contrast**: To guarantee readability and visual structure, the card background (`--card-bg`) must provide a visible, contrasting offset from the page background (`--background-color`) in both light and dark modes (e.g., in light mode, pairing a `#F1F5F9` body background with `#FFFFFF` cards, or using a subtle card border/shadow system). Pricing cards and component blocks must never blend invisibly into the page background.
 
 ---
 
@@ -93,6 +94,10 @@ items:
     scope: ":root"
     required: true
     description: "Separators and input borders"
+  - name: "background-contrast"
+    type: contrast-ratio
+    required: true
+    description: "Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes"
 ```
 
 ### Typography
@@ -808,6 +813,53 @@ items:
     scope: global
     required: true
     description: "Expanded text content inside details accordion block"
+
+  # 8. High-Impact Pricing Grid
+  - name: ".pricing-wrapper"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Container wrapper for the pricing toggle and grid layout"
+  - name: ".billing-toggle"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Billing toggle container alignment and sizing"
+  - name: ".switch-poc"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Switch switch control layout"
+  - name: ".slider-poc"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Slider component layout and translation actions"
+  - name: ".pricing-grid-poc"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Pricing comparison cards flex grid wrapper"
+  - name: ".price-card"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Individual pricing plan card container"
+  - name: ".price-val"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Plan price amount display typography styling"
+  - name: ".price-period"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Plan billing recurring period description styling"
+  - name: ".pricing-btn"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Plan call to action button and link classes"
 ```
 
 ---

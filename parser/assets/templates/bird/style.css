@@ -8,8 +8,8 @@
 
 :root {
     /* Colors */
-    --background-color: #FFFFFF;
-    --header-bg: rgba(255, 255, 255, 0.95);
+    --background-color: #F4F7F5;
+    --header-bg: rgba(244, 247, 245, 0.95);
     --text-color: #0F1419;
     --text-secondary: #536471;
     --primary-color: #0B8A5A; /* Sprout Botanical Green */
@@ -40,7 +40,7 @@
     --text-secondary: #8B98A5;
     --primary-color: #10B981; /* Emerald Sprout */
     --border-color: #38444D;
-    --card-bg: #15202B;
+    --card-bg: #1E2732;
     --hover-bg: rgba(255, 255, 255, 0.03);
 }
 

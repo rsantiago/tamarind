@@ -763,6 +763,198 @@ hr {
   margin-bottom: 0;
 }
 
+/* --- Pricing Grid Component --- */
+.pricing-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  margin: 2.5rem 0;
+  width: 100%;
+}
+
+.billing-toggle {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color, #1f2937);
+  user-select: none;
+}
+
+.switch-poc {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+}
+
+.switch-poc input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider-poc {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--border-color, #cbd5e1);
+  transition: 0.3s;
+  border-radius: 34px;
+}
+
+.slider-poc:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.switch-poc input:checked + .slider-poc {
+  background-color: var(--primary-color, #3b82f6);
+}
+
+.switch-poc input:checked + .slider-poc:before {
+  transform: translateX(24px);
+}
+
+.pricing-grid-poc {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.75rem;
+  width: 100%;
+}
+
+.price-card {
+  padding: 2.5rem 2rem;
+  border-radius: var(--radius-md, 12px);
+  border: 1px solid var(--border-color, rgba(0, 0, 0, 0.06));
+  background-color: var(--card-bg, #ffffff);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.015), rgba(0, 0, 0, 0.015));
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+  height: 100%;
+}
+
+[data-theme="dark"] .price-card {
+  border-color: var(--border-color, rgba(255, 255, 255, 0.08));
+  background-color: var(--card-bg, rgba(255, 255, 255, 0.03));
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.03));
+}
+
+.price-card.featured {
+  border-color: var(--primary-color, #3b82f6);
+  box-shadow: 0 8px 30px rgba(59, 130, 246, 0.1);
+  transform: scale(1.02);
+}
+
+.price-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+  border-color: var(--primary-color, rgba(59, 130, 246, 0.3));
+}
+
+.price-card.featured:hover {
+  transform: translateY(-4px) scale(1.02);
+}
+
+.card-badge-poc {
+  position: absolute;
+  top: 1rem;
+  right: 1.25rem;
+  background-color: var(--primary-color, #3b82f6);
+  color: white;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.price-header h4 {
+  margin: 0 0 0.5rem 0 !important;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--heading-color, var(--text-color, #111827));
+}
+
+.price-val {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--heading-color, var(--text-color, #111827));
+  line-height: 1;
+}
+
+.price-period {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #6b7280);
+  margin-top: 0.25rem;
+}
+
+.price-card ul {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary, #4b5563);
+}
+
+.price-card li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.price-card li::before {
+  content: "✓";
+  color: #10b981;
+  font-weight: bold;
+  flex-shrink: 0;
+}
+
+.pricing-btn {
+  padding: 0.85rem;
+  border-radius: var(--radius-md, 8px);
+  border: 1px solid var(--primary-color, #3b82f6);
+  background: transparent;
+  color: var(--primary-color, #3b82f6);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+  text-decoration: none;
+  font-size: 0.95rem;
+  margin-top: auto;
+}
+
+.price-card.featured .pricing-btn {
+  background: var(--primary-color, #3b82f6);
+  color: white;
+}
+
+.pricing-btn:hover {
+  background: var(--primary-color, #3b82f6);
+  color: white;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+
 /* --- Global Spacing Specificity Collision Fixes & Premium Component Typography Resets --- */
 
 /* Snug top-left aligned typography inside standard and premium components across all themes */
@@ -771,6 +963,7 @@ hr {
 .card-padding h1, .card-padding h2, .card-padding h3, .card-padding h4, .card-padding h5, .card-padding h6,
 .feature-card h1, .feature-card h2, .feature-card h3, .feature-card h4, .feature-card h5, .feature-card h6,
 .metric-card h1, .metric-card h2, .metric-card h3, .metric-card h4, .metric-card h5, .metric-card h6,
+.price-card h1, .price-card h2, .price-card h3, .price-card h4, .price-card h5, .price-card h6,
 .timeline-content h1, .timeline-content h2, .timeline-content h3, .timeline-content h4, .timeline-content h5, .timeline-content h6,
 .alert-container h1, .alert-container h2, .alert-container h3, .alert-container h4, .alert-container h5, .alert-container h6,
 .alert h1, .alert h2, .alert h3, .alert h4, .alert h5, .alert h6,

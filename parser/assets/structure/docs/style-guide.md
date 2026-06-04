@@ -421,3 +421,178 @@ Theme-aware native details/summary collapsible accordions featuring clean expand
   {{ /accordion-item }}
 {{ /accordion }}
 
+---
+
+### 6.8 High-Impact Pricing Grid (Interactive Toggle Mode)
+A premium comparison card grid with active, client-side toggling between monthly and annual rates and dynamic checkout URL actions.
+
+**Shortcode Syntax:**
+```markdown
+{{{{!}}pricing monthly_label="Monthly" annual_label="Annual" discount="Save 20%"}}
+  {{{{!}}plan title="Personal" price_monthly="0" price_annual="0" period_monthly="Free forever" period_annual="Free forever" button="Get Started" url="https://checkout.stripe.com/free-tier"}}
+    - 1 Project Site
+    - Basic Templates
+    - Community Support
+  {{{{!}}/plan}}
+  {{{{!}}plan title="Developer" price_monthly="19" price_annual="15" period_monthly="per month" period_annual="billed annually" url_monthly="https://checkout.stripe.com/monthly-pro" url_annual="https://checkout.stripe.com/annual-pro" featured="true" badge="Popular" button="Start Pro Trial"}}
+    - Unlimited Sites
+    - All 31 Pro Themes
+    - Contextual Sidebar
+    - Priority Email Support
+  {{{{!}}/plan}}
+  {{{{!}}plan title="Enterprise" price_monthly="99" price_annual="79" period_monthly="per month" period_annual="billed annually" url="https://checkout.stripe.com/enterprise-contact" button="Contact Sales"}}
+    - Multi-Seat Licensing
+    - WASM Custom Plugins
+    - Air-Gapped Deployment
+    - 24/7 Phone SLA
+  {{{{!}}/plan}}
+{{{{!}}/pricing}}
+```
+
+**Live Output:**
+{{ pricing monthly_label="Monthly" annual_label="Annual" discount="Save 20%" }}
+  {{ plan title="Personal" price_monthly="0" price_annual="0" period_monthly="Free forever" period_annual="Free forever" button="Get Started" url="https://checkout.stripe.com/free-tier" }}
+    - 1 Project Site
+    - Basic Templates
+    - Community Support
+  {{ /plan }}
+  {{ plan title="Developer" price_monthly="19" price_annual="15" period_monthly="per month" period_annual="billed annually" url_monthly="https://checkout.stripe.com/monthly-pro" url_annual="https://checkout.stripe.com/annual-pro" featured="true" badge="Popular" button="Start Pro Trial" }}
+    - Unlimited Sites
+    - All 31 Pro Themes
+    - Contextual Sidebar
+    - Priority Email Support
+  {{ /plan }}
+  {{ plan title="Enterprise" price_monthly="99" price_annual="79" period_monthly="per month" period_annual="billed annually" url="https://checkout.stripe.com/enterprise-contact" button="Contact Sales" }}
+    - Multi-Seat Licensing
+    - WASM Custom Plugins
+    - Air-Gapped Deployment
+    - 24/7 Phone SLA
+  {{ /plan }}
+{{ /pricing }}
+
+---
+
+### 6.10 High-Impact Pricing Grid (2-Column Flat layout)
+A dual-column card layout, ideal for simple SaaS models or choosing between a free plan and a single paid tier.
+
+**Shortcode Syntax:**
+```markdown
+{{{{!}}pricing}}
+  {{{{!}}plan title="Hobby" price="0" period="Free forever" button="Start Free" url="https://checkout.stripe.com/hobby"}}
+    - 5 Project Sites
+    - Basic Layouts
+    - Community Support
+  {{{{!}}/plan}}
+  {{{{!}}plan title="Professional" price="29" period="per month" featured="true" badge="Popular" button="Get Pro" url="https://checkout.stripe.com/pro"}}
+    - Unlimited Sites
+    - Advanced Themes
+    - Priority Support
+  {{{{!}}/plan}}
+{{{{!}}/pricing}}
+```
+
+**Live Output:**
+{{ pricing }}
+  {{ plan title="Hobby" price="0" period="Free forever" button="Start Free" url="https://checkout.stripe.com/hobby" }}
+    - 5 Project Sites
+    - Basic Layouts
+    - Community Support
+  {{ /plan }}
+  {{ plan title="Professional" price="29" period="per month" featured="true" badge="Popular" button="Get Pro" url="https://checkout.stripe.com/pro" }}
+    - Unlimited Sites
+    - Advanced Themes
+    - Priority Support
+  {{ /plan }}
+{{ /pricing }}
+
+---
+
+### 6.11 High-Impact Pricing Grid (4-Column Multi-Tier layout)
+A 4-tier comparison grid optimized for scaling SaaS tiers from developers up to enterprise compliance.
+
+**Shortcode Syntax:**
+```markdown
+{{{{!}}pricing monthly_label="Monthly" annual_label="Annual" discount="Save 20%"}}
+  {{{{!}}plan title="Free" price_monthly="0" price_annual="0" period_monthly="Free forever" period_annual="Free forever" button="Get Started" url="https://checkout.stripe.com/free"}}
+    - 1 Site
+    - Standard Support
+  {{{{!}}/plan}}
+  {{{{!}}plan title="Startup" price_monthly="29" price_annual="23" period_monthly="per month" period_annual="billed annually" button="Start Startup Trial" url_monthly="https://checkout.stripe.com/startup-monthly" url_annual="https://checkout.stripe.com/startup-annual"}}
+    - 10 Sites
+    - Custom Domains
+    - Email Support
+  {{{{!}}/plan}}
+  {{{{!}}plan title="Growth" price_monthly="79" price_annual="63" period_monthly="per month" period_annual="billed annually" featured="true" badge="Recommended" button="Start Growth Trial" url_monthly="https://checkout.stripe.com/growth-monthly" url_annual="https://checkout.stripe.com/growth-annual"}}
+    - 50 Sites
+    - Advanced Analytics
+    - SLA Support
+  {{{{!}}/plan}}
+  {{{{!}}plan title="Enterprise" price_monthly="249" price_annual="199" period_monthly="per month" period_annual="billed annually" button="Contact Sales" url="https://checkout.stripe.com/enterprise"}}
+    - Unlimited Sites
+    - Dedicated Support
+    - Custom Plugins
+  {{{{!}}/plan}}
+{{{{!}}/pricing}}
+```
+
+**Live Output:**
+{{ pricing }}
+  {{ plan title="Free" price_monthly="0" price_annual="0" period_monthly="Free forever" period_annual="Free forever" button="Get Started" url="https://checkout.stripe.com/free" }}
+    - 1 Site
+    - Standard Support
+  {{ /plan }}
+  {{ plan title="Startup" price_monthly="29" price_annual="23" period_monthly="per month" period_annual="billed annually" button="Start Startup Trial" url_monthly="https://checkout.stripe.com/startup-monthly" url_annual="https://checkout.stripe.com/startup-annual" }}
+    - 10 Sites
+    - Custom Domains
+    - Email Support
+  {{ /plan }}
+  {{ plan title="Growth" price_monthly="79" price_annual="63" period_monthly="per month" period_annual="billed annually" featured="true" badge="Recommended" button="Start Growth Trial" url_monthly="https://checkout.stripe.com/growth-monthly" url_annual="https://checkout.stripe.com/growth-annual" }}
+    - 50 Sites
+    - Advanced Analytics
+    - SLA Support
+  {{ /plan }}
+  {{ plan title="Enterprise" price_monthly="249" price_annual="199" period_monthly="per month" period_annual="billed annually" button="Contact Sales" url="https://checkout.stripe.com/enterprise" }}
+    - Unlimited Sites
+    - Dedicated Support
+    - Custom Plugins
+  {{ /plan }}
+{{ /pricing }}
+
+---
+
+### 6.9 High-Impact Pricing Grid (Static Flat-Rate Mode)
+A clean pricing card layout displaying fixed static prices and simple redirects with no billing cycle toggle.
+
+**Shortcode Syntax:**
+```markdown
+{{{{!}}pricing}}
+  {{{{!}}plan title="Personal" price="0" period="Free forever" button="Get Started" url="https://checkout.stripe.com/free-tier"}}
+    - 1 Project Site
+    - Basic Templates
+    - Community Support
+  {{{{!}}/plan}}
+  {{{{!}}plan title="Developer" price="19" period="per month" url="https://checkout.stripe.com/pro-plan" featured="true" badge="Popular" button="Start Pro Trial"}}
+    - Unlimited Sites
+    - All 31 Pro Themes
+    - Contextual Sidebar
+    - Priority Email Support
+  {{{{!}}/plan}}
+{{{{!}}/pricing}}
+```
+
+**Live Output:**
+{{ pricing }}
+  {{ plan title="Personal" price="0" period="Free forever" button="Get Started" url="https://checkout.stripe.com/free-tier" }}
+    - 1 Project Site
+    - Basic Templates
+    - Community Support
+  {{ /plan }}
+  {{ plan title="Developer" price="19" period="per month" url="https://checkout.stripe.com/pro-plan" featured="true" badge="Popular" button="Start Pro Trial" }}
+    - Unlimited Sites
+    - All 31 Pro Themes
+    - Contextual Sidebar
+    - Priority Email Support
+  {{ /plan }}
+{{ /pricing }}
+
+
