@@ -819,6 +819,19 @@ figcaption { font-family: var(--font-heading); font-size: 1rem; font-weight: 700
     color: #000000 !important;
 }
 
+/* Brutal social proof ribbon overrides */
+.tamarind-social-ribbon-container,
+.tamarind-social-ribbon-card {
+    border: var(--border-width, 4px) solid var(--border-color, #000000) !important;
+    border-radius: 0px !important;
+    box-shadow: 6px 6px 0px var(--border-color, #000000) !important;
+}
+
+.tamarind-social-ribbon-card .avatar {
+    border: 3px solid var(--border-color, #000000) !important;
+    border-radius: 0px !important;
+}
+
 
 
 

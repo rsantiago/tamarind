@@ -353,6 +353,26 @@ func TestProcessShortcodes_UIComponents(t *testing.T) {
 				`<a href="https://personal.checkout" class="pricing-btn">Get Started</a>`,
 			},
 		},
+		{
+			name: "Social Proof Ribbon",
+			input: `{{ social_ribbon }}
+  {{ testimonial stars="5" avatar="../images/avatar_alex.png" author="Alex" handle="@alex_dev" }}
+    Setting up Tamarind took less than two minutes.
+  {{ /testimonial }}
+{{ /social_ribbon }}`,
+			expected: []string{
+				`<div class="tamarind-social-ribbon-container">`,
+				`<div class="tamarind-social-ribbon-track">`,
+				`<div class="tamarind-social-ribbon-card">`,
+				`<div class="profile">`,
+				`<img class="avatar" src="../images/avatar_alex.png" alt="Alex">`,
+				`<div class="profile-info">`,
+				`<span class="author">Alex</span>`,
+				`<span class="handle">@alex_dev</span>`,
+				`<div class="stars">★★★★★</div>`,
+				`<div class="quote">“Setting up Tamarind took less than two minutes.”</div>`,
+			},
+		},
 	}
 
 	for _, tt := range tests {

@@ -748,3 +748,10 @@ figcaption {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
 }
+
+/* Layout overrides for social proof components */
+.tamarind-social-ribbon-card .avatar {
+    margin: 0;
+    box-shadow: none;
+    border-radius: 50%;
+}

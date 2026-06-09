@@ -48,6 +48,113 @@ func processShortcodes(markdown, sourceDir string) string {
 		return fmt.Sprintf(`<div class="metrics-grid">%s</div>`, itemsHtml)
 	})
 
+	// Social Ribbon: {{ social_ribbon }} ... {{ /social_ribbon }}
+	reSocialRibbon := regexp.MustCompile(`(?s){{\s*social_ribbon\s*}}(.*?){{\s*/social_ribbon\s*}}`)
+	markdown = reSocialRibbon.ReplaceAllStringFunc(markdown, func(match string) string {
+		submatch := reSocialRibbon.FindStringSubmatch(match)
+		content := submatch[1]
+
+		reTestimonial := regexp.MustCompile(`(?s){{\s*testimonial\s+(.*?)\s*}}(.*?){{\s*/testimonial\s*}}`)
+		
+		// Parse testimonial cards
+		type testimonialData struct {
+			stars  string
+			avatar string
+			author string
+			handle string
+			quote  string
+		}
+		
+		var testimonials []testimonialData
+		reAttr := regexp.MustCompile(`(\w+)="([^"]*)"`)
+		
+		testimonialMatches := reTestimonial.FindAllStringSubmatch(content, -1)
+		for _, tMatch := range testimonialMatches {
+			attrStr := tMatch[1]
+			quote := strings.TrimSpace(tMatch[2])
+			
+			attrs := make(map[string]string)
+			for _, attrMatch := range reAttr.FindAllStringSubmatch(attrStr, -1) {
+				attrs[attrMatch[1]] = attrMatch[2]
+			}
+			
+			stars := attrs["stars"]
+			avatar := attrs["avatar"]
+			author := attrs["author"]
+			handle := attrs["handle"]
+			
+			testimonials = append(testimonials, testimonialData{
+				stars:  stars,
+				avatar: avatar,
+				author: author,
+				handle: handle,
+				quote:  quote,
+			})
+		}
+		
+		// Render function for cards
+		renderCards := func(items []testimonialData) string {
+			var sb strings.Builder
+			for _, t := range items {
+				// Convert stars number (e.g. "5") or raw stars (e.g. "★★★★★") to stars string
+				starsDisplay := ""
+				if numStars, err := strconv.Atoi(t.stars); err == nil {
+					for i := 0; i < numStars; i++ {
+						starsDisplay += "★"
+					}
+				} else {
+					starsDisplay = t.stars // if it's already "★★★★★"
+				}
+				if starsDisplay == "" {
+					starsDisplay = "★★★★★" // fallback default
+				}
+				
+				avatarHtml := ""
+				if t.avatar != "" {
+					avatarHtml = fmt.Sprintf(`<img class="avatar" src="%s" alt="%s">`, t.avatar, t.author)
+				}
+				
+				authorHtml := ""
+				if t.author != "" {
+					authorHtml = fmt.Sprintf(`<span class="author">%s</span>`, t.author)
+				}
+				
+				handleHtml := ""
+				if t.handle != "" {
+					handleHtml = fmt.Sprintf(`<span class="handle">%s</span>`, t.handle)
+				}
+				
+				starsHtml := ""
+				if starsDisplay != "" {
+					starsHtml = fmt.Sprintf(`<div class="stars">%s</div>`, starsDisplay)
+				}
+				
+				profileInfoHtml := ""
+				if authorHtml != "" || handleHtml != "" || starsHtml != "" {
+					profileInfoHtml = fmt.Sprintf(`<div class="profile-info">%s%s%s</div>`, authorHtml, handleHtml, starsHtml)
+				}
+				
+				profileHtml := ""
+				if avatarHtml != "" || profileInfoHtml != "" {
+					profileHtml = fmt.Sprintf(`<div class="profile">%s%s</div>`, avatarHtml, profileInfoHtml)
+				}
+				
+				sb.WriteString(fmt.Sprintf(`
+<div class="tamarind-social-ribbon-card">
+  <div class="quote">“%s”</div>
+  %s
+</div>`, t.quote, profileHtml))
+			}
+			return sb.String()
+		}
+		
+		// Render original list
+		originalCardsHtml := renderCards(testimonials)
+		
+		// Duplicate cards inside track for seamless marquee loop
+		return fmt.Sprintf(`<div class="tamarind-social-ribbon-container"><div class="tamarind-social-ribbon-track">%s%s</div></div>`, originalCardsHtml, originalCardsHtml)
+	})
+
 	// Features Grid: {{ features }} ... {{ /features }}
 	reFeatures := regexp.MustCompile(`(?s){{\s*features\s*}}(.*?){{\s*/features\s*}}`)
 	markdown = reFeatures.ReplaceAllStringFunc(markdown, func(match string) string {

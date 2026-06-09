@@ -591,4 +591,19 @@ a:hover {
     border-color: #000000 !important;
 }
 
+/* Console social proof ribbon overrides */
+.tamarind-social-ribbon-container,
+.tamarind-social-ribbon-card {
+    border: 2px solid var(--border-color, #008F11) !important;
+    border-radius: 0px !important;
+    background-color: #000000 !important;
+    box-shadow: 0 0 10px rgba(0, 255, 65, 0.15) !important;
+    font-family: var(--font-body, monospace) !important;
+}
+
+.tamarind-social-ribbon-card .avatar {
+    border: 2px solid var(--border-color, #008F11) !important;
+    border-radius: 0px !important;
+}
+
 

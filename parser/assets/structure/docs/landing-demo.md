@@ -201,6 +201,21 @@ canvas: true
 Static landing pages are incredibly cheap and performant to host. Deploying Tamarind's compiled single-page output directly to Netlify, Vercel, or GitHub Pages guarantees response times under **50ms** anywhere globally.
 {{ /alert }}
 
+{{ social_ribbon }}
+  {{ testimonial stars="5" avatar="../images/avatar_alex.png" author="Alex" handle="@alex_dev" }}
+    Setting up Tamarind took less than two minutes. The compiled static site loads in under 30ms globally, and my Lighthouse score is a perfect 100. Absolutely incredible tool for developers.
+  {{ /testimonial }}
+  {{ testimonial stars="5" avatar="../images/avatar_sarah.png" author="Sarah" handle="@sarah_creator" }}
+    As a designer, I love how easily Tamarind handles custom CSS tokens. I don't have to fight a complex framework; it just compiles my layouts into gorgeous, lightweight pages.
+  {{ /testimonial }}
+  {{ testimonial stars="5" avatar="../images/avatar_marcus.png" author="Marcus" handle="@marcus_biz" }}
+    Implementing the passwordless paywall flow eliminated all customer account friction. We saw a 35% bump in checkouts from day one without writing a single line of database code.
+  {{ /testimonial }}
+  {{ testimonial stars="5" avatar="../images/avatar_elena.png" author="Elena" handle="@elena_design" }}
+    The built-in SEO analyzer and automated Open Graph card generator saved us weeks of marketing setup. Our articles are indexing and ranking faster than ever.
+  {{ /testimonial }}
+{{ /social_ribbon }}
+
 <div style="text-align: center; margin: 4rem auto 2rem auto; max-width: 600px;">
   <h3 style="font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem; font-family: var(--font-heading, inherit);">Ready to launch your project?</h3>
   {{ button href="#" type="primary" }}Get Started for Free{{ /button }}

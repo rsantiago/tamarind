@@ -1,50 +1,50 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-06-03 21:41:35
+**Generated**: 2026-06-08 14:28:00
 
-**Total Requirements**: 128 required, 3 optional
+**Total Requirements**: 131 required, 3 optional
 
 ## Summary
 
 | Theme | Status | Passed | Failed | Score |
 |-------|--------|--------|--------|-------|
-| **atlas** | ✅ PASS | 128 | 0 | 100% |
-| **basic** | ✅ PASS | 128 | 0 | 100% |
-| **bento** | ✅ PASS | 128 | 0 | 100% |
-| **bird** | ✅ PASS | 128 | 0 | 100% |
-| **blue** | ✅ PASS | 128 | 0 | 100% |
-| **brutal** | ✅ PASS | 128 | 0 | 100% |
-| **canvas** | ✅ PASS | 128 | 0 | 100% |
-| **classic** | ✅ PASS | 128 | 0 | 100% |
-| **console** | ✅ PASS | 128 | 0 | 100% |
-| **cupertino** | ✅ PASS | 128 | 0 | 100% |
-| **eclipse** | ✅ PASS | 128 | 0 | 100% |
-| **editorial** | ✅ PASS | 128 | 0 | 100% |
-| **forge** | ✅ PASS | 128 | 0 | 100% |
-| **gallery** | ✅ PASS | 128 | 0 | 100% |
-| **gram** | ✅ PASS | 128 | 0 | 100% |
-| **hacker** | ✅ PASS | 128 | 0 | 100% |
-| **midnight** | ✅ PASS | 128 | 0 | 100% |
-| **neon** | ✅ PASS | 128 | 0 | 100% |
-| **network** | ✅ PASS | 128 | 0 | 100% |
-| **news** | ✅ PASS | 128 | 0 | 100% |
-| **nexus** | ✅ PASS | 128 | 0 | 100% |
-| **nordic** | ✅ PASS | 128 | 0 | 100% |
-| **overflow** | ✅ PASS | 128 | 0 | 100% |
-| **pastel** | ✅ PASS | 128 | 0 | 100% |
-| **pod** | ✅ PASS | 128 | 0 | 100% |
-| **prose** | ✅ PASS | 128 | 0 | 100% |
-| **protocol** | ✅ PASS | 128 | 0 | 100% |
-| **scribe** | ✅ PASS | 128 | 0 | 100% |
-| **stream** | ✅ PASS | 128 | 0 | 100% |
-| **tube** | ✅ PASS | 128 | 0 | 100% |
-| **zephyr** | ✅ PASS | 128 | 0 | 100% |
+| **atlas** | ✅ PASS | 131 | 0 | 100% |
+| **basic** | ✅ PASS | 131 | 0 | 100% |
+| **bento** | ✅ PASS | 131 | 0 | 100% |
+| **bird** | ✅ PASS | 131 | 0 | 100% |
+| **blue** | ✅ PASS | 131 | 0 | 100% |
+| **brutal** | ✅ PASS | 131 | 0 | 100% |
+| **canvas** | ✅ PASS | 131 | 0 | 100% |
+| **classic** | ✅ PASS | 131 | 0 | 100% |
+| **console** | ✅ PASS | 131 | 0 | 100% |
+| **cupertino** | ✅ PASS | 131 | 0 | 100% |
+| **eclipse** | ✅ PASS | 131 | 0 | 100% |
+| **editorial** | ✅ PASS | 131 | 0 | 100% |
+| **forge** | ✅ PASS | 131 | 0 | 100% |
+| **gallery** | ✅ PASS | 131 | 0 | 100% |
+| **gram** | ✅ PASS | 131 | 0 | 100% |
+| **hacker** | ✅ PASS | 131 | 0 | 100% |
+| **midnight** | ✅ PASS | 131 | 0 | 100% |
+| **neon** | ✅ PASS | 131 | 0 | 100% |
+| **network** | ✅ PASS | 131 | 0 | 100% |
+| **news** | ✅ PASS | 131 | 0 | 100% |
+| **nexus** | ✅ PASS | 131 | 0 | 100% |
+| **nordic** | ✅ PASS | 131 | 0 | 100% |
+| **overflow** | ✅ PASS | 131 | 0 | 100% |
+| **pastel** | ✅ PASS | 131 | 0 | 100% |
+| **pod** | ✅ PASS | 131 | 0 | 100% |
+| **prose** | ✅ PASS | 131 | 0 | 100% |
+| **protocol** | ✅ PASS | 131 | 0 | 100% |
+| **scribe** | ✅ PASS | 131 | 0 | 100% |
+| **stream** | ✅ PASS | 131 | 0 | 100% |
+| **tube** | ✅ PASS | 131 | 0 | 100% |
+| **zephyr** | ✅ PASS | 131 | 0 | 100% |
 
 ---
 
 ## Theme: atlas — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -137,6 +137,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -234,7 +237,7 @@
 
 ## Theme: basic — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -327,6 +330,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -424,7 +430,7 @@
 
 ## Theme: bento — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -517,6 +523,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -614,7 +623,7 @@
 
 ## Theme: bird — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -707,6 +716,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -804,7 +816,7 @@
 
 ## Theme: blue — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -897,6 +909,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -994,7 +1009,7 @@
 
 ## Theme: brutal — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1087,6 +1102,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -1184,7 +1202,7 @@
 
 ## Theme: canvas — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1277,6 +1295,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -1374,7 +1395,7 @@
 
 ## Theme: classic — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1467,6 +1488,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -1564,7 +1588,7 @@
 
 ## Theme: console — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1657,6 +1681,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -1754,7 +1781,7 @@
 
 ## Theme: cupertino — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1847,6 +1874,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -1944,7 +1974,7 @@
 
 ## Theme: eclipse — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2037,6 +2067,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -2134,7 +2167,7 @@
 
 ## Theme: editorial — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2227,6 +2260,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -2324,7 +2360,7 @@
 
 ## Theme: forge — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2417,6 +2453,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -2514,7 +2553,7 @@
 
 ## Theme: gallery — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2607,6 +2646,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -2704,7 +2746,7 @@
 
 ## Theme: gram — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2797,6 +2839,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -2894,7 +2939,7 @@
 
 ## Theme: hacker — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2987,6 +3032,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -3084,7 +3132,7 @@
 
 ## Theme: midnight — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3177,6 +3225,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -3274,7 +3325,7 @@
 
 ## Theme: neon — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3367,6 +3418,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -3464,7 +3518,7 @@
 
 ## Theme: network — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3557,6 +3611,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -3654,7 +3711,7 @@
 
 ## Theme: news — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3747,6 +3804,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -3844,7 +3904,7 @@
 
 ## Theme: nexus — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3937,6 +3997,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -4034,7 +4097,7 @@
 
 ## Theme: nordic — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4127,6 +4190,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -4224,7 +4290,7 @@
 
 ## Theme: overflow — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4317,6 +4383,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -4414,7 +4483,7 @@
 
 ## Theme: pastel — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4507,6 +4576,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -4604,7 +4676,7 @@
 
 ## Theme: pod — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4697,6 +4769,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -4794,7 +4869,7 @@
 
 ## Theme: prose — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4887,6 +4962,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -4984,7 +5062,7 @@
 
 ## Theme: protocol — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5077,6 +5155,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -5174,7 +5255,7 @@
 
 ## Theme: scribe — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5267,6 +5348,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -5364,7 +5448,7 @@
 
 ## Theme: stream — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5457,6 +5541,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -5554,7 +5641,7 @@
 
 ## Theme: tube — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5647,6 +5734,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 
@@ -5744,7 +5834,7 @@
 
 ## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 128/128 (100%)
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5837,6 +5927,9 @@
 - `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
 - `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
 - `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
 
 #### premium-components
 

@@ -915,6 +915,23 @@ items:
     scope: global
     required: true
     description: "Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling"
+
+  # 9. Infinite Social Proof Ribbon
+  - name: ".tamarind-social-ribbon-container"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Testimonial scroller viewport container"
+  - name: ".tamarind-social-ribbon-track"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Marquee animation track moving elements horizontally"
+  - name: ".tamarind-social-ribbon-card"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Individual testimonial scroll card container"
 ```
 
 ---

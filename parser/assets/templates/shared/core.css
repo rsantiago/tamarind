@@ -1283,3 +1283,98 @@ hr {
         transform: translateX(0) !important;
     }
 }
+
+/* --- Infinite Social Proof Ribbon Component --- */
+.tamarind-social-ribbon-container {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background: var(--background-color, #09090c);
+    padding: 0;
+    border-radius: var(--radius-lg, 12px);
+    border: var(--border-width, 1px) solid var(--border-color, #1e1e2c);
+    box-shadow: var(--shadow, none);
+}
+.tamarind-social-ribbon-container::before,
+.tamarind-social-ribbon-container::after {
+    content: "";
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 60px;
+    z-index: 2;
+    pointer-events: none;
+}
+.tamarind-social-ribbon-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--background-color, #09090c), transparent);
+}
+.tamarind-social-ribbon-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--background-color, #09090c), transparent);
+}
+@keyframes marquee-poc {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+.tamarind-social-ribbon-track {
+    display: flex;
+    gap: 0;
+    width: max-content;
+    animation: marquee-poc 20s linear infinite;
+}
+.tamarind-social-ribbon-track:hover {
+    animation-play-state: paused;
+}
+.tamarind-social-ribbon-card {
+    background: var(--card-bg, #121217);
+    border: none;
+    border-right: var(--border-width, 1px) solid var(--border-color, #232332);
+    border-radius: 0;
+    padding: 1.5rem 1.75rem;
+    width: 360px;
+    flex-shrink: 0;
+    color: var(--text-color, #e2e8f0);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+.tamarind-social-ribbon-card .profile {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.tamarind-social-ribbon-card .avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: var(--border-width, 1.5px) solid var(--accent-color, #ffc233);
+    object-fit: cover;
+}
+.tamarind-social-ribbon-card .profile-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+}
+.tamarind-social-ribbon-card .author {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-color, #e2e8f0);
+}
+.tamarind-social-ribbon-card .handle {
+    font-size: 0.8rem;
+    color: var(--muted-color, #8a8a93);
+    font-weight: 500;
+}
+.tamarind-social-ribbon-card .stars {
+    color: var(--accent-color, #ffc233);
+    font-size: 0.75rem;
+    margin-top: 0.15rem;
+    letter-spacing: 0.05rem;
+}
+.tamarind-social-ribbon-card .quote {
+    font-size: 0.95rem;
+    font-style: normal;
+    line-height: 1.6;
+    color: var(--text-color, #cbd5e1);
+    margin: 0;
+}
