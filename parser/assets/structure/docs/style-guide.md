@@ -279,11 +279,28 @@ A dense tabular card detailing list capabilities, statuses, and description meta
 
 **Live Output:**
 {{ capabilities-grid }}
-  {{ capabilities title="Compiler Capabilities" }}
-    {{ capability name="Zero-Config CSS" desc="Automatic token harvesting" status="success" statusLabel="Ready" }}
-    {{ capability name="AST Checking" desc="Validates themes against spec" status="success" statusLabel="Ready" }}
-    {{ capability name="Image Optimizer" desc="Vivid multi-viewport generation" status="warning" statusLabel="Beta" }}
-    {{ capability name="WASM Extensions" desc="Custom Go plugins" status="pending" statusLabel="Planned" }}
+  {{ capabilities title="Core Compiler" }}
+    {{ capability name="Static Compiler Binary" desc="Ultra-fast single Go executable compiler" status="success" statusLabel="Yes" }}
+    {{ capability name="AST Validation" desc="Validates themes against layout specifications" status="success" statusLabel="Yes" }}
+    {{ capability name="Zero-Config CSS" desc="Automatic CSS token harvesting" status="success" statusLabel="Yes" }}
+  {{ /capabilities }}
+
+  {{ capabilities title="Platform & Deploy" }}
+    {{ capability name="Flat-File CDN" desc="Direct compilation to static HTML/CSS files" status="success" statusLabel="Yes" }}
+    {{ capability name="Docker Integration" desc="Secure, hardened container standard" status="success" statusLabel="Yes" }}
+    {{ capability name="Local Dev Server" desc="Instant serving with fast reload times" status="success" statusLabel="Yes" }}
+  {{ /capabilities }}
+
+  {{ capabilities title="Advanced Features" }}
+    {{ capability name="Image Pipeline" desc="Multi-viewport responsive asset generation" status="warning" statusLabel="Partial" }}
+    {{ capability name="SEO Validator" desc="Local semantic metadata audit reports" status="success" statusLabel="Yes" }}
+    {{ capability name="Telemetry Registry" desc="Opt-in quantitative performance tracing" status="pending" statusLabel="Planned" }}
+  {{ /capabilities }}
+
+  {{ capabilities title="Design System" }}
+    {{ capability name="16+ Core Themes" desc="Premium, highly aesthetic responsive layouts" status="success" statusLabel="Yes" }}
+    {{ capability name="Interactive Widgets" desc="Accordion, carousel, tabs, switcher components" status="success" statusLabel="Yes" }}
+    {{ capability name="Layout Constraints" desc="Compiler-enforced alignment safeguards" status="success" statusLabel="Yes" }}
   {{ /capabilities }}
 {{ /capabilities-grid }}
 

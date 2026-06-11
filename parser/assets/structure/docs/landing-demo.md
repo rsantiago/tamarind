@@ -86,13 +86,31 @@ canvas: true
   </p>
 </div>
 
-{{ capabilities title="Feature Matrix Comparison" }}
-  {{ capability name="Static Compiler Binary" desc="Ultra-fast single Go executable compiler" status="success" statusLabel="Yes" }}
-  {{ capability name="Premium Component Library" desc="Metrics, Feature cards, Checklists, and Timelines built-in" status="success" statusLabel="Yes" }}
-  {{ capability name="Naked Canvas Template Mode" desc="Distraction-free single page layout overrides" status="success" statusLabel="Yes" }}
-  {{ capability name="Custom CDN Dependencies" desc="Third party analytics scripts or web fonts" status="warning" statusLabel="Partial" }}
-  {{ capability name="Heavy Single Page JS Runtimes" desc="Bypass heavy client-side hydrate frames" status="error" statusLabel="No" }}
-{{ /capabilities }}
+{{ capabilities-grid }}
+  {{ capabilities title="Core Compiler" }}
+    {{ capability name="Static Compiler Binary" desc="Ultra-fast single Go executable compiler" status="success" statusLabel="Yes" }}
+    {{ capability name="AST Validation" desc="Validates themes against layout specifications" status="success" statusLabel="Yes" }}
+    {{ capability name="Zero-Config CSS" desc="Automatic CSS token harvesting" status="success" statusLabel="Yes" }}
+  {{ /capabilities }}
+
+  {{ capabilities title="Platform & Deploy" }}
+    {{ capability name="Flat-File CDN" desc="Direct compilation to static HTML/CSS files" status="success" statusLabel="Yes" }}
+    {{ capability name="Docker Integration" desc="Secure, hardened container standard" status="success" statusLabel="Yes" }}
+    {{ capability name="Local Dev Server" desc="Instant serving with fast reload times" status="success" statusLabel="Yes" }}
+  {{ /capabilities }}
+
+  {{ capabilities title="Advanced Features" }}
+    {{ capability name="Image Pipeline" desc="Multi-viewport responsive asset generation" status="warning" statusLabel="Partial" }}
+    {{ capability name="SEO Validator" desc="Local semantic metadata audit reports" status="success" statusLabel="Yes" }}
+    {{ capability name="Telemetry Registry" desc="Opt-in quantitative performance tracing" status="pending" statusLabel="Planned" }}
+  {{ /capabilities }}
+
+  {{ capabilities title="Design System" }}
+    {{ capability name="16+ Core Themes" desc="Premium, highly aesthetic responsive layouts" status="success" statusLabel="Yes" }}
+    {{ capability name="Interactive Widgets" desc="Accordion, carousel, tabs, switcher components" status="success" statusLabel="Yes" }}
+    {{ capability name="Layout Constraints" desc="Compiler-enforced alignment safeguards" status="success" statusLabel="Yes" }}
+  {{ /capabilities }}
+{{ /capabilities-grid }}
 
 ---
 
