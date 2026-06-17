@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="{{ .RelPrefix }}core.css?v=4.18.2-hc3">
 <link rel="stylesheet" href="{{ .RelPrefix }}style.css?v=4.18.2-hc3">
 {{ if .CustomCSS }}<style>{{ .CustomCSS }}</style>{{ end }}
+{{ if .TitleSize }}<style>.page-title { font-size: {{ .TitleSize }} !important; }</style>{{ end }}
 <!-- Tamarind Shortcodes: Mermaid & KaTeX -->
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
 <script>

@@ -120,6 +120,7 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 	data := models.PageData{
 		Title:             fm.Title,
 		Subtitle:          fm.Subtitle,
+		TitleSize:         fm.TitleSize,
 		Date:              fm.Date,
 		Tags:              fm.Tags,
 		Body:              template.HTML(bodyHTML.String()),
