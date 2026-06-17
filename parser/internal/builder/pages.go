@@ -112,6 +112,11 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		}
 	}
 
+	attributionStyle := fm.AttributionStyle
+	if attributionStyle == "" {
+		attributionStyle = "date-and-author"
+	}
+
 	data := models.PageData{
 		Title:             fm.Title,
 		Subtitle:          fm.Subtitle,
@@ -133,6 +138,7 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		HideFooter:        fm.HideFooter,
 		Data:              siteData,
 		Author:            author,
+		AttributionStyle:  attributionStyle,
 		ContextualSidebar: contextualSidebar,
 	}
 
@@ -274,6 +280,7 @@ func generateCollectionIndex(name string, items []models.ArticleMeta, tmpl *temp
 			CustomCSS:    customCSS,
 			Paginator:    paginator,
 			Data:         siteData,
+			AttributionStyle: "date-and-author",
 		}
 
 		var output bytes.Buffer

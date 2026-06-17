@@ -28,6 +28,7 @@ type PageData struct {
 	HideFooter   bool
 	Data         map[string]interface{} // Data Files Support
 	Author       string                 // Page-specific or Global Author
+	AttributionStyle string             // Controlling date/author display style
 	ContextualSidebar []SidebarItem      // Sibling pages sidebar list
 }
 
@@ -88,5 +89,6 @@ type FrontMatter struct {
 	MenuLabel         string      `yaml:"menu_label"` // Custom Menu Title
 	MenuOrder         int         `yaml:"menu_order"` // Menu Sorting Order
 	Author            string      `yaml:"author"`     // Override Author
+	AttributionStyle  string      `yaml:"attribution_style"` // Attribution display style
 	Sidebar           interface{} `yaml:"sidebar"`
 }
