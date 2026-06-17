@@ -610,7 +610,15 @@ if (typeof togglePricingGrid !== 'function') {
 			title := itemSubmatch[1]
 			desc := itemSubmatch[2]
 
-			itemsHtml += fmt.Sprintf(`<details class="tamarind-accordion"><summary class="tamarind-accordion-summary">%s</summary><div class="tamarind-accordion-content">%s</div></details>`, title, strings.TrimSpace(desc))
+			var buf bytes.Buffer
+			var htmlDesc string
+			if err := goldmark.Convert([]byte(strings.TrimSpace(desc)), &buf); err == nil {
+				htmlDesc = buf.String()
+			} else {
+				htmlDesc = strings.TrimSpace(desc)
+			}
+
+			itemsHtml += fmt.Sprintf(`<details class="tamarind-accordion"><summary class="tamarind-accordion-summary">%s</summary><div class="tamarind-accordion-content">%s</div></details>`, title, htmlDesc)
 		}
 
 		return fmt.Sprintf(`<div class="tamarind-accordion-container">%s</div>`, itemsHtml)
