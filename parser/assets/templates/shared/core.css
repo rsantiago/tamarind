@@ -280,7 +280,7 @@ hr {
 /* 2. Gradient Icon Feature Cards */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 1.75rem;
   margin: 2.5rem 0;
   width: 100%;
@@ -337,6 +337,18 @@ hr {
 .gradient-green-emerald {
   background: linear-gradient(135deg, #059669 0%, #0d9488 100%);
   box-shadow: 0 4px 14px rgba(13, 148, 136, 0.4);
+}
+.gradient-pink-orange {
+  background: linear-gradient(135deg, #ec4899 0%, #f97316 100%);
+  box-shadow: 0 4px 14px rgba(249, 115, 22, 0.4);
+}
+.gradient-cyan-blue {
+  background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+  box-shadow: 0 4px 14px rgba(59, 130, 246, 0.4);
+}
+.gradient-green-teal {
+  background: linear-gradient(135deg, #10b981 0%, #14b8a6 100%);
+  box-shadow: 0 4px 14px rgba(20, 184, 166, 0.4);
 }
 
 .feature-title {
