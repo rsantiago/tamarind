@@ -5,6 +5,7 @@
 package builder
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
 	"image"
@@ -17,6 +18,8 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+
+	"github.com/yuin/goldmark"
 )
 
 func processShortcodes(markdown, sourceDir string) string {
@@ -892,7 +895,15 @@ if (typeof togglePricingGrid !== 'function') {
 			titleHtml = fmt.Sprintf(`<h4 class="alert-title">%s</h4>`, title)
 		}
 
-		return fmt.Sprintf(`<div class="alert-container alert-%s"><div class="alert-icon-box">%s</div><div class="alert-content">%s<p class="alert-message">%s</p></div></div>`, typ, svgIcon, titleHtml, strings.TrimSpace(content))
+		var buf bytes.Buffer
+		var htmlContent string
+		if err := goldmark.Convert([]byte(strings.TrimSpace(content)), &buf); err == nil {
+			htmlContent = buf.String()
+		} else {
+			htmlContent = strings.TrimSpace(content)
+		}
+
+		return fmt.Sprintf(`<div class="alert-container alert-%s"><div class="alert-icon-box">%s</div><div class="alert-content">%s<div class="alert-message">%s</div></div></div>`, typ, svgIcon, titleHtml, htmlContent)
 	})
 
 	// 10. Badge (Block): {{ badge type="primary" }}...{{ /badge }}
