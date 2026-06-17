@@ -886,7 +886,7 @@ if (typeof togglePricingGrid !== 'function') {
 		}
 
 		iconName := typ
-		if typ == "danger" || typ == "error" || typ == "warn" {
+		if typ == "danger" || typ == "error" || typ == "warn" || typ == "warning" {
 			iconName = "warning"
 		} else if typ == "sparkles" || typ == "magic" || typ == "special" {
 			iconName = "sparkles"
