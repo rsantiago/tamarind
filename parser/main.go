@@ -105,9 +105,10 @@ func main() {
 	case "quickstart":
 		quickstartCmd := flag.NewFlagSet("quickstart", flag.ExitOnError)
 		theme := quickstartCmd.String("theme", "gram", "Theme to use (default: gram)")
+		port := quickstartCmd.String("port", "8080", "Port to serve on")
 		quickstartCmd.Parse(os.Args[2:])
 
-		if err := runQuickstart(*theme); err != nil {
+		if err := runQuickstart(*theme, *port); err != nil {
 			log.Fatalf("Quickstart failed: %v", err)
 		}
 
@@ -120,7 +121,7 @@ func main() {
 	}
 }
 
-func runQuickstart(theme string) error {
+func runQuickstart(theme string, port string) error {
 	fmt.Println("🚀 Launching Tamarind Quickstart...")
 	fmt.Println("--------------------------------")
 
@@ -136,8 +137,8 @@ func runQuickstart(theme string) error {
 
 	// 3. Serve with Watcher
 	fmt.Println("--------------------------------")
-	fmt.Printf("✨ Quickstart Complete! Serving on http://localhost:8080 with Live Reloading (Theme: %s)\n", theme)
-	return runServe("8080", true, theme, DefaultStructureDir, false)
+	fmt.Printf("✨ Quickstart Complete! Serving on http://localhost:%s with Live Reloading (Theme: %s)\n", port, theme)
+	return runServe(port, true, theme, DefaultStructureDir, false)
 }
 
 func runBuild(theme, sourcePath, baseURL string, includeDrafts bool, liveReload bool) error {
