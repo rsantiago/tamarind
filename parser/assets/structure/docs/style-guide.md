@@ -22,9 +22,17 @@ This is a standard paragraph. It should be legible, with a comfortable line leng
 
 This is a **bold text**, *italic text*, and `inline code` sample.
 
-<p class="lead">This is a Lead Paragraph (.lead). It is used for introductions and summaries. It should be slightly larger than body text.</p>
-
 <p class="caption">This is a caption height (.caption). Useful for metadata or small notes.</p>
+
+### Customizing Title Size
+By default, the main page title (H1) dynamically scales with responsive typographic clamping. To override the title size on a specific page, define the `title_size` parameter in the page's YAML frontmatter:
+
+```yaml
+---
+title: My Custom Page
+title_size: 2.2rem
+---
+```
 
 ---
 
