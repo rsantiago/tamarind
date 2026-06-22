@@ -1,6 +1,6 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-06-22 18:19:52
+**Generated**: 2026-06-22 18:31:26
 
 **Total Requirements**: 131 required, 3 optional
 
@@ -38,7 +38,7 @@
 | **scribe** | ✅ PASS | 131 | 0 | 100% |
 | **stream** | ✅ PASS | 131 | 0 | 100% |
 | **tube** | ✅ PASS | 131 | 0 | 100% |
-| **zephyr** | ❌ FAIL | 127 | 4 | 96% |
+| **zephyr** | ✅ PASS | 131 | 0 | 100% |
 
 ---
 
@@ -5832,18 +5832,9 @@
 
 ---
 
-## Theme: zephyr — ❌ NON-COMPLIANT
+## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 127/131 (96%)
-
-### ❌ Missing Requirements
-
-#### templates
-
-- `articles.mdt:tamarind-ghost-badge` — articles.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'
-- `articles.mdt:footer-promo` — articles.mdt template must contain the 'footer-promo' class or render 'footer.mdt'
-- `page.mdt:tamarind-ghost-badge` — page.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'
-- `page.mdt:footer-promo` — page.mdt template must contain the 'footer-promo' class or render 'footer.mdt'
+**Score**: 131/131 (100%)
 
 ### ✅ Passed Requirements
 
@@ -6001,6 +5992,10 @@
 
 #### templates
 
+- `articles.mdt:tamarind-ghost-badge` — articles.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'
+- `articles.mdt:footer-promo` — articles.mdt template must contain the 'footer-promo' class or render 'footer.mdt'
+- `page.mdt:tamarind-ghost-badge` — page.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'
+- `page.mdt:footer-promo` — page.mdt template must contain the 'footer-promo' class or render 'footer.mdt'
 - `menu-no-duplication` — Templates must not duplicate the main menu rendering (must not loop over .Menu more than once)
 
 #### variables-colors
