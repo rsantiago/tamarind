@@ -19,6 +19,7 @@ import (
 	"github.com/rsantiago/tamarind/parser/internal/builder"
 	"github.com/rsantiago/tamarind/parser/internal/config"
 	"github.com/rsantiago/tamarind/parser/internal/server"
+	"github.com/rsantiago/tamarind/parser/internal/updater"
 	"github.com/rsantiago/tamarind/parser/internal/utils"
 )
 
@@ -41,6 +42,9 @@ func main() {
 		printUsage()
 		os.Exit(1)
 	}
+
+	// Asynchronously check for updates (only fires on long-running commands like 'serve')
+	updater.CheckForUpdatesAsync()
 
 	switch os.Args[1] {
 	case "init":
@@ -111,6 +115,11 @@ func main() {
 
 		if err := runQuickstart(*theme, *port); err != nil {
 			log.Fatalf("Quickstart failed: %v", err)
+		}
+
+	case "update":
+		if err := updater.RunUpdate(); err != nil {
+			log.Fatalf("Update failed: %v", err)
 		}
 
 	case "version":
@@ -211,6 +220,7 @@ func printUsage() {
 	fmt.Println("  build       Build the website (requires -theme, optional -drafts)")
 	fmt.Println("  serve       Serve the website locally (optional -watch -theme <name>)")
 	fmt.Println("  themes      List available themes")
+	fmt.Println("  update      Update Tamarind to the latest version")
 	fmt.Println("  version     Display Tamarind version")
 	fmt.Println("  doctor      Inspect environment diagnostics")
 	fmt.Println("\nRun 'tamarind <command> --help' for more information.")

@@ -14,8 +14,9 @@ import (
 
 const (
 	ConfigFileName = "tamarind.yaml"
-	Version        = "v4.16.0"
 )
+
+var Version = "v4.16.0"
 
 type Config struct {
 	ThemeConfig map[string]string `yaml:"theme_config"`

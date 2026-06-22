@@ -46,7 +46,8 @@ refresh: stop clean build serve
 # Cross-compilation variables
 BINARY_NAME=tamarind
 RELEASE_DIR=releases
-LDFLAGS=-ldflags="-s -w"
+VERSION=$(shell git describe --tags --always 2>/dev/null || echo "v0.0.0")
+LDFLAGS=-ldflags="-s -w -X github.com/rsantiago/tamarind/parser/internal/config.Version=$(VERSION)"
 
 .PHONY: check-cgo build-linux-amd64 build-linux-arm64 build-darwin-amd64 build-darwin-arm64 build-windows-amd64 build-release
 
