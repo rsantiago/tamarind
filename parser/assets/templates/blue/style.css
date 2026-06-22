@@ -559,7 +559,7 @@ a:hover {
     border: 1px solid #BEE3F8 !important; /* Soft sky blue border */
     border-left: 4px solid var(--primary-color, #06B6D4) !important; /* Vibrant Tech Cyan left accent */
     border-radius: var(--radius-md, 12px) !important;
-    padding: 2rem 1.75rem !important;
+    padding: 2.5rem 2.25rem !important;
     box-shadow: 0 4px 6px -1px rgba(6, 182, 212, 0.05), 0 2px 4px -2px rgba(6, 182, 212, 0.05) !important;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }

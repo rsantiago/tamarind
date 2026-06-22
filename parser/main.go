@@ -11,6 +11,7 @@ import (
 	"log"
 	"os"
 	"path/filepath"
+	"runtime"
 	"strings"
 	"time"
 
@@ -115,6 +116,11 @@ func main() {
 	case "version":
 		fmt.Println("Tamarind Static Site Generator " + config.Version)
 
+	case "doctor":
+		if err := runDoctor(); err != nil {
+			log.Fatalf("Doctor check failed: %v", err)
+		}
+
 	default:
 		printUsage()
 		os.Exit(1)
@@ -206,6 +212,7 @@ func printUsage() {
 	fmt.Println("  serve       Serve the website locally (optional -watch -theme <name>)")
 	fmt.Println("  themes      List available themes")
 	fmt.Println("  version     Display Tamarind version")
+	fmt.Println("  doctor      Inspect environment diagnostics")
 	fmt.Println("\nRun 'tamarind <command> --help' for more information.")
 }
 
@@ -342,3 +349,47 @@ func runInit(reset bool, force bool) error {
 	log.Println("  ./tamarind build -theme blue")
 	return nil
 }
+
+func runDoctor() error {
+	fmt.Println("Tamarind Diagnostic Tool")
+	fmt.Println("------------------------")
+	fmt.Printf("OS:             %s\n", runtime.GOOS)
+	fmt.Printf("Architecture:   %s\n", runtime.GOARCH)
+	fmt.Printf("Path Separator: %q\n", string(filepath.Separator))
+
+	cwd, err := os.Getwd()
+	if err != nil {
+		fmt.Printf("CWD:            Error: %v\n", err)
+	} else {
+		fmt.Printf("CWD:            %s\n", cwd)
+		tempFile := filepath.Join(cwd, ".tamarind-doctor-test")
+		if err := os.WriteFile(tempFile, []byte("test"), 0644); err != nil {
+			fmt.Printf("Write Access:   Error: %v\n", err)
+		} else {
+			fmt.Println("Write Access:   OK")
+			_ = os.Remove(tempFile)
+		}
+	}
+
+	fmt.Println("\nEnvironment Variables:")
+	cgo := os.Getenv("CGO_ENABLED")
+	if cgo == "" {
+		cgo = "Not Set"
+	}
+	fmt.Printf("  CGO_ENABLED:  %s\n", cgo)
+
+	goos := os.Getenv("GOOS")
+	if goos == "" {
+		goos = "Not Set"
+	}
+	fmt.Printf("  GOOS:         %s\n", goos)
+
+	goarch := os.Getenv("GOARCH")
+	if goarch == "" {
+		goarch = "Not Set"
+	}
+	fmt.Printf("  GOARCH:       %s\n", goarch)
+
+	return nil
+}
+

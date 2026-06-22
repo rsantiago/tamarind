@@ -659,4 +659,77 @@ An automated horizontal social proof scroller component. It renders continuous l
   {{ /testimonial }}
 {{ /social_ribbon }}
 
+---
+
+### 6.13 Interactive Tabs
+A clean, responsive tab bar for grouping alternative content blocks, such as terminal commands, code snippets in different languages, or technical instructions.
+
+**Shortcode Syntax:**
+````markdown
+{{{{!}}tabs}}
+  {{{{!}}tab title="npm" }}
+  ```bash
+  $ npm install @tamarind/core
+  ```
+  {{{{!}}/tab}}
+  {{{{!}}tab title="yarn" }}
+  ```bash
+  $ yarn add @tamarind/core
+  ```
+  {{{{!}}/tab}}
+{{{{!}}/tabs}}
+````
+
+**Live Output:**
+{{ tabs }}
+  {{ tab title="npm" }}
+  ```bash
+  $ npm install @tamarind/core
+  ```
+  {{ /tab }}
+  {{ tab title="yarn" }}
+  ```bash
+  $ yarn add @tamarind/core
+  ```
+  {{ /tab }}
+{{ /tabs }}
+
+---
+
+### 6.14 Tabbed Terminal inside Timeline Steps
+Tamarind supports rendering a terminal with multiple tabs directly inside timeline step items for highly structured developer guides.
+
+**Shortcode Syntax:**
+```markdown
+{{{{!}}timeline}}
+  {{{{!}}item title="Download & Install" number="1" }}
+  Choose your package manager to install the dependency:
+
+  {{{{!}}terminal}}
+    {{{{!}}tab title="npm" }}
+    $ npm install @tamarind/core
+    {{{{!}}/tab}}
+    {{{{!}}tab title="yarn" }}
+    $ yarn add @tamarind/core
+    {{{{!}}/tab}}
+  {{{{!}}/terminal}}
+  {{{{!}}/item}}
+{{{{!}}/timeline}}
+```
+
+**Live Output:**
+{{ timeline }}
+  {{ item title="Download & Install" number="1" }}
+  Choose your package manager to install the dependency:
+
+  {{ terminal }}
+    {{ tab title="npm" }}
+    $ npm install @tamarind/core
+    {{ /tab }}
+    {{ tab title="yarn" }}
+    $ yarn add @tamarind/core
+    {{ /tab }}
+  {{ /terminal }}
+  {{ /item }}
+{{ /timeline }}
 

@@ -10,21 +10,69 @@ menu_order: 1
 
 ## Generate. Edit. Deploy.
 
-Stop fighting with complex frameworks. Here is how Tamarind works:
+Stop fighting with complex frameworks. Get a live local development server running instantly, ready for you to add your content. Go from zero to a live site in seconds:
 
-1.  Run `tamarind quickstart` on your terminal.
-2.  You have a live sample site running on `http://localhost:8000`. In less than 5 seconds.
-3.  Use your favorite AI Agent to mass-edit the md files in the `writer-sandbox/` folder.
-    *   Example prompt: "Turn the files in `writer-sandbox/` into md files for a website about [topic]"
-    *   Or: "Add a new page about [topic] to this site structure"
-4.  See the changes in real-time.
-5.  Run `tamarind build` to turn the `writer-sandbox/` folder into a full website in the `website/` folder.
-6.  Run `tamarind serve` to serve your site locally on `http://localhost:8000`.
-7.  See your `llms.txt` files automatically generated and ready to be ingested by AI Agents.
-8.  Try different themes with `tamarind build --theme <theme_name>`.
-    *   Example: `tamarind themes` to list available themes.
-    *   Example: `tamarind build --theme dark` to build with the dark theme.
-9. Deploy your site in the `website/` folder to any static hosting provider you want.
+{{ timeline }}
+  {{ item title="Run the Quickstart" number="1" }}
+  Run the quickstart command in your terminal. This boots up the development server instantly with zero configuration:
+  {{ terminal }}
+    {{ tab title="macOS" }}
+    $ tamarind quickstart
+    {{ /tab }}
+    {{ tab title="Linux" }}
+    $ tamarind quickstart
+    {{ /tab }}
+    {{ tab title="Windows" }}
+    PS> .\tamarind.exe quickstart
+    {{ /tab }}
+  {{ /terminal }}
+  Your sample website will be compiled and served locally at `http://localhost:8000` with automatic hot-reloading!
+  {{ /item }}
+
+  {{ item title="Edit the Content" number="2" }}
+  Use your favorite AI Agent or text editor to mass-edit the `.md` files in the `writer-sandbox/` folder. See your changes render instantly in the browser.
+  
+  *Example prompts:*
+  
+  • "Turn the files in `writer-sandbox/` into md files for a website about [topic]"
+  
+  • "Add a new page about [topic] to this site structure"
+  {{ /item }}
+
+  {{ item title="Try Different Themes" number="3" }}
+  List available themes and build/compile with your theme of choice:
+  {{ terminal }}
+    {{ tab title="macOS" }}
+    $ tamarind themes
+    $ tamarind build --theme dark
+    {{ /tab }}
+    {{ tab title="Linux" }}
+    $ tamarind themes
+    $ tamarind build --theme dark
+    {{ /tab }}
+    {{ tab title="Windows" }}
+    PS> .\tamarind.exe themes
+    PS> .\tamarind.exe build --theme dark
+    {{ /tab }}
+  {{ /terminal }}
+  {{ /item }}
+
+  {{ item title="Compile for Production & Deploy" number="4" }}
+  Run the compiler to build highly optimized, responsive pages:
+  {{ terminal }}
+    {{ tab title="macOS" }}
+    $ tamarind build
+    {{ /tab }}
+    {{ tab title="Linux" }}
+    $ tamarind build
+    {{ /tab }}
+    {{ tab title="Windows" }}
+    PS> .\tamarind.exe build
+    {{ /tab }}
+  {{ /terminal }}
+  Tamarind outputs a pure static folder in `website/` with zero runtime dependencies. Deploy it to Netlify, Vercel, S3, or GitHub Pages.
+  {{ /item }}
+{{ /timeline }}
 
 It's that simple. No more blocks because you can't find the right CSS property. No more fighting with broken framework dependencies. 
 

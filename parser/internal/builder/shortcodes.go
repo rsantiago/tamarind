@@ -20,10 +20,25 @@ import (
 	"strings"
 
 	"github.com/yuin/goldmark"
+	"github.com/yuin/goldmark/extension"
+	"github.com/yuin/goldmark/parser"
+	"github.com/yuin/goldmark/renderer/html"
+)
+
+var unsafeGoldmark = goldmark.New(
+	goldmark.WithExtensions(extension.GFM, extension.Table, extension.Strikethrough, extension.Linkify, extension.TaskList),
+	goldmark.WithParserOptions(
+		parser.WithAutoHeadingID(),
+	),
+	goldmark.WithRendererOptions(
+		html.WithUnsafe(),
+	),
 )
 
 func processShortcodes(markdown, sourceDir string) string {
 	pricingGridCount := 0
+	tabsScriptInjected := false
+	terminalScriptInjected := false
 	// 0. Agent (Comment): {{ agent "instruction" }} -> Removed from output
 	reAgent := regexp.MustCompile(`{{\s*agent\s+"(.*?)"\s*}}`)
 	markdown = reAgent.ReplaceAllString(markdown, "")
@@ -31,6 +46,136 @@ func processShortcodes(markdown, sourceDir string) string {
 	// 1. Mermaid (Block): {{ mermaid }}...{{ /mermaid }}
 	reMermaid := regexp.MustCompile(`(?s){{\s*mermaid\s*}}(.*?){{\s*/mermaid\s*}}`)
 	markdown = reMermaid.ReplaceAllString(markdown, `<div class="mermaid">$1</div>`)
+
+	// Interactive Tabs: {{ tabs }} ... {{ /tabs }}
+	reTabs := regexp.MustCompile(`(?s){{\s*tabs\s*}}(.*?){{\s*/tabs\s*}}`)
+	tabsIndex := 0
+	markdown = reTabs.ReplaceAllStringFunc(markdown, func(match string) string {
+		tabsIndex++
+		submatch := reTabs.FindStringSubmatch(match)
+		content := submatch[1]
+
+		reTabItem := regexp.MustCompile(`(?s){{\s*tab\s+title="([^"]+)"\s*}}(.*?){{\s*/tab\s*}}`)
+		itemMatches := reTabItem.FindAllStringSubmatch(content, -1)
+		if len(itemMatches) == 0 {
+			return ""
+		}
+
+		buttonsHtml := ""
+		panesHtml := ""
+
+		for i, itemSubmatch := range itemMatches {
+			title := itemSubmatch[1]
+			desc := itemSubmatch[2]
+
+			var buf bytes.Buffer
+			var htmlDesc string
+			if err := unsafeGoldmark.Convert([]byte(strings.TrimSpace(desc)), &buf); err == nil {
+				htmlDesc = buf.String()
+			} else {
+				htmlDesc = strings.TrimSpace(desc)
+			}
+
+			tabId := fmt.Sprintf("tab-%d-%d", tabsIndex, i)
+			activeBtnClass := ""
+			activePaneClass := ""
+			if i == 0 {
+				activeBtnClass = " active"
+				activePaneClass = " active"
+			}
+
+			buttonsHtml += fmt.Sprintf(`<button class="tamarind-tab-btn%s" onclick="tamarindSwitchTab(event, '%s')">%s</button>`, activeBtnClass, tabId, title)
+			panesHtml += fmt.Sprintf(`<div id="%s" class="tamarind-tab-pane%s">%s</div>`, tabId, activePaneClass, htmlDesc)
+		}
+
+		jsScript := ""
+		if !tabsScriptInjected {
+			jsScript = `
+<script>
+if (typeof tamarindSwitchTab !== 'function') {
+window.tamarindSwitchTab = function(evt, tabId) {
+var i, tabpanes, tablinks;
+var container = evt.currentTarget.closest('.tamarind-tabs');
+tabpanes = container.getElementsByClassName("tamarind-tab-pane");
+for (i = 0; i < tabpanes.length; i++) {
+tabpanes[i].className = "tamarind-tab-pane";
+}
+tablinks = container.getElementsByClassName("tamarind-tab-btn");
+for (i = 0; i < tablinks.length; i++) {
+tablinks[i].className = tablinks[i].className.replace(" active", "");
+}
+document.getElementById(tabId).className = "tamarind-tab-pane active";
+evt.currentTarget.className += " active";
+};
+}
+</script>
+`
+			tabsScriptInjected = true
+		}
+
+		return fmt.Sprintf(`%s<div class="tamarind-tabs"><div class="tamarind-tabs-bar">%s</div><div class="tamarind-tabs-content">%s</div></div>`, jsScript, buttonsHtml, panesHtml)
+	})
+
+	// 3. Terminal (Block): {{ terminal }}...{{ /terminal }}
+	reTerm := regexp.MustCompile(`(?s){{\s*terminal\s*}}(.*?){{\s*/terminal\s*}}`)
+	terminalIndex := 0
+	markdown = reTerm.ReplaceAllStringFunc(markdown, func(match string) string {
+		terminalIndex++
+		sub := reTerm.FindStringSubmatch(match)
+		content := strings.TrimSpace(sub[1])
+
+		reTab := regexp.MustCompile(`(?s){{\s*tab\s+title="([^"]+)"\s*}}(.*?){{\s*/tab\s*}}`)
+		tabMatches := reTab.FindAllStringSubmatch(content, -1)
+
+		if len(tabMatches) > 0 {
+			buttonsHtml := ""
+			panesHtml := ""
+			for i, tabMatch := range tabMatches {
+				title := tabMatch[1]
+				tabContent := strings.TrimSpace(tabMatch[2])
+
+				tabId := fmt.Sprintf("term-tab-%d-%d", terminalIndex, i)
+				activeBtnClass := ""
+				activePaneClass := ""
+				if i == 0 {
+					activeBtnClass = " active"
+					activePaneClass = " active"
+				}
+
+				buttonsHtml += fmt.Sprintf(`<button class="terminal-tab-btn%s" onclick="tamarindSwitchTerminalTab(event, '%s')">%s</button>`, activeBtnClass, tabId, title)
+				panesHtml += fmt.Sprintf(`<div id="%s" class="terminal-tab-pane%s"><pre class="terminal-content"><code>%s</code></pre></div>`, tabId, activePaneClass, tabContent)
+			}
+
+			jsScript := ""
+			if !terminalScriptInjected {
+				jsScript = `
+<script>
+if (typeof tamarindSwitchTerminalTab !== 'function') {
+window.tamarindSwitchTerminalTab = function(evt, tabId) {
+var i, tabpanes, tablinks;
+var container = evt.currentTarget.closest('.terminal');
+tabpanes = container.getElementsByClassName("terminal-tab-pane");
+for (i = 0; i < tabpanes.length; i++) {
+tabpanes[i].className = "terminal-tab-pane";
+}
+tablinks = container.getElementsByClassName("terminal-tab-btn");
+for (i = 0; i < tablinks.length; i++) {
+tablinks[i].className = tablinks[i].className.replace(" active", "");
+}
+document.getElementById(tabId).className = "terminal-tab-pane active";
+evt.currentTarget.className += " active";
+};
+}
+</script>
+`
+				terminalScriptInjected = true
+			}
+
+			return fmt.Sprintf(`%s<div class="terminal terminal-has-tabs"><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><div class="terminal-tabs-bar">%s</div></div>%s</div>`, jsScript, buttonsHtml, panesHtml)
+		} else {
+			return fmt.Sprintf(`<div class="terminal"><div class="terminal-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><pre class="terminal-content"><code>%s</code></pre></div>`, content)
+		}
+	})
 
 	// Metrics Grid: {{ metrics }} ... {{ /metrics }}
 	reMetrics := regexp.MustCompile(`(?s){{\s*metrics\s*}}(.*?){{\s*/metrics\s*}}`)
@@ -513,6 +658,14 @@ if (typeof togglePricingGrid !== 'function') {
 			num := itemSubmatch[2]
 			desc := itemSubmatch[3]
 
+			var buf bytes.Buffer
+			var htmlDesc string
+			if err := unsafeGoldmark.Convert([]byte(strings.TrimSpace(desc)), &buf); err == nil {
+				htmlDesc = buf.String()
+			} else {
+				htmlDesc = strings.TrimSpace(desc)
+			}
+
 			badgeHtml := ""
 			if num != "" {
 				badgeHtml = fmt.Sprintf(`<div class="timeline-badge"><span class="timeline-badge-number">%s</span></div>`, num)
@@ -520,7 +673,7 @@ if (typeof togglePricingGrid !== 'function') {
 				badgeHtml = `<div class="timeline-badge"></div>`
 			}
 
-			itemsHtml += fmt.Sprintf(`<div class="timeline-item">%s<div class="timeline-content"><h3 class="timeline-title">%s</h3><div class="timeline-desc">%s</div></div></div>`, badgeHtml, title, strings.TrimSpace(desc))
+			itemsHtml += fmt.Sprintf(`<div class="timeline-item">%s<div class="timeline-content"><h3 class="timeline-title">%s</h3><div class="timeline-desc">%s</div></div></div>`, badgeHtml, title, htmlDesc)
 		}
 
 		// Fallback to timeline-item step="..." title="..."
@@ -531,6 +684,14 @@ if (typeof togglePricingGrid !== 'function') {
 				title := itemSubmatch[2]
 				desc := itemSubmatch[3]
 
+				var buf bytes.Buffer
+				var htmlDesc string
+				if err := unsafeGoldmark.Convert([]byte(strings.TrimSpace(desc)), &buf); err == nil {
+					htmlDesc = buf.String()
+				} else {
+					htmlDesc = strings.TrimSpace(desc)
+				}
+
 				badgeHtml := ""
 				if num != "" {
 					badgeHtml = fmt.Sprintf(`<div class="timeline-badge"><span class="timeline-badge-number">%s</span></div>`, num)
@@ -538,7 +699,7 @@ if (typeof togglePricingGrid !== 'function') {
 					badgeHtml = `<div class="timeline-badge"></div>`
 				}
 
-				itemsHtml += fmt.Sprintf(`<div class="timeline-item">%s<div class="timeline-content"><h3 class="timeline-title">%s</h3><div class="timeline-desc">%s</div></div></div>`, badgeHtml, title, strings.TrimSpace(desc))
+				itemsHtml += fmt.Sprintf(`<div class="timeline-item">%s<div class="timeline-content"><h3 class="timeline-title">%s</h3><div class="timeline-desc">%s</div></div></div>`, badgeHtml, title, htmlDesc)
 			}
 		}
 
@@ -612,7 +773,7 @@ if (typeof togglePricingGrid !== 'function') {
 
 			var buf bytes.Buffer
 			var htmlDesc string
-			if err := goldmark.Convert([]byte(strings.TrimSpace(desc)), &buf); err == nil {
+			if err := unsafeGoldmark.Convert([]byte(strings.TrimSpace(desc)), &buf); err == nil {
 				htmlDesc = buf.String()
 			} else {
 				htmlDesc = strings.TrimSpace(desc)
@@ -624,13 +785,7 @@ if (typeof togglePricingGrid !== 'function') {
 		return fmt.Sprintf(`<div class="tamarind-accordion-container">%s</div>`, itemsHtml)
 	})
 
-	// 3. Terminal (Block): {{ terminal }}...{{ /terminal }}
-	reTerm := regexp.MustCompile(`(?s){{\s*terminal\s*}}(.*?){{\s*/terminal\s*}}`)
-	markdown = reTerm.ReplaceAllStringFunc(markdown, func(match string) string {
-		sub := reTerm.FindStringSubmatch(match)
-		content := strings.TrimSpace(sub[1])
-		return fmt.Sprintf(`<div class="terminal"><div class="terminal-header"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><pre class="terminal-content"><code>%s</code></pre></div>`, content)
-	})
+
 
 	// 4. Code Include: {{ include src="file.go" lines="1-10" lang="go" }}
 	reInclude := regexp.MustCompile(`{{\s*include\s+src="([^"]+)"(?:\s+lines="([0-9]+-[0-9]+)")?(?:\s+lang="([^"]+)")?\s*}}`)
@@ -905,7 +1060,7 @@ if (typeof togglePricingGrid !== 'function') {
 
 		var buf bytes.Buffer
 		var htmlContent string
-		if err := goldmark.Convert([]byte(strings.TrimSpace(content)), &buf); err == nil {
+		if err := unsafeGoldmark.Convert([]byte(strings.TrimSpace(content)), &buf); err == nil {
 			htmlContent = buf.String()
 		} else {
 			htmlContent = strings.TrimSpace(content)

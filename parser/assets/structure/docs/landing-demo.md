@@ -130,7 +130,15 @@ canvas: true
   {{ item title="Initialize the Workspace" number="1" }}
     Run our zero-config setup command to extract default styles, configurations, and showcase documents:
     {{ terminal }}
-    $ tamarind init
+      {{ tab title="macOS" }}
+      $ tamarind init
+      {{ /tab }}
+      {{ tab title="Linux" }}
+      $ tamarind init
+      {{ /tab }}
+      {{ tab title="Windows" }}
+      PS> .\tamarind.exe init
+      {{ /tab }}
     {{ /terminal }}
   {{ /item }}
   {{ item title="Toggle the Canvas Flag" number="2" }}
@@ -139,10 +147,49 @@ canvas: true
   {{ item title="Compile and Publish" number="3" }}
     Run a lightning-fast build using any of our premium themes and deploy the naked folder to any host:
     {{ terminal }}
-    $ tamarind build -theme blue
+      {{ tab title="macOS" }}
+      $ tamarind build -theme blue
+      {{ /tab }}
+      {{ tab title="Linux" }}
+      $ tamarind build -theme blue
+      {{ /tab }}
+      {{ tab title="Windows" }}
+      PS> .\tamarind.exe build -theme blue
+      {{ /tab }}
     {{ /terminal }}
   {{ /item }}
 {{ /timeline }}
+
+---
+
+<!-- 4.1 Interactive Tabs Showcase -->
+<div style="text-align: center; margin: 4rem 0 1rem 0;">
+  <h2 style="font-size: 2rem; font-weight: 700; margin-bottom: 0.5rem; font-family: var(--font-heading, inherit);">Interactive Tabbed Layout</h2>
+  <p style="color: var(--text-secondary, #64748b); max-width: 600px; margin: 0 auto 2rem auto;">Leverage the general tabs shortcode to structure tabbed content tables or multi-language code snippets.</p>
+</div>
+
+<div style="max-width: 800px; margin: 0 auto 3rem auto;">
+  {{ tabs }}
+    {{ tab title="npm" }}
+    Install the Tamarind developer CLI tool globally using npm:
+    ```bash
+    $ npm install -g @tamarind/cli
+    ```
+    {{ /tab }}
+    {{ tab title="yarn" }}
+    Install the Tamarind developer CLI tool globally using yarn:
+    ```bash
+    $ yarn global add @tamarind/cli
+    ```
+    {{ /tab }}
+    {{ tab title="pnpm" }}
+    Install the Tamarind developer CLI tool globally using pnpm:
+    ```bash
+    $ pnpm add -g @tamarind/cli
+    ```
+    {{ /tab }}
+  {{ /tabs }}
+</div>
 
 ---
 

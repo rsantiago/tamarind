@@ -117,11 +117,22 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		attributionStyle = "date-and-author"
 	}
 
+	renderDate := fm.Date
+	renderAuthor := author
+	if attributionStyle == "none" {
+		renderDate = ""
+		renderAuthor = ""
+	} else if attributionStyle == "date-only" {
+		renderAuthor = ""
+	} else if attributionStyle == "author-only" {
+		renderDate = ""
+	}
+
 	data := models.PageData{
 		Title:             fm.Title,
 		Subtitle:          fm.Subtitle,
 		TitleSize:         fm.TitleSize,
-		Date:              fm.Date,
+		Date:              renderDate,
 		Tags:              fm.Tags,
 		Body:              template.HTML(bodyHTML.String()),
 		RelPrefix:         relPrefix,
@@ -138,7 +149,7 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 		HideMenu:          fm.HideMenu,
 		HideFooter:        fm.HideFooter,
 		Data:              siteData,
-		Author:            author,
+		Author:            renderAuthor,
 		AttributionStyle:  attributionStyle,
 		ContextualSidebar: contextualSidebar,
 	}

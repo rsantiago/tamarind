@@ -43,3 +43,52 @@ stop:
 # Full refresh: stop server, clean, build, and serve again
 refresh: stop clean build serve
 
+# Cross-compilation variables
+BINARY_NAME=tamarind
+RELEASE_DIR=releases
+LDFLAGS=-ldflags="-s -w"
+
+.PHONY: check-cgo build-linux-amd64 build-linux-arm64 build-darwin-amd64 build-darwin-arm64 build-windows-amd64 build-release
+
+check-cgo:
+	@echo "Checking for dynamic CGO imports..."
+	@if grep -r -n 'import "C"' parser/ --include="*.go" --exclude-dir=vendor; then \
+		echo "Error: Dynamic CGO import 'import \"C\"' detected in the codebase."; \
+		exit 1; \
+	else \
+		echo "No dynamic CGO imports found. Codebase is pure Go."; \
+	fi
+
+build-linux-amd64: check-cgo
+	@echo "Building for Linux AMD64..."
+	@mkdir -p $(RELEASE_DIR)
+	@cd parser && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build $(LDFLAGS) -o ../$(RELEASE_DIR)/$(BINARY_NAME)-linux-amd64
+
+build-linux-arm64: check-cgo
+	@echo "Building for Linux ARM64..."
+	@mkdir -p $(RELEASE_DIR)
+	@cd parser && CGO_ENABLED=0 GOOS=linux GOARCH=arm64 go build $(LDFLAGS) -o ../$(RELEASE_DIR)/$(BINARY_NAME)-linux-arm64
+
+build-darwin-amd64: check-cgo
+	@echo "Building for macOS AMD64..."
+	@mkdir -p $(RELEASE_DIR)
+	@cd parser && CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 go build $(LDFLAGS) -o ../$(RELEASE_DIR)/$(BINARY_NAME)-darwin-amd64
+
+build-darwin-arm64: check-cgo
+	@echo "Building for macOS ARM64 (Apple Silicon)..."
+	@mkdir -p $(RELEASE_DIR)
+	@cd parser && CGO_ENABLED=0 GOOS=darwin GOARCH=arm64 go build $(LDFLAGS) -o ../$(RELEASE_DIR)/$(BINARY_NAME)-darwin-arm64
+
+build-windows-amd64: check-cgo
+	@echo "Building for Windows AMD64..."
+	@mkdir -p $(RELEASE_DIR)
+	@cd parser && CGO_ENABLED=0 GOOS=windows GOARCH=amd64 go build $(LDFLAGS) -o ../$(RELEASE_DIR)/$(BINARY_NAME)-windows-amd64.exe
+
+build-release: check-cgo build-linux-amd64 build-linux-arm64 build-darwin-amd64 build-darwin-arm64 build-windows-amd64
+	@echo "All release binaries compiled successfully."
+	@echo "Generating release checksums..."
+	@cd $(RELEASE_DIR) && (sha256sum * 2>/dev/null || shasum -a 256 * 2>/dev/null) > SHA256SUMS || true
+	@echo "Release checksums written to $(RELEASE_DIR)/SHA256SUMS"
+
+
+

@@ -211,12 +211,42 @@ func TestProcessShortcodes_UIComponents(t *testing.T) {
 			},
 		},
 		{
+			name:  "Terminal Standard",
+			input: `{{ terminal }}go run main.go{{ /terminal }}`,
+			expected: []string{
+				`<div class="terminal">`,
+				`<div class="terminal-header">`,
+				`<pre class="terminal-content"><code>go run main.go</code></pre>`,
+			},
+		},
+		{
+			name: "Terminal Tabbed",
+			input: `{{ terminal }}
+{{ tab title="Go" }}
+go run main.go
+{{ /tab }}
+{{ tab title="Python" }}
+python main.py
+{{ /tab }}
+{{ /terminal }}`,
+			expected: []string{
+				`<div class="terminal terminal-has-tabs">`,
+				`<div class="terminal-tabs-bar">`,
+				`<button class="terminal-tab-btn active" onclick="tamarindSwitchTerminalTab(event, 'term-tab-`,
+				`Go</button>`,
+				`<button class="terminal-tab-btn" onclick="tamarindSwitchTerminalTab(event, 'term-tab-`,
+				`Python</button>`,
+				`class="terminal-tab-pane active"><pre class="terminal-content"><code>go run main.go</code></pre></div>`,
+				`class="terminal-tab-pane"><pre class="terminal-content"><code>python main.py</code></pre></div>`,
+			},
+		},
+		{
 			name:  "Alert standard info",
 			input: `{{ alert type="info" title="Important info" }}This is content{{ /alert }}`,
 			expected: []string{
 				`<div class="alert-container alert-info">`,
 				`<h4 class="alert-title">Important info</h4>`,
-				`<p class="alert-message">This is content</p>`,
+				`<div class="alert-message"><p>This is content</p>`,
 			},
 		},
 		{
@@ -224,7 +254,7 @@ func TestProcessShortcodes_UIComponents(t *testing.T) {
 			input: `{{< alert type="warn" >}}Warn content{{</ alert >}}`,
 			expected: []string{
 				`<div class="alert-container alert-warn">`,
-				`<p class="alert-message">Warn content</p>`,
+				`<div class="alert-message"><p>Warn content</p>`,
 			},
 		},
 		{
@@ -312,7 +342,7 @@ func TestProcessShortcodes_UIComponents(t *testing.T) {
 				`<div class="timeline-badge"><span class="timeline-badge-number">1</span></div>`,
 				`<div class="timeline-content">`,
 				`<h3 class="timeline-title">Setup</h3>`,
-				`<div class="timeline-desc">Initialize <pre><code>tamarind init</code></pre></div>`,
+				`<div class="timeline-desc"><p>Initialize <pre><code>tamarind init</code></pre></p>`,
 			},
 		},
 		{

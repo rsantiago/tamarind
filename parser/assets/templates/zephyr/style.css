@@ -2,7 +2,6 @@
 
 /* 
    Theme: Zephyr (Premium MLOps / Modern Developer Theme)
-   Author: Nous Research / Antigravity pair-programming
    Typography: Inter throughout (spacious, tracking-tight bold headings)
    Design System Compliance: 100% Verified
 */
@@ -939,6 +938,21 @@ p code, li code {
     height: 100%;
 }
 
+.features-grid {
+    gap: 2.25rem !important;
+    margin: 3.5rem 0 !important;
+}
+
+@media (min-width: 768px) {
+    .features-grid {
+        margin-left: 50% !important;
+        margin-right: 0 !important;
+        transform: translateX(-50%) !important;
+        width: 90vw !important;
+        max-width: 1120px !important;
+    }
+}
+
 .capability-card {
     background-color: var(--card-bg) !important;
     border: 1px solid var(--border-color) !important;
@@ -970,7 +984,7 @@ p code, li code {
     border: 1px solid var(--border-color) !important;
     border-left: 4px solid var(--accent-color, #2563eb) !important;
     border-radius: var(--radius-md, 12px) !important;
-    padding: 1.75rem 1.5rem !important;
+    padding: 2.5rem 2.25rem !important;
     box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02) !important;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
     margin: 0 !important;

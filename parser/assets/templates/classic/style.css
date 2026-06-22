@@ -634,7 +634,7 @@ a:hover {
     border-right: 1px solid var(--win-dark, #808080) !important;
     border-radius: 0px !important;
     box-shadow: none !important;
-    padding: 2.25rem 2rem !important;
+    padding: 2.5rem 2.25rem !important;
 }
 
 .feature-card .feature-title {

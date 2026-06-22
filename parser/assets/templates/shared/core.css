@@ -286,11 +286,21 @@ hr {
   width: 100%;
 }
 
+@media (min-width: 768px) {
+  .features-grid {
+    margin-left: 50% !important;
+    margin-right: 0 !important;
+    transform: translateX(-50%) !important;
+    width: 90vw !important;
+    max-width: 1120px !important;
+  }
+}
+
 .feature-card {
   background-color: var(--card-bg, rgba(255, 255, 255, 0.03));
   border: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
   border-radius: var(--radius-lg, 12px);
-  padding: 2.25rem 2rem;
+  padding: 2.5rem 2.25rem;
   transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s ease, box-shadow 0.3s ease;
   text-align: left;
   display: flex;
@@ -1059,19 +1069,29 @@ hr {
 }
 
 /* --- Minimalist Canvas Mode Footer & Promo Badge Overrides --- */
-.canvas-mode-active .site-footer {
+.canvas-mode-active.site-footer,
+.canvas-mode-active .site-footer,
+.site-footer .canvas-mode-active {
     border: none !important;
     background: transparent !important;
     box-shadow: none !important;
     margin-top: 4rem !important;
-    padding: 2rem 0 !important;
+    padding: 2rem 24px !important;
+    max-width: var(--max-width, 1200px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    box-sizing: border-box !important;
 }
 
-.canvas-mode-active .site-footer p:not(.footer-promo) {
+.canvas-mode-active.site-footer p:not(.footer-promo),
+.canvas-mode-active .site-footer p:not(.footer-promo),
+.site-footer .canvas-mode-active p:not(.footer-promo) {
     display: none !important;
 }
 
-.canvas-mode-active .site-footer .footer-promo {
+.canvas-mode-active.site-footer .footer-promo,
+.canvas-mode-active .site-footer .footer-promo,
+.site-footer .canvas-mode-active .footer-promo {
     display: block !important;
     text-align: center !important;
     font-size: 0.9rem !important;
@@ -1389,4 +1409,106 @@ hr {
     line-height: 1.6;
     color: var(--text-color, #cbd5e1);
     margin: 0;
+}
+
+/* Interactive Tabs */
+.tamarind-tabs {
+    margin: 2rem 0;
+    border: 1px solid var(--border-color, #e5e7eb);
+    border-radius: var(--radius-lg, 12px);
+    background-color: var(--card-bg, #ffffff);
+    overflow: hidden;
+}
+.tamarind-tabs-bar {
+    display: flex;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-bottom: 1px solid var(--border-color, #e5e7eb);
+    gap: 0px;
+    padding: 0 12px;
+}
+.tamarind-tab-btn {
+    padding: 12px 20px;
+    background: transparent;
+    border: none;
+    font-family: var(--font-heading, inherit);
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-secondary, #4b5563);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    margin-bottom: -1px;
+}
+.tamarind-tab-btn.active {
+    color: var(--accent-color, #2563eb);
+    border-bottom-color: var(--accent-color, #2563eb);
+}
+.tamarind-tab-btn:hover:not(.active) {
+    color: var(--primary-color, #0f172a);
+    background-color: rgba(0, 0, 0, 0.04);
+}
+.tamarind-tabs-content {
+    padding: 20px;
+}
+.tamarind-tab-pane {
+    display: none;
+}
+.tamarind-tab-pane.active {
+    display: block;
+}
+
+/* Terminal Tabs Support */
+.terminal.terminal-has-tabs .terminal-header {
+    display: flex !important;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 16px !important;
+    background: rgba(0, 0, 0, 0.2) !important;
+}
+
+.terminal-has-tabs .terminal-dots {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.terminal-has-tabs .terminal-tabs-bar {
+    display: flex;
+    gap: 4px;
+    margin-left: 12px;
+}
+
+.terminal-has-tabs .terminal-tab-btn {
+    background: transparent;
+    border: none;
+    padding: 4px 10px;
+    font-family: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #94a3b8; /* default slate-400 */
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    border-bottom: none !important;
+    margin-bottom: 0 !important;
+}
+
+.terminal-has-tabs .terminal-tab-btn:hover {
+    background-color: rgba(255, 255, 255, 0.08) !important;
+    color: #f1f5f9 !important;
+}
+
+.terminal-has-tabs .terminal-tab-btn.active {
+    background-color: rgba(255, 255, 255, 0.15) !important;
+    color: #ffffff !important;
+}
+
+.terminal-tab-pane {
+    display: none;
+}
+
+.terminal-tab-pane.active {
+    display: block;
 }

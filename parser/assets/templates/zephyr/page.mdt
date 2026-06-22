@@ -91,21 +91,11 @@
     <footer class="site-footer">
         <div class="layout-container" style="flex-direction:column; gap:8px; padding:0 24px;">
             <p>&copy; 2026 {{ .SiteName }}. All rights reserved.</p>
-            <p class="footer-promo">
-                This website was easily built with <a href="https://usetamarind.com" target="_blank" class="footer-link-tamarind">Tamarind</a>. 
-                <a href="https://usetamarind.com" target="_blank" class="footer-link-cta">Start your own in 1 minute &rarr;</a>
-            </p>
-            <p style="font-size:0.75rem; opacity:0.75;">Powered by Tamarind Static Site Generator. Zephyr theme by Nous Research.</p>
+            <p style="font-size:0.75rem; opacity:0.75;">Powered by Tamarind Static Site Generator.</p>
         </div>
     </footer>
 
     <script src="{{ .RelPrefix }}theme-toggle.js"></script>
-    
-    <!-- Ghost Badge -->
-    <a href="https://usetamarind.com" target="_blank" class="tamarind-ghost-badge">
-        Use Tamarind
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
-    </a>
 </body>
 
 </html>

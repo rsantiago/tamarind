@@ -230,7 +230,13 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 	})
 
 	// Add Tag Pages
+	var tags []string
 	for tag := range tagsMap {
+		tags = append(tags, tag)
+	}
+	sort.Strings(tags)
+
+	for _, tag := range tags {
 		generatedPages = append(generatedPages, models.PageData{
 			Title:        "Tag: " + tag,
 			Description:  "Articles tagged with " + tag,
