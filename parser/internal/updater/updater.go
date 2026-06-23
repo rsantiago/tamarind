@@ -22,19 +22,20 @@ func CheckForUpdatesAsync() {
 		// Wait to ensure all server boot logs have printed so this lands at the absolute bottom.
 		time.Sleep(1 * time.Second)
 
-		resp, err := http.Get("https://api.github.com/repos/rsantiago/tamarind/releases/latest")
+		// Ping the commits API because the release tag is a rolling 'latest'
+		resp, err := http.Get("https://api.github.com/repos/rsantiago/tamarind/commits/main")
 		if err != nil {
 			return
 		}
 		defer resp.Body.Close()
 
-		var release struct {
-			TagName string `json:"tag_name"`
+		var commit struct {
+			Sha string `json:"sha"`
 		}
-		if err := json.NewDecoder(resp.Body).Decode(&release); err == nil {
-			if release.TagName != "" && release.TagName != config.Version {
+		if err := json.NewDecoder(resp.Body).Decode(&commit); err == nil {
+			if commit.Sha != "" && len(commit.Sha) >= len(config.Version) && commit.Sha[:len(config.Version)] != config.Version {
 				// Dim Yellow text (\033[33;2m)
-				fmt.Printf("\n\033[33;2mUpdate available (%s). Run 'tamarind update'.\033[0m\n", release.TagName)
+				fmt.Printf("\n\033[33;2mUpdate available (Commit: %s). Run 'tamarind update'.\033[0m\n", commit.Sha[:7])
 			}
 		}
 	}()
@@ -43,37 +44,38 @@ func CheckForUpdatesAsync() {
 func RunUpdate() error {
 	fmt.Println("🚀 Checking for Tamarind updates...")
 
-	// 1. Get latest release
-	resp, err := http.Get("https://api.github.com/repos/rsantiago/tamarind/releases/latest")
+	// 1. Get latest commit to check if we actually need to update
+	resp, err := http.Get("https://api.github.com/repos/rsantiago/tamarind/commits/main")
 	if err != nil {
 		return fmt.Errorf("failed to check for updates: %w", err)
 	}
 	defer resp.Body.Close()
 
-	var release struct {
-		TagName string `json:"tag_name"`
+	var commit struct {
+		Sha string `json:"sha"`
 	}
-	if err := json.NewDecoder(resp.Body).Decode(&release); err != nil {
-		return fmt.Errorf("failed to parse release info: %w", err)
-	}
-
-	if release.TagName == "" {
-		return fmt.Errorf("could not determine latest release version")
+	if err := json.NewDecoder(resp.Body).Decode(&commit); err != nil {
+		return fmt.Errorf("failed to parse commit info: %w", err)
 	}
 
-	if release.TagName == config.Version {
+	if commit.Sha == "" {
+		return fmt.Errorf("could not determine latest commit hash")
+	}
+
+	if len(commit.Sha) >= len(config.Version) && commit.Sha[:len(config.Version)] == config.Version {
 		fmt.Printf("✅ You are already running the latest version (%s)\n", config.Version)
 		return nil
 	}
 
-	fmt.Printf("📦 Downloading %s...\n", release.TagName)
+	fmt.Printf("📦 Downloading newest build (Commit: %s)...\n", commit.Sha[:7])
 
 	// 2. Construct binary name
 	binaryName := fmt.Sprintf("tamarind-%s-%s", runtime.GOOS, runtime.GOARCH)
 	if runtime.GOOS == "windows" {
 		binaryName += ".exe"
 	}
-	downloadURL := fmt.Sprintf("https://github.com/rsantiago/tamarind/releases/download/%s/%s", release.TagName, binaryName)
+	// Always download from the 'latest' rolling release
+	downloadURL := fmt.Sprintf("https://github.com/rsantiago/tamarind/releases/download/latest/%s", binaryName)
 
 	// 3. Download the binary
 	downResp, err := http.Get(downloadURL)
@@ -128,6 +130,6 @@ func RunUpdate() error {
 	// Cleanup old file asynchronously (may fail on Windows if still locked)
 	go os.Remove(oldFile)
 
-	fmt.Printf("✅ Tamarind successfully updated to %s!\n", release.TagName)
+	fmt.Printf("✅ Tamarind successfully updated to build %s!\n", commit.Sha[:7])
 	return nil
 }
