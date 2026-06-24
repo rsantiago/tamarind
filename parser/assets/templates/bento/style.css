@@ -32,6 +32,16 @@
 
     --shadow: 0 4px 24px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
     --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.08);
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 [data-theme="dark"] {
@@ -44,6 +54,16 @@
     --card-bg: #1C1C1E;
     --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
     --shadow-hover: 0 12px 32px rgba(0, 0, 0, 0.6);
+
+    --chart-1: #cce0ff;
+    --chart-2: #ffc066;
+    --chart-3: #eaccff;
+    --chart-4: #66dea2;
+    --chart-5: #ffd6e0;
+    --chart-6: #66deff;
+    --chart-7: #f4f4cc;
+    --chart-8: #a2a2ff;
+    --chart-9: #ffccf4;
 }
 
 * {

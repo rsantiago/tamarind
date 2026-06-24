@@ -257,26 +257,51 @@ func verifyChartColorsContrast(analysis *CSSAnalysis) bool {
 	for k, v := range analysis.LightVars { darkVars[k] = v }
 	for k, v := range analysis.DarkVars { darkVars[k] = v }
 
-	getChartColor := func(vars map[string]string, index int, fallback string) string {
+	getChartColor := func(vars map[string]string, index int) string {
 		cName := fmt.Sprintf("--chart-%d", index)
 		if val := vars[cName]; val != "" {
 			return ResolveVal(val, vars)
 		}
-		return ResolveVal(vars[fallback], vars)
+		switch index {
+		case 1: return ResolveVal(vars["--primary-color"], vars)
+		case 2: return ResolveVal(vars["--secondary-color"], vars)
+		case 3: return "#58508d"
+		case 4: return "#ffa600"
+		case 5: return "#2f4b7c"
+		case 6: return "#00ba38"
+		case 7: return "#1e2e33"
+		case 8: return "#ff6361"
+		case 9: return "#a05195"
+		}
+		return ""
 	}
 
 	checkContrast := func(vars map[string]string) bool {
-		c1 := getChartColor(vars, 1, "--primary-color")
-		c2 := getChartColor(vars, 2, "--secondary-color")
-		
-		r1, g1, b1, ok1 := ParseColor(c1)
-		r2, g2, b2, ok2 := ParseColor(c2)
-		if !ok1 || !ok2 { return true } // Can't parse or not defined, assume ok for now
+		bgVal := vars["--card-bg"]
+		if bgVal == "" { bgVal = vars["--background-color"] }
+		bgVal = ResolveVal(bgVal, vars)
+		br, bg, bb, bgOk := ParseColor(bgVal)
+		bgL := RelativeLuminance(br, bg, bb)
 
-		l1 := RelativeLuminance(r1, g1, b1)
-		l2 := RelativeLuminance(r2, g2, b2)
-		
-		return ContrastRatio(l1, l2) > 2.4
+		for i := 1; i <= 9; i++ {
+			ci := getChartColor(vars, i)
+			ri, gi, bi, oki := ParseColor(ci)
+			if !oki { continue }
+			li := RelativeLuminance(ri, gi, bi)
+
+			if bgOk {
+				if ContrastRatio(li, bgL) < 1.35 { return false }
+			}
+
+			if i < 9 {
+				cj := getChartColor(vars, i+1)
+				rj, gj, bj, okj := ParseColor(cj)
+				if !okj { continue }
+				lj := RelativeLuminance(rj, gj, bj)
+				if ContrastRatio(li, lj) < 1.35 { return false }
+			}
+		}
+		return true
 	}
 
 	return checkContrast(lightVars) && checkContrast(darkVars)

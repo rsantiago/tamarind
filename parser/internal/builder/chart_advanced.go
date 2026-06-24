@@ -13,13 +13,13 @@ import (
 var defaultColors = []string{
 	"var(--chart-1, var(--primary-color, #3b82f6))",
 	"var(--chart-2, var(--secondary-color, #10b981))",
-	"var(--chart-3, #f59e0b)",
-	"var(--chart-4, #ef4444)",
-	"var(--chart-5, #8b5cf6)",
-	"var(--chart-6, #ec4899)",
-	"var(--chart-7, #14b8a6)",
-	"var(--chart-8, #f97316)",
-	"var(--chart-9, #64748b)",
+	"var(--chart-3, #58508d)",
+	"var(--chart-4, #ffa600)",
+	"var(--chart-5, #2f4b7c)",
+	"var(--chart-6, #00ba38)",
+	"var(--chart-7, #1e2e33)",
+	"var(--chart-8, #ff6361)",
+	"var(--chart-9, #a05195)",
 }
 
 func generateDonutChart(sourceDir, filename, title string) string {

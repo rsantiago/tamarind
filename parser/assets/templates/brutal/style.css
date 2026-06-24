@@ -19,16 +19,7 @@
     --heading-color: #000000;
     --border-color: #000000;
 
-    /* Theme-Compliant Chart Colors (High Contrast on White) */
-    --chart-1: #0000FF; /* Pure Blue */
-    --chart-2: #FFFF00; /* Pure Yellow */
-    --chart-3: #008000; /* Pure Green */
-    --chart-4: #FF00FF; /* Magenta */
-    --chart-5: #FF8C00; /* Dark Orange */
-    --chart-6: #000000; /* Black */
-    --chart-7: #800080; /* Purple */
-    --chart-8: #00CED1; /* Dark Turquoise */
-    --chart-9: #B22222; /* Firebrick */
+    /* Theme-Compliant Chart Colors (High Contrast on White) */ /* Pure Blue */ /* Pure Yellow */ /* Pure Green */ /* Magenta */ /* Dark Orange */ /* Black */ /* Purple */ /* Dark Turquoise */ /* Firebrick */
 
     /* Typography */
     --font-heading: 'Space Grotesk', sans-serif;
@@ -43,6 +34,16 @@
     --shadow: 8px 8px 0px #000000;
     --shadow-hover: 12px 12px 0px #000000;
     --border-width: 4px;
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 [data-theme="dark"] {
@@ -57,16 +58,17 @@
     --shadow: 8px 8px 0px var(--primary-color);
     --shadow-hover: 12px 12px 0px var(--primary-color);
 
-    /* Theme-Compliant Chart Colors (Neon on Black) */
-    --chart-1: #00FF00; /* Pure Green */
-    --chart-2: #FF0000; /* Pure Red */
-    --chart-3: #FF00FF; /* Magenta */
-    --chart-4: #39FF14; /* Neon Green */
-    --chart-5: #FF3131; /* Neon Red */
-    --chart-6: #FF9933; /* Neon Orange */
-    --chart-7: #FFFFFF; /* White */
-    --chart-8: #CCFF00; /* Fluorescent Green */
-    --chart-9: #9D00FF; /* Neon Purple */
+    /* Theme-Compliant Chart Colors (Neon on Black) */ /* Pure Green */ /* Pure Red */ /* Magenta */ /* Neon Green */ /* Neon Red */ /* Neon Orange */ /* White */ /* Fluorescent Green */ /* Neon Purple */
+
+    --chart-1: #cce0ff;
+    --chart-2: #ffc066;
+    --chart-3: #eaccff;
+    --chart-4: #66dea2;
+    --chart-5: #ffd6e0;
+    --chart-6: #66deff;
+    --chart-7: #f4f4cc;
+    --chart-8: #a2a2ff;
+    --chart-9: #ffccf4;
 }
 
 * {

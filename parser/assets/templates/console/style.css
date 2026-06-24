@@ -29,6 +29,16 @@
     --radius-md: 0px;
     --radius-lg: 0px;
     --shadow: none;
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 [data-theme="light"] {

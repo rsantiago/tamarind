@@ -33,6 +33,16 @@
     
     --shadow: 4px 4px 0px rgba(0, 0, 0, 0.5); /* Hard brutalist shadow */
     --shadow-hover: 6px 6px 0px rgba(214, 78, 41, 0.3); /* Rust shadow on hover */
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 [data-theme="light"] {

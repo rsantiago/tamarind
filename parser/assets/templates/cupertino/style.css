@@ -34,6 +34,16 @@
     --radius-md: 12px;
     --radius-lg: 18px;              /* Soft curved Apple corners */
     --shadow: 0 4px 30px rgba(0, 0, 0, 0.03); /* Subtle premium shadow */
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 [data-theme="dark"] {
@@ -48,6 +58,16 @@
     --border-color: #424245;
     --border-color-medium: #86868b;
     --shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+
+    --chart-1: #cce0ff;
+    --chart-2: #ffc066;
+    --chart-3: #eaccff;
+    --chart-4: #66dea2;
+    --chart-5: #ffd6e0;
+    --chart-6: #66deff;
+    --chart-7: #f4f4cc;
+    --chart-8: #a2a2ff;
+    --chart-9: #ffccf4;
 }
 
 * {

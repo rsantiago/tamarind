@@ -33,6 +33,16 @@
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
     --font-body: var(--font-family);
     --nav-hover: rgba(255, 255, 255, 0.15);
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 * {

@@ -17,9 +17,7 @@
     --secondary-color: #10b981;     /* Tech Emerald Green */
     --accent-color: #6366f1;        /* Technical Indigo */
     --heading-color: #f8fafc;       /* Pure Slate White */
-    --border-color: #1e293b;
-    --chart-1: #2563eb;
-    --chart-2: #f59e0b;        /* Slate 800 */
+    --border-color: #1e293b;        /* Slate 800 */
     --border-color-medium: #334155; /* Slate 700 */
 
     /* Typography */
@@ -36,6 +34,16 @@
     --radius-md: 8px;
     --radius-lg: 12px;
     --shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 /* For users who specifically prefer Light Mode, we reverse to a high-contrast Technical White */

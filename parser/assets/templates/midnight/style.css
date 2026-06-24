@@ -16,9 +16,7 @@
     --primary-color: #C084FC; /* Bright Neon Purple */
     --primary-dark: #9333EA;
     --secondary-color: #A78BFA;
-    --border-color: #2E1B4A;
-    --chart-1: #2563eb;
-    --chart-2: #f59e0b; /* Deep Indigo Border */
+    --border-color: #2E1B4A; /* Deep Indigo Border */
     --border-color-medium: #3B2860;
     --card-bg: #150E22; /* Slightly Lighter Indigo */
     
@@ -37,6 +35,16 @@
     --radius-md: 16px;
     --shadow: 0 4px 20px rgba(0,0,0,0.5);
     --radius-lg: 24px;
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 [data-theme="light"] {

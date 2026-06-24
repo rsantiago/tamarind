@@ -17,9 +17,7 @@
     --secondary-color: #8c1d40;     /* Scholarly Crimson */
     --accent-color: #5c768d;
     --heading-color: #111111;
-    --border-color: #e4dec9;
-    --chart-1: #2563eb;
-    --chart-2: #f59e0b;        /* Aged Paper Border */
+    --border-color: #e4dec9;        /* Aged Paper Border */
     --border-color-medium: #cbd5e1;
 
     /* Typography */
@@ -36,6 +34,16 @@
     --radius-md: 0px;
     --radius-lg: 0px;
     --shadow: none;                 /* Monolithic flat design */
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 [data-theme="dark"] {
@@ -48,9 +56,17 @@
     --secondary-color: #ffa4b4;     /* Rose Accent */
     --heading-color: #ffffff;
     --border-color: #2e2b26;
-    --chart-1: #3b82f6;
-    --chart-2: #fcd34d;
     --border-color-medium: #47433c;
+
+    --chart-1: #cce0ff;
+    --chart-2: #ffc066;
+    --chart-3: #eaccff;
+    --chart-4: #66dea2;
+    --chart-5: #ffd6e0;
+    --chart-6: #66deff;
+    --chart-7: #f4f4cc;
+    --chart-8: #a2a2ff;
+    --chart-9: #ffccf4;
 }
 
 * {

@@ -32,6 +32,16 @@
     --radius-sm: 6px;
     --radius-md: 12px;
     --radius-lg: 24px;
+    --chart-1: #002866;
+    --chart-2: #cc7800;
+    --chart-3: #3c0066;
+    --chart-4: #00a050;
+    --chart-5: #661428;
+    --chart-6: #00a0cc;
+    --chart-7: #505000;
+    --chart-8: #5050cc;
+    --chart-9: #660050;
+
 }
 
 [data-theme="dark"] {
@@ -48,6 +58,16 @@
     --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.5);
     --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
     --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+
+    --chart-1: #cce0ff;
+    --chart-2: #ffc066;
+    --chart-3: #eaccff;
+    --chart-4: #66dea2;
+    --chart-5: #ffd6e0;
+    --chart-6: #66deff;
+    --chart-7: #f4f4cc;
+    --chart-8: #a2a2ff;
+    --chart-9: #ffccf4;
 }
 
 * {
