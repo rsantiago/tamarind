@@ -12,6 +12,7 @@ type PageData struct {
 	TitleSize         string
 	Description       string // SEO
 	Date              string
+	ResolvedDate      string
 	Tags              []string
 	Body              template.HTML
 	RelPrefix         string
@@ -27,6 +28,7 @@ type PageData struct {
 	Canvas            bool
 	HideMenu          bool
 	HideFooter        bool
+	HideBadge         bool
 	Data              map[string]interface{} // Data Files Support
 	Author            string                 // Page-specific or Global Author
 	AttributionStyle  string                 // Controlling date/author display style
@@ -79,6 +81,7 @@ type FrontMatter struct {
 	Subtitle          string      `yaml:"subtitle"`
 	TitleSize         string      `yaml:"title_size"`
 	Date              string      `yaml:"date"`
+	ResolvedDate      string      `yaml:"resolved_date"`
 	Tags              []string    `yaml:"tags"`
 	Description       string      `yaml:"description"` // SEO
 	Image             string      `yaml:"image"`       // SEO
@@ -86,6 +89,7 @@ type FrontMatter struct {
 	Canvas            bool        `yaml:"canvas"`
 	HideMenu          bool        `yaml:"hide_menu"`
 	HideFooter        bool        `yaml:"hide_footer"`
+	HideBadge         bool        `yaml:"hide_badge"`
 	Draft             bool        `yaml:"draft"`      // New Draft Field
 	SiteName          string      `yaml:"site_name"`  // Override Site Name
 	MenuLabel         string      `yaml:"menu_label"` // Custom Menu Title

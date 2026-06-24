@@ -16,7 +16,9 @@
     --primary-color: #C084FC; /* Bright Neon Purple */
     --primary-dark: #9333EA;
     --secondary-color: #A78BFA;
-    --border-color: #2E1B4A; /* Deep Indigo Border */
+    --border-color: #2E1B4A;
+    --chart-1: #2563eb;
+    --chart-2: #f59e0b; /* Deep Indigo Border */
     --border-color-medium: #3B2860;
     --card-bg: #150E22; /* Slightly Lighter Indigo */
     

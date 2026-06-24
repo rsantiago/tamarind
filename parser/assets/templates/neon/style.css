@@ -15,6 +15,8 @@
     --primary-color: #FF00FF; /* Pure Magenta */
     --secondary-color: #00FFFF; /* Cyan */
     --border-color: #222222;
+    --chart-1: #2563eb;
+    --chart-2: #f59e0b;
     --card-bg: #0A0A0A; /* Very Dark Gray */
     
     --glow-magenta: 0 0 20px rgba(255, 0, 255, 0.4);

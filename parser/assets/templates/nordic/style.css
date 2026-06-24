@@ -18,7 +18,9 @@
     --accent-color: #A3BE8C;
     /* Soft Green */
 
-    --border-color: #434C5E;         /* Beautifully defined frost slate border */
+    --border-color: #434C5E;
+    --chart-1: #2563eb;
+    --chart-2: #f59e0b;         /* Beautifully defined frost slate border */
     --card-bg: #353D4A;              /* Elegant standout Polar Night card bg */
 
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -48,7 +50,9 @@
 [data-theme="dark"] {
     --background-color: #242933;
     --card-bg: #353D4A;              /* Standout Polar Night dark card bg */
-    --border-color: #434C5E;         /* Lighter frost border */
+    --border-color: #434C5E;
+    --chart-1: #3b82f6;
+    --chart-2: #fcd34d;         /* Lighter frost border */
 }
 
 /* Rounded Softness */

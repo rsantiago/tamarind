@@ -17,6 +17,8 @@
     --secondary-color: #E2D1F9; /* Soft Lavender */
     --accent-color: #B5EAD7; /* Mint */
     --border-color: #F0E6F7;
+    --chart-1: #2563eb;
+    --chart-2: #f59e0b;
     --card-bg: #FFFFFF;
     --code-color: #88509E; /* Orchid purple for high-contrast inline code */
 
@@ -48,6 +50,8 @@
     --secondary-color: #B5EAD7;
     --card-bg: #383252;
     --border-color: #4A436D;
+    --chart-1: #3b82f6;
+    --chart-2: #fcd34d;
     --code-color: #FFB7B2; /* Peach color for high contrast inline code in dark mode */
     
     --shadow-soft: 0 10px 25px rgba(0, 0, 0, 0.2);

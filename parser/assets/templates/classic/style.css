@@ -320,6 +320,9 @@ a:hover {
     border-right: 2px solid var(--win-low);
     border-bottom: 2px solid var(--win-low);
     box-shadow: inset 1px 1px 0px var(--win-high), inset -1px -1px 0px var(--win-low);
+    clear: both;
+    display: block;
+    width: 100%;
 }
 
 .site-footer a {

@@ -98,6 +98,10 @@ items:
     type: contrast-ratio
     required: true
     description: "Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes"
+  - name: "chart-color-contrast"
+    type: contrast-ratio
+    required: true
+    description: "Contrast between the first two chart colors must be distinct to prevent invisible data series"
 ```
 
 ### Typography

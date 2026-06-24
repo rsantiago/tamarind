@@ -206,3 +206,41 @@ menu_order: 10
 	}
 }
 
+func TestParseFrontMatter_AttributionStyle(t *testing.T) {
+	tests := []struct {
+		name     string
+		content  string
+		expected string
+	}{
+		{
+			name: "Default AttributionStyle is empty string",
+			content: "---\ntitle: Test\n---\nContent",
+			expected: "",
+		},
+		{
+			name: "Explicit None AttributionStyle",
+			content: "---\ntitle: Test\nattribution_style: none\n---\nContent",
+			expected: "none",
+		},
+		{
+			name: "Explicit Date Only",
+			content: "---\ntitle: Test\nattribution_style: date-only\n---\nContent",
+			expected: "date-only",
+		},
+		{
+			name: "Explicit Author Only",
+			content: "---\ntitle: Test\nattribution_style: author-only\n---\nContent",
+			expected: "author-only",
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			fm, _ := ParseFrontMatter([]byte(tt.content))
+
+			if fm.AttributionStyle != tt.expected {
+				t.Errorf("Expected AttributionStyle to be %q, got %q", tt.expected, fm.AttributionStyle)
+			}
+		})
+	}
+}

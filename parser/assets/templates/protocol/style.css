@@ -17,7 +17,9 @@
     --secondary-color: #10b981;     /* Tech Emerald Green */
     --accent-color: #6366f1;        /* Technical Indigo */
     --heading-color: #f8fafc;       /* Pure Slate White */
-    --border-color: #1e293b;        /* Slate 800 */
+    --border-color: #1e293b;
+    --chart-1: #2563eb;
+    --chart-2: #f59e0b;        /* Slate 800 */
     --border-color-medium: #334155; /* Slate 700 */
 
     /* Typography */

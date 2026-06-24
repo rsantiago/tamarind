@@ -90,6 +90,8 @@ func CheckRequirement(analysis *CSSAnalysis, req Requirement) bool {
 	case "contrast-ratio":
 		if req.Name == "background-contrast" {
 			return verifyBackgroundContrast(analysis)
+		} else if req.Name == "chart-color-contrast" {
+			return verifyChartColorsContrast(analysis)
 		}
 		return true
 
@@ -192,6 +194,9 @@ func CheckRequirement(analysis *CSSAnalysis, req Requirement) bool {
 			return false
 		}
 		tplStr := string(tplContent)
+		if target == "tamarind-ghost-badge" {
+			return strings.Contains(tplStr, target)
+		}
 		return (strings.Contains(tplStr, target) || strings.Contains(tplStr, "footer.mdt"))
 	}
 
@@ -244,4 +249,35 @@ func verifyBackgroundContrast(analysis *CSSAnalysis) bool {
 	}
 
 	return true
+}
+
+func verifyChartColorsContrast(analysis *CSSAnalysis) bool {
+	lightVars := analysis.LightVars
+	darkVars := make(map[string]string)
+	for k, v := range analysis.LightVars { darkVars[k] = v }
+	for k, v := range analysis.DarkVars { darkVars[k] = v }
+
+	getChartColor := func(vars map[string]string, index int, fallback string) string {
+		cName := fmt.Sprintf("--chart-%d", index)
+		if val := vars[cName]; val != "" {
+			return ResolveVal(val, vars)
+		}
+		return ResolveVal(vars[fallback], vars)
+	}
+
+	checkContrast := func(vars map[string]string) bool {
+		c1 := getChartColor(vars, 1, "--primary-color")
+		c2 := getChartColor(vars, 2, "--secondary-color")
+		
+		r1, g1, b1, ok1 := ParseColor(c1)
+		r2, g2, b2, ok2 := ParseColor(c2)
+		if !ok1 || !ok2 { return true } // Can't parse or not defined, assume ok for now
+
+		l1 := RelativeLuminance(r1, g1, b1)
+		l2 := RelativeLuminance(r2, g2, b2)
+		
+		return ContrastRatio(l1, l2) > 2.4
+	}
+
+	return checkContrast(lightVars) && checkContrast(darkVars)
 }

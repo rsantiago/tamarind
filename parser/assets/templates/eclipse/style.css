@@ -14,7 +14,9 @@
     --primary-color: #66FCF1;
     --secondary-color: #45A29E;
 
-    --border-color: #2E3543;        /* Soft luxurious steel gray border */
+    --border-color: #2E3543;
+    --chart-1: #2563eb;
+    --chart-2: #f59e0b;        /* Soft luxurious steel gray border */
     --card-bg: #1D2026;             /* Lavish obsidian-steel card bg - highly visible */
 
     --font-family: 'Inter', system-ui, -apple-system, sans-serif;
@@ -45,7 +47,9 @@
 [data-theme="dark"] {
     --background-color: #0B0C10;
     --card-bg: #222630;              /* Standout obsidian dark card bg */
-    --border-color: #333947;         /* Lighter steel dark border */
+    --border-color: #333947;
+    --chart-1: #3b82f6;
+    --chart-2: #fcd34d;         /* Lighter steel dark border */
 }
 
 

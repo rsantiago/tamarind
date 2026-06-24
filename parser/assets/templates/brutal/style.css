@@ -19,6 +19,17 @@
     --heading-color: #000000;
     --border-color: #000000;
 
+    /* Theme-Compliant Chart Colors (High Contrast on White) */
+    --chart-1: #0000FF; /* Pure Blue */
+    --chart-2: #FFFF00; /* Pure Yellow */
+    --chart-3: #008000; /* Pure Green */
+    --chart-4: #FF00FF; /* Magenta */
+    --chart-5: #FF8C00; /* Dark Orange */
+    --chart-6: #000000; /* Black */
+    --chart-7: #800080; /* Purple */
+    --chart-8: #00CED1; /* Dark Turquoise */
+    --chart-9: #B22222; /* Firebrick */
+
     /* Typography */
     --font-heading: 'Space Grotesk', sans-serif;
     --font-body: 'Courier Prime', monospace;
@@ -45,6 +56,17 @@
     --primary-color: #FF00FF; /* Magenta takes priority in dark mode */
     --shadow: 8px 8px 0px var(--primary-color);
     --shadow-hover: 12px 12px 0px var(--primary-color);
+
+    /* Theme-Compliant Chart Colors (Neon on Black) */
+    --chart-1: #00FF00; /* Pure Green */
+    --chart-2: #FF0000; /* Pure Red */
+    --chart-3: #FF00FF; /* Magenta */
+    --chart-4: #39FF14; /* Neon Green */
+    --chart-5: #FF3131; /* Neon Red */
+    --chart-6: #FF9933; /* Neon Orange */
+    --chart-7: #FFFFFF; /* White */
+    --chart-8: #CCFF00; /* Fluorescent Green */
+    --chart-9: #9D00FF; /* Neon Purple */
 }
 
 * {
