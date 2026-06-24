@@ -5,8 +5,6 @@ date: 2026-06-01
 tags: [features, navigation, config]
 ---
 
-# Navigation Menus & Custom Ordering
-
 Tamarind features a dynamic top navigation menu that is automatically constructed at build time. By combining automated directory scans with granular metadata overrides in your page frontmatter, you can construct clean, structured navigation menus without writing custom HTML or configuration files.
 
 ---
@@ -69,3 +67,20 @@ To customize the order or change the menu label of a collection:
    ```
 
 The Tamarind compiler detects the matching override file, extracts the customized menu order and labels, and safely prevents any duplicate entries from rendering in your navigation bar. The actual content index for the collection remains dynamically generated and populated automatically.
+
+---
+
+## 4. Custom Brand Logo Image
+
+Instead of rendering a default text title and SVG icon, you can replace the upper-left website name with a custom brand logo image (like `images/logo.png`).
+
+### Configuration Steps:
+1.  **Place the Logo File**: Put your brand logo image at `images/logo.png` inside your source directory (e.g. `writer-sandbox/images/logo.png`).
+2.  **Enable the Image Logo**: Add the `"use_image_logo": true` property to your global data file `data/info.json`:
+    ```json
+    {
+      "use_image_logo": true
+    }
+    ```
+
+The Tamarind compiler automatically copies the logo image, optimizes it for various screen resolutions, and replaces the header text with your brand logo image.
