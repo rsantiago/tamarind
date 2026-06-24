@@ -32,7 +32,7 @@ SUCCESSFUL_THEMES=()
 for theme in "${THEMES[@]}"; do
     echo "Building theme: $theme..."
     # Run the build, capture errors but don't exit script if one theme fails to compile
-    if ./tamarind build -theme "$theme"; then
+    if ./tamarind build -theme "$theme" -url "/$theme"; then
         mv website public-all/"$theme"
         SUCCESSFUL_THEMES+=("$theme")
     else

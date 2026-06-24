@@ -22,8 +22,8 @@ serve:
 
 # Serve the gallery of all themes
 serve-all: build-all
-	@echo "Starting local server for all themes..."
-	@./tamarind serve
+	@echo "Starting local server for all themes on port 8080..."
+	@python3 -m http.server 8080 -d public-all
 
 # Initialize a new project
 init:
