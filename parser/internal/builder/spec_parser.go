@@ -265,13 +265,13 @@ func verifyChartColorsContrast(analysis *CSSAnalysis) bool {
 		switch index {
 		case 1: return ResolveVal(vars["--primary-color"], vars)
 		case 2: return ResolveVal(vars["--secondary-color"], vars)
-		case 3: return "#d946ef"
-		case 4: return "#f59e0b"
-		case 5: return "#7c3aed"
-		case 6: return "#0ea5e9"
-		case 7: return "#e11d48"
-		case 8: return "#84cc16"
-		case 9: return "#475569"
+		case 3: return "#93761f"
+		case 4: return "#8ba5c0"
+		case 5: return "#8f233e"
+		case 6: return "#bcd278"
+		case 7: return "#23468f"
+		case 8: return "#db8b6f"
+		case 9: return "#595959"
 		}
 		return ""
 	}

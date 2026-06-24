@@ -44,15 +44,15 @@
 
     --heading-color: #ECEFF4;
 
-    --chart-1: #2563eb;
-    --chart-2: #10b981;
-    --chart-3: #d946ef;
-    --chart-4: #f59e0b;
-    --chart-5: #7c3aed;
-    --chart-6: #0ea5e9;
-    --chart-7: #e11d48;
-    --chart-8: #84cc16;
-    --chart-9: #475569;
+    --chart-1: #88c0d0;
+    --chart-2: #2c864a;
+    --chart-3: #dfc36b;
+    --chart-4: #3e5973;
+    --chart-5: #db6f8b;
+    --chart-6: #3f4c19;
+    --chart-7: #6f93db;
+    --chart-8: #8f3e23;
+    --chart-9: #a5a5a5;
 
 }
 
@@ -61,15 +61,15 @@
     --card-bg: #353D4A;              /* Standout Polar Night dark card bg */
     --border-color: #434C5E;         /* Lighter frost border */
 
-    --chart-1: #3b82f6;
-    --chart-2: #6ee7b7;
-    --chart-3: #c084fc;
-    --chart-4: #fde047;
-    --chart-5: #f472b6;
-    --chart-6: #67e8f9;
-    --chart-7: #fb7185;
-    --chart-8: #bef264;
-    --chart-9: #94a3b8;
+    --chart-1: #88c0d0;
+    --chart-2: #2c864a;
+    --chart-3: #dfc36b;
+    --chart-4: #3e5973;
+    --chart-5: #db6f8b;
+    --chart-6: #3f4c19;
+    --chart-7: #6f93db;
+    --chart-8: #8f3e23;
+    --chart-9: #a5a5a5;
 }
 
 /* Rounded Softness */
