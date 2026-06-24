@@ -4,6 +4,11 @@ tags: [features, demo, visualization, charts]
 description: Create native, zero-dependency SVG charts using JSON data and shortcodes.
 ---
 
+
+{{ callout type="info" title="Architecture Note" }}
+Curious about how Tamarind mathematically guarantees elegant, theme-adaptive, and highly legible color contrast sequences across all 31 themes? Check out the [Hidden Chart Color Theory](/docs/hidden-color-theory.html) architecture document.
+{{ /callout }}
+
 Tamarind includes a powerful, zero-dependency chart rendering engine. Instead of relying on massive JavaScript libraries like Chart.js or D3, Tamarind statically compiles your data directly into highly optimized, responsive SVG elements at build time.
 
 ## Data Sources
