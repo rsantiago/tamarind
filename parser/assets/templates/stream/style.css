@@ -31,15 +31,16 @@
     --radius-lg: 12px;
 
     --shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-    --chart-1: #002866;
-    --chart-2: #cc7800;
-    --chart-3: #3c0066;
-    --chart-4: #00a050;
-    --chart-5: #661428;
-    --chart-6: #00a0cc;
-    --chart-7: #505000;
-    --chart-8: #5050cc;
-    --chart-9: #660050;
+
+    --chart-1: #2563eb;
+    --chart-2: #10b981;
+    --chart-3: #d946ef;
+    --chart-4: #f59e0b;
+    --chart-5: #7c3aed;
+    --chart-6: #0ea5e9;
+    --chart-7: #e11d48;
+    --chart-8: #84cc16;
+    --chart-9: #475569;
 
 }
 

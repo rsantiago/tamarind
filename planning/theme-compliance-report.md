@@ -1,6 +1,6 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-06-24 04:03:23
+**Generated**: 2026-06-24 04:12:09
 
 **Total Requirements**: 132 required, 3 optional
 
@@ -8,49 +8,43 @@
 
 | Theme | Status | Passed | Failed | Score |
 |-------|--------|--------|--------|-------|
-| **atlas** | ❌ FAIL | 131 | 1 | 99% |
-| **basic** | ❌ FAIL | 131 | 1 | 99% |
-| **bento** | ❌ FAIL | 131 | 1 | 99% |
-| **bird** | ❌ FAIL | 131 | 1 | 99% |
-| **blue** | ❌ FAIL | 131 | 1 | 99% |
-| **brutal** | ❌ FAIL | 131 | 1 | 99% |
-| **canvas** | ❌ FAIL | 131 | 1 | 99% |
+| **atlas** | ✅ PASS | 132 | 0 | 100% |
+| **basic** | ✅ PASS | 132 | 0 | 100% |
+| **bento** | ✅ PASS | 132 | 0 | 100% |
+| **bird** | ✅ PASS | 132 | 0 | 100% |
+| **blue** | ✅ PASS | 132 | 0 | 100% |
+| **brutal** | ✅ PASS | 132 | 0 | 100% |
+| **canvas** | ✅ PASS | 132 | 0 | 100% |
 | **classic** | ❌ FAIL | 131 | 1 | 99% |
 | **console** | ✅ PASS | 132 | 0 | 100% |
-| **cupertino** | ❌ FAIL | 131 | 1 | 99% |
-| **eclipse** | ❌ FAIL | 131 | 1 | 99% |
-| **editorial** | ❌ FAIL | 131 | 1 | 99% |
+| **cupertino** | ✅ PASS | 132 | 0 | 100% |
+| **eclipse** | ✅ PASS | 132 | 0 | 100% |
+| **editorial** | ✅ PASS | 132 | 0 | 100% |
 | **forge** | ✅ PASS | 132 | 0 | 100% |
-| **gallery** | ❌ FAIL | 131 | 1 | 99% |
-| **gram** | ❌ FAIL | 131 | 1 | 99% |
-| **hacker** | ❌ FAIL | 131 | 1 | 99% |
+| **gallery** | ✅ PASS | 132 | 0 | 100% |
+| **gram** | ✅ PASS | 132 | 0 | 100% |
+| **hacker** | ✅ PASS | 132 | 0 | 100% |
 | **midnight** | ✅ PASS | 132 | 0 | 100% |
 | **neon** | ✅ PASS | 132 | 0 | 100% |
 | **network** | ✅ PASS | 132 | 0 | 100% |
-| **news** | ❌ FAIL | 131 | 1 | 99% |
-| **nexus** | ❌ FAIL | 131 | 1 | 99% |
-| **nordic** | ❌ FAIL | 131 | 1 | 99% |
-| **overflow** | ❌ FAIL | 131 | 1 | 99% |
-| **pastel** | ❌ FAIL | 131 | 1 | 99% |
+| **news** | ✅ PASS | 132 | 0 | 100% |
+| **nexus** | ✅ PASS | 132 | 0 | 100% |
+| **nordic** | ✅ PASS | 132 | 0 | 100% |
+| **overflow** | ✅ PASS | 132 | 0 | 100% |
+| **pastel** | ✅ PASS | 132 | 0 | 100% |
 | **pod** | ✅ PASS | 132 | 0 | 100% |
-| **prose** | ❌ FAIL | 131 | 1 | 99% |
+| **prose** | ✅ PASS | 132 | 0 | 100% |
 | **protocol** | ✅ PASS | 132 | 0 | 100% |
-| **scribe** | ❌ FAIL | 131 | 1 | 99% |
+| **scribe** | ✅ PASS | 132 | 0 | 100% |
 | **stream** | ✅ PASS | 132 | 0 | 100% |
-| **tube** | ❌ FAIL | 131 | 1 | 99% |
-| **zephyr** | ❌ FAIL | 131 | 1 | 99% |
+| **tube** | ✅ PASS | 132 | 0 | 100% |
+| **zephyr** | ✅ PASS | 132 | 0 | 100% |
 
 ---
 
-## Theme: atlas — ❌ NON-COMPLIANT
+## Theme: atlas — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -224,6 +218,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -241,15 +236,9 @@
 
 ---
 
-## Theme: basic — ❌ NON-COMPLIANT
+## Theme: basic — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -423,6 +412,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -440,15 +430,9 @@
 
 ---
 
-## Theme: bento — ❌ NON-COMPLIANT
+## Theme: bento — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -622,6 +606,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -639,15 +624,9 @@
 
 ---
 
-## Theme: bird — ❌ NON-COMPLIANT
+## Theme: bird — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -821,6 +800,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -838,15 +818,9 @@
 
 ---
 
-## Theme: blue — ❌ NON-COMPLIANT
+## Theme: blue — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1020,6 +994,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -1037,15 +1012,9 @@
 
 ---
 
-## Theme: brutal — ❌ NON-COMPLIANT
+## Theme: brutal — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1219,6 +1188,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -1236,15 +1206,9 @@
 
 ---
 
-## Theme: canvas — ❌ NON-COMPLIANT
+## Theme: canvas — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1418,6 +1382,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -1828,15 +1793,9 @@
 
 ---
 
-## Theme: cupertino — ❌ NON-COMPLIANT
+## Theme: cupertino — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2010,6 +1969,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -2027,15 +1987,9 @@
 
 ---
 
-## Theme: eclipse — ❌ NON-COMPLIANT
+## Theme: eclipse — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2209,6 +2163,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -2226,15 +2181,9 @@
 
 ---
 
-## Theme: editorial — ❌ NON-COMPLIANT
+## Theme: editorial — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2408,6 +2357,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -2619,15 +2569,9 @@
 
 ---
 
-## Theme: gallery — ❌ NON-COMPLIANT
+## Theme: gallery — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2801,6 +2745,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -2818,15 +2763,9 @@
 
 ---
 
-## Theme: gram — ❌ NON-COMPLIANT
+## Theme: gram — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3000,6 +2939,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -3017,15 +2957,9 @@
 
 ---
 
-## Theme: hacker — ❌ NON-COMPLIANT
+## Theme: hacker — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3199,6 +3133,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -3798,15 +3733,9 @@
 
 ---
 
-## Theme: news — ❌ NON-COMPLIANT
+## Theme: news — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3980,6 +3909,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -3997,15 +3927,9 @@
 
 ---
 
-## Theme: nexus — ❌ NON-COMPLIANT
+## Theme: nexus — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4179,6 +4103,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -4196,15 +4121,9 @@
 
 ---
 
-## Theme: nordic — ❌ NON-COMPLIANT
+## Theme: nordic — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4378,6 +4297,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -4395,15 +4315,9 @@
 
 ---
 
-## Theme: overflow — ❌ NON-COMPLIANT
+## Theme: overflow — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4577,6 +4491,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -4594,15 +4509,9 @@
 
 ---
 
-## Theme: pastel — ❌ NON-COMPLIANT
+## Theme: pastel — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4776,6 +4685,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -4987,15 +4897,9 @@
 
 ---
 
-## Theme: prose — ❌ NON-COMPLIANT
+## Theme: prose — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5169,6 +5073,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -5380,15 +5285,9 @@
 
 ---
 
-## Theme: scribe — ❌ NON-COMPLIANT
+## Theme: scribe — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5562,6 +5461,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -5773,15 +5673,9 @@
 
 ---
 
-## Theme: tube — ❌ NON-COMPLIANT
+## Theme: tube — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5955,6 +5849,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -5972,15 +5867,9 @@
 
 ---
 
-## Theme: zephyr — ❌ NON-COMPLIANT
+## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -6154,6 +6043,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
