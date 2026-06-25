@@ -128,14 +128,29 @@
     overflow: auto; padding: 40px; margin: 0 !important;
 }
 .chart-maximize-wrapper.maximized > div {
-    width: 100% !important; height: 100% !important;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    width: 100vw !important; height: 100vh !important;
+    max-width: 100vw !important; max-height: 100vh !important;
+    padding: 60px !important; box-sizing: border-box !important;
+    display: flex !important; flex-direction: column !important;
+    align-items: center !important; justify-content: center !important;
+}
+.chart-maximize-wrapper.maximized > div > div:not(.tamarind-piechart-legend) {
+    flex: 1 !important; width: 100% !important; height: 100% !important;
+    display: flex; justify-content: center; align-items: center;
 }
 .chart-maximize-wrapper.maximized svg,
 .chart-maximize-wrapper.maximized .tamarind-barchart-container,
 .chart-maximize-wrapper.maximized .tamarind-groupedbar-container,
 .chart-maximize-wrapper.maximized .tamarind-hbarchart-container {
-    max-height: 80vh !important; max-width: 80vw !important; width: 100% !important;
+    height: 100% !important; max-height: 100% !important; 
+    width: 100% !important; max-width: 100% !important;
+    flex: 1 !important;
+}
+.chart-maximize-wrapper.maximized .tamarind-piechart svg,
+.chart-maximize-wrapper.maximized .tamarind-donutchart svg {
+    height: 60vh !important; width: 60vh !important;
+    max-height: 60vw !important; max-width: 60vw !important;
+    flex: none !important;
 }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
