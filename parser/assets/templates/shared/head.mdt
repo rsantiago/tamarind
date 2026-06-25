@@ -68,8 +68,6 @@
         charts.forEach(chart => {
             const wrapper = document.createElement('div');
             wrapper.className = 'chart-maximize-wrapper';
-            wrapper.style.position = 'relative';
-            wrapper.style.width = '100%';
             wrapper.style.margin = chart.style.margin || '2rem 0';
             chart.style.margin = '0';
             
@@ -100,6 +98,9 @@
     });
 </script>
 <style>
+.chart-maximize-wrapper {
+    position: relative; width: 100%;
+}
 .chart-maximize-btn {
     position: absolute; top: 12px; right: 12px; z-index: 10;
     display: flex; align-items: center; gap: 6px;
