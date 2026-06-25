@@ -23,7 +23,7 @@
 {{ if .CustomCSS }}<style>{{ .CustomCSS }}</style>{{ end }}
 {{ if .TitleSize }}<style>.page-title { font-size: {{ .TitleSize }} !important; }</style>{{ end }}
 <!-- Tamarind Shortcodes: Mermaid & KaTeX -->
-<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         let theme = 'default';
@@ -62,8 +62,61 @@
         }
         
         mermaid.initialize({ startOnLoad: true, theme: theme });
+
+        // Add Maximize button to all Tamarind charts
+        const charts = document.querySelectorAll('div[class^="tamarind-"][class$="chart"]');
+        charts.forEach(chart => {
+            const wrapper = document.createElement('div');
+            wrapper.className = 'chart-maximize-wrapper';
+            wrapper.style.position = 'relative';
+            wrapper.style.width = '100%';
+            wrapper.style.margin = chart.style.margin || '2rem 0';
+            chart.style.margin = '0';
+            
+            chart.parentNode.insertBefore(wrapper, chart);
+            wrapper.appendChild(chart);
+            
+            const btn = document.createElement('button');
+            btn.className = 'chart-maximize-btn';
+            btn.innerText = 'Maximize';
+            btn.onclick = function() {
+                if (wrapper.classList.contains('maximized')) {
+                    wrapper.classList.remove('maximized');
+                    btn.innerText = 'Maximize';
+                    document.body.style.overflow = '';
+                } else {
+                    wrapper.classList.add('maximized');
+                    btn.innerText = 'Close';
+                    document.body.style.overflow = 'hidden';
+                }
+            };
+            wrapper.appendChild(btn);
+        });
     });
 </script>
+<style>
+.chart-maximize-wrapper:hover .chart-maximize-btn { opacity: 1; }
+.chart-maximize-btn {
+    position: absolute; top: 10px; right: 10px; z-index: 10;
+    padding: 4px 8px; background: var(--primary, #333); color: #fff;
+    border: none; border-radius: 4px; cursor: pointer; font-size: 12px;
+    opacity: 0; transition: opacity 0.2s;
+}
+.chart-maximize-wrapper.maximized {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: var(--background-color, #fff); z-index: 9999;
+    display: flex; align-items: center; justify-content: center;
+    overflow: auto; padding: 40px; margin: 0 !important;
+}
+.chart-maximize-wrapper.maximized > div {
+    width: 100% !important; height: 100% !important;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.chart-maximize-wrapper.maximized svg,
+.chart-maximize-wrapper.maximized .tamarind-barchart-container {
+    max-height: 80vh !important; max-width: 80vw !important; width: 100% !important;
+}
+</style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
