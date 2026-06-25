@@ -282,3 +282,27 @@ You can override the default theme colors by providing a comma-separated list of
     {"label": "Referral", "value": 20}
 ]
 {{ /barchart }}
+
+### Reordering Theme Colors
+
+You can map specific CSS theme variables to specific data series. This keeps the chart deeply linked to the active theme (dynamically adjusting to light/dark mode switches), while giving you absolute control over which color applies to which series!
+
+For example, to reverse the first three colors so that Series 1 uses color 3, Series 2 uses color 2, and Series 3 uses color 1:
+
+```markdown
+{{< barchart title="Reordered Theme Colors" colors="var(--chart-3),var(--chart-2),var(--chart-1)" >}}
+[
+    {"label": "Series 1", "value": 40},
+    {"label": "Series 2", "value": 30},
+    {"label": "Series 3", "value": 20}
+]
+{{< /barchart >}}
+```
+
+{{ barchart title="Reordered Theme Colors" colors="var(--chart-3),var(--chart-2),var(--chart-1)" }}
+[
+    {"label": "Series 1", "value": 40},
+    {"label": "Series 2", "value": 30},
+    {"label": "Series 3", "value": 20}
+]
+{{ /barchart }}
