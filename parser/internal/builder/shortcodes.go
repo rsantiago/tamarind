@@ -43,9 +43,84 @@ func processShortcodes(markdown, sourceDir string) string {
 	reAgent := regexp.MustCompile(`{{\s*agent\s+"(.*?)"\s*}}`)
 	markdown = reAgent.ReplaceAllString(markdown, "")
 
+	mermaidScriptInjected := false
 	// 1. Mermaid (Block): {{ mermaid }}...{{ /mermaid }}
 	reMermaid := regexp.MustCompile(`(?s){{\s*mermaid\s*}}(.*?){{\s*/mermaid\s*}}`)
-	markdown = reMermaid.ReplaceAllString(markdown, `<div class="mermaid">$1</div>`)
+	markdown = reMermaid.ReplaceAllStringFunc(markdown, func(match string) string {
+		submatch := reMermaid.FindStringSubmatch(match)
+		content := submatch[1]
+
+		jsScript := ""
+		if !mermaidScriptInjected {
+			jsScript = `
+<script>
+if (typeof tamarindMaximizeMermaid !== 'function') {
+	window.tamarindMaximizeMermaid = function(btn) {
+		var wrapper = btn.closest('.mermaid-wrapper');
+		if (wrapper.classList.contains('maximized')) {
+			wrapper.classList.remove('maximized');
+			btn.innerText = 'Maximize';
+			document.body.style.overflow = '';
+		} else {
+			wrapper.classList.add('maximized');
+			btn.innerText = 'Close';
+			document.body.style.overflow = 'hidden';
+		}
+	};
+}
+</script>
+<style>
+.mermaid-wrapper { position: relative; }
+.mermaid-maximize-btn {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 10;
+	padding: 4px 8px;
+	background: var(--primary, #333);
+	color: #fff;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+	font-size: 12px;
+	opacity: 0;
+	transition: opacity 0.2s;
+}
+.mermaid-wrapper:hover .mermaid-maximize-btn {
+	opacity: 1;
+}
+.mermaid-wrapper.maximized {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background: var(--background-color, #fff);
+	z-index: 9999;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	overflow: auto;
+	padding: 40px;
+}
+.mermaid-wrapper.maximized .mermaid {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.mermaid-wrapper.maximized .mermaid svg {
+	max-height: 100% !important;
+	max-width: 100% !important;
+}
+</style>
+`
+			mermaidScriptInjected = true
+		}
+		
+		return fmt.Sprintf(`%s<div class="mermaid-wrapper"><button class="mermaid-maximize-btn" onclick="tamarindMaximizeMermaid(this)">Maximize</button><div class="mermaid">%s</div></div>`, jsScript, content)
+	})
 
 	// Interactive Tabs: {{ tabs }} ... {{ /tabs }}
 	reTabs := regexp.MustCompile(`(?s){{\s*tabs\s*}}(.*?){{\s*/tabs\s*}}`)
