@@ -218,6 +218,9 @@ func generateLineChartFromJSON(content []byte, title, colors string) string {
 		// Circle for data point
 		html += fmt.Sprintf(`<circle cx="%.1f" cy="%.1f" r="4" fill="%s" />`, x, y, c)
 		
+		// Value label above data point
+		html += fmt.Sprintf(`<text x="%.1f" y="%.1f" font-size="10" fill="currentColor" text-anchor="middle">%.1f</text>`, x, y-10, d.Value)
+		
 		// Label (every N labels to avoid crowding, or just all if small)
 		if len(data) <= 10 || i%int(math.Ceil(float64(len(data))/10)) == 0 {
 			html += fmt.Sprintf(`<text x="%.1f" y="%.1f" font-size="10" fill="currentColor" text-anchor="middle">%s</text>`, x, height-padding+15, d.Label)

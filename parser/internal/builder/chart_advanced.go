@@ -75,7 +75,7 @@ func generateHBarchartFromJSON(content []byte, title string) string {
 
 	html := `<div class="tamarind-hbarchart" style="margin: 2rem 0; width: 100%;">`
 	if title != "" { html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1rem;">%s</h4>`, title) }
-	html += `<div class="tamarind-hbarchart-container" style="display:flex; flex-direction:column; gap: 15px; padding-left: 10px; border-left: 2px solid var(--border-color);">`
+	html += `<div class="tamarind-hbarchart-container" style="display:flex; flex-direction:column; justify-content:center; gap: 15px; padding-left: 10px; border-left: 2px solid var(--border-color);">`
 
 	for i, d := range data {
 		widthPct := (d.Value / max) * 100
@@ -144,6 +144,7 @@ func generateMultiLineChartFromJSON(content []byte, title string) string {
 			y := height - padding - ((v / max) * (height - 2*padding))
 			points += fmt.Sprintf("%.1f,%.1f ", x, y)
 			html += fmt.Sprintf(`<circle cx="%.1f" cy="%.1f" r="4" fill="%s" />`, x, y, color)
+			html += fmt.Sprintf(`<text x="%.1f" y="%.1f" font-size="10" fill="currentColor" text-anchor="middle">%.1f</text>`, x, y-10, v)
 		}
 		html += fmt.Sprintf(`<polyline fill="none" stroke="%s" stroke-width="3" points="%s" />`, color, strings.TrimSpace(points))
 		legendHtml += fmt.Sprintf(`<div style="display:flex; align-items:center; gap:5px;"><div style="width:12px;height:12px;background:%s;border-radius:2px;"></div><span style="font-size:0.85rem;">%s</span></div>`, color, s.Name)
@@ -182,7 +183,10 @@ func generateGroupedBarChartFromJSON(content []byte, title string) string {
 			val := s.Data[i]
 			heightPct := (val / max) * 100.0
 			color := defaultColors[sIdx%len(defaultColors)]
+			html += fmt.Sprintf(`<div style="display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%%;">`)
+			html += fmt.Sprintf(`<div style="font-size:0.75rem; margin-bottom:4px; color: currentColor;">%.1f</div>`, val)
 			html += fmt.Sprintf(`<div style="width:20px; height:%.1f%%; background-color:%s; border-radius:3px 3px 0 0;" title="%s: %.1f"></div>`, heightPct, color, s.Name, val)
+			html += `</div>`
 		}
 		html += `</div>`
 		html += fmt.Sprintf(`<div style="font-size:0.8rem; margin-top:8px;">%s</div>`, cat)
@@ -255,11 +259,13 @@ func generateRadarChartFromJSON(content []byte, title string) string {
 		points := ""
 		for i, v := range s.Data {
 			if i >= sides { break }
-			dist := radius * (v / max)
 			angle := (math.Pi * 2 * float64(i) / float64(sides)) - (math.Pi / 2)
-			x := center + dist*math.Cos(angle)
-			y := center + dist*math.Sin(angle)
+			rVal := radius * (v / max)
+			x := center + rVal*math.Cos(angle)
+			y := center + rVal*math.Sin(angle)
 			points += fmt.Sprintf("%.1f,%.1f ", x, y)
+			html += fmt.Sprintf(`<circle cx="%.1f" cy="%.1f" r="3" fill="%s" />`, x, y, color)
+			html += fmt.Sprintf(`<text x="%.1f" y="%.1f" font-size="9" fill="currentColor" text-anchor="middle">%.1f</text>`, x, y-6, v)
 		}
 		html += fmt.Sprintf(`<polygon points="%s" fill="%s" fill-opacity="0.3" stroke="%s" stroke-width="2" />`, points, color, color)
 	}
