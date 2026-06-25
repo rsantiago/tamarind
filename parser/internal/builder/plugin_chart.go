@@ -18,11 +18,11 @@ func parseShortcodeArgs(argStr string) map[string]string {
 // ChartFilePlugin handles shortcodes like {{ barchart file="..." title="..." }}
 type ChartFilePlugin struct {
 	name      string
-	generator func(sourceDir, file, title, colors string) string
+	generator func(sourceDir, file string, args map[string]string) string
 	pattern   *regexp.Regexp
 }
 
-func NewChartFilePlugin(name string, generator func(sourceDir, file, title, colors string) string) *ChartFilePlugin {
+func NewChartFilePlugin(name string, generator func(sourceDir, file string, args map[string]string) string) *ChartFilePlugin {
 	return &ChartFilePlugin{
 		name:      name,
 		generator: generator,
@@ -42,17 +42,17 @@ func (p *ChartFilePlugin) Process(match []string, sourceDir string) (string, err
 		// If there is no file, it's likely a block shortcode opening tag, which we shouldn't process here.
 		return match[0], nil 
 	}
-	return p.generator(sourceDir, file, args["title"], args["colors"]), nil
+	return p.generator(sourceDir, file, args), nil
 }
 
 // ChartBlockPlugin handles shortcodes like {{ barchart title="..." }}...{{ /barchart }}
 type ChartBlockPlugin struct {
 	name      string
-	generator func(jsonData []byte, title, colors string) string
+	generator func(jsonData []byte, args map[string]string) string
 	pattern   *regexp.Regexp
 }
 
-func NewChartBlockPlugin(name string, generator func(jsonData []byte, title, colors string) string) *ChartBlockPlugin {
+func NewChartBlockPlugin(name string, generator func(jsonData []byte, args map[string]string) string) *ChartBlockPlugin {
 	return &ChartBlockPlugin{
 		name:      name,
 		generator: generator,
@@ -66,5 +66,5 @@ func (p *ChartBlockPlugin) Process(match []string, sourceDir string) (string, er
 	argStr := match[1]
 	jsonData := []byte(match[2])
 	args := parseShortcodeArgs(argStr)
-	return p.generator(jsonData, args["title"], args["colors"]), nil
+	return p.generator(jsonData, args), nil
 }
