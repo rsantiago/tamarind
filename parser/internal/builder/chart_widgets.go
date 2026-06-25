@@ -89,7 +89,7 @@ func generateBarChartFromJSON(content []byte, title, colors string) string {
 		html += fmt.Sprintf(`
 		<div class="tamarind-barchart-col" style="flex: 1; display:flex; flex-direction:column; justify-content: flex-end; align-items:center; min-width: 40px; height: 100%%;">
 			<div class="tamarind-barchart-val" style="font-size: 0.8rem; margin-bottom: 5px; color: currentColor;">%.1f</div>
-			<div class="tamarind-barchart-bar" style="width: 100%%; max-width: 60px; height: %.1f%%%%; background-color: %s; border-radius: 4px 4px 0 0; transition: height 0.5s ease-out;"></div>
+			<div class="tamarind-barchart-bar" style="width: 100%%; max-width: 60px; height: %.1f%%; background-color: %s; border-radius: 4px 4px 0 0; transition: height 0.5s ease-out;"></div>
 			<div class="tamarind-barchart-lbl" style="font-size: 0.8rem; margin-top: 8px; text-align:center; color: currentColor;">%s</div>
 		</div>`, d.Value, heightPct, c, d.Label)
 	}

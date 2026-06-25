@@ -64,7 +64,7 @@
         mermaid.initialize({ startOnLoad: true, theme: theme });
 
         // Add Maximize button to all Tamarind charts
-        const charts = document.querySelectorAll('div[class^="tamarind-"][class$="chart"]');
+        const charts = document.querySelectorAll('.tamarind-barchart, .tamarind-piechart, .tamarind-linechart, .tamarind-donutchart, .tamarind-hbarchart, .tamarind-multiline, .tamarind-groupedbar, .tamarind-radarchart');
         charts.forEach(chart => {
             const wrapper = document.createElement('div');
             wrapper.className = 'chart-maximize-wrapper';
@@ -132,7 +132,9 @@
     display: flex; flex-direction: column; align-items: center; justify-content: center;
 }
 .chart-maximize-wrapper.maximized svg,
-.chart-maximize-wrapper.maximized .tamarind-barchart-container {
+.chart-maximize-wrapper.maximized .tamarind-barchart-container,
+.chart-maximize-wrapper.maximized .tamarind-groupedbar-container,
+.chart-maximize-wrapper.maximized .tamarind-hbarchart-container {
     max-height: 80vh !important; max-width: 80vw !important; width: 100% !important;
 }
 </style>

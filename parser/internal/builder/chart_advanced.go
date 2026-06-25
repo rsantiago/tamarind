@@ -75,7 +75,7 @@ func generateHBarchartFromJSON(content []byte, title string) string {
 
 	html := `<div class="tamarind-hbarchart" style="margin: 2rem 0; width: 100%;">`
 	if title != "" { html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1rem;">%s</h4>`, title) }
-	html += `<div style="display:flex; flex-direction:column; gap: 15px; padding-left: 10px; border-left: 2px solid var(--border-color);">`
+	html += `<div class="tamarind-hbarchart-container" style="display:flex; flex-direction:column; gap: 15px; padding-left: 10px; border-left: 2px solid var(--border-color);">`
 
 	for i, d := range data {
 		widthPct := (d.Value / max) * 100
@@ -172,17 +172,17 @@ func generateGroupedBarChartFromJSON(content []byte, title string) string {
 
 	html := `<div class="tamarind-groupedbar" style="margin: 2rem 0; width: 100%;">`
 	if title != "" { html += fmt.Sprintf(`<h4 style="text-align:center; margin-bottom: 1rem;">%s</h4>`, title) }
-	html += `<div style="display:flex; align-items:flex-end; height: 250px; padding: 10px 0; border-bottom: 2px solid var(--border-color); border-left: 2px solid var(--border-color); overflow-x: auto; gap: 20px;">`
+	html += `<div class="tamarind-groupedbar-container" style="display:flex; align-items:flex-end; height: 250px; padding: 10px 0; border-bottom: 2px solid var(--border-color); border-left: 2px solid var(--border-color); overflow-x: auto; gap: 20px;">`
 
 	for i, cat := range data.Categories {
 		html += `<div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">`
-		html += `<div style="display:flex; align-items:flex-end; gap:4px; height:180px;">`
+		html += `<div style="display:flex; align-items:flex-end; gap:4px; height:100%;">`
 		for sIdx, s := range data.Series {
 			if i >= len(s.Data) { continue }
 			val := s.Data[i]
-			heightPx := (val / max) * 180.0
+			heightPct := (val / max) * 100.0
 			color := defaultColors[sIdx%len(defaultColors)]
-			html += fmt.Sprintf(`<div style="width:20px; height:%.1fpx; background-color:%s; border-radius:3px 3px 0 0;" title="%s: %.1f"></div>`, heightPx, color, s.Name, val)
+			html += fmt.Sprintf(`<div style="width:20px; height:%.1f%%; background-color:%s; border-radius:3px 3px 0 0;" title="%s: %.1f"></div>`, heightPct, color, s.Name, val)
 		}
 		html += `</div>`
 		html += fmt.Sprintf(`<div style="font-size:0.8rem; margin-top:8px;">%s</div>`, cat)
