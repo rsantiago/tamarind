@@ -130,7 +130,7 @@ func generatePieChartFromJSON(content []byte, title, colors string) string {
 		html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1.5rem;">%s</h4>`, title)
 	}
 
-	html += `<div style="display: flex; gap: 30px; align-items: center; justify-content: center; flex-wrap: wrap;">`
+	html += `<div class="tamarind-piechart-container" style="display: flex; gap: 30px; align-items: center; justify-content: center; flex-wrap: wrap;">`
 	html += `<svg viewBox="0 0 32 32" style="width: 250px; height: 250px; border-radius: 50%; transform: rotate(-90deg);">`
 
 	cList := getChartColors(colors)

@@ -38,8 +38,8 @@ func generateDonutChartFromJSON(content []byte, title string) string {
 
 	html := `<div class="tamarind-piechart" style="margin: 2rem 0; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px;">`
 	if title != "" { html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1.5rem;">%s</h4>`, title) }
-	html += `<div style="display: flex; gap: 30px; align-items: center; justify-content: center; flex-wrap: wrap;">`
-	html += `<div style="position: relative; width: 250px; height: 250px;">`
+	html += `<div class="tamarind-piechart-container" style="display: flex; gap: 30px; align-items: center; justify-content: center; flex-wrap: wrap;">`
+	html += `<div class="tamarind-donutchart-inner" style="position: relative; width: 250px; height: 250px;">`
 	html += `<svg viewBox="0 0 40 40" style="width: 100%; height: 100%; border-radius: 50%; transform: rotate(-90deg);">`
 
 	currentOffset := 0.0

@@ -135,9 +135,8 @@
     display: flex !important; flex-direction: column !important;
     align-items: center !important; justify-content: center !important;
 }
-.chart-maximize-wrapper.maximized > div > div:not(.tamarind-piechart-legend) {
+.chart-maximize-wrapper.maximized .tamarind-piechart-container {
     flex: 1 !important; width: 100% !important; height: 100% !important;
-    display: flex; justify-content: center; align-items: center;
 }
 .chart-maximize-wrapper.maximized svg,
 .chart-maximize-wrapper.maximized .tamarind-barchart-container,
@@ -148,7 +147,7 @@
     flex: 1 !important;
 }
 .chart-maximize-wrapper.maximized .tamarind-piechart svg,
-.chart-maximize-wrapper.maximized .tamarind-donutchart svg {
+.chart-maximize-wrapper.maximized .tamarind-donutchart-inner {
     height: 60vh !important; width: 60vh !important;
     max-height: 60vw !important; max-width: 60vw !important;
     flex: none !important;
