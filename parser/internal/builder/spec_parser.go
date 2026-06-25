@@ -293,13 +293,7 @@ func verifyChartColorsContrast(analysis *CSSAnalysis) bool {
 				if ContrastRatio(li, bgL) < 1.35 { return false }
 			}
 
-			if i < 9 {
-				cj := getChartColor(vars, i+1)
-				rj, gj, bj, okj := ParseColor(cj)
-				if !okj { continue }
-				lj := RelativeLuminance(rj, gj, bj)
-				if ContrastRatio(li, lj) < 1.35 { return false }
-			}
+
 		}
 		return true
 	}

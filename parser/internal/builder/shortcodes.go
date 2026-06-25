@@ -1313,57 +1313,76 @@ if (typeof togglePricingGrid !== 'function') {
 	})
 
 	// Chart Widgets
-	reBarChart := regexp.MustCompile(`(?s){{\s*barchart\s+file="([^"]+)"(?:\s+title="([^"]*)")?\s*}}`)
+	reBarChart := regexp.MustCompile(`(?s){{\s*barchart\s+file="([^"]+)"(?:\s+title="([^"]*)")?(?:\s+colors="([^"]*)")?\s*}}`)
 	markdown = reBarChart.ReplaceAllStringFunc(markdown, func(match string) string {
 		sub := reBarChart.FindStringSubmatch(match)
 		file := sub[1]
 		title := ""
+		colors := ""
 		if len(sub) > 2 {
 			title = sub[2]
 		}
-		return generateBarChart(sourceDir, file, title)
+		if len(sub) > 3 {
+			colors = sub[3]
+		}
+		return generateBarChart(sourceDir, file, title, colors)
 	})
 
-	reBarChartBlock := regexp.MustCompile(`(?s){{\s*barchart(?:\s+title="([^"]*)")?\s*}}(.*?){{\s*/barchart\s*}}`)
+	reBarChartBlock := regexp.MustCompile(`(?s){{\s*barchart(?:\s+title="([^"]*)")?(?:\s+colors="([^"]*)")?\s*}}(.*?){{\s*/barchart\s*}}`)
 	markdown = reBarChartBlock.ReplaceAllStringFunc(markdown, func(match string) string {
 		sub := reBarChartBlock.FindStringSubmatch(match)
 		title := sub[1]
-		jsonData := []byte(sub[2])
-		return generateBarChartFromJSON(jsonData, title)
+		colors := sub[2]
+		jsonData := []byte(sub[3])
+		return generateBarChartFromJSON(jsonData, title, colors)
 	})
 
-	rePieChart := regexp.MustCompile(`(?s){{\s*piechart\s+file="([^"]+)"(?:\s+title="([^"]*)")?\s*}}`)
+	rePieChart := regexp.MustCompile(`(?s){{\s*piechart\s+file="([^"]+)"(?:\s+title="([^"]*)")?(?:\s+colors="([^"]*)")?\s*}}`)
 	markdown = rePieChart.ReplaceAllStringFunc(markdown, func(match string) string {
 		sub := rePieChart.FindStringSubmatch(match)
 		file := sub[1]
 		title := ""
+		colors := ""
 		if len(sub) > 2 {
 			title = sub[2]
 		}
-		return generatePieChart(sourceDir, file, title)
+		if len(sub) > 3 {
+			colors = sub[3]
+		}
+		return generatePieChart(sourceDir, file, title, colors)
 	})
 
-	rePieChartBlock := regexp.MustCompile(`(?s){{\s*piechart(?:\s+title="([^"]*)")?\s*}}(.*?){{\s*/piechart\s*}}`)
+	rePieChartBlock := regexp.MustCompile(`(?s){{\s*piechart(?:\s+title="([^"]*)")?(?:\s+colors="([^"]*)")?\s*}}(.*?){{\s*/piechart\s*}}`)
 	markdown = rePieChartBlock.ReplaceAllStringFunc(markdown, func(match string) string {
 		sub := rePieChartBlock.FindStringSubmatch(match)
 		title := sub[1]
-		jsonData := []byte(sub[2])
-		return generatePieChartFromJSON(jsonData, title)
+		colors := sub[2]
+		jsonData := []byte(sub[3])
+		return generatePieChartFromJSON(jsonData, title, colors)
 	})
 
-	reLineChartBlock := regexp.MustCompile(`(?s){{\s*linechart(?:\s+title="([^"]*)")?\s*}}(.*?){{\s*/linechart\s*}}`)
+	reLineChartBlock := regexp.MustCompile(`(?s){{\s*linechart(?:\s+title="([^"]*)")?(?:\s+colors="([^"]*)")?\s*}}(.*?){{\s*/linechart\s*}}`)
 	markdown = reLineChartBlock.ReplaceAllStringFunc(markdown, func(match string) string {
 		sub := reLineChartBlock.FindStringSubmatch(match)
 		title := sub[1]
-		jsonData := []byte(sub[2])
-		return generateLineChartFromJSON(jsonData, title)
+		colors := sub[2]
+		jsonData := []byte(sub[3])
+		return generateLineChartFromJSON(jsonData, title, colors)
 	})
 
-	reLineChart := regexp.MustCompile(`(?s){{\s*linechart\s+file="([^"]+)"(?:\s+title="([^"]*)")?\s*}}`)
+	reLineChart := regexp.MustCompile(`(?s){{\s*linechart\s+file="([^"]+)"(?:\s+title="([^"]*)")?(?:\s+colors="([^"]*)")?\s*}}`)
 	markdown = reLineChart.ReplaceAllStringFunc(markdown, func(match string) string {
 		sub := reLineChart.FindStringSubmatch(match)
-		filename, title := sub[1], sub[2]
-		return generateLineChart(sourceDir, filename, title)
+		filename := sub[1]
+		title := ""
+		colors := ""
+		if len(sub) > 2 {
+			title = sub[2]
+		}
+		if len(sub) > 3 {
+			colors = sub[3]
+		}
+		return generateLineChart(sourceDir, filename, title, colors)
 	})
 
 	reDonutChart := regexp.MustCompile(`(?s){{\s*donutchart\s+file="([^"]+)"(?:\s+title="([^"]*)")?\s*}}`)

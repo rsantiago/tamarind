@@ -260,3 +260,25 @@ Multi-series charts expect a JSON object containing `categories` (an array of X-
   ]
 }
 {{ /radarchart }}
+
+## Customizing Colors
+
+You can override the default theme colors by providing a comma-separated list of colors (names, HEX, or CSS variables) to the `colors` parameter. This gives you absolute control over the visualization while maintaining the minimalist, zero-dependency rendering approach.
+
+```markdown
+{{< barchart title="Custom Brand Colors" colors="magenta,cyan,#FF5733" >}}
+[
+    {"label": "Direct", "value": 40},
+    {"label": "Social", "value": 30},
+    {"label": "Referral", "value": 20}
+]
+{{< /barchart >}}
+```
+
+{{ barchart title="Custom Brand Colors" colors="magenta,cyan,#FF5733" }}
+[
+    {"label": "Direct", "value": 40},
+    {"label": "Social", "value": 30},
+    {"label": "Referral", "value": 20}
+]
+{{ /barchart }}

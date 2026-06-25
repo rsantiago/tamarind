@@ -40,15 +40,15 @@
     --heading-color: #E2E8F0;
     /* Off-white for headings, soft on eyes */
 
-    --chart-1: #10c8ba;
-    --chart-2: #a5f5f5;
-    --chart-3: #f19e82;
-    --chart-4: #fbdefb;
-    --chart-5: #24cd5c;
-    --chart-6: #fae6a9;
-    --chart-7: #85b7e9;
-    --chart-8: #f9e1e7;
-    --chart-9: #c6a5e8;
+    --chart-1: #65fcf1;
+    --chart-2: #47eaea;
+    --chart-3: #e85e30;
+    --chart-4: #ed5eed;
+    --chart-5: #22c357;
+    --chart-6: #f4c63d;
+    --chart-7: #267fd8;
+    --chart-8: #e05175;
+    --chart-9: #985bd6;
 }
 
 /* Force Dark Mode variables even without media query for consistency in this dedicated theme */
@@ -57,15 +57,15 @@
     --card-bg: #222630;              /* Standout obsidian dark card bg */
     --border-color: #333947;         /* Lighter steel dark border */
 
-    --chart-1: #10c8ba;
-    --chart-2: #a5f5f5;
-    --chart-3: #f19e82;
-    --chart-4: #fbdefb;
-    --chart-5: #24cd5c;
-    --chart-6: #fae6a9;
-    --chart-7: #85b7e9;
-    --chart-8: #f9e1e7;
-    --chart-9: #c6a5e8;
+    --chart-1: #65fcf1;
+    --chart-2: #47eaea;
+    --chart-3: #e85e30;
+    --chart-4: #ed5eed;
+    --chart-5: #22c357;
+    --chart-6: #f4c63d;
+    --chart-7: #267fd8;
+    --chart-8: #e05175;
+    --chart-9: #985bd6;
 }
 
 

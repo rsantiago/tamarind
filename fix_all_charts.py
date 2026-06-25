@@ -6,6 +6,11 @@ def relative_luminance(r, g, b):
         return c / 12.92 if c <= 0.03928 else ((c + 0.055) / 1.055) ** 2.4
     return 0.2126 * adjust(r) + 0.7152 * adjust(g) + 0.0722 * adjust(b)
 
+def contrast_ratio(l1, l2):
+    if l1 > l2:
+        return (l1 + 0.05) / (l2 + 0.05)
+    return (l2 + 0.05) / (l1 + 0.05)
+
 def hex_to_rgb(hex_str):
     if not hex_str or not hex_str.startswith('#'): return (128,128,128)
     hex_str = hex_str.lstrip('#')
@@ -22,51 +27,48 @@ def hsl_to_hex(h, s, l):
     r, g, b = colorsys.hls_to_rgb(h/360.0, l, s)
     return rgb_to_hex(r*255, g*255, b*255)
 
-def force_luminance(h, s, target_lum):
-    low, high = 0.0, 1.0
-    best_l = 0.5
-    for _ in range(20):
-        mid = (low + high) / 2
-        r, g, b = colorsys.hls_to_rgb(h/360.0, mid, s)
-        lum = relative_luminance(r*255, g*255, b*255)
-        if lum < target_lum:
-            low = mid
+def adjust_for_bg(r, g, b, bg_lum):
+    lum = relative_luminance(r, g, b)
+    h, l, s = colorsys.rgb_to_hls(r/255.0, g/255.0, b/255.0)
+    
+    # Just ensure it's at least 1.35 against the background
+    if contrast_ratio(lum, bg_lum) < 1.35:
+        if bg_lum > 0.5:
+            # Darken it
+            l = max(0, l - 0.2)
         else:
-            high = mid
-        best_l = mid
-    return hsl_to_hex(h, s, best_l)
+            # Lighten it
+            l = min(1, l + 0.2)
+            
+        r, g, b = colorsys.hls_to_rgb(h, l, s)
+        r, g, b = r*255, g*255, b*255
+        
+    return rgb_to_hex(r, g, b)
 
 def generate_theme_palette(primary_hex, bg_hex):
     bg_r, bg_g, bg_b = hex_to_rgb(bg_hex)
     bg_lum = relative_luminance(bg_r, bg_g, bg_b)
-    
-    if bg_lum > 0.5: 
-        lum1 = 0.50 
-        lum2 = 0.20 
-    else: 
-        lum1 = 0.45 
-        lum2 = 0.80 
         
     pr, pg, pb = hex_to_rgb(primary_hex)
     ph, pl, ps = colorsys.rgb_to_hls(pr/255.0, pg/255.0, pb/255.0)
     
     hues = [
-        (ph * 360, min(ps, 0.85)), 
-        (180, 0.8), 
-        (15,  0.8), 
-        (300, 0.8), 
-        (140, 0.7), 
-        (45,  0.9), 
-        (210, 0.7), 
-        (345, 0.7), 
-        (270, 0.6), 
+        (ph * 360, ps, pl),        # Primary (naturally distinct)
+        (180, 0.8, 0.6),           # Cyan
+        (15,  0.8, 0.55),          # Rust
+        (300, 0.8, 0.65),          # Magenta
+        (140, 0.7, 0.45),          # Forest
+        (45,  0.9, 0.6),           # Mustard
+        (210, 0.7, 0.5),           # Deep Blue
+        (345, 0.7, 0.6),           # Red
+        (270, 0.6, 0.6),           # Purple
     ]
     
     palette = []
-    for i in range(9):
-        h, s = hues[i]
-        target = lum1 if i % 2 == 0 else lum2
-        palette.append(force_luminance(h, s, target))
+    for h, s, l in hues:
+        r, g, b = colorsys.hls_to_rgb(h/360.0, l, s)
+        c = adjust_for_bg(r*255, g*255, b*255, bg_lum)
+        palette.append(c)
         
     return palette
 
@@ -77,7 +79,7 @@ def extract_color(css, var_name, default):
 
 def process_css(css):
     light_primary = '#3b82f6'
-    light_bg_val = '#ffffff' # keep track of what :root defines
+    light_bg_val = '#ffffff'
     
     css = re.sub(r'\s*--chart-\d+:[^;]+;', '', css)
 
@@ -88,7 +90,6 @@ def process_css(css):
         r'@media\s*\(prefers-color-scheme:\s*dark\)\s*\{\s*:root\s*\{'
     ]
     
-    # Process :root first to capture fallbacks
     for idx_reg, reg in enumerate(regexes):
         match = re.search(reg, css)
         if match:
@@ -106,10 +107,7 @@ def process_css(css):
             if brace_count == 0:
                 block_css = css[start_brace:end_brace]
                 
-                # Setup fallbacks based on if it's light or dark block
                 if 'dark' in reg:
-                    # For dark mode, if they don't define a BG, they inherit the LIGHT BG! 
-                    # Yes, standard CSS cascade!
                     bg_def = light_bg_val 
                 else:
                     bg_def = '#ffffff'
