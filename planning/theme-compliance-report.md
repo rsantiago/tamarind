@@ -1,6 +1,6 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-06-24 04:21:46
+**Generated**: 2026-06-24 16:56:03
 
 **Total Requirements**: 132 required, 3 optional
 
@@ -15,28 +15,28 @@
 | **blue** | ✅ PASS | 132 | 0 | 100% |
 | **brutal** | ✅ PASS | 132 | 0 | 100% |
 | **canvas** | ✅ PASS | 132 | 0 | 100% |
-| **classic** | ✅ PASS | 132 | 0 | 100% |
+| **classic** | ❌ FAIL | 131 | 1 | 99% |
 | **console** | ❌ FAIL | 131 | 1 | 99% |
 | **cupertino** | ✅ PASS | 132 | 0 | 100% |
 | **eclipse** | ✅ PASS | 132 | 0 | 100% |
 | **editorial** | ✅ PASS | 132 | 0 | 100% |
-| **forge** | ✅ PASS | 132 | 0 | 100% |
+| **forge** | ❌ FAIL | 131 | 1 | 99% |
 | **gallery** | ✅ PASS | 132 | 0 | 100% |
 | **gram** | ✅ PASS | 132 | 0 | 100% |
 | **hacker** | ✅ PASS | 132 | 0 | 100% |
-| **midnight** | ✅ PASS | 132 | 0 | 100% |
-| **neon** | ✅ PASS | 132 | 0 | 100% |
+| **midnight** | ❌ FAIL | 131 | 1 | 99% |
+| **neon** | ❌ FAIL | 131 | 1 | 99% |
 | **network** | ✅ PASS | 132 | 0 | 100% |
 | **news** | ✅ PASS | 132 | 0 | 100% |
 | **nexus** | ✅ PASS | 132 | 0 | 100% |
-| **nordic** | ❌ FAIL | 131 | 1 | 99% |
+| **nordic** | ✅ PASS | 132 | 0 | 100% |
 | **overflow** | ✅ PASS | 132 | 0 | 100% |
-| **pastel** | ❌ FAIL | 131 | 1 | 99% |
-| **pod** | ✅ PASS | 132 | 0 | 100% |
+| **pastel** | ✅ PASS | 132 | 0 | 100% |
+| **pod** | ❌ FAIL | 131 | 1 | 99% |
 | **prose** | ✅ PASS | 132 | 0 | 100% |
-| **protocol** | ✅ PASS | 132 | 0 | 100% |
+| **protocol** | ❌ FAIL | 131 | 1 | 99% |
 | **scribe** | ✅ PASS | 132 | 0 | 100% |
-| **stream** | ✅ PASS | 132 | 0 | 100% |
+| **stream** | ❌ FAIL | 131 | 1 | 99% |
 | **tube** | ✅ PASS | 132 | 0 | 100% |
 | **zephyr** | ✅ PASS | 132 | 0 | 100% |
 
@@ -1400,9 +1400,15 @@
 
 ---
 
-## Theme: classic — ✅ COMPLIANT
+## Theme: classic — ❌ NON-COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 131/132 (99%)
+
+### ❌ Missing Requirements
+
+#### variables-colors
+
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 ### ✅ Passed Requirements
 
@@ -1576,7 +1582,6 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -2375,9 +2380,15 @@
 
 ---
 
-## Theme: forge — ✅ COMPLIANT
+## Theme: forge — ❌ NON-COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 131/132 (99%)
+
+### ❌ Missing Requirements
+
+#### variables-colors
+
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 ### ✅ Passed Requirements
 
@@ -2551,7 +2562,6 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -3151,9 +3161,15 @@
 
 ---
 
-## Theme: midnight — ✅ COMPLIANT
+## Theme: midnight — ❌ NON-COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 131/132 (99%)
+
+### ❌ Missing Requirements
+
+#### variables-colors
+
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 ### ✅ Passed Requirements
 
@@ -3327,7 +3343,6 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -3345,9 +3360,15 @@
 
 ---
 
-## Theme: neon — ✅ COMPLIANT
+## Theme: neon — ❌ NON-COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 131/132 (99%)
+
+### ❌ Missing Requirements
+
+#### variables-colors
+
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 ### ✅ Passed Requirements
 
@@ -3521,7 +3542,6 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -4121,15 +4141,9 @@
 
 ---
 
-## Theme: nordic — ❌ NON-COMPLIANT
+## Theme: nordic — ✅ COMPLIANT
 
-**Score**: 131/132 (99%)
-
-### ❌ Missing Requirements
-
-#### variables-colors
-
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+**Score**: 132/132 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4303,6 +4317,7 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -4514,7 +4529,201 @@
 
 ---
 
-## Theme: pastel — ❌ NON-COMPLIANT
+## Theme: pastel — ✅ COMPLIANT
+
+**Score**: 132/132 (100%)
+
+### ✅ Passed Requirements
+
+#### accessibility
+
+- `mobile-nav-visible` — The site navigation (.nav-links) must not be hidden (display: none) on mobile viewports (<768px)
+- `mobile-sidebar-visible` — The primary document sidebar (.sidebar) must not be hidden (display: none) on mobile viewports (<768px)
+
+#### article-content
+
+- `ul` — Unordered lists (ul) must be explicitly styled
+- `ol` — Ordered lists (ol) must be explicitly styled
+- `li` — List items (li) must be explicitly styled
+- `blockquote` — Blockquotes must be explicitly styled
+- `code` — Inline code blocks must be explicitly styled
+- `pre` — Preformatted code blocks (pre) must be explicitly styled
+- `table` — Data tables must be explicitly styled
+
+#### components-alerts
+
+- `.alert` — Alert wrapper container
+- `.alert-title` — Alert title element
+- `.alert-content` — Alert body content
+- `.alert-info` — Info alert variant styling
+- `.alert-warn` — Warning alert variant styling
+- `.alert-error` — Error alert variant styling
+- `.alert-tip` — Tip alert variant styling
+
+#### components-badges
+
+- `.badge` — Badge/tag label
+- `.badge-primary` — Primary badge variant
+- `.badge-secondary` — Secondary badge variant
+- `.badge-success` — Success badge variant
+- `.badge-warning` — Warning badge variant
+- `.badge-danger` — Danger badge variant
+
+#### components-buttons
+
+- `.btn` — Button base class
+- `.btn-primary` — Primary action button
+- `.btn-secondary` — Secondary action button
+- `.btn-ghost` — Ghost/transparent button
+- `.btn-sm` — Small button variant
+- `.button-group` — Wrapper for multiple buttons
+
+#### components-callouts
+
+- `.callout` — Callout container
+- `.callout-info` — Info callout variant
+- `.callout-warn` — Warning callout variant
+- `.callout-error` — Error callout variant
+- `.callout-tip` — Tip callout variant
+
+#### components-canvas
+
+- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
+- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
+
+#### components-cards
+
+- `.card` — Card surface component
+- `.card-padding` — Card padding utility
+
+#### components-forms
+
+- `.form-group` — Form group container
+- `.form-label` — Form label
+- `.form-input` — Text input field
+- `.form-textarea` — Textarea field
+- `.form-select` — Select dropdown
+- `.form-checkbox` — Checkbox input
+- `.form-radio` — Radio input
+- `.form-file` — File input
+
+#### layout
+
+- `.layout-container` — Main content container
+- `.site-header` — Sticky site header
+- `.nav-container` — Navigation wrapper inside header
+- `.nav-links` — Navigation links container
+- `.site-footer` — Site footer
+- `.tamarind-ghost-badge` — Floating Use Tamarind badge element
+- `.footer-promo` — Website promotional reference in the footer
+
+#### layout-sidebar
+
+- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
+- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
+- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
+- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
+- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
+- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
+- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
+- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### premium-components
+
+- `.metrics-grid` — Container for the metrics grid layout
+- `.metric-card` — Individual metric block container
+- `.metric-value` — Stylized numeric or main text value inside a metric card
+- `.metric-label` — Stylized supporting label underneath the metric value
+- `.features-grid` — Container for the features card grid
+- `.feature-card` — Individual feature card block container
+- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
+- `.feature-title` — Feature headline font weight and styling
+- `.feature-desc` — Feature supporting detail text color and alignment
+- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
+- `.capability-card` — Checklist card wrapper container
+- `.capability-header` — Checklist header separator styling
+- `.capability-card-title` — Checklist card heading typography styling
+- `.capability-row` — Flex row grouping detail columns and status label
+- `.capability-name` — Checkbox items title styling
+- `.capability-desc` — Checkbox description detail styling
+- `.capability-status` — Status indicator badge container
+- `.timeline-container` — Timeline absolute tracking wrapper container
+- `.timeline-item` — Relative timeline segment node
+- `.timeline-badge` — Circular step sequence bullet container
+- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
+- `.timeline-content` — Segment description card container styling
+- `.timeline-title` — Segment headline typography styling
+- `.timeline-desc` — Segment description detail styling
+- `.alert-container` — Flex alert wrapper banner
+- `.alert-icon-box` — SVG symbol flex align wrapper box
+- `.alert-content` — Text content block column layout wrapper
+- `.alert-title` — Semantic alert heading typography
+- `.alert-message` — Supporting details alert body description text
+- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
+- `.tamarind-select` — Stylized select reset button element overrides
+- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
+- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
+- `.tamarind-accordion-summary` — Interactive summary header text inside details card
+- `.tamarind-accordion-content` — Expanded text content inside details accordion block
+- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
+- `.billing-toggle` — Billing toggle container alignment and sizing
+- `.switch-poc` — Switch switch control layout
+- `.slider-poc` — Slider component layout and translation actions
+- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
+- `.price-card` — Individual pricing plan card container
+- `.price-val` — Plan price amount display typography styling
+- `.price-period` — Plan billing recurring period description styling
+- `.pricing-btn` — Plan call to action button and link classes
+
+#### responsive
+
+- `max-width: 768px` — Mobile breakpoint at 768px
+
+#### shortcodes
+
+- `.video-container` — Responsive video embed container (16:9)
+- `.mermaid` — Mermaid diagram container
+- `.terminal` — Terminal window frame
+- `img` — Responsive image styling to prevent overflow
+- `figure` — Responsive figure block formatting
+
+#### templates
+
+- `articles.mdt:tamarind-ghost-badge` — articles.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'
+- `articles.mdt:footer-promo` — articles.mdt template must contain the 'footer-promo' class or render 'footer.mdt'
+- `page.mdt:tamarind-ghost-badge` — page.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'
+- `page.mdt:footer-promo` — page.mdt template must contain the 'footer-promo' class or render 'footer.mdt'
+- `menu-no-duplication` — Templates must not duplicate the main menu rendering (must not loop over .Menu more than once)
+
+#### variables-colors
+
+- `--primary-color` — Main interaction color (Buttons, Links)
+- `--background-color` — Main page background
+- `--card-bg` — Component/Article card background
+- `--header-bg` — Sticky header background
+- `--text-color` — Main body text color
+- `--text-secondary` — Metadata, captions, footers color
+- `--border-color` — Separators and input borders
+- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
+
+#### variables-spacing
+
+- `--max-width` — Main container width
+- `--header-height` — Sticky header height
+- `--radius-sm` — Small border radius
+- `--radius-md` — Medium border radius
+- `--radius-lg` — Large border radius
+- `--shadow` — Default box shadow
+
+#### variables-typography
+
+- `--font-heading` — Heading font family (H1-H6, Buttons)
+- `--font-body` — Body font family (P, Li, Inputs)
+
+---
+
+## Theme: pod — ❌ NON-COMPLIANT
 
 **Score**: 131/132 (99%)
 
@@ -4696,200 +4905,6 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
-
-#### variables-spacing
-
-- `--max-width` — Main container width
-- `--header-height` — Sticky header height
-- `--radius-sm` — Small border radius
-- `--radius-md` — Medium border radius
-- `--radius-lg` — Large border radius
-- `--shadow` — Default box shadow
-
-#### variables-typography
-
-- `--font-heading` — Heading font family (H1-H6, Buttons)
-- `--font-body` — Body font family (P, Li, Inputs)
-
----
-
-## Theme: pod — ✅ COMPLIANT
-
-**Score**: 132/132 (100%)
-
-### ✅ Passed Requirements
-
-#### accessibility
-
-- `mobile-nav-visible` — The site navigation (.nav-links) must not be hidden (display: none) on mobile viewports (<768px)
-- `mobile-sidebar-visible` — The primary document sidebar (.sidebar) must not be hidden (display: none) on mobile viewports (<768px)
-
-#### article-content
-
-- `ul` — Unordered lists (ul) must be explicitly styled
-- `ol` — Ordered lists (ol) must be explicitly styled
-- `li` — List items (li) must be explicitly styled
-- `blockquote` — Blockquotes must be explicitly styled
-- `code` — Inline code blocks must be explicitly styled
-- `pre` — Preformatted code blocks (pre) must be explicitly styled
-- `table` — Data tables must be explicitly styled
-
-#### components-alerts
-
-- `.alert` — Alert wrapper container
-- `.alert-title` — Alert title element
-- `.alert-content` — Alert body content
-- `.alert-info` — Info alert variant styling
-- `.alert-warn` — Warning alert variant styling
-- `.alert-error` — Error alert variant styling
-- `.alert-tip` — Tip alert variant styling
-
-#### components-badges
-
-- `.badge` — Badge/tag label
-- `.badge-primary` — Primary badge variant
-- `.badge-secondary` — Secondary badge variant
-- `.badge-success` — Success badge variant
-- `.badge-warning` — Warning badge variant
-- `.badge-danger` — Danger badge variant
-
-#### components-buttons
-
-- `.btn` — Button base class
-- `.btn-primary` — Primary action button
-- `.btn-secondary` — Secondary action button
-- `.btn-ghost` — Ghost/transparent button
-- `.btn-sm` — Small button variant
-- `.button-group` — Wrapper for multiple buttons
-
-#### components-callouts
-
-- `.callout` — Callout container
-- `.callout-info` — Info callout variant
-- `.callout-warn` — Warning callout variant
-- `.callout-error` — Error callout variant
-- `.callout-tip` — Tip callout variant
-
-#### components-canvas
-
-- `.canvas-mode-active` — Applied to layout wrappers when canvas landing mode is active to reset shadows, borders, and margins
-- `.canvas-width-limit` — Sizing constraints restricting wide-bleed canvas sections to a modern 1200px max-width
-
-#### components-cards
-
-- `.card` — Card surface component
-- `.card-padding` — Card padding utility
-
-#### components-forms
-
-- `.form-group` — Form group container
-- `.form-label` — Form label
-- `.form-input` — Text input field
-- `.form-textarea` — Textarea field
-- `.form-select` — Select dropdown
-- `.form-checkbox` — Checkbox input
-- `.form-radio` — Radio input
-- `.form-file` — File input
-
-#### layout
-
-- `.layout-container` — Main content container
-- `.site-header` — Sticky site header
-- `.nav-container` — Navigation wrapper inside header
-- `.nav-links` — Navigation links container
-- `.site-footer` — Site footer
-- `.tamarind-ghost-badge` — Floating Use Tamarind badge element
-- `.footer-promo` — Website promotional reference in the footer
-
-#### layout-sidebar
-
-- `.layout-has-sidebar` — Grid/Flex wrapper when sidebar layout is active (must establish sidebar columns on desktop and collapse on mobile)
-- `.context-sidebar` — Left sidebar container hosting section navigation sibling links (.sidebar-left or .context-sidebar)
-- `.tamarind-sidebar-checkbox` — Hidden input control (#tamarind-sidebar-toggle or .tamarind-sidebar-checkbox) managing mobile drawer display state
-- `.tamarind-sidebar-handle` — Mobile toggle menu trigger button handle (high visibility, absolute alignment against header background)
-- `.tamarind-sidebar-backdrop` — Overlay backdrop covering the viewport when the mobile sidebar drawer is active to prevent under-scrolling
-- `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
-- `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
-- `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
-
-#### premium-components
-
-- `.metrics-grid` — Container for the metrics grid layout
-- `.metric-card` — Individual metric block container
-- `.metric-value` — Stylized numeric or main text value inside a metric card
-- `.metric-label` — Stylized supporting label underneath the metric value
-- `.features-grid` — Container for the features card grid
-- `.feature-card` — Individual feature card block container
-- `.feature-icon-box` — Vivid diagonal gradient icon wrapper box
-- `.feature-title` — Feature headline font weight and styling
-- `.feature-desc` — Feature supporting detail text color and alignment
-- `.capabilities-grid` — Multi-column layout wrapper for checklist cards
-- `.capability-card` — Checklist card wrapper container
-- `.capability-header` — Checklist header separator styling
-- `.capability-card-title` — Checklist card heading typography styling
-- `.capability-row` — Flex row grouping detail columns and status label
-- `.capability-name` — Checkbox items title styling
-- `.capability-desc` — Checkbox description detail styling
-- `.capability-status` — Status indicator badge container
-- `.timeline-container` — Timeline absolute tracking wrapper container
-- `.timeline-item` — Relative timeline segment node
-- `.timeline-badge` — Circular step sequence bullet container
-- `.timeline-badge-number` — Bold numeric indicator text inside timeline badge
-- `.timeline-content` — Segment description card container styling
-- `.timeline-title` — Segment headline typography styling
-- `.timeline-desc` — Segment description detail styling
-- `.alert-container` — Flex alert wrapper banner
-- `.alert-icon-box` — SVG symbol flex align wrapper box
-- `.alert-content` — Text content block column layout wrapper
-- `.alert-title` — Semantic alert heading typography
-- `.alert-message` — Supporting details alert body description text
-- `.tamarind-select-wrapper` — Outer wrapper positioning the standard selector controls
-- `.tamarind-select` — Stylized select reset button element overrides
-- `.tamarind-select-chevron` — Chevron arrow vector flex alignment container
-- `.tamarind-accordion` — Collapsible HTML5 details accordion card block
-- `.tamarind-accordion-summary` — Interactive summary header text inside details card
-- `.tamarind-accordion-content` — Expanded text content inside details accordion block
-- `.pricing-wrapper` — Container wrapper for the pricing toggle and grid layout
-- `.billing-toggle` — Billing toggle container alignment and sizing
-- `.switch-poc` — Switch switch control layout
-- `.slider-poc` — Slider component layout and translation actions
-- `.pricing-grid-poc` — Pricing comparison cards flex grid wrapper
-- `.price-card` — Individual pricing plan card container
-- `.price-val` — Plan price amount display typography styling
-- `.price-period` — Plan billing recurring period description styling
-- `.pricing-btn` — Plan call to action button and link classes
-
-#### responsive
-
-- `max-width: 768px` — Mobile breakpoint at 768px
-
-#### shortcodes
-
-- `.video-container` — Responsive video embed container (16:9)
-- `.mermaid` — Mermaid diagram container
-- `.terminal` — Terminal window frame
-- `img` — Responsive image styling to prevent overflow
-- `figure` — Responsive figure block formatting
-
-#### templates
-
-- `articles.mdt:tamarind-ghost-badge` — articles.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'
-- `articles.mdt:footer-promo` — articles.mdt template must contain the 'footer-promo' class or render 'footer.mdt'
-- `page.mdt:tamarind-ghost-badge` — page.mdt template must contain the 'tamarind-ghost-badge' class or render 'footer.mdt'
-- `page.mdt:footer-promo` — page.mdt template must contain the 'footer-promo' class or render 'footer.mdt'
-- `menu-no-duplication` — Templates must not duplicate the main menu rendering (must not loop over .Menu more than once)
-
-#### variables-colors
-
-- `--primary-color` — Main interaction color (Buttons, Links)
-- `--background-color` — Main page background
-- `--card-bg` — Component/Article card background
-- `--header-bg` — Sticky header background
-- `--text-color` — Main body text color
-- `--text-secondary` — Metadata, captions, footers color
-- `--border-color` — Separators and input borders
-- `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -5101,9 +5116,15 @@
 
 ---
 
-## Theme: protocol — ✅ COMPLIANT
+## Theme: protocol — ❌ NON-COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 131/132 (99%)
+
+### ❌ Missing Requirements
+
+#### variables-colors
+
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 ### ✅ Passed Requirements
 
@@ -5277,7 +5298,6 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 
@@ -5489,9 +5509,15 @@
 
 ---
 
-## Theme: stream — ✅ COMPLIANT
+## Theme: stream — ❌ NON-COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 131/132 (99%)
+
+### ❌ Missing Requirements
+
+#### variables-colors
+
+- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 ### ✅ Passed Requirements
 
@@ -5665,7 +5691,6 @@
 - `--text-secondary` — Metadata, captions, footers color
 - `--border-color` — Separators and input borders
 - `background-contrast` — Contrast between --card-bg and --background-color must be at least 1.015:1 in both light and dark modes
-- `chart-color-contrast` — Contrast between the first two chart colors must be distinct to prevent invisible data series
 
 #### variables-spacing
 

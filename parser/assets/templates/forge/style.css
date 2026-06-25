@@ -34,16 +34,15 @@
     --shadow: 4px 4px 0px rgba(0, 0, 0, 0.5); /* Hard brutalist shadow */
     --shadow-hover: 6px 6px 0px rgba(214, 78, 41, 0.3); /* Rust shadow on hover */
 
-    --chart-1: #df846b;
-    --chart-2: #2c864a;
-    --chart-3: #dfc36b;
-    --chart-4: #3e5973;
-    --chart-5: #db6f8b;
-    --chart-6: #3f4c19;
-    --chart-7: #6f93db;
-    --chart-8: #8f3e23;
-    --chart-9: #a5a5a5;
-
+    --chart-1: #e9a18d;
+    --chart-2: #a5f5f5;
+    --chart-3: #f19e82;
+    --chart-4: #fbdefb;
+    --chart-5: #24cd5c;
+    --chart-6: #fae6a9;
+    --chart-7: #85b7e9;
+    --chart-8: #f9e1e7;
+    --chart-9: #c6a5e8;
 }
 
 [data-theme="light"] {
@@ -58,6 +57,16 @@
     --hover-bg: #E0E0E0;
     --shadow: 4px 4px 0px rgba(0, 0, 0, 0.1);
     --shadow-hover: 6px 6px 0px rgba(214, 78, 41, 0.2);
+
+    --chart-1: #ebac9b;
+    --chart-2: #0f8989;
+    --chart-3: #f2aa92;
+    --chart-4: #d617d6;
+    --chart-5: #25d761;
+    --chart-6: #9a7608;
+    --chart-7: #93bfec;
+    --chart-8: #dd3f66;
+    --chart-9: #cdafeb;
 }
 
 * {

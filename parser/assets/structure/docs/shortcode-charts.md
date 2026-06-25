@@ -172,6 +172,45 @@ Multi-series charts expect a JSON object containing `categories` (an array of X-
 }
 {{ /multilinechart }}
 
+### Color Palette Showcase Chart (`multilinechart`)
+
+```markdown
+{{!}}{ multilinechart title="9-Color Palette Showcase" }}
+{
+  "categories": ["Q1", "Q2", "Q3", "Q4"],
+  "series": [
+    { "name": "Series 1", "data": [10, 15, 20, 25] },
+    { "name": "Series 2", "data": [12, 18, 22, 28] },
+    { "name": "Series 3", "data": [14, 20, 24, 30] },
+    { "name": "Series 4", "data": [16, 22, 26, 32] },
+    { "name": "Series 5", "data": [18, 24, 28, 34] },
+    { "name": "Series 6", "data": [20, 26, 30, 36] },
+    { "name": "Series 7", "data": [22, 28, 32, 38] },
+    { "name": "Series 8", "data": [24, 30, 34, 40] },
+    { "name": "Series 9", "data": [26, 32, 36, 42] }
+  ]
+}
+{{!}}{ /multilinechart }}
+```
+
+{{ multilinechart title="9-Color Palette Showcase" }}
+{
+  "categories": ["Q1", "Q2", "Q3", "Q4"],
+  "series": [
+    { "name": "Series 1", "data": [10, 15, 20, 25] },
+    { "name": "Series 2", "data": [12, 18, 22, 28] },
+    { "name": "Series 3", "data": [14, 20, 24, 30] },
+    { "name": "Series 4", "data": [16, 22, 26, 32] },
+    { "name": "Series 5", "data": [18, 24, 28, 34] },
+    { "name": "Series 6", "data": [20, 26, 30, 36] },
+    { "name": "Series 7", "data": [22, 28, 32, 38] },
+    { "name": "Series 8", "data": [24, 30, 34, 40] },
+    { "name": "Series 9", "data": [26, 32, 36, 42] }
+  ]
+}
+{{ /multilinechart }}
+
+
 ### Grouped Bar Chart (`groupedbarchart`)
 
 ```markdown

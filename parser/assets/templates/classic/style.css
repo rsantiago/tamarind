@@ -33,30 +33,29 @@
     --radius-lg: 0px;
     --shadow: none;
 
-    --chart-1: #1d1d8c;
-    --chart-2: #78d296;
-    --chart-3: #93761f;
-    --chart-4: #8ba5c0;
-    --chart-5: #8f233e;
-    --chart-6: #bcd278;
-    --chart-7: #23468f;
-    --chart-8: #db8b6f;
-    --chart-9: #595959;
-
+    --chart-1: #b5b5f9;
+    --chart-2: #0f8989;
+    --chart-3: #f2aa92;
+    --chart-4: #d617d6;
+    --chart-5: #25d761;
+    --chart-6: #9a7608;
+    --chart-7: #93bfec;
+    --chart-8: #dd3f66;
+    --chart-9: #cdafeb;
 }
 
 [data-theme="dark"] {
     /* Windows 95 does not have a dark mode! We stick to classic grey. */
 
-    --chart-1: #6b6bdf;
-    --chart-2: #194c2a;
-    --chart-3: #dfc36b;
-    --chart-4: #3e5973;
-    --chart-5: #db6f8b;
-    --chart-6: #3f4c19;
-    --chart-7: #6f93db;
-    --chart-8: #8f3e23;
-    --chart-9: #a5a5a5;
+    --chart-1: #b5b5f9;
+    --chart-2: #0f8989;
+    --chart-3: #f2aa92;
+    --chart-4: #d617d6;
+    --chart-5: #25d761;
+    --chart-6: #9a7608;
+    --chart-7: #93bfec;
+    --chart-8: #dd3f66;
+    --chart-9: #cdafeb;
 }
 
 * {

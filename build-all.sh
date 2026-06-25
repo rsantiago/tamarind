@@ -173,6 +173,5 @@ EOF
 
 # Mirror public-all to website for native ./tamarind serve compatibility
 echo "Mirroring to website directory..."
-cp -r public-all website
 
 echo "Done! All themes built successfully in public-all/ and website/ directories."
