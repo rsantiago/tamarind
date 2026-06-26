@@ -34,26 +34,7 @@ Perfect for small datasets or rapid prototyping. Place the JSON array directly b
 {{!}}{ /barchart }}
 ```
 
----
 
-## Chart Configuration Flags
-
-Tamarind allows you to fine-tune your charts using optional flags directly inside the shortcode. These flags are available for all Cartesian (X-Y axis) charts, such as `barchart`, `linechart`, `multilinechart`, `groupedbarchart`, and `hbarchart`.
-
-*   `show-x="false"`: Hides the X-axis labels (for vertical bars/lines). For horizontal bar charts, this controls the numerical value labels. (Default: `true`)
-*   `show-y="false"`: Hides the Y-axis value labels (for vertical bars/lines). For horizontal bar charts, this controls the category labels. (Default: `true`)
-*   `show-dots="false"`: Disables the data point circles on line and multiline charts. (Default: `true`)
-*   `show-grid="true"`: Enables a mild, subtle background grid to help track values. (Default: `false`)
-
-**Example Usage:**
-
-```markdown
-{{!}}{ barchart title="Clean Data Presentation" show-x="false" show-y="false" show-grid="true" }}
-...
-{{!}}{ /barchart }}
-```
-
----
 
 ## Single-Series Charts
 
@@ -325,6 +306,67 @@ For example, to reverse the first three colors so that Series 1 uses color 3, Se
     {"label": "Series 3", "value": 20}
 ]
 {{ /barchart }}
+
+---
+
+## Chart Configuration Flags
+
+Tamarind allows you to fine-tune your charts using optional flags directly inside the shortcode. These flags are available for all Cartesian (X-Y axis) charts, such as `barchart`, `linechart`, `multilinechart`, `groupedbarchart`, and `hbarchart`.
+
+*   `show-x="false"`: Hides the X-axis labels (for vertical bars/lines). For horizontal bar charts, this controls the numerical value labels. (Default: `true`)
+*   `show-y="false"`: Hides the Y-axis value labels (for vertical bars/lines). For horizontal bar charts, this controls the category labels. (Default: `true`)
+*   `show-dots="false"`: Disables the data point circles on line and multiline charts. (Default: `true`)
+*   `show-grid="true"`: Enables a mild, subtle background grid to help track values. (Default: `false`)
+
+### Examples: Configuration Flags
+
+**1. Default Chart (No Flags)**
+
+```markdown
+{{!}}{ multilinechart title="Default Chart" }}
+{
+  "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  "series": [
+    { "name": "Active Users", "data": [120, 150, 200, 180, 250] },
+    { "name": "New Signups", "data": [45, 60, 80, 75, 110] }
+  ]
+}
+{{!}}{ /multilinechart }}
+```
+
+{{ multilinechart title="Default Chart" }}
+{
+  "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  "series": [
+    { "name": "Active Users", "data": [120, 150, 200, 180, 250] },
+    { "name": "New Signups", "data": [45, 60, 80, 75, 110] }
+  ]
+}
+{{ /multilinechart }}
+
+**2. Minimalist Chart (Hidden Axes, No Dots, With Grid)**
+
+```markdown
+{{!}}{ multilinechart title="Clean & Minimalist" show-x="false" show-y="false" show-dots="false" show-grid="true" }}
+{
+  "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  "series": [
+    { "name": "Active Users", "data": [120, 150, 200, 180, 250] },
+    { "name": "New Signups", "data": [45, 60, 80, 75, 110] }
+  ]
+}
+{{!}}{ /multilinechart }}
+```
+
+{{ multilinechart title="Clean & Minimalist" show-x="false" show-y="false" show-dots="false" show-grid="true" }}
+{
+  "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  "series": [
+    { "name": "Active Users", "data": [120, 150, 200, 180, 250] },
+    { "name": "New Signups", "data": [45, 60, 80, 75, 110] }
+  ]
+}
+{{ /multilinechart }}
 
 ---
 
