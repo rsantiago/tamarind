@@ -368,6 +368,30 @@ Tamarind allows you to fine-tune your charts using optional flags directly insid
 }
 {{ /multilinechart }}
 
+**3. Maximum Detail (Everything Shown)**
+
+```markdown
+{{!}}{ multilinechart title="Maximum Detail" show-x="true" show-y="true" show-dots="true" show-grid="true" }}
+{
+  "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  "series": [
+    { "name": "Active Users", "data": [120, 150, 200, 180, 250] },
+    { "name": "New Signups", "data": [45, 60, 80, 75, 110] }
+  ]
+}
+{{!}}{ /multilinechart }}
+```
+
+{{ multilinechart title="Maximum Detail" show-x="true" show-y="true" show-dots="true" show-grid="true" }}
+{
+  "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
+  "series": [
+    { "name": "Active Users", "data": [120, 150, 200, 180, 250] },
+    { "name": "New Signups", "data": [45, 60, 80, 75, 110] }
+  ]
+}
+{{ /multilinechart }}
+
 ---
 
 ## Theme Compliance: Chart Colors
