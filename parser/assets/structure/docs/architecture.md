@@ -13,16 +13,41 @@ This document serves as a technical overview for developers, theme designers, an
 
 ---
 
-## 1. High-Level Pipeline
+## 1. High-Level Compilation Lifecycle
 
-The build process is orchestrated entirely within the `parser/internal/builder` package and operates in a strict, deterministic sequence:
+The build process is orchestrated entirely within the `parser/internal/builder` package and operates in a strict, deterministic sequence.
 
-1. **Configuration Loading**: Reads `tamarind.yaml` and sets up the active theme.
-2. **File Scanning**: The `Scanner` traverses the target source directory (e.g., `docs/` or `articles/`), building an in-memory graph of all markdown files and creating a dynamic navigation `Menu`.
-3. **Asset Processing**: Static assets (CSS, JS) are mirrored. Images are optionally processed into responsive, multi-resolution variants (`images.go`).
-4. **Parsing & Shortcode Resolution**: The `goldmark` engine converts Markdown to HTML, while the `PluginRegistry` evaluates and injects dynamic shortcodes (Charts, Mermaid, Math, etc.).
-5. **Template Rendering**: The HTML output is injected into Go `html/template` skeletons (`.mdt` files) located in the active theme folder.
-6. **SEO & Discovery Engine**: `sitemap.xml`, `robots.txt`, and `llms.txt` (for AI agents) are automatically generated.
+### End-to-End Build Sequence
+The following sequence diagram illustrates the call stack and interactions between the major internal systems from the moment the compiler starts:
+
+```mermaid
+sequenceDiagram
+    participant CLI as main.go
+    participant Builder as builder.go
+    participant Scanner as scanner.go
+    participant Registry as PluginRegistry
+    participant Goldmark as goldmark
+    participant Templates as html/template
+    
+    CLI->>Builder: Build(sourceDir, templateDir)
+    Builder->>Templates: ParseFiles(theme/*.mdt)
+    Builder->>Scanner: Scan()
+    Scanner-->>Builder: File Graph & Menu Data
+    
+    loop Every Markdown File
+        Builder->>Registry: NewPluginRegistry()
+        Builder->>Registry: Register(All Plugins)
+        Builder->>Registry: ProcessShortcodes(raw_markdown)
+        Registry-->>Builder: resolved_markdown
+        Builder->>Goldmark: Convert(resolved_markdown)
+        Goldmark-->>Builder: html_body
+        Builder->>Templates: ExecuteTemplate("page.mdt", PageData)
+        Templates-->>Builder: final.html
+    end
+    
+    Builder->>Builder: Process Images & Copy Assets
+    Builder->>Builder: Generate SEO (sitemap.xml, llms.txt)
+```
 
 ---
 
@@ -57,44 +82,104 @@ When a user runs `tamarind init`, the CLI reads the embedded `assets/structure/`
 
 ## 4. The Shortcode & Plugin Registry
 
-Tamarind features a highly extensible shortcode system. Instead of relying on a monolithic parser, specialized components are registered as isolated "Plugins."
+Tamarind features a highly extensible shortcode system. Instead of relying on a monolithic parser, specialized components are registered as isolated "Plugins." 
 
-### Plugin Architecture
-Located in `internal/builder/registry.go`, the `PluginRegistry` allows developers to map string keys to handler functions. 
+Located in `internal/builder/registry.go`, the `PluginRegistry` evaluates custom shortcodes like `{{!}}{ barchart }}` and replaces them with HTML outputs *before* standard markdown parsing happens.
 
-```go
-// Example of how plugins are registered in Tamarind
-registry.Register("barchart", generateBarChart)
-registry.Register("mermaid", generateMermaidDiagram)
-registry.Register("math", generateLaTeX)
+### Plugin Hierarchy
+Here is the current ecosystem of native Tamarind plugins:
+
+```mermaid
+graph TD
+    PR[PluginRegistry] --> UI[UI Components]
+    PR --> DataVis[Data Visualization]
+    PR --> Form[Form Interactions]
+    PR --> Utilities[Utilities & External]
+
+    UI --> Accordion[Accordion: Expandable sections]
+    UI --> Alert[Alert: Contextual callouts]
+    UI --> Tabs[Tabs: Tabbed content]
+    UI --> Timeline[Timeline: Vertical history]
+
+    DataVis --> Chart[Chart: Bar, Pie, Line, Radar]
+    DataVis --> Mermaid[Mermaid: Diagram rendering]
+    DataVis --> Metrics[Metrics: KPI scorecards]
+    
+    Form --> FormContainer[Form: Contact endpoints]
+    Form --> Inputs[Inputs: Text, Select, Checkbox]
+
+    Utilities --> Terminal[Terminal: Shell simulation]
+    Utilities --> Include[Include: Embed external files]
+    Utilities --> Gist[Gist: GitHub snippets]
+    Utilities --> Math[Math: LaTeX rendering]
 ```
 
 ### Component Isolation
 Every feature is encapsulated in its own file (e.g., `plugin_chart.go`, `plugin_tabs.go`, `plugin_terminal.go`). This ensures that if a specific component needs a bug fix, the rest of the compilation pipeline remains entirely untouched.
 
-Tamarind natively supports complex data visualizations (Pie, Bar, Line charts) by injecting structured JSON data directly into the shortcode blocks. These charts are rendered as clean, zero-dependency SVG or CSS grids, ensuring maximum performance without shipping massive JavaScript libraries to the client.
-
 ---
 
 ## 5. The Data Model
 
-As the scanner reads the file system, it populates shared structs defined in `internal/models/models.go`. The primary data structure injected into the HTML templates is `PageData`:
+As the scanner reads the file system, it populates shared structs defined in `internal/models/models.go`. 
 
-```go
-type PageData struct {
-    SiteName      string
-    Title         string
-    Description   string
-    Body          template.HTML // The compiled Markdown
-    Menu          []MenuItem    // The auto-generated navigation tree
-    Tags          []string
-    LastModified  string
-    Theme         string
-    IsArticle     bool
-}
+The primary composite structure injected into the HTML templates is `PageData`. Templates (like `page.mdt`) access these variables directly using Go template syntax (e.g., `&#123;&#123; .Title &#125;&#125;` and `&#123;&#123; .Body &#125;&#125;`).
+
+### Class Hierarchy Diagram
+The following diagram maps the exact composition of the data injected into the Go template renderer:
+
+```mermaid
+classDiagram
+    class PageData {
+        +string Title
+        +string Subtitle
+        +string Description
+        +template.HTML Body
+        +[]ArticleMeta Articles
+        +[]MenuItem Menu
+        +map~string, interface~ Data
+        +Paginator Paginator
+        +[]SidebarItem ContextualSidebar
+    }
+    
+    class ArticleMeta {
+        +string Title
+        +string Date
+        +string URL
+        +[]string Tags
+        +string Author
+    }
+    
+    class MenuItem {
+        +string Title
+        +string URL
+        +int Order
+    }
+    
+    class Paginator {
+        +int CurrentPage
+        +int TotalPages
+        +[]PageLink VisiblePages
+    }
+    
+    class PageLink {
+        +int Number
+        +string URL
+        +bool IsCurrent
+    }
+    
+    class SidebarItem {
+        +string Title
+        +string URL
+        +bool IsCurrent
+    }
+    
+    PageData *-- "many" ArticleMeta : Composes
+    PageData *-- "many" MenuItem : Composes
+    PageData *-- "1" Paginator : Composes
+    PageData *-- "many" SidebarItem : Composes
+    Paginator *-- "many" PageLink : Composes
 ```
-
-Templates (e.g., `page.mdt`) access these variables directly using Go template syntax: `&#123;&#123; .Title &#125;&#125;` and `&#123;&#123; .Body &#125;&#125;`.
 
 ---
 
