@@ -89,18 +89,31 @@ Here is the current ecosystem of native Tamarind plugins:
 {{ mermaid }}
 graph LR
     PR["PluginRegistry"] --> UI["UI Components"]
+    PR --> LP["Landing Page Builder"]
     PR --> DataVis["Data Visualization"]
     PR --> Form["Form Interactions"]
     PR --> Utilities["Utilities and External"]
+    
     UI --> Accordion["Accordion Component"]
     UI --> Alert["Alert Callouts"]
     UI --> Tabs["Tabs Component"]
     UI --> Timeline["Timeline Component"]
+    UI --> Dropdown["Dropdown Menus"]
+    
+    LP --> Features["Features & Capabilities"]
+    LP --> Pricing["Pricing Tables"]
+    LP --> Card["Card & Badge Components"]
+    LP --> Buttons["Call-to-Action Buttons"]
+    LP --> Social["Social Ribbons"]
+    LP --> Media["Media (YouTube / Figures)"]
+    
     DataVis --> Chart["Chart Visualizations"]
     DataVis --> Mermaid["Mermaid Diagrams"]
     DataVis --> Metrics["Metrics Scorecards"]
+    
     Form --> FormContainer["Form Endpoints"]
     Form --> Inputs["Form Inputs"]
+    
     Utilities --> Terminal["Terminal Simulator"]
     Utilities --> Include["Include External"]
     Utilities --> Gist["Gist Snippets"]
