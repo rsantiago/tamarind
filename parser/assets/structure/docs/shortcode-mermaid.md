@@ -16,20 +16,34 @@ These diagrams are essential for visualizing algorithms, interactions, code stru
 
 ### Flowchart / Graph
 Standard node and edge graphs for process flows.
+
+#### Syntax
 ```markdown
-{{!}}{{ mermaid }}
+{{{!}}{ mermaid }}
 graph LR;
     A[Start] --> B{Is it working?};
     B -- Yes --> C[Great!];
     B -- No --> D[Debug];
     D --> B;
-{{!}}{{ /mermaid }}
+{{{!}}{ /mermaid }}
 ```
+
+#### Result
+{{ mermaid }}
+graph LR;
+    A[Start] --> B{Is it working?};
+    B -- Yes --> C[Great!];
+    B -- No --> D[Debug];
+    D --> B;
+{{ /mermaid }}
+
 
 ### Sequence Diagram
 Visualize interactions and timelines between systems or objects.
+
+#### Syntax
 ```markdown
-{{!}}{{ mermaid }}
+{{{!}}{ mermaid }}
 sequenceDiagram
     participant Alice
     participant Bob
@@ -37,13 +51,27 @@ sequenceDiagram
     John-->>Alice: Great!
     John->>Bob: How about you?
     Bob-->>John: Jolly good!
-{{!}}{{ /mermaid }}
+{{{!}}{ /mermaid }}
 ```
+
+#### Result
+{{ mermaid }}
+sequenceDiagram
+    participant Alice
+    participant Bob
+    Alice->>John: Hello John, how are you?
+    John-->>Alice: Great!
+    John->>Bob: How about you?
+    Bob-->>John: Jolly good!
+{{ /mermaid }}
+
 
 ### Class Diagram
 Visualize object-oriented relationships and attributes.
+
+#### Syntax
 ```markdown
-{{!}}{{ mermaid }}
+{{{!}}{ mermaid }}
 classDiagram
     Animal <|-- Duck
     Animal <|-- Fish
@@ -53,13 +81,29 @@ classDiagram
         +String beakColor
         +swim()
     }
-{{!}}{{ /mermaid }}
+{{{!}}{ /mermaid }}
 ```
+
+#### Result
+{{ mermaid }}
+classDiagram
+    Animal <|-- Duck
+    Animal <|-- Fish
+    Animal : +int age
+    Animal: +isMammal()
+    class Duck{
+        +String beakColor
+        +swim()
+    }
+{{ /mermaid }}
+
 
 ### State Diagram
 Visualize state transitions of a system over time.
+
+#### Syntax
 ```markdown
-{{!}}{{ mermaid }}
+{{{!}}{ mermaid }}
 stateDiagram-v2
     [*] --> Still
     Still --> [*]
@@ -67,18 +111,39 @@ stateDiagram-v2
     Moving --> Still
     Moving --> Crash
     Crash --> [*]
-{{!}}{{ /mermaid }}
+{{{!}}{ /mermaid }}
 ```
+
+#### Result
+{{ mermaid }}
+stateDiagram-v2
+    [*] --> Still
+    Still --> [*]
+    Still --> Moving
+    Moving --> Still
+    Moving --> Crash
+    Crash --> [*]
+{{ /mermaid }}
+
 
 ### Entity Relationship Diagram (ERD)
 Visualize database schemas and relationships.
+
+#### Syntax
 ```markdown
-{{!}}{{ mermaid }}
+{{{!}}{ mermaid }}
 erDiagram
     CUSTOMER ||--o{ ORDER : places
     ORDER ||--|{ LINE-ITEM : contains
-{{!}}{{ /mermaid }}
+{{{!}}{ /mermaid }}
 ```
+
+#### Result
+{{ mermaid }}
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+{{ /mermaid }}
 
 ---
 
@@ -88,8 +153,10 @@ These tools help teams plan schedules, map user flows, and brainstorm hierarchie
 
 ### Mindmap
 For brainstorming and organizing hierarchical information visually.
+
+#### Syntax
 ```markdown
-{{!}}{{ mermaid }}
+{{{!}}{ mermaid }}
 mindmap
   root((Tamarind))
     Design
@@ -98,8 +165,20 @@ mindmap
     Performance
       Go Binary
       Zero Dependencies
-{{!}}{{ /mermaid }}
+{{{!}}{ /mermaid }}
 ```
+
+#### Result
+{{ mermaid }}
+mindmap
+  root((Tamarind))
+    Design
+      Themes
+      CSS
+    Performance
+      Go Binary
+      Zero Dependencies
+{{ /mermaid }}
 
 ### Gantt Chart
 For project schedules, tracking task durations and dependencies. (Use `gantt`).
@@ -119,15 +198,26 @@ For mapping out software requirements and test traces. (Use `requirementDiagram`
 
 ### Pie Chart
 Visualize percentage distributions.
+
+#### Syntax
 ```markdown
-{{!}}{{ mermaid }}
+{{{!}}{ mermaid }}
 pie title What specific languages do you use?
     "Go" : 40
     "Python" : 30
     "JavaScript" : 20
     "Rust" : 10
-{{!}}{{ /mermaid }}
+{{{!}}{ /mermaid }}
 ```
+
+#### Result
+{{ mermaid }}
+pie title What specific languages do you use?
+    "Go" : 40
+    "Python" : 30
+    "JavaScript" : 20
+    "Rust" : 10
+{{ /mermaid }}
 
 ### Quadrant Chart
 Plot items on an X/Y axis with 4 quadrants (e.g., Risk vs. Reward). (Use `quadrantChart`).
