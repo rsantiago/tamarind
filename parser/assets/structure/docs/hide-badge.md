@@ -8,7 +8,7 @@ hide_badge: true
 
 By default, Tamarind proudly displays an "I Use Tamarind" ghost badge in the bottom right corner of all generated pages. This helps support the independent web and sovereign software development.
 
-However, if you have purchased a Commercial Studio or Enterprise license, or if you simply need a clean layout for a specific client landing page, you have the right to strip this attribution.
+However, if you have purchased a Self-Service Commercial or Enterprise license, or if you simply need a clean layout for a specific client landing page, you have the right to strip this attribution.
 
 ## How to Hide the Badge
 
