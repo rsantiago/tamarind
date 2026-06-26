@@ -7,15 +7,13 @@ import (
 )
 
 type TerminalPlugin struct {
-	scriptInjected bool
-	terminalIndex  int
-	pattern        *regexp.Regexp
+	terminalIndex int
+	pattern       *regexp.Regexp
 }
 
 func NewTerminalPlugin() *TerminalPlugin {
 	return &TerminalPlugin{
-		scriptInjected: false,
-		terminalIndex:  0,
+		terminalIndex: 0,
 		pattern:        regexp.MustCompile(`(?s){{\s*terminal\s*}}(.*?){{\s*/terminal\s*}}`),
 	}
 }
@@ -28,9 +26,7 @@ func (p *TerminalPlugin) Process(match []string, sourceDir string) (string, erro
 	content := strings.TrimSpace(match[1])
 	copyBtnHtml := `<button class="terminal-copy-btn" onclick="tamarindCopyTerminal(event)" aria-label="Copy" title="Copy"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button>`
 
-	jsScript := ""
-	if !p.scriptInjected {
-		jsScript = `
+	jsScript := `
 <script>
 if (typeof tamarindSwitchTerminalTab !== 'function') {
 window.tamarindSwitchTerminalTab = function(evt, tabId) {
@@ -72,8 +68,6 @@ setTimeout(function() { btn.innerHTML = originalHtml; }, 2000);
 }
 </script>
 `
-		p.scriptInjected = true
-	}
 
 	reTab := regexp.MustCompile(`(?s){{\s*tab\s+title="([^"]+)"\s*}}(.*?){{\s*/tab\s*}}`)
 	tabMatches := reTab.FindAllStringSubmatch(content, -1)

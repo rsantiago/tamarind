@@ -6,13 +6,11 @@ import (
 )
 
 type MermaidPlugin struct {
-	scriptInjected bool
 	pattern        *regexp.Regexp
 }
 
 func NewMermaidPlugin() *MermaidPlugin {
 	return &MermaidPlugin{
-		scriptInjected: false,
 		pattern:        regexp.MustCompile(`(?s){{\s*mermaid\s*}}(.*?){{\s*/mermaid\s*}}`),
 	}
 }
@@ -23,9 +21,7 @@ func (p *MermaidPlugin) Pattern() *regexp.Regexp { return p.pattern }
 func (p *MermaidPlugin) Process(match []string, sourceDir string) (string, error) {
 	content := match[1]
 
-	jsScript := ""
-	if !p.scriptInjected {
-		jsScript = `
+	jsScript := `
 <script>
 if (typeof tamarindMaximizeMermaid !== 'function') {
 	window.tamarindMaximizeMermaid = function(btn) {
@@ -84,8 +80,6 @@ if (typeof tamarindMaximizeMermaid !== 'function') {
 }
 </style>
 `
-		p.scriptInjected = true
-	}
 	
 	btnHtml := `<button class="mermaid-maximize-btn" onclick="tamarindMaximizeMermaid(this)">
 		<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3"/></svg>

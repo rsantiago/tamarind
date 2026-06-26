@@ -8,14 +8,12 @@ import (
 )
 
 type TabsPlugin struct {
-	scriptInjected bool
 	tabsIndex      int
 	pattern        *regexp.Regexp
 }
 
 func NewTabsPlugin() *TabsPlugin {
 	return &TabsPlugin{
-		scriptInjected: false,
 		tabsIndex:      0,
 		pattern:        regexp.MustCompile(`(?s){{\s*tabs\s*}}(.*?){{\s*/tabs\s*}}`),
 	}
@@ -61,9 +59,7 @@ func (p *TabsPlugin) Process(match []string, sourceDir string) (string, error) {
 		panesHtml += fmt.Sprintf(`<div id="%s" class="tamarind-tab-pane%s">%s</div>`, tabId, activePaneClass, htmlDesc)
 	}
 
-	jsScript := ""
-	if !p.scriptInjected {
-		jsScript = `
+	jsScript := `
 <script>
 if (typeof tamarindSwitchTab !== 'function') {
 window.tamarindSwitchTab = function(evt, tabId) {
@@ -83,8 +79,6 @@ evt.currentTarget.className += " active";
 }
 </script>
 `
-		p.scriptInjected = true
-	}
 
 	return fmt.Sprintf(`%s<div class="tamarind-tabs"><div class="tamarind-tabs-bar">%s</div><div class="tamarind-tabs-content">%s</div></div>`, jsScript, buttonsHtml, panesHtml), nil
 }
