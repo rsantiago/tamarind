@@ -318,6 +318,7 @@ Tamarind allows you to fine-tune your charts using optional flags directly insid
 *   `show-dots="false"`: Disables the data point circles on line and multiline charts. (Default: `true`)
 *   `grid-y="true"`: Enables subtle horizontal background grid lines corresponding to the Y-axis. (Default: `false`)
 *   `grid-x="true"`: Enables subtle vertical background grid lines corresponding to the X-axis. (Default: `false`)
+*   `grid-y-labels="true"`: Displays numerical reference values along the left side corresponding to the horizontal Y grid. (Default: `false`)
 
 ### Examples: Configuration Flags
 
@@ -372,7 +373,7 @@ Tamarind allows you to fine-tune your charts using optional flags directly insid
 **3. Maximum Detail (Everything Shown)**
 
 ```markdown
-{{!}}{ multilinechart title="Maximum Detail" show-x="true" show-y="true" show-dots="true" grid-x="true" grid-y="true" }}
+{{!}}{ multilinechart title="Maximum Detail" show-x="true" show-y="true" show-dots="true" grid-x="true" grid-y="true" grid-y-labels="true" }}
 {
   "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
   "series": [
@@ -383,7 +384,7 @@ Tamarind allows you to fine-tune your charts using optional flags directly insid
 {{!}}{ /multilinechart }}
 ```
 
-{{ multilinechart title="Maximum Detail" show-x="true" show-y="true" show-dots="true" grid-x="true" grid-y="true" }}
+{{ multilinechart title="Maximum Detail" show-x="true" show-y="true" show-dots="true" grid-x="true" grid-y="true" grid-y-labels="true" }}
 {
   "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
   "series": [

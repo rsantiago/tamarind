@@ -159,11 +159,21 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 	if args["title"] != "" { html += fmt.Sprintf(`<h4 style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"]) }
 	html += fmt.Sprintf(`<svg viewBox="0 0 %.0f %.0f" style="width: 100%%; height: auto; max-height: 300px; display: block; overflow: visible;">`, width, height)
 	
+	showYGridValues := args["grid-y-labels"] == "true"
+	
 	if gridY {
 		// Draw mild grid lines for Y axis
 		for i := 1; i <= 4; i++ {
 			gy := height - padding - (float64(i) * (height - 2*padding) / 5.0)
 			html += fmt.Sprintf(`<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="var(--border-color)" stroke-width="1" />`, padding, gy, width-padding, gy)
+			if showYGridValues {
+				val := max * (float64(i) / 5.0)
+				html += fmt.Sprintf(`<text x="%.1f" y="%.1f" font-size="10" fill="var(--text-secondary)" text-anchor="end">%.0f</text>`, padding-5, gy+4, val)
+			}
+		}
+		if showYGridValues {
+			html += fmt.Sprintf(`<text x="%.1f" y="%.1f" font-size="10" fill="var(--text-secondary)" text-anchor="end">0</text>`, padding-5, height-padding+4)
+			html += fmt.Sprintf(`<text x="%.1f" y="%.1f" font-size="10" fill="var(--text-secondary)" text-anchor="end">%.0f</text>`, padding-5, padding+4, max)
 		}
 	}
 	
@@ -251,7 +261,19 @@ func generateGroupedBarChartFromJSON(content []byte, args map[string]string) str
 	if len(bgGradients) > 0 {
 		bgStyle = fmt.Sprintf(`background-image: %s; background-size: %s;`, strings.Join(bgGradients, ", "), strings.Join(bgSizes, ", "))
 	}
-	html += fmt.Sprintf(`<div class="tamarind-groupedbar-container" style="display:flex; align-items:flex-end; height: 250px; padding: 10px 0; border-bottom: 2px solid var(--border-color); border-left: 2px solid var(--border-color); overflow-x: auto; gap: 20px; %s">`, bgStyle)
+	html += `<div style="display:flex; align-items:flex-end; gap: 10px; width: 100%;">`
+	if args["grid-y-labels"] == "true" {
+		html += fmt.Sprintf(`
+		<div style="display:flex; flex-direction:column; justify-content:space-between; height: 270px; padding: 10px 0; font-size: 0.75rem; color: var(--text-secondary); text-align: right;">
+			<span>%.0f</span>
+			<span>%.0f</span>
+			<span>%.0f</span>
+			<span>%.0f</span>
+			<span>%.0f</span>
+			<span>0</span>
+		</div>`, max, max*0.8, max*0.6, max*0.4, max*0.2)
+	}
+	html += fmt.Sprintf(`<div class="tamarind-groupedbar-container" style="flex: 1; display:flex; align-items:flex-end; height: 250px; padding: 10px 0; border-bottom: 2px solid var(--border-color); border-left: 2px solid var(--border-color); overflow-x: auto; gap: 20px; %s">`, bgStyle)
 
 	for i, cat := range data.Categories {
 		html += `<div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">`
@@ -281,7 +303,7 @@ func generateGroupedBarChartFromJSON(content []byte, args map[string]string) str
 		color := defaultColors[sIdx%len(defaultColors)]
 		legendHtml += fmt.Sprintf(`<div style="display:flex; align-items:center; gap:5px;"><div style="width:12px;height:12px;background:%s;border-radius:2px;"></div><span style="font-size:0.85rem;">%s</span></div>`, color, s.Name)
 	}
-	html += legendHtml + `</div></div>`
+	html += legendHtml + `</div></div></div>`
 	return html
 }
 
