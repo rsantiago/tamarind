@@ -117,13 +117,40 @@ graph TD
 ### Component Isolation
 Every feature is encapsulated in its own file (e.g., `plugin_chart.go`, `plugin_tabs.go`, `plugin_terminal.go`). This ensures that if a specific component needs a bug fix, the rest of the compilation pipeline remains entirely untouched.
 
+### Registry Lifecycle
+The following sequence diagram outlines exactly how the registry is instantiated, populated, and executed against a Markdown string:
+
+```mermaid
+sequenceDiagram
+    participant Builder as processShortcodes()
+    participant Registry as PluginRegistry
+    participant Plugin as ShortcodePlugin (e.g. Chart)
+    
+    Builder->>Registry: NewPluginRegistry()
+    
+    Note over Builder,Registry: Phase 1: Registration
+    Builder->>Plugin: NewChartPlugin()
+    Builder->>Registry: Register(Plugin)
+    
+    Note over Builder,Registry: Phase 2: Execution
+    Builder->>Registry: ProcessShortcodes(raw_markdown)
+    loop For each registered Plugin
+        Registry->>Plugin: Pattern() (Regex match)
+        opt If match found
+            Registry->>Plugin: Process(submatches)
+            Plugin-->>Registry: compiled_html
+        end
+    end
+    Registry-->>Builder: resolved_markdown
+```
+
 ---
 
 ## 5. The Data Model
 
 As the scanner reads the file system, it populates shared structs defined in `internal/models/models.go`. 
 
-The primary composite structure injected into the HTML templates is `PageData`. Templates (like `page.mdt`) access these variables directly using Go template syntax (e.g., `&#123;&#123; .Title &#125;&#125;` and `&#123;&#123; .Body &#125;&#125;`).
+The primary composite structure injected into the HTML templates is `PageData`. Templates (like `page.mdt`) access these variables directly using Go template syntax (e.g., `{{!}}{ .Title }}` and `{{!}}{ .Body }}`).
 
 ### Class Hierarchy Diagram
 The following diagram maps the exact composition of the data injected into the Go template renderer:
