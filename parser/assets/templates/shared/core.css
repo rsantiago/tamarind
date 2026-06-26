@@ -1135,6 +1135,7 @@ hr {
 .layout-has-sidebar {
     display: flex !important;
     flex-direction: row !important;
+    align-items: flex-start !important;
     gap: 3rem !important;
     max-width: 1200px !important; /* Expand max-width to hold sidebar + content */
     margin: 3rem auto !important; /* Preserve top spacing */
