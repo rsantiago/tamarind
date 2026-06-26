@@ -3,6 +3,7 @@ title: System Architecture
 subtitle: Under the hood of Tamarind's static site generator
 date: 2026-06-25
 tags: [technical, go, architecture, parser]
+attribution_style: none
 ---
 
 # Tamarind System Architecture
@@ -28,12 +29,10 @@ sequenceDiagram
     participant Registry as PluginRegistry
     participant Goldmark as goldmark
     participant Templates as html_template
-    
     CLI->>Builder: Build
     Builder->>Templates: ParseFiles
     Builder->>Scanner: Scan
     Scanner-->>Builder: File Graph and Menu
-    
     loop Every Markdown File
         Builder->>Registry: NewPluginRegistry
         Builder->>Registry: Register Plugins
@@ -44,7 +43,6 @@ sequenceDiagram
         Builder->>Templates: ExecuteTemplate
         Templates-->>Builder: final_html
     end
-    
     Builder->>Builder: Process Assets
     Builder->>Builder: Generate SEO
 {{ /mermaid }}
@@ -95,19 +93,15 @@ graph TD
     PR --> DataVis["Data Visualization"]
     PR --> Form["Form Interactions"]
     PR --> Utilities["Utilities and External"]
-
     UI --> Accordion["Accordion Component"]
     UI --> Alert["Alert Callouts"]
     UI --> Tabs["Tabs Component"]
     UI --> Timeline["Timeline Component"]
-
     DataVis --> Chart["Chart Visualizations"]
     DataVis --> Mermaid["Mermaid Diagrams"]
     DataVis --> Metrics["Metrics Scorecards"]
-    
     Form --> FormContainer["Form Endpoints"]
     Form --> Inputs["Form Inputs"]
-
     Utilities --> Terminal["Terminal Simulator"]
     Utilities --> Include["Include External"]
     Utilities --> Gist["Gist Snippets"]
@@ -125,13 +119,10 @@ sequenceDiagram
     participant Builder as processShortcodes
     participant Registry as PluginRegistry
     participant Plugin as ShortcodePlugin
-    
     Builder->>Registry: NewPluginRegistry
-    
     Note over Builder,Registry: Phase 1 Registration
     Builder->>Plugin: NewChartPlugin
     Builder->>Registry: Register
-    
     Note over Builder,Registry: Phase 2 Execution
     Builder->>Registry: ProcessShortcodes
     loop For each registered Plugin
@@ -168,7 +159,6 @@ classDiagram
         +Paginator Paginator
         +List ContextualSidebar
     }
-    
     class ArticleMeta {
         +String Title
         +String Date
@@ -176,31 +166,26 @@ classDiagram
         +List Tags
         +String Author
     }
-    
     class MenuItem {
         +String Title
         +String URL
         +int Order
     }
-    
     class Paginator {
         +int CurrentPage
         +int TotalPages
         +List VisiblePages
     }
-    
     class PageLink {
         +int Number
         +String URL
         +bool IsCurrent
     }
-    
     class SidebarItem {
         +String Title
         +String URL
         +bool IsCurrent
     }
-    
     PageData *-- ArticleMeta : Composes
     PageData *-- MenuItem : Composes
     PageData *-- Paginator : Composes
