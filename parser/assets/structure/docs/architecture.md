@@ -100,12 +100,12 @@ graph LR
     UI --> Timeline["Timeline Component"]
     UI --> Dropdown["Dropdown Menus"]
     
-    LP --> Features["Features & Capabilities"]
+    LP --> Features["Features and Capabilities"]
     LP --> Pricing["Pricing Tables"]
-    LP --> Card["Card & Badge Components"]
-    LP --> Buttons["Call-to-Action Buttons"]
+    LP --> Card["Card and Badge Components"]
+    LP --> Buttons["Call to Action Buttons"]
     LP --> Social["Social Ribbons"]
-    LP --> Media["Media (YouTube / Figures)"]
+    LP --> Media["Media Figures"]
     
     DataVis --> Chart["Chart Visualizations"]
     DataVis --> Mermaid["Mermaid Diagrams"]
