@@ -421,7 +421,6 @@ C4Context
     Person(customerB, "Banking Customer B")
     Person_Ext(customerC, "Banking Customer C", "desc")
     System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
-    
     Rel(customerA, SystemAA, "Uses")
 {{{!}}{ /mermaid }}
 ```
@@ -434,7 +433,6 @@ C4Context
     Person(customerB, "Banking Customer B")
     Person_Ext(customerC, "Banking Customer C", "desc")
     System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
-    
     Rel(customerA, SystemAA, "Uses")
 {{ /mermaid }}
 
