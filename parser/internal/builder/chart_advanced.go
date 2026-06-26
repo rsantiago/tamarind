@@ -75,9 +75,6 @@ func generateHBarchartFromJSON(content []byte, args map[string]string) string {
 	showY := args["show-y"] != "false"
 	gridX := args["grid-x"] == "true"
 	gridY := args["grid-y"] == "true"
-	if args["show-grid"] == "true" {
-		gridX = true
-	}
 
 	html := `<div class="tamarind-hbarchart" style="margin: 2rem 0; width: 100%;">`
 	if args["title"] != "" { html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"]) }
@@ -156,9 +153,6 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 	showDots := args["show-dots"] != "false"
 	gridX := args["grid-x"] == "true"
 	gridY := args["grid-y"] == "true"
-	if args["show-grid"] == "true" {
-		gridY = true
-	}
 
 	width, height, padding := 600.0, 250.0, 40.0
 	html := `<div class="tamarind-multiline" style="margin: 2rem 0; width: 100%;">`
@@ -239,9 +233,6 @@ func generateGroupedBarChartFromJSON(content []byte, args map[string]string) str
 	showY := args["show-y"] != "false"
 	gridX := args["grid-x"] == "true"
 	gridY := args["grid-y"] == "true"
-	if args["show-grid"] == "true" {
-		gridY = true
-	}
 
 	html := `<div class="tamarind-groupedbar" style="margin: 2rem 0; width: 100%;">`
 	if args["title"] != "" { html += fmt.Sprintf(`<h4 style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"]) }
