@@ -27,26 +27,26 @@ sequenceDiagram
     participant Scanner as scanner.go
     participant Registry as PluginRegistry
     participant Goldmark as goldmark
-    participant Templates as html/template
+    participant Templates as html_template
     
-    CLI->>Builder: Build(sourceDir, templateDir)
-    Builder->>Templates: ParseFiles(theme/*.mdt)
-    Builder->>Scanner: Scan()
-    Scanner-->>Builder: File Graph & Menu Data
+    CLI->>Builder: Build
+    Builder->>Templates: ParseFiles
+    Builder->>Scanner: Scan
+    Scanner-->>Builder: File Graph and Menu
     
     loop Every Markdown File
-        Builder->>Registry: NewPluginRegistry()
-        Builder->>Registry: Register(All Plugins)
-        Builder->>Registry: ProcessShortcodes(raw_markdown)
+        Builder->>Registry: NewPluginRegistry
+        Builder->>Registry: Register Plugins
+        Builder->>Registry: ProcessShortcodes
         Registry-->>Builder: resolved_markdown
-        Builder->>Goldmark: Convert(resolved_markdown)
+        Builder->>Goldmark: Convert
         Goldmark-->>Builder: html_body
-        Builder->>Templates: ExecuteTemplate("page.mdt", PageData)
-        Templates-->>Builder: final.html
+        Builder->>Templates: ExecuteTemplate
+        Templates-->>Builder: final_html
     end
     
-    Builder->>Builder: Process Images & Copy Assets
-    Builder->>Builder: Generate SEO (sitemap.xml, llms.txt)
+    Builder->>Builder: Process Assets
+    Builder->>Builder: Generate SEO
 {{ /mermaid }}
 
 ---
@@ -91,27 +91,27 @@ Here is the current ecosystem of native Tamarind plugins:
 
 {{ mermaid }}
 graph TD
-    PR[PluginRegistry] --> UI[UI Components]
-    PR --> DataVis[Data Visualization]
-    PR --> Form[Form Interactions]
-    PR --> Utilities[Utilities & External]
+    PR["PluginRegistry"] --> UI["UI Components"]
+    PR --> DataVis["Data Visualization"]
+    PR --> Form["Form Interactions"]
+    PR --> Utilities["Utilities and External"]
 
-    UI --> Accordion[Accordion: Expandable sections]
-    UI --> Alert[Alert: Contextual callouts]
-    UI --> Tabs[Tabs: Tabbed content]
-    UI --> Timeline[Timeline: Vertical history]
+    UI --> Accordion["Accordion Component"]
+    UI --> Alert["Alert Callouts"]
+    UI --> Tabs["Tabs Component"]
+    UI --> Timeline["Timeline Component"]
 
-    DataVis --> Chart[Chart: Bar, Pie, Line, Radar]
-    DataVis --> Mermaid[Mermaid: Diagram rendering]
-    DataVis --> Metrics[Metrics: KPI scorecards]
+    DataVis --> Chart["Chart Visualizations"]
+    DataVis --> Mermaid["Mermaid Diagrams"]
+    DataVis --> Metrics["Metrics Scorecards"]
     
-    Form --> FormContainer[Form: Contact endpoints]
-    Form --> Inputs[Inputs: Text, Select, Checkbox]
+    Form --> FormContainer["Form Endpoints"]
+    Form --> Inputs["Form Inputs"]
 
-    Utilities --> Terminal[Terminal: Shell simulation]
-    Utilities --> Include[Include: Embed external files]
-    Utilities --> Gist[Gist: GitHub snippets]
-    Utilities --> Math[Math: LaTeX rendering]
+    Utilities --> Terminal["Terminal Simulator"]
+    Utilities --> Include["Include External"]
+    Utilities --> Gist["Gist Snippets"]
+    Utilities --> Math["Math LaTeX"]
 {{ /mermaid }}
 
 ### Component Isolation
@@ -122,22 +122,22 @@ The following sequence diagram outlines exactly how the registry is instantiated
 
 {{ mermaid }}
 sequenceDiagram
-    participant Builder as processShortcodes()
+    participant Builder as processShortcodes
     participant Registry as PluginRegistry
-    participant Plugin as ShortcodePlugin (e.g. Chart)
+    participant Plugin as ShortcodePlugin
     
-    Builder->>Registry: NewPluginRegistry()
+    Builder->>Registry: NewPluginRegistry
     
-    Note over Builder,Registry: Phase 1: Registration
-    Builder->>Plugin: NewChartPlugin()
-    Builder->>Registry: Register(Plugin)
+    Note over Builder,Registry: Phase 1 Registration
+    Builder->>Plugin: NewChartPlugin
+    Builder->>Registry: Register
     
-    Note over Builder,Registry: Phase 2: Execution
-    Builder->>Registry: ProcessShortcodes(raw_markdown)
+    Note over Builder,Registry: Phase 2 Execution
+    Builder->>Registry: ProcessShortcodes
     loop For each registered Plugin
-        Registry->>Plugin: Pattern() (Regex match)
+        Registry->>Plugin: Pattern Match
         opt If match found
-            Registry->>Plugin: Process(submatches)
+            Registry->>Plugin: Process
             Plugin-->>Registry: compiled_html
         end
     end
@@ -158,54 +158,54 @@ The following diagram maps the exact composition of the data injected into the G
 {{ mermaid }}
 classDiagram
     class PageData {
-        +string Title
-        +string Subtitle
-        +string Description
-        +template.HTML Body
-        +[]ArticleMeta Articles
-        +[]MenuItem Menu
-        +map~string, interface~ Data
+        +String Title
+        +String Subtitle
+        +String Description
+        +String Body
+        +List Articles
+        +List Menu
+        +Map Data
         +Paginator Paginator
-        +[]SidebarItem ContextualSidebar
+        +List ContextualSidebar
     }
     
     class ArticleMeta {
-        +string Title
-        +string Date
-        +string URL
-        +[]string Tags
-        +string Author
+        +String Title
+        +String Date
+        +String URL
+        +List Tags
+        +String Author
     }
     
     class MenuItem {
-        +string Title
-        +string URL
+        +String Title
+        +String URL
         +int Order
     }
     
     class Paginator {
         +int CurrentPage
         +int TotalPages
-        +[]PageLink VisiblePages
+        +List VisiblePages
     }
     
     class PageLink {
         +int Number
-        +string URL
+        +String URL
         +bool IsCurrent
     }
     
     class SidebarItem {
-        +string Title
-        +string URL
+        +String Title
+        +String URL
         +bool IsCurrent
     }
     
-    PageData *-- "many" ArticleMeta : Composes
-    PageData *-- "many" MenuItem : Composes
-    PageData *-- "1" Paginator : Composes
-    PageData *-- "many" SidebarItem : Composes
-    Paginator *-- "many" PageLink : Composes
+    PageData *-- ArticleMeta : Composes
+    PageData *-- MenuItem : Composes
+    PageData *-- Paginator : Composes
+    PageData *-- SidebarItem : Composes
+    Paginator *-- PageLink : Composes
 {{ /mermaid }}
 
 ---

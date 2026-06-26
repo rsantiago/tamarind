@@ -207,3 +207,15 @@ erDiagram
     ORDER ||--|{ LINE-ITEM : contains
     CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
 {{ /mermaid }}
+
+---
+
+## 7. Developer Directives & Best Practices
+
+When writing Mermaid diagrams, especially large architectural maps, observe the following rules to prevent syntax errors that will crash the compilation:
+
+1. **Avoid Special Characters**: The Mermaid parser will instantly break if it encounters unescaped punctuation (`/`, `*`, `<`, `>`, `~`, `(`, `)`, `[`, `]`) inside node labels or sequence diagram messages.
+2. **Quote Labels in Graphs**: When building a `graph TD`, **always** quote your node labels if they contain spaces or colons. E.g., `Node["My Label: Something"]`.
+3. **Sequence Diagrams**: Strip method signatures of arguments and brackets. Use `Participant->>System: Execute` rather than `Participant->>System: Execute("page.mdt")`. Do NOT use slashes in participant names (e.g., use `html_template` instead of `html/template`).
+4. **Class Diagrams**: Type definitions must be alphanumeric. Avoid using generic types with `~` (e.g. `map~string, interface~`) or array bracket notations (e.g. `[]string`). Instead, simplify types to alphanumeric structures like `Map` or `List`.
+5. **No HTML Tags**: Never place HTML tags (`<br>`, `<strong>`) inside node labels unless you know the specific diagram type fully supports it (only a subset of Mermaid diagrams do).
