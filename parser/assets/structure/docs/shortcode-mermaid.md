@@ -181,16 +181,129 @@ mindmap
 {{ /mermaid }}
 
 ### Gantt Chart
-For project schedules, tracking task durations and dependencies. (Use `gantt`).
+For project schedules, tracking task durations and dependencies.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2026-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2026-01-12  , 12d
+    another task      : 24d
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+gantt
+    title A Gantt Diagram
+    dateFormat  YYYY-MM-DD
+    section Section
+    A task           :a1, 2026-01-01, 30d
+    Another task     :after a1  , 20d
+    section Another
+    Task in sec      :2026-01-12  , 12d
+    another task      : 24d
+{{ /mermaid }}
+
 
 ### User Journey
-For mapping a user's emotional and practical journey through a product. (Use `journey`).
+For mapping a user's emotional and practical journey through a product.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+journey
+    title My working day
+    section Go to work
+      Make tea: 5: Me
+      Go upstairs: 3: Me
+      Do work: 1: Me, Cat
+    section Go home
+      Go downstairs: 5: Me
+      Sit down: 5: Me
+{{ /mermaid }}
+
 
 ### Timeline
-For plotting chronological events. (Use `timeline`).
+For plotting chronological events.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+timeline
+    title History of Social Media
+    2002 : LinkedIn
+    2004 : Facebook : Orkut
+    2005 : YouTube
+    2006 : Twitter
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+timeline
+    title History of Social Media
+    2002 : LinkedIn
+    2004 : Facebook : Orkut
+    2005 : YouTube
+    2006 : Twitter
+{{ /mermaid }}
+
 
 ### Requirement Diagram
-For mapping out software requirements and test traces. (Use `requirementDiagram`).
+For mapping out software requirements and test traces.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+requirementDiagram
+    requirement test_req {
+    id: 1
+    text: the test text.
+    risk: high
+    verifymethod: test
+    }
+    element test_entity {
+    type: simulation
+    }
+    test_entity - satisfies -> test_req
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+requirementDiagram
+    requirement test_req {
+    id: 1
+    text: the test text.
+    risk: high
+    verifymethod: test
+    }
+    element test_entity {
+    type: simulation
+    }
+    test_entity - satisfies -> test_req
+{{ /mermaid }}
 
 ---
 
@@ -220,13 +333,110 @@ pie title What specific languages do you use?
 {{ /mermaid }}
 
 ### Quadrant Chart
-Plot items on an X/Y axis with 4 quadrants (e.g., Risk vs. Reward). (Use `quadrantChart`).
+Plot items on an X/Y axis with 4 quadrants.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+quadrantChart
+    title Reach and engagement of campaigns
+    x-axis Low Reach --> High Reach
+    y-axis Low Engagement --> High Engagement
+    quadrant-1 We should expand
+    quadrant-2 Need to promote
+    quadrant-3 Re-evaluate
+    quadrant-4 May be improved
+    Campaign A: [0.3, 0.6]
+    Campaign B: [0.45, 0.23]
+    Campaign C: [0.57, 0.69]
+    Campaign D: [0.78, 0.34]
+    Campaign E: [0.40, 0.34]
+    Campaign F: [0.35, 0.78]
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+quadrantChart
+    title Reach and engagement of campaigns
+    x-axis Low Reach --> High Reach
+    y-axis Low Engagement --> High Engagement
+    quadrant-1 We should expand
+    quadrant-2 Need to promote
+    quadrant-3 Re-evaluate
+    quadrant-4 May be improved
+    Campaign A: [0.3, 0.6]
+    Campaign B: [0.45, 0.23]
+    Campaign C: [0.57, 0.69]
+    Campaign D: [0.78, 0.34]
+    Campaign E: [0.40, 0.34]
+    Campaign F: [0.35, 0.78]
+{{ /mermaid }}
+
 
 ### Gitgraph
-Visualize git branch histories, commits, and merges. (Use `gitGraph`).
+Visualize git branch histories, commits, and merges.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+gitGraph
+    commit
+    commit
+    branch develop
+    checkout develop
+    commit
+    commit
+    checkout main
+    merge develop
+    commit
+    commit
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+gitGraph
+    commit
+    commit
+    branch develop
+    checkout develop
+    commit
+    commit
+    checkout main
+    merge develop
+    commit
+    commit
+{{ /mermaid }}
 
 ### C4 Architecture
-Define software architecture using the C4 model. (Use `C4Context`, `C4Container`, etc.).
+Define software architecture using the C4 model.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+C4Context
+    title System Context diagram for Internet Banking System
+    Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
+    Person(customerB, "Banking Customer B")
+    Person_Ext(customerC, "Banking Customer C", "desc")
+    System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
+    
+    Rel(customerA, SystemAA, "Uses")
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+C4Context
+    title System Context diagram for Internet Banking System
+    Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
+    Person(customerB, "Banking Customer B")
+    Person_Ext(customerC, "Banking Customer C", "desc")
+    System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
+    
+    Rel(customerA, SystemAA, "Uses")
+{{ /mermaid }}
 
 ---
 
@@ -234,11 +444,142 @@ Define software architecture using the C4 model. (Use `C4Context`, `C4Container`
 
 Mermaid is constantly adding new beta diagrams. All of these work natively via the `{{ mermaid }}` shortcode.
 
-* **Sankey Diagram** (`sankey-beta`): For flow rates between states.
-* **XY Chart** (`xychart-beta`): For standard line and bar graphs.
-* **Block Diagram** (`block-beta`): For spatial block-based layouts.
-* **Architecture Diagram** (`architecture-beta`): For cloud/network topology architecture maps.
-* **Packet Diagram** (`packet-beta`): For visualizing network packet bytes/bits headers.
+### Sankey Diagram
+For flow rates between states.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+sankey-beta
+    Bio-conversion, Liquid, 0.599
+    Bio-conversion, Solid, 0.277
+    Liquid, Instruments, 0.599
+    Solid, Instruments, 0.277
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+sankey-beta
+    Bio-conversion, Liquid, 0.599
+    Bio-conversion, Solid, 0.277
+    Liquid, Instruments, 0.599
+    Solid, Instruments, 0.277
+{{ /mermaid }}
+
+### XY Chart
+For standard line and bar graphs.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+xychart-beta
+    title "Sales Revenue"
+    x-axis [jan, feb, mar, apr, may, jun, jul, aug, sep, oct, nov, dec]
+    y-axis "Revenue (in $)" 4000 --> 11000
+    bar [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+    line [5000, 6000, 7500, 8200, 9500, 10500, 11000, 10200, 9200, 8500, 7000, 6000]
+{{ /mermaid }}
+
+### Block Diagram
+For spatial block-based layouts.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+block-beta
+    columns 1
+    db(("DB"))
+    blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
+    block:e:1
+        l["Left"]
+        m["Middle"]
+        r["Right"]
+    end
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+block-beta
+    columns 1
+    db(("DB"))
+    blockArrowId6<["&nbsp;&nbsp;&nbsp;"]>(down)
+    block:e:1
+        l["Left"]
+        m["Middle"]
+        r["Right"]
+    end
+{{ /mermaid }}
+
+### Architecture Diagram
+For cloud/network topology architecture maps.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+architecture-beta
+    group api(cloud)[API]
+    service db(database)[Database] in api
+    service disk(disk)[Storage] in api
+    db:L -- R:disk
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+architecture-beta
+    group api(cloud)[API]
+    service db(database)[Database] in api
+    service disk(disk)[Storage] in api
+    db:L -- R:disk
+{{ /mermaid }}
+
+### Packet Diagram
+For visualizing network packet bytes/bits headers.
+
+#### Syntax
+```markdown
+{{{!}}{ mermaid }}
+packet-beta
+    0-15: "Source Port"
+    16-31: "Destination Port"
+    32-63: "Sequence Number"
+    64-95: "Acknowledgment Number"
+    96-99: "Data Offset"
+    100-105: "Reserved"
+    106-111: "Flags"
+    112-127: "Window Size"
+    128-143: "Checksum"
+    144-159: "Urgent Pointer"
+{{{!}}{ /mermaid }}
+```
+
+#### Result
+{{ mermaid }}
+packet-beta
+    0-15: "Source Port"
+    16-31: "Destination Port"
+    32-63: "Sequence Number"
+    64-95: "Acknowledgment Number"
+    96-99: "Data Offset"
+    100-105: "Reserved"
+    106-111: "Flags"
+    112-127: "Window Size"
+    128-143: "Checksum"
+    144-159: "Urgent Pointer"
+{{ /mermaid }}
 
 ---
 
