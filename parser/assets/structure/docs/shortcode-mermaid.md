@@ -409,38 +409,9 @@ gitGraph
     commit
 {{ /mermaid }}
 
-### C4 Architecture
-Define software architecture using the C4 model.
-
-#### Syntax
-```markdown
-{{{!}}{ mermaid }}
-C4Context
-    title System Context diagram for Internet Banking System
-    Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
-    Person(customerB, "Banking Customer B")
-    Person_Ext(customerC, "Banking Customer C", "desc")
-    System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
-    Rel(customerA, SystemAA, "Uses")
-{{{!}}{ /mermaid }}
-```
-
-#### Result
-{{ mermaid }}
-C4Context
-    title System Context diagram for Internet Banking System
-    Person(customerA, "Banking Customer A", "A customer of the bank, with personal bank accounts.")
-    Person(customerB, "Banking Customer B")
-    Person_Ext(customerC, "Banking Customer C", "desc")
-    System(SystemAA, "Internet Banking System", "Allows customers to view information about their bank accounts, and make payments.")
-    Rel(customerA, SystemAA, "Uses")
-{{ /mermaid }}
-
----
-
 ## 4. Newer/Experimental Diagrams (Beta)
 
-Mermaid is constantly adding new beta diagrams. All of these work natively via the `{{ mermaid }}` shortcode.
+Mermaid is constantly adding new beta diagrams. All of these work natively via the `{{!}}{ mermaid }}` shortcode.
 
 ### Sankey Diagram
 For flow rates between states.
@@ -519,64 +490,6 @@ block-beta
         m["Middle"]
         r["Right"]
     end
-{{ /mermaid }}
-
-### Architecture Diagram
-For cloud/network topology architecture maps.
-
-#### Syntax
-```markdown
-{{{!}}{ mermaid }}
-architecture-beta
-    group api(cloud)[API]
-    service db(database)[Database] in api
-    service disk(disk)[Storage] in api
-    db:L -- R:disk
-{{{!}}{ /mermaid }}
-```
-
-#### Result
-{{ mermaid }}
-architecture-beta
-    group api(cloud)[API]
-    service db(database)[Database] in api
-    service disk(disk)[Storage] in api
-    db:L -- R:disk
-{{ /mermaid }}
-
-### Packet Diagram
-For visualizing network packet bytes/bits headers.
-
-#### Syntax
-```markdown
-{{{!}}{ mermaid }}
-packet-beta
-    0-15: "Source Port"
-    16-31: "Destination Port"
-    32-63: "Sequence Number"
-    64-95: "Acknowledgment Number"
-    96-99: "Data Offset"
-    100-105: "Reserved"
-    106-111: "Flags"
-    112-127: "Window Size"
-    128-143: "Checksum"
-    144-159: "Urgent Pointer"
-{{{!}}{ /mermaid }}
-```
-
-#### Result
-{{ mermaid }}
-packet-beta
-    0-15: "Source Port"
-    16-31: "Destination Port"
-    32-63: "Sequence Number"
-    64-95: "Acknowledgment Number"
-    96-99: "Data Offset"
-    100-105: "Reserved"
-    106-111: "Flags"
-    112-127: "Window Size"
-    128-143: "Checksum"
-    144-159: "Urgent Pointer"
 {{ /mermaid }}
 
 ---
