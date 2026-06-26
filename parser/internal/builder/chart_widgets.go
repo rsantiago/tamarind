@@ -74,16 +74,30 @@ func generateBarChartFromJSON(content []byte, args map[string]string) string {
 	}
 	showX := args["show-x"] != "false"
 	showY := args["show-y"] != "false"
-	showGrid := args["show-grid"] == "true"
+	gridX := args["grid-x"] == "true"
+	gridY := args["grid-y"] == "true"
+	if args["show-grid"] == "true" {
+		gridY = true
+	}
 
 	html := `<div class="tamarind-barchart" style="margin: 2rem 0; width: 100%;">`
 	if args["title"] != "" {
 		html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"])
 	}
 	
+	bgGradients := []string{}
+	bgSizes := []string{}
+	if gridY {
+		bgGradients = append(bgGradients, `linear-gradient(var(--border-color) 1px, transparent 1px)`)
+		bgSizes = append(bgSizes, `100% 20%`)
+	}
+	if gridX {
+		bgGradients = append(bgGradients, `linear-gradient(90deg, var(--border-color) 1px, transparent 1px)`)
+		bgSizes = append(bgSizes, `20% 100%`)
+	}
 	bgStyle := ""
-	if showGrid {
-		bgStyle = `background-image: linear-gradient(var(--border-color) 1px, transparent 1px); background-size: 100% 20%;`
+	if len(bgGradients) > 0 {
+		bgStyle = fmt.Sprintf(`background-image: %s; background-size: %s;`, strings.Join(bgGradients, ", "), strings.Join(bgSizes, ", "))
 	}
 	html += fmt.Sprintf(`<div class="tamarind-barchart-container" style="display:flex; align-items:flex-end; height: 250px; gap: 15px; padding: 10px 0; border-bottom: 2px solid var(--text-secondary); border-left: 2px solid var(--text-secondary); overflow-x: auto; %s">`, bgStyle)
 
@@ -205,7 +219,11 @@ func generateLineChartFromJSON(content []byte, args map[string]string) string {
 	showX := args["show-x"] != "false"
 	showY := args["show-y"] != "false" // Also controls y-axis tick values (if any were present) or dots value labels
 	showDots := args["show-dots"] != "false"
-	showGrid := args["show-grid"] == "true"
+	gridX := args["grid-x"] == "true"
+	gridY := args["grid-y"] == "true"
+	if args["show-grid"] == "true" {
+		gridY = true
+	}
 
 	width := 600.0
 	height := 250.0
@@ -218,11 +236,24 @@ func generateLineChartFromJSON(content []byte, args map[string]string) string {
 
 	html += fmt.Sprintf(`<svg viewBox="0 0 %.0f %.0f" style="width: 100%%; height: auto; max-height: 300px; display: block; overflow: visible;">`, width, height)
 	
-	if showGrid {
-		// Draw mild grid lines for Y axis
+	if gridY {
+		// Draw mild grid lines for Y axis (horizontal)
 		for i := 1; i <= 4; i++ {
 			gy := height - padding - (float64(i) * (height - 2*padding) / 5.0)
 			html += fmt.Sprintf(`<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="var(--border-color)" stroke-width="1" />`, padding, gy, width-padding, gy)
+		}
+	}
+
+	stepX := (width - 2*padding) / float64(len(data)-1)
+	if len(data) == 1 {
+		stepX = 0
+	}
+
+	if gridX {
+		// Draw mild grid lines for X axis (vertical)
+		for i := 0; i < len(data); i++ {
+			gx := padding + float64(i)*stepX
+			html += fmt.Sprintf(`<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="var(--border-color)" stroke-width="1" />`, gx, padding, gx, height-padding)
 		}
 	}
 
@@ -231,10 +262,6 @@ func generateLineChartFromJSON(content []byte, args map[string]string) string {
 	html += fmt.Sprintf(`<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="var(--text-secondary)" stroke-width="2" />`, padding, padding, padding, height-padding)
 
 	points := ""
-	stepX := (width - 2*padding) / float64(len(data)-1)
-	if len(data) == 1 {
-		stepX = 0
-	}
 
 	cList := getChartColors(args["colors"])
 	c := cList[0]

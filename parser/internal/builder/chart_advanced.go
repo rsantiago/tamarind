@@ -73,10 +73,30 @@ func generateHBarchartFromJSON(content []byte, args map[string]string) string {
 	for _, d := range data { if d.Value > max { max = d.Value } }
 	showX := args["show-x"] != "false"
 	showY := args["show-y"] != "false"
+	gridX := args["grid-x"] == "true"
+	gridY := args["grid-y"] == "true"
+	if args["show-grid"] == "true" {
+		gridX = true
+	}
 
 	html := `<div class="tamarind-hbarchart" style="margin: 2rem 0; width: 100%;">`
 	if args["title"] != "" { html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"]) }
-	html += `<div class="tamarind-hbarchart-container" style="display:flex; flex-direction:column; justify-content:center; gap: 15px; padding-left: 10px; border-left: 2px solid var(--border-color);">`
+	
+	bgGradients := []string{}
+	bgSizes := []string{}
+	if gridY {
+		bgGradients = append(bgGradients, `linear-gradient(var(--border-color) 1px, transparent 1px)`)
+		bgSizes = append(bgSizes, `100% 20%`)
+	}
+	if gridX {
+		bgGradients = append(bgGradients, `linear-gradient(90deg, var(--border-color) 1px, transparent 1px)`)
+		bgSizes = append(bgSizes, `20% 100%`)
+	}
+	bgStyle := ""
+	if len(bgGradients) > 0 {
+		bgStyle = fmt.Sprintf(`background-image: %s; background-size: %s;`, strings.Join(bgGradients, ", "), strings.Join(bgSizes, ", "))
+	}
+	html += fmt.Sprintf(`<div class="tamarind-hbarchart-container" style="display:flex; flex-direction:column; justify-content:center; gap: 15px; padding-left: 10px; border-left: 2px solid var(--border-color); %s">`, bgStyle)
 
 	for i, d := range data {
 		widthPct := (d.Value / max) * 100.0
@@ -134,14 +154,18 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 	showX := args["show-x"] != "false"
 	showY := args["show-y"] != "false"
 	showDots := args["show-dots"] != "false"
-	showGrid := args["show-grid"] == "true"
+	gridX := args["grid-x"] == "true"
+	gridY := args["grid-y"] == "true"
+	if args["show-grid"] == "true" {
+		gridY = true
+	}
 
 	width, height, padding := 600.0, 250.0, 40.0
 	html := `<div class="tamarind-multiline" style="margin: 2rem 0; width: 100%;">`
 	if args["title"] != "" { html += fmt.Sprintf(`<h4 style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"]) }
 	html += fmt.Sprintf(`<svg viewBox="0 0 %.0f %.0f" style="width: 100%%; height: auto; max-height: 300px; display: block; overflow: visible;">`, width, height)
 	
-	if showGrid {
+	if gridY {
 		// Draw mild grid lines for Y axis
 		for i := 1; i <= 4; i++ {
 			gy := height - padding - (float64(i) * (height - 2*padding) / 5.0)
@@ -149,11 +173,18 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 		}
 	}
 	
-	html += fmt.Sprintf(`<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="var(--text-secondary)" stroke-width="2" />`, padding, height-padding, width-padding, height-padding)
-	html += fmt.Sprintf(`<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="var(--text-secondary)" stroke-width="2" />`, padding, padding, padding, height-padding)
-
 	stepX := 0.0
 	if len(data.Categories) > 1 { stepX = (width - 2*padding) / float64(len(data.Categories)-1) }
+
+	if gridX {
+		for i := 0; i < len(data.Categories); i++ {
+			gx := padding + float64(i)*stepX
+			html += fmt.Sprintf(`<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="var(--border-color)" stroke-width="1" />`, gx, padding, gx, height-padding)
+		}
+	}
+
+	html += fmt.Sprintf(`<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="var(--text-secondary)" stroke-width="2" />`, padding, height-padding, width-padding, height-padding)
+	html += fmt.Sprintf(`<line x1="%.0f" y1="%.0f" x2="%.0f" y2="%.0f" stroke="var(--text-secondary)" stroke-width="2" />`, padding, padding, padding, height-padding)
 
 	if showX {
 		for i, c := range data.Categories {
@@ -206,14 +237,28 @@ func generateGroupedBarChartFromJSON(content []byte, args map[string]string) str
 
 	showX := args["show-x"] != "false"
 	showY := args["show-y"] != "false"
-	showGrid := args["show-grid"] == "true"
+	gridX := args["grid-x"] == "true"
+	gridY := args["grid-y"] == "true"
+	if args["show-grid"] == "true" {
+		gridY = true
+	}
 
 	html := `<div class="tamarind-groupedbar" style="margin: 2rem 0; width: 100%;">`
 	if args["title"] != "" { html += fmt.Sprintf(`<h4 style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"]) }
 	
+	bgGradients := []string{}
+	bgSizes := []string{}
+	if gridY {
+		bgGradients = append(bgGradients, `linear-gradient(var(--border-color) 1px, transparent 1px)`)
+		bgSizes = append(bgSizes, `100% 20%`)
+	}
+	if gridX {
+		bgGradients = append(bgGradients, `linear-gradient(90deg, var(--border-color) 1px, transparent 1px)`)
+		bgSizes = append(bgSizes, `20% 100%`)
+	}
 	bgStyle := ""
-	if showGrid {
-		bgStyle = `background-image: linear-gradient(var(--border-color) 1px, transparent 1px); background-size: 100% 20%;`
+	if len(bgGradients) > 0 {
+		bgStyle = fmt.Sprintf(`background-image: %s; background-size: %s;`, strings.Join(bgGradients, ", "), strings.Join(bgSizes, ", "))
 	}
 	html += fmt.Sprintf(`<div class="tamarind-groupedbar-container" style="display:flex; align-items:flex-end; height: 250px; padding: 10px 0; border-bottom: 2px solid var(--border-color); border-left: 2px solid var(--border-color); overflow-x: auto; gap: 20px; %s">`, bgStyle)
 
