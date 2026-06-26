@@ -93,27 +93,22 @@ graph LR
     PR --> DataVis["Data Visualization"]
     PR --> Form["Form Interactions"]
     PR --> Utilities["Utilities and External"]
-    
     UI --> Accordion["Accordion Component"]
     UI --> Alert["Alert Callouts"]
     UI --> Tabs["Tabs Component"]
     UI --> Timeline["Timeline Component"]
     UI --> Dropdown["Dropdown Menus"]
-    
     LP --> Features["Features and Capabilities"]
     LP --> Pricing["Pricing Tables"]
     LP --> Card["Card and Badge Components"]
     LP --> Buttons["Call to Action Buttons"]
     LP --> Social["Social Ribbons"]
     LP --> Media["Media Figures"]
-    
     DataVis --> Chart["Chart Visualizations"]
     DataVis --> Mermaid["Mermaid Diagrams"]
     DataVis --> Metrics["Metrics Scorecards"]
-    
     Form --> FormContainer["Form Endpoints"]
     Form --> Inputs["Form Inputs"]
-    
     Utilities --> Terminal["Terminal Simulator"]
     Utilities --> Include["Include External"]
     Utilities --> Gist["Gist Snippets"]
