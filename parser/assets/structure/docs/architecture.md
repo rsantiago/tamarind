@@ -20,7 +20,7 @@ The build process is orchestrated entirely within the `parser/internal/builder` 
 ### End-to-End Build Sequence
 The following sequence diagram illustrates the call stack and interactions between the major internal systems from the moment the compiler starts:
 
-```mermaid
+{{ mermaid }}
 sequenceDiagram
     participant CLI as main.go
     participant Builder as builder.go
@@ -47,7 +47,7 @@ sequenceDiagram
     
     Builder->>Builder: Process Images & Copy Assets
     Builder->>Builder: Generate SEO (sitemap.xml, llms.txt)
-```
+{{ /mermaid }}
 
 ---
 
@@ -89,7 +89,7 @@ Located in `internal/builder/registry.go`, the `PluginRegistry` evaluates custom
 ### Plugin Hierarchy
 Here is the current ecosystem of native Tamarind plugins:
 
-```mermaid
+{{ mermaid }}
 graph TD
     PR[PluginRegistry] --> UI[UI Components]
     PR --> DataVis[Data Visualization]
@@ -112,7 +112,7 @@ graph TD
     Utilities --> Include[Include: Embed external files]
     Utilities --> Gist[Gist: GitHub snippets]
     Utilities --> Math[Math: LaTeX rendering]
-```
+{{ /mermaid }}
 
 ### Component Isolation
 Every feature is encapsulated in its own file (e.g., `plugin_chart.go`, `plugin_tabs.go`, `plugin_terminal.go`). This ensures that if a specific component needs a bug fix, the rest of the compilation pipeline remains entirely untouched.
@@ -120,7 +120,7 @@ Every feature is encapsulated in its own file (e.g., `plugin_chart.go`, `plugin_
 ### Registry Lifecycle
 The following sequence diagram outlines exactly how the registry is instantiated, populated, and executed against a Markdown string:
 
-```mermaid
+{{ mermaid }}
 sequenceDiagram
     participant Builder as processShortcodes()
     participant Registry as PluginRegistry
@@ -142,7 +142,7 @@ sequenceDiagram
         end
     end
     Registry-->>Builder: resolved_markdown
-```
+{{ /mermaid }}
 
 ---
 
@@ -155,7 +155,7 @@ The primary composite structure injected into the HTML templates is `PageData`. 
 ### Class Hierarchy Diagram
 The following diagram maps the exact composition of the data injected into the Go template renderer:
 
-```mermaid
+{{ mermaid }}
 classDiagram
     class PageData {
         +string Title
@@ -206,7 +206,7 @@ classDiagram
     PageData *-- "1" Paginator : Composes
     PageData *-- "many" SidebarItem : Composes
     Paginator *-- "many" PageLink : Composes
-```
+{{ /mermaid }}
 
 ---
 
