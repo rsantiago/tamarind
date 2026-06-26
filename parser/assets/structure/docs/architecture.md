@@ -94,7 +94,7 @@ type PageData struct {
 }
 ```
 
-Templates (e.g., `page.mdt`) access these variables directly using Go template syntax: `{{ .Title }}` and `{{ .Body }}`.
+Templates (e.g., `page.mdt`) access these variables directly using Go template syntax: `&#123;&#123; .Title &#125;&#125;` and `&#123;&#123; .Body &#125;&#125;`.
 
 ---
 
