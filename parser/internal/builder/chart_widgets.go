@@ -72,8 +72,8 @@ func generateBarChartFromJSON(content []byte, args map[string]string) string {
 			max = d.Value
 		}
 	}
-	showX := args["show-x"] != "false"
-	showY := args["show-y"] != "false"
+	showX := args["grid-x-labels"] != "false"
+	showY := args["show-values"] != "false"
 	gridX := args["grid-x"] == "true"
 	gridY := args["grid-y"] == "true"
 
@@ -225,8 +225,8 @@ func generateLineChartFromJSON(content []byte, args map[string]string) string {
 		max = 1
 	}
 
-	showX := args["show-x"] != "false"
-	showY := args["show-y"] != "false" // Also controls y-axis tick values (if any were present) or dots value labels
+	showX := args["grid-x-labels"] != "false"
+	showY := args["show-values"] != "false" // Also controls y-axis tick values (if any were present) or dots value labels
 	showDots := args["show-dots"] != "false"
 	gridX := args["grid-x"] == "true"
 	gridY := args["grid-y"] == "true"

@@ -313,8 +313,8 @@ For example, to reverse the first three colors so that Series 1 uses color 3, Se
 
 Tamarind allows you to fine-tune your charts using optional flags directly inside the shortcode. These flags are available for all Cartesian (X-Y axis) charts, such as `barchart`, `linechart`, `multilinechart`, `groupedbarchart`, and `hbarchart`.
 
-*   `show-x="false"`: Hides the X-axis labels (for vertical bars/lines). For horizontal bar charts, this controls the numerical value labels. (Default: `true`)
-*   `show-y="false"`: Hides the Y-axis value labels (for vertical bars/lines). For horizontal bar charts, this controls the category labels. (Default: `true`)
+*   `grid-x-labels="false"`: Hides the X-axis labels (for vertical bars/lines). For horizontal bar charts, this controls the numerical value labels. (Default: `true`)
+*   `show-values="false"`: Hides the data values floating above the elements (for vertical bars/lines). For horizontal bar charts, this controls the category labels. (Default: `true`)
 *   `show-dots="false"`: Disables the data point circles on line and multiline charts. (Default: `true`)
 *   `grid-y="true"`: Enables subtle horizontal background grid lines corresponding to the Y-axis. (Default: `false`)
 *   `grid-x="true"`: Enables subtle vertical background grid lines corresponding to the X-axis. (Default: `false`)
@@ -349,7 +349,7 @@ Tamarind allows you to fine-tune your charts using optional flags directly insid
 **2. Minimalist Chart (Hidden Axes, No Dots, With Grid-Y)**
 
 ```markdown
-{{!}}{ multilinechart title="Clean & Minimalist" show-x="false" show-y="false" show-dots="false" grid-y="true" }}
+{{!}}{ multilinechart title="Clean & Minimalist" grid-x-labels="false" show-values="false" show-dots="false" grid-y="true" }}
 {
   "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
   "series": [
@@ -360,7 +360,7 @@ Tamarind allows you to fine-tune your charts using optional flags directly insid
 {{!}}{ /multilinechart }}
 ```
 
-{{ multilinechart title="Clean & Minimalist" show-x="false" show-y="false" show-dots="false" grid-y="true" }}
+{{ multilinechart title="Clean & Minimalist" grid-x-labels="false" show-values="false" show-dots="false" grid-y="true" }}
 {
   "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
   "series": [
@@ -373,7 +373,7 @@ Tamarind allows you to fine-tune your charts using optional flags directly insid
 **3. Maximum Detail (Everything Shown)**
 
 ```markdown
-{{!}}{ multilinechart title="Maximum Detail" show-x="true" show-y="true" show-dots="true" grid-x="true" grid-y="true" grid-y-labels="true" }}
+{{!}}{ multilinechart title="Maximum Detail" grid-x-labels="true" show-values="true" show-dots="true" grid-x="true" grid-y="true" grid-y-labels="true" }}
 {
   "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
   "series": [
@@ -384,7 +384,7 @@ Tamarind allows you to fine-tune your charts using optional flags directly insid
 {{!}}{ /multilinechart }}
 ```
 
-{{ multilinechart title="Maximum Detail" show-x="true" show-y="true" show-dots="true" grid-x="true" grid-y="true" grid-y-labels="true" }}
+{{ multilinechart title="Maximum Detail" grid-x-labels="true" show-values="true" show-dots="true" grid-x="true" grid-y="true" grid-y-labels="true" }}
 {
   "categories": ["Mon", "Tue", "Wed", "Thu", "Fri"],
   "series": [

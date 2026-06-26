@@ -71,8 +71,8 @@ func generateHBarchartFromJSON(content []byte, args map[string]string) string {
 
 	max := 0.0
 	for _, d := range data { if d.Value > max { max = d.Value } }
-	showX := args["show-x"] != "false"
-	showY := args["show-y"] != "false"
+	showX := args["grid-x-labels"] != "false"
+	showY := args["show-values"] != "false"
 	gridX := args["grid-x"] == "true"
 	gridY := args["grid-y"] == "true"
 
@@ -148,8 +148,8 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 	}
 	if max == 0 { max = 1 }
 
-	showX := args["show-x"] != "false"
-	showY := args["show-y"] != "false"
+	showX := args["grid-x-labels"] != "false"
+	showY := args["show-values"] != "false"
 	showDots := args["show-dots"] != "false"
 	gridX := args["grid-x"] == "true"
 	gridY := args["grid-y"] == "true"
@@ -239,8 +239,8 @@ func generateGroupedBarChartFromJSON(content []byte, args map[string]string) str
 	}
 	if max == 0 { max = 1 }
 
-	showX := args["show-x"] != "false"
-	showY := args["show-y"] != "false"
+	showX := args["grid-x-labels"] != "false"
+	showY := args["show-values"] != "false"
 	gridX := args["grid-x"] == "true"
 	gridY := args["grid-y"] == "true"
 
