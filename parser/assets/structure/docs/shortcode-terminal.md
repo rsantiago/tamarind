@@ -5,7 +5,7 @@ description: "Simulate styled terminal and CLI console environments directly in 
 tags: [guide, shortcode, styling]
 ---
 
-The `{{ terminal }}` shortcode provides an elegant way to showcase CLI commands, terminal inputs, compilation logs, or script outputs. Instead of displaying commands inside standard, flat code blocks, Tamarind renders them inside a realistic, themed terminal emulator box complete with macOS-style window controls.
+The `{{` `terminal` `}}` shortcode provides an elegant way to showcase CLI commands, terminal inputs, compilation logs, or script outputs. Instead of displaying commands inside standard, flat code blocks, Tamarind renders them inside a realistic, themed terminal emulator box complete with macOS-style window controls.
 
 ---
 
@@ -40,7 +40,7 @@ This maintains clear visual separation between commands and their outputs inside
 
 ## 3. Auto-Theming and Mac-Style Controls
 
-The `{{ terminal }}` shortcode is designed with **automatic theme adaptation**. You do not need to manually configure colors or layout styles for different websites. 
+The `{{` `terminal` `}}` shortcode is designed with **automatic theme adaptation**. You do not need to manually configure colors or layout styles for different websites. 
 
 When you switch between Tamarind themes (like `cupertino`, `nordic`, `brutal`, `neon`, or `zephyr`), the terminal component automatically transforms to match the theme's aesthetic:
 

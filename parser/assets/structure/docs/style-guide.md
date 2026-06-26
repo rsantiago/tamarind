@@ -731,37 +731,3 @@ Tamarind supports rendering a terminal with multiple tabs directly inside timeli
   {{ /item }}
 {{ /timeline }}
 
----
-
-## 7. Theme Compliance: Chart Colors
-
-Tamarind natively supports rendering a wide variety of data visualization charts (Pie, Bar, Line, Radar, etc.) directly from markdown. To ensure these charts look perfect on every theme, the parser relies on a standardized set of CSS variables.
-
-**Theme developers MUST define the following CSS variables in their `theme.css` files:**
-
-```css
-:root {
-  /* Primary and Secondary branding are always used for the first two series */
-  --primary-color: #3b82f6;
-  --secondary-color: #10b981;
-
-  /* Chart-specific extended color palette */
-  --chart-1: var(--primary-color);
-  --chart-2: var(--secondary-color);
-  --chart-3: #f59e0b;
-  --chart-4: #ef4444;
-  --chart-5: #8b5cf6;
-  --chart-6: #ec4899;
-  --chart-7: #14b8a6;
-  --chart-8: #f97316;
-  --chart-9: #64748b;
-}
-```
-
-If a theme fails to define these variables, the compiler will safely fall back to the built-in system defaults, but the charts may not perfectly match the theme's intended aesthetic.
-
-### Axis Contrast Requirement
-
-In addition to the primary chart palette, Tamarind utilizes the `--text-secondary` CSS variable to render the structural components of charts, including X/Y axes, radar webs, and chart bounding boxes. 
-
-To ensure charts remain legible, theme developers **must** verify that their `--text-secondary` color maintains a high enough contrast ratio against their `--background-color` and `--card-bg` in both light and dark modes. Failure to provide sufficient contrast will result in invisible or washed-out chart structures.

@@ -36,6 +36,25 @@ Perfect for small datasets or rapid prototyping. Place the JSON array directly b
 
 ---
 
+## Chart Configuration Flags
+
+Tamarind allows you to fine-tune your charts using optional flags directly inside the shortcode. These flags are available for all Cartesian (X-Y axis) charts, such as `barchart`, `linechart`, `multilinechart`, `groupedbarchart`, and `hbarchart`.
+
+*   `show-x="false"`: Hides the X-axis labels (for vertical bars/lines). For horizontal bar charts, this controls the numerical value labels. (Default: `true`)
+*   `show-y="false"`: Hides the Y-axis value labels (for vertical bars/lines). For horizontal bar charts, this controls the category labels. (Default: `true`)
+*   `show-dots="false"`: Disables the data point circles on line and multiline charts. (Default: `true`)
+*   `show-grid="true"`: Enables a mild, subtle background grid to help track values. (Default: `false`)
+
+**Example Usage:**
+
+```markdown
+{{!}}{ barchart title="Clean Data Presentation" show-x="false" show-y="false" show-grid="true" }}
+...
+{{!}}{ /barchart }}
+```
+
+---
+
 ## Single-Series Charts
 
 Single-series charts expect a flat JSON array of objects with `label` and `value` keys.
@@ -306,3 +325,38 @@ For example, to reverse the first three colors so that Series 1 uses color 3, Se
     {"label": "Series 3", "value": 20}
 ]
 {{ /barchart }}
+
+---
+
+## Theme Compliance: Chart Colors
+
+Tamarind natively supports rendering a wide variety of data visualization charts (Pie, Bar, Line, Radar, etc.) directly from markdown. To ensure these charts look perfect on every theme, the parser relies on a standardized set of CSS variables.
+
+**Theme developers MUST define the following CSS variables in their `theme.css` files:**
+
+```css
+:root {
+  /* Primary and Secondary branding are always used for the first two series */
+  --primary-color: #3b82f6;
+  --secondary-color: #10b981;
+
+  /* Chart-specific extended color palette */
+  --chart-1: var(--primary-color);
+  --chart-2: var(--secondary-color);
+  --chart-3: #f59e0b;
+  --chart-4: #ef4444;
+  --chart-5: #8b5cf6;
+  --chart-6: #ec4899;
+  --chart-7: #14b8a6;
+  --chart-8: #f97316;
+  --chart-9: #64748b;
+}
+```
+
+If a theme fails to define these variables, the compiler will safely fall back to the built-in system defaults, but the charts may not perfectly match the theme's intended aesthetic.
+
+### Axis Contrast Requirement
+
+In addition to the primary chart palette, Tamarind utilizes the `--text-secondary` CSS variable to render the structural components of charts, including X/Y axes, radar webs, and chart bounding boxes. 
+
+To ensure charts remain legible, theme developers **must** verify that their `--text-secondary` color maintains a high enough contrast ratio against their `--background-color` and `--card-bg` in both light and dark modes. Failure to provide sufficient contrast will result in invisible or washed-out chart structures.
