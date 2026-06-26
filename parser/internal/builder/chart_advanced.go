@@ -124,6 +124,13 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 	if err := json.Unmarshal(content, &data); err != nil { return err.Error() }
 
 	max := 0.0
+	for _, s := range data.Series {
+		for _, v := range s.Data {
+			if v > max { max = v }
+		}
+	}
+	if max == 0 { max = 1 }
+
 	showX := args["show-x"] != "false"
 	showY := args["show-y"] != "false"
 	showDots := args["show-dots"] != "false"
