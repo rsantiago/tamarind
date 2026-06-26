@@ -30,12 +30,11 @@ sequenceDiagram
     participant Goldmark as goldmark
     participant Templates as html_template
     CLI->>Builder: Build
+    Builder->>Registry: BuildPluginRegistry
     Builder->>Templates: ParseFiles
     Builder->>Scanner: Scan
     Scanner-->>Builder: File Graph and Menu
     loop Every Markdown File
-        Builder->>Registry: NewPluginRegistry
-        Builder->>Registry: Register Plugins
         Builder->>Registry: ProcessShortcodes
         Registry-->>Builder: resolved_markdown
         Builder->>Goldmark: Convert
@@ -88,7 +87,7 @@ Located in `internal/builder/registry.go`, the `PluginRegistry` evaluates custom
 Here is the current ecosystem of native Tamarind plugins:
 
 {{ mermaid }}
-graph TD
+graph LR
     PR["PluginRegistry"] --> UI["UI Components"]
     PR --> DataVis["Data Visualization"]
     PR --> Form["Form Interactions"]
@@ -116,15 +115,16 @@ The following sequence diagram outlines exactly how the registry is instantiated
 
 {{ mermaid }}
 sequenceDiagram
-    participant Builder as processShortcodes
+    participant Builder as BuildPluginRegistry
+    participant Parser as processShortcodes
     participant Registry as PluginRegistry
     participant Plugin as ShortcodePlugin
     Builder->>Registry: NewPluginRegistry
     Note over Builder,Registry: Phase 1 Registration
     Builder->>Plugin: NewChartPlugin
     Builder->>Registry: Register
-    Note over Builder,Registry: Phase 2 Execution
-    Builder->>Registry: ProcessShortcodes
+    Note over Parser,Registry: Phase 2 Execution
+    Parser->>Registry: ProcessShortcodes
     loop For each registered Plugin
         Registry->>Plugin: Pattern Match
         opt If match found
@@ -132,7 +132,7 @@ sequenceDiagram
             Plugin-->>Registry: compiled_html
         end
     end
-    Registry-->>Builder: resolved_markdown
+    Registry-->>Parser: resolved_markdown
 {{ /mermaid }}
 
 ---

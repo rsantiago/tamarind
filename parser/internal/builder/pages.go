@@ -33,7 +33,7 @@ const LiveReloadScript = `
 </script>
 `
 
-func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, tmpl *template.Template, articles []models.ArticleMeta, menu []models.MenuItem, siteName, baseURL string, customCSS template.CSS, siteData map[string]interface{}, liveReload bool) error {
+func generatePage(registry *PluginRegistry, srcPath, sourceDir, websiteDir string, md goldmark.Markdown, tmpl *template.Template, articles []models.ArticleMeta, menu []models.MenuItem, siteName, baseURL string, customCSS template.CSS, siteData map[string]interface{}, liveReload bool) error {
 	content, err := os.ReadFile(srcPath)
 	if err != nil {
 		return fmt.Errorf("read file %s: %w", srcPath, err)
@@ -45,7 +45,7 @@ func generatePage(srcPath, sourceDir, websiteDir string, md goldmark.Markdown, t
 	// We do this BEFORE template execution so {{< shortcode >}} isn't confused with {{ .Data }}
 	// Although currently our shortcodes mostly use {{ figure ... }} which looks like actions.
 	// If we run shortcodes first, they become HTML. HTML is safe in templates.
-	bodyMarkdown = processShortcodes(bodyMarkdown, sourceDir)
+	bodyMarkdown = processShortcodes(registry, bodyMarkdown, sourceDir)
 
 	// Execute Body as Template (to allow {{ .Data.foo }})
 	// We create a temporary template from the markdown body

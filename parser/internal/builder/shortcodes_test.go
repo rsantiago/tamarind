@@ -154,12 +154,8 @@ func TestProcessShortcodes_Figure(t *testing.T) {
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := processShortcodes(tt.input, tmpDir)
-
-			// Handle "Small Image" specific logic check from earlier comment
-			// If 300px < 480px, loop produces 0 sources.
-			// Code: if len(sources) > 0 { return ... } return fallback.
-			// So small image should match Fallback format (no srcset).
+			registry := BuildPluginRegistry()
+			got := processShortcodes(registry, tt.input, tmpDir)
 
 			for _, exp := range tt.expected {
 				if !strings.Contains(got, exp) {
@@ -407,7 +403,8 @@ python main.py
 
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			got := processShortcodes(tt.input, "")
+			registry := BuildPluginRegistry()
+			got := processShortcodes(registry, tt.input, "")
 			
 			// For Static Mode, assert billing-toggle is omitted
 			if tt.name == "Pricing Grid with plans (Static Mode)" {

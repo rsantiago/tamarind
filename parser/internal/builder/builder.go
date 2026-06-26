@@ -29,6 +29,8 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 		return fmt.Errorf("failed to create website dir: %w", err)
 	}
 
+	registry := BuildPluginRegistry()
+
 	// 1. Load Templates
 	funcMap := template.FuncMap{
 		"sanitizeTag": func(s string) string {
@@ -179,7 +181,7 @@ func Build(sourceDir, templateDir, websiteDir, baseURL string, themeConfig map[s
 		// If generating docs index or similar, we might want a subset of articles?
 		// Currently passing all articles.
 
-		return generatePage(path, sourceDir, websiteDir, md, tmpl, articles, menu, siteName, baseURL, template.CSS(""), siteData, liveReload)
+		return generatePage(registry, path, sourceDir, websiteDir, md, tmpl, articles, menu, siteName, baseURL, template.CSS(""), siteData, liveReload)
 	})
 	if err != nil {
 		return fmt.Errorf("failed to generate pages: %w", err)

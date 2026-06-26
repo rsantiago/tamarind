@@ -24,8 +24,7 @@ var unsafeGoldmark = goldmark.New(
 	),
 )
 
-func processShortcodes(markdown, sourceDir string) string {
-	// Initialize and execute the new PluginRegistry (Phase 3 & 4 Rollout)
+func BuildPluginRegistry() *PluginRegistry {
 	registry := NewPluginRegistry()
 	registerChartPlugins(registry)
 	
@@ -58,6 +57,11 @@ func processShortcodes(markdown, sourceDir string) string {
 	registry.Register(NewFormCheckboxPlugin())
 	registry.Register(NewFormRadioGroupPlugin())
 	registry.Register(NewFormFilePlugin())
+	
+	return registry
+}
+
+func processShortcodes(registry *PluginRegistry, markdown, sourceDir string) string {
 	
 	markdown = registry.ProcessShortcodes(markdown, sourceDir)
 	// 0. Agent (Comment): {{ agent "instruction" }} -> Removed from output
