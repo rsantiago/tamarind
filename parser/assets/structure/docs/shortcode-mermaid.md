@@ -6,137 +6,60 @@ description: Create flowcharts, sequence diagrams, and more using code.
 
 # Mermaid Diagrams
 
-Tamarind integrates [Mermaid.js](https://mermaid.js.org/) to let you create diagrams and visualizations using text and code.
+Tamarind integrates [Mermaid.js](https://mermaid.js.org/) to let you create diagrams and visualizations using text and code. Because Tamarind hands off the parsed blocks to the Mermaid renderer in the browser, all official diagram types are fully supported out-of-the-box.
 
-## 1. Flowchart
+---
 
-Standard node and edge graphs.
+## 1. Core Structural & Behavioral Diagrams
 
-### Syntax
+These diagrams are essential for visualizing algorithms, interactions, code structures, and state transitions.
+
+### Flowchart / Graph
+Standard node and edge graphs for process flows.
 ```markdown
-{{{!}}{ mermaid }}
-graph TD;
+{{!}}{{ mermaid }}
+graph LR;
     A[Start] --> B{Is it working?};
     B -- Yes --> C[Great!];
     B -- No --> D[Debug];
     D --> B;
-{{{!}}{ /mermaid }}
+{{!}}{{ /mermaid }}
 ```
 
-### Result
-{{ mermaid }}
-graph TD;
-    A[Start] --> B{Is it working?};
-    B -- Yes --> C[Great!];
-    B -- No --> D[Debug];
-    D --> B;
-{{ /mermaid }}
-
----
-
-## 2. Sequence Diagram
-
-Visualize interactions and timelines.
-
-### Syntax
+### Sequence Diagram
+Visualize interactions and timelines between systems or objects.
 ```markdown
-{{{!}}{ mermaid }}
+{{!}}{{ mermaid }}
 sequenceDiagram
     participant Alice
     participant Bob
     Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail!
     John-->>Alice: Great!
     John->>Bob: How about you?
     Bob-->>John: Jolly good!
-{{{!}}{ /mermaid }}
+{{!}}{{ /mermaid }}
 ```
 
-### Result
-{{ mermaid }}
-sequenceDiagram
-    participant Alice
-    participant Bob
-    Alice->>John: Hello John, how are you?
-    loop Healthcheck
-        John->>John: Fight against hypochondria
-    end
-    Note right of John: Rational thoughts <br/>prevail!
-    John-->>Alice: Great!
-    John->>Bob: How about you?
-    Bob-->>John: Jolly good!
-{{ /mermaid }}
-
----
-
-## 3. Class Diagram
-
-Visualize object-oriented relationships.
-
-### Syntax
+### Class Diagram
+Visualize object-oriented relationships and attributes.
 ```markdown
-{{{!}}{ mermaid }}
+{{!}}{{ mermaid }}
 classDiagram
     Animal <|-- Duck
     Animal <|-- Fish
-    Animal <|-- Zebra
     Animal : +int age
-    Animal : +String gender
     Animal: +isMammal()
-    Animal: +mate()
     class Duck{
         +String beakColor
         +swim()
-        +quack()
     }
-    class Fish{
-        -int sizeInFeet
-        -canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
-    }
-{{{!}}{ /mermaid }}
+{{!}}{{ /mermaid }}
 ```
 
-### Result
-{{ mermaid }}
-classDiagram
-    Animal <|-- Duck
-    Animal <|-- Fish
-    Animal <|-- Zebra
-    Animal : +int age
-    Animal : +String gender
-    Animal: +isMammal()
-    Animal: +mate()
-    class Duck{
-        +String beakColor
-        +swim()
-        +quack()
-    }
-    class Fish{
-        -int sizeInFeet
-        -canEat()
-    }
-    class Zebra{
-        +bool is_wild
-        +run()
-    }
-{{ /mermaid }}
-
----
-
-## 4. State Diagram
-
-Visualize state transitions.
-
-### Syntax
+### State Diagram
+Visualize state transitions of a system over time.
 ```markdown
-{{{!}}{ mermaid }}
+{{!}}{{ mermaid }}
 stateDiagram-v2
     [*] --> Still
     Still --> [*]
@@ -144,73 +67,92 @@ stateDiagram-v2
     Moving --> Still
     Moving --> Crash
     Crash --> [*]
-{{{!}}{ /mermaid }}
+{{!}}{{ /mermaid }}
 ```
 
-### Result
-{{ mermaid }}
-stateDiagram-v2
-    [*] --> Still
-    Still --> [*]
-    Still --> Moving
-    Moving --> Still
-    Moving --> Crash
-    Crash --> [*]
-{{ /mermaid }}
+### Entity Relationship Diagram (ERD)
+Visualize database schemas and relationships.
+```markdown
+{{!}}{{ mermaid }}
+erDiagram
+    CUSTOMER ||--o{ ORDER : places
+    ORDER ||--|{ LINE-ITEM : contains
+{{!}}{{ /mermaid }}
+```
 
 ---
 
-## 5. Pie Chart
+## 2. Project Management & Planning
 
-Visualize percentages.
+These tools help teams plan schedules, map user flows, and brainstorm hierarchies.
 
-### Syntax
+### Mindmap
+For brainstorming and organizing hierarchical information visually.
 ```markdown
-{{{!}}{ mermaid }}
+{{!}}{{ mermaid }}
+mindmap
+  root((Tamarind))
+    Design
+      Themes
+      CSS
+    Performance
+      Go Binary
+      Zero Dependencies
+{{!}}{{ /mermaid }}
+```
+
+### Gantt Chart
+For project schedules, tracking task durations and dependencies. (Use `gantt`).
+
+### User Journey
+For mapping a user's emotional and practical journey through a product. (Use `journey`).
+
+### Timeline
+For plotting chronological events. (Use `timeline`).
+
+### Requirement Diagram
+For mapping out software requirements and test traces. (Use `requirementDiagram`).
+
+---
+
+## 3. Specialized & Advanced Visualizations
+
+### Pie Chart
+Visualize percentage distributions.
+```markdown
+{{!}}{{ mermaid }}
 pie title What specific languages do you use?
     "Go" : 40
     "Python" : 30
     "JavaScript" : 20
     "Rust" : 10
-{{{!}}{ /mermaid }}
+{{!}}{{ /mermaid }}
 ```
 
-### Result
-{{ mermaid }}
-pie title What specific languages do you use?
-    "Go" : 40
-    "Python" : 30
-    "JavaScript" : 20
-    "Rust" : 10
-{{ /mermaid }}
+### Quadrant Chart
+Plot items on an X/Y axis with 4 quadrants (e.g., Risk vs. Reward). (Use `quadrantChart`).
+
+### Gitgraph
+Visualize git branch histories, commits, and merges. (Use `gitGraph`).
+
+### C4 Architecture
+Define software architecture using the C4 model. (Use `C4Context`, `C4Container`, etc.).
 
 ---
 
-## 6. Entity Relationship Diagram (ERD)
+## 4. Newer/Experimental Diagrams (Beta)
 
-Visualize database schemas.
+Mermaid is constantly adding new beta diagrams. All of these work natively via the `{{ mermaid }}` shortcode.
 
-### Syntax
-```markdown
-{{{!}}{ mermaid }}
-erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE-ITEM : contains
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-{{{!}}{ /mermaid }}
-```
-
-### Result
-{{ mermaid }}
-erDiagram
-    CUSTOMER ||--o{ ORDER : places
-    ORDER ||--|{ LINE-ITEM : contains
-    CUSTOMER }|..|{ DELIVERY-ADDRESS : uses
-{{ /mermaid }}
+* **Sankey Diagram** (`sankey-beta`): For flow rates between states.
+* **XY Chart** (`xychart-beta`): For standard line and bar graphs.
+* **Block Diagram** (`block-beta`): For spatial block-based layouts.
+* **Architecture Diagram** (`architecture-beta`): For cloud/network topology architecture maps.
+* **Packet Diagram** (`packet-beta`): For visualizing network packet bytes/bits headers.
 
 ---
 
-## 7. Developer Directives & Best Practices
+## 5. Developer Directives & Best Practices
 
 When writing Mermaid diagrams, especially large architectural maps, observe the following rules to prevent syntax errors that will crash the compilation:
 
