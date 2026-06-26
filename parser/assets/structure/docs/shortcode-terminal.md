@@ -14,17 +14,17 @@ The `{{` `terminal` `}}` shortcode provides an elegant way to showcase CLI comma
 To create a simulated terminal window, wrap your CLI commands and output using the `{{` `terminal` `}}` and `{{` `/terminal` `}}` block tags:
 
 ```markdown
-{{ terminal }}
+{{!}}{ terminal }}
 $ tamarind build
 Building website...
 Compiling 18 markdown files to static HTML
 Done in 12ms!
-{{ /terminal }}
+{{!}}{ /terminal }}
 ```
 
 ### Escaping the Shortcode
-If you need to document the shortcode itself without executing it, you can escape the tags using backticks:
-`{{` `terminal` `}}` and `{{` `/terminal` `}}`
+If you need to document the shortcode itself without executing it inside a code block, prefix it with `{{!}}{` like this:
+`{{!}}{ terminal }}` and `{{!}}{ /terminal }}`. For inline text, you can separate the brackets using backticks: `{{` `terminal` `}}`.
 
 ---
 
