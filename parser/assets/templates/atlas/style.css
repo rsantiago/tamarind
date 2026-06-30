@@ -13,6 +13,7 @@
     --text-color: #334155; /* Slate Text */
     --text-secondary: #64748B;
     --primary-color: #3B82F6; /* Slate Blue / Action Blue */
+    --btn-text-color: #ffffff;
     --border-color: #E2E8F0;
     --border-color-medium: #CBD5E1;
     --card-bg: #FFFFFF;
@@ -594,3 +595,9 @@ main {
     width: 100% !important;
 }
 
+
+/* Logo Requirement */
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
+}

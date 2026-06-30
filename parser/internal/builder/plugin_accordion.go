@@ -17,7 +17,7 @@ func NewAccordionPlugin() *AccordionPlugin {
 	}
 }
 
-func (p *AccordionPlugin) Name() string { return "accordion" }
+func (p *AccordionPlugin) Name() string            { return "accordion" }
 func (p *AccordionPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *AccordionPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -34,7 +34,7 @@ func (p *AccordionPlugin) Process(match []string, sourceDir string) (string, err
 		var buf bytes.Buffer
 		var htmlDesc string
 		if err := unsafeGoldmark.Convert([]byte(strings.TrimSpace(desc)), &buf); err == nil {
-			htmlDesc = buf.String()
+			htmlDesc = strings.TrimSpace(buf.String())
 		} else {
 			htmlDesc = strings.TrimSpace(desc)
 		}
@@ -43,4 +43,8 @@ func (p *AccordionPlugin) Process(match []string, sourceDir string) (string, err
 	}
 
 	return fmt.Sprintf(`<div class="tamarind-accordion-container">%s</div>`, itemsHtml), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewAccordionPlugin() })
 }

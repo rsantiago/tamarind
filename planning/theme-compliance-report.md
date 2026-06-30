@@ -1,50 +1,50 @@
 # Tamarind Theme Compliance Report
 
-**Generated**: 2026-06-26 04:12:09
+**Generated**: 2026-06-30 12:40:15
 
-**Total Requirements**: 132 required, 3 optional
+**Total Requirements**: 139 required, 3 optional
 
 ## Summary
 
 | Theme | Status | Passed | Failed | Score |
 |-------|--------|--------|--------|-------|
-| **atlas** | ✅ PASS | 132 | 0 | 100% |
-| **basic** | ✅ PASS | 132 | 0 | 100% |
-| **bento** | ✅ PASS | 132 | 0 | 100% |
-| **bird** | ✅ PASS | 132 | 0 | 100% |
-| **blue** | ✅ PASS | 132 | 0 | 100% |
-| **brutal** | ✅ PASS | 132 | 0 | 100% |
-| **canvas** | ✅ PASS | 132 | 0 | 100% |
-| **classic** | ✅ PASS | 132 | 0 | 100% |
-| **console** | ✅ PASS | 132 | 0 | 100% |
-| **cupertino** | ✅ PASS | 132 | 0 | 100% |
-| **eclipse** | ✅ PASS | 132 | 0 | 100% |
-| **editorial** | ✅ PASS | 132 | 0 | 100% |
-| **forge** | ✅ PASS | 132 | 0 | 100% |
-| **gallery** | ✅ PASS | 132 | 0 | 100% |
-| **gram** | ✅ PASS | 132 | 0 | 100% |
-| **hacker** | ✅ PASS | 132 | 0 | 100% |
-| **midnight** | ✅ PASS | 132 | 0 | 100% |
-| **neon** | ✅ PASS | 132 | 0 | 100% |
-| **network** | ✅ PASS | 132 | 0 | 100% |
-| **news** | ✅ PASS | 132 | 0 | 100% |
-| **nexus** | ✅ PASS | 132 | 0 | 100% |
-| **nordic** | ✅ PASS | 132 | 0 | 100% |
-| **overflow** | ✅ PASS | 132 | 0 | 100% |
-| **pastel** | ✅ PASS | 132 | 0 | 100% |
-| **pod** | ✅ PASS | 132 | 0 | 100% |
-| **prose** | ✅ PASS | 132 | 0 | 100% |
-| **protocol** | ✅ PASS | 132 | 0 | 100% |
-| **scribe** | ✅ PASS | 132 | 0 | 100% |
-| **stream** | ✅ PASS | 132 | 0 | 100% |
-| **tube** | ✅ PASS | 132 | 0 | 100% |
-| **zephyr** | ✅ PASS | 132 | 0 | 100% |
+| **atlas** | ✅ PASS | 139 | 0 | 100% |
+| **basic** | ✅ PASS | 139 | 0 | 100% |
+| **bento** | ✅ PASS | 139 | 0 | 100% |
+| **bird** | ✅ PASS | 139 | 0 | 100% |
+| **blue** | ✅ PASS | 139 | 0 | 100% |
+| **brutal** | ✅ PASS | 139 | 0 | 100% |
+| **canvas** | ✅ PASS | 139 | 0 | 100% |
+| **classic** | ✅ PASS | 139 | 0 | 100% |
+| **console** | ✅ PASS | 139 | 0 | 100% |
+| **cupertino** | ✅ PASS | 139 | 0 | 100% |
+| **eclipse** | ✅ PASS | 139 | 0 | 100% |
+| **editorial** | ✅ PASS | 139 | 0 | 100% |
+| **forge** | ✅ PASS | 139 | 0 | 100% |
+| **gallery** | ✅ PASS | 139 | 0 | 100% |
+| **gram** | ✅ PASS | 139 | 0 | 100% |
+| **hacker** | ✅ PASS | 139 | 0 | 100% |
+| **midnight** | ✅ PASS | 139 | 0 | 100% |
+| **neon** | ✅ PASS | 139 | 0 | 100% |
+| **network** | ✅ PASS | 139 | 0 | 100% |
+| **news** | ✅ PASS | 139 | 0 | 100% |
+| **nexus** | ✅ PASS | 139 | 0 | 100% |
+| **nordic** | ✅ PASS | 139 | 0 | 100% |
+| **overflow** | ✅ PASS | 139 | 0 | 100% |
+| **pastel** | ✅ PASS | 139 | 0 | 100% |
+| **pod** | ✅ PASS | 139 | 0 | 100% |
+| **prose** | ✅ PASS | 139 | 0 | 100% |
+| **protocol** | ✅ PASS | 139 | 0 | 100% |
+| **scribe** | ✅ PASS | 139 | 0 | 100% |
+| **stream** | ✅ PASS | 139 | 0 | 100% |
+| **tube** | ✅ PASS | 139 | 0 | 100% |
+| **zephyr** | ✅ PASS | 139 | 0 | 100% |
 
 ---
 
 ## Theme: atlas — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -120,6 +120,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -140,6 +147,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -238,7 +251,7 @@
 
 ## Theme: basic — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -314,6 +327,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -334,6 +354,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -432,7 +458,7 @@
 
 ## Theme: bento — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -508,6 +534,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -528,6 +561,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -626,7 +665,7 @@
 
 ## Theme: bird — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -702,6 +741,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -722,6 +768,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -820,7 +872,7 @@
 
 ## Theme: blue — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -896,6 +948,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -916,6 +975,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -1014,7 +1079,7 @@
 
 ## Theme: brutal — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1090,6 +1155,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -1110,6 +1182,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -1208,7 +1286,7 @@
 
 ## Theme: canvas — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1284,6 +1362,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -1304,6 +1389,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -1402,7 +1493,7 @@
 
 ## Theme: classic — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1478,6 +1569,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -1498,6 +1596,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -1596,7 +1700,7 @@
 
 ## Theme: console — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1672,6 +1776,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -1692,6 +1803,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -1790,7 +1907,7 @@
 
 ## Theme: cupertino — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -1866,6 +1983,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -1886,6 +2010,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -1984,7 +2114,7 @@
 
 ## Theme: eclipse — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2060,6 +2190,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -2080,6 +2217,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -2178,7 +2321,7 @@
 
 ## Theme: editorial — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2254,6 +2397,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -2274,6 +2424,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -2372,7 +2528,7 @@
 
 ## Theme: forge — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2448,6 +2604,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -2468,6 +2631,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -2566,7 +2735,7 @@
 
 ## Theme: gallery — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2642,6 +2811,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -2662,6 +2838,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -2760,7 +2942,7 @@
 
 ## Theme: gram — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -2836,6 +3018,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -2856,6 +3045,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -2954,7 +3149,7 @@
 
 ## Theme: hacker — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3030,6 +3225,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -3050,6 +3252,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -3148,7 +3356,7 @@
 
 ## Theme: midnight — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3224,6 +3432,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -3244,6 +3459,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -3342,7 +3563,7 @@
 
 ## Theme: neon — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3418,6 +3639,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -3438,6 +3666,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -3536,7 +3770,7 @@
 
 ## Theme: network — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3612,6 +3846,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -3632,6 +3873,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -3730,7 +3977,7 @@
 
 ## Theme: news — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -3806,6 +4053,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -3826,6 +4080,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -3924,7 +4184,7 @@
 
 ## Theme: nexus — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4000,6 +4260,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -4020,6 +4287,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -4118,7 +4391,7 @@
 
 ## Theme: nordic — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4194,6 +4467,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -4214,6 +4494,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -4312,7 +4598,7 @@
 
 ## Theme: overflow — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4388,6 +4674,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -4408,6 +4701,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -4506,7 +4805,7 @@
 
 ## Theme: pastel — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4582,6 +4881,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -4602,6 +4908,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -4700,7 +5012,7 @@
 
 ## Theme: pod — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4776,6 +5088,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -4796,6 +5115,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -4894,7 +5219,7 @@
 
 ## Theme: prose — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -4970,6 +5295,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -4990,6 +5322,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -5088,7 +5426,7 @@
 
 ## Theme: protocol — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5164,6 +5502,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -5184,6 +5529,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -5282,7 +5633,7 @@
 
 ## Theme: scribe — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5358,6 +5709,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -5378,6 +5736,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -5476,7 +5840,7 @@
 
 ## Theme: stream — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5552,6 +5916,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -5572,6 +5943,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -5670,7 +6047,7 @@
 
 ## Theme: tube — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5746,6 +6123,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -5766,6 +6150,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 
@@ -5864,7 +6254,7 @@
 
 ## Theme: zephyr — ✅ COMPLIANT
 
-**Score**: 132/132 (100%)
+**Score**: 139/139 (100%)
 
 ### ✅ Passed Requirements
 
@@ -5940,6 +6330,13 @@
 - `.form-radio` — Radio input
 - `.form-file` — File input
 
+#### components-hero
+
+- `.hero-container` — Wrapper for the hero banner
+- `.hero-banner` — Main background block for the hero
+- `.hero-title` — Heading typography for the hero
+- `.hero-btn-primary` — Primary CTA button in hero
+
 #### layout
 
 - `.layout-container` — Main content container
@@ -5960,6 +6357,12 @@
 - `.tamarind-social-ribbon-container` — Testimonial scroller viewport container
 - `.tamarind-social-ribbon-track` — Marquee animation track moving elements horizontally
 - `.tamarind-social-ribbon-card` — Individual testimonial scroll card container
+
+#### logo-support
+
+- `page.mdt:use_image_logo` — The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `articles.mdt:use_image_logo` — The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo.
+- `.logo img` — Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header.
 
 #### premium-components
 

@@ -940,6 +940,59 @@ items:
 
 ---
 
+## 12. Universal Theme Logo Standardization (The "Logo Contract")
+All themes must support configuring a custom image logo via `data/info.json` (`use_image_logo: true`). The templates must intelligently check for this flag. Additionally, all themes must style the logo image to prevent flexbox distortion.
+
+```yaml requirements
+category: logo-support
+items:
+  - name: "page.mdt:use_image_logo"
+    type: template-feature
+    required: true
+    description: "The page.mdt template MUST conditionally check for 'use_image_logo' to render the image logo."
+  - name: "articles.mdt:use_image_logo"
+    type: template-feature
+    required: true
+    description: "The articles.mdt template MUST conditionally check for 'use_image_logo' to render the image logo."
+  - name: ".logo img"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Themes MUST style '.logo img' (max-height, object-fit) to prevent layout distortion within the flex header."
+```
+
+---
+
+## 13. Visual Hero Banner (The "Hero Contract")
+All themes must support the `hero` shortcode block. The structural styles are inherited via `core.css`.
+
+```yaml requirements
+category: components-hero
+items:
+  - name: ".hero-container"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Wrapper for the hero banner"
+  - name: ".hero-banner"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Main background block for the hero"
+  - name: ".hero-title"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Heading typography for the hero"
+  - name: ".hero-btn-primary"
+    type: css-selector
+    scope: global
+    required: true
+    description: "Primary CTA button in hero"
+```
+
+---
+
 ## 8. Bootstrapping / Updating Guide
 
 ### How to Create a New Theme

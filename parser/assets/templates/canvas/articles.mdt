@@ -20,7 +20,11 @@
             <header class="site-header">
                 <div class="nav-container">
                     <ul class="nav-links">
-                        <li><a href="{{ .RelPrefix }}index.html">{{ .SiteName }}</a></li>
+                        <li><a class="logo" href="{{ .RelPrefix }}index.html">
+                {{ if .Data.info.use_image_logo }}
+                <img src="{{ .RelPrefix }}images/logo.png" alt="{{ .SiteName }}" style="height: 32px; width: auto; vertical-align: middle;">
+                {{ else }}{{ .SiteName }}{{ end }}
+            </a></li>
                         <span class="divider">/</span>
                         <li><a href="#">{{ if .Title }}{{ .Title }}{{ else }}Database{{ end }}</a></li>
                     </ul>

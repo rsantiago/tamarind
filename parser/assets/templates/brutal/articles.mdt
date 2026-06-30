@@ -9,7 +9,13 @@
 
     <header class="site-header">
         <div class="nav-container">
+            {{ if .Data.info.use_image_logo }}
+            <a href="{{ .RelPrefix }}index.html" class="logo-image">
+                <img src="{{ .RelPrefix }}images/logo.png" alt="{{ .SiteName }}" style="height: 40px; width: auto; display: block;">
+            </a>
+            {{ else }}
             <a href="{{ .RelPrefix }}index.html" class="logo">BRUTAL.tamarind</a>
+            {{ end }}
             
             <ul class="nav-links">
                 {{ range .Menu }}

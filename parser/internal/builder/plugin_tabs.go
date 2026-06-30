@@ -8,18 +8,18 @@ import (
 )
 
 type TabsPlugin struct {
-	tabsIndex      int
-	pattern        *regexp.Regexp
+	tabsIndex int
+	pattern   *regexp.Regexp
 }
 
 func NewTabsPlugin() *TabsPlugin {
 	return &TabsPlugin{
-		tabsIndex:      0,
-		pattern:        regexp.MustCompile(`(?s){{\s*tabs\s*}}(.*?){{\s*/tabs\s*}}`),
+		tabsIndex: 0,
+		pattern:   regexp.MustCompile(`(?s){{\s*tabs\s*}}(.*?){{\s*/tabs\s*}}`),
 	}
 }
 
-func (p *TabsPlugin) Name() string { return "tabs" }
+func (p *TabsPlugin) Name() string            { return "tabs" }
 func (p *TabsPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *TabsPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -41,10 +41,10 @@ func (p *TabsPlugin) Process(match []string, sourceDir string) (string, error) {
 
 		var buf bytes.Buffer
 		var htmlDesc string
-		if err := unsafeGoldmark.Convert([]byte(strings.TrimSpace(desc)), &buf); err == nil {
-			htmlDesc = buf.String()
+		if err := unsafeGoldmark.Convert([]byte(dedentTabs(desc)), &buf); err == nil {
+			htmlDesc = strings.TrimSpace(buf.String())
 		} else {
-			htmlDesc = strings.TrimSpace(desc)
+			htmlDesc = dedentTabs(desc)
 		}
 
 		tabId := fmt.Sprintf("tab-%d-%d", p.tabsIndex, i)
@@ -56,11 +56,10 @@ func (p *TabsPlugin) Process(match []string, sourceDir string) (string, error) {
 		}
 
 		buttonsHtml += fmt.Sprintf(`<button class="tamarind-tab-btn%s" onclick="tamarindSwitchTab(event, '%s')">%s</button>`, activeBtnClass, tabId, title)
-		panesHtml += fmt.Sprintf(`<div id="%s" class="tamarind-tab-pane%s">%s</div>`, tabId, activePaneClass, htmlDesc)
+		panesHtml += fmt.Sprintf("<div id=\"%s\" class=\"tamarind-tab-pane%s\">\n%s\n</div>\n", tabId, activePaneClass, htmlDesc)
 	}
 
-	jsScript := `
-<script>
+	jsScript := `<script>
 if (typeof tamarindSwitchTab !== 'function') {
 window.tamarindSwitchTab = function(evt, tabId) {
 var i, tabpanes, tablinks;
@@ -77,8 +76,39 @@ document.getElementById(tabId).className = "tamarind-tab-pane active";
 evt.currentTarget.className += " active";
 };
 }
-</script>
-`
+</script>`
 
-	return fmt.Sprintf(`%s<div class="tamarind-tabs"><div class="tamarind-tabs-bar">%s</div><div class="tamarind-tabs-content">%s</div></div>`, jsScript, buttonsHtml, panesHtml), nil
+	return fmt.Sprintf("\n\n%s\n<div class=\"tamarind-tabs\">\n<div class=\"tamarind-tabs-bar\">%s</div>\n<div class=\"tamarind-tabs-content\">\n%s\n</div>\n</div>\n\n", jsScript, buttonsHtml, panesHtml), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewTabsPlugin() })
+}
+
+func dedentTabs(s string) string {
+	s = strings.TrimPrefix(s, "\n")
+	s = strings.TrimRight(s, " \t\r\n")
+	lines := strings.Split(s, "\n")
+	if len(lines) == 0 {
+		return s
+	}
+	minIndent := -1
+	for _, line := range lines {
+		if strings.TrimSpace(line) == "" {
+			continue
+		}
+		indent := len(line) - len(strings.TrimLeft(line, " \t"))
+		if minIndent == -1 || indent < minIndent {
+			minIndent = indent
+		}
+	}
+	if minIndent <= 0 {
+		return s
+	}
+	for i, line := range lines {
+		if len(line) >= minIndent {
+			lines[i] = line[minIndent:]
+		}
+	}
+	return strings.Join(lines, "\n")
 }

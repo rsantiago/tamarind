@@ -77,24 +77,24 @@ type MenuItem struct {
 }
 
 type FrontMatter struct {
-	Title             string      `yaml:"title"`
-	Subtitle          string      `yaml:"subtitle"`
-	TitleSize         string      `yaml:"title_size"`
-	Date              string      `yaml:"date"`
-	ResolvedDate      string      `yaml:"resolved_date"`
-	Tags              []string    `yaml:"tags"`
-	Description       string      `yaml:"description"` // SEO
-	Image             string      `yaml:"image"`       // SEO
-	Hidden            bool        `yaml:"hidden"`
-	Canvas            bool        `yaml:"canvas"`
-	HideMenu          bool        `yaml:"hide_menu"`
-	HideFooter        bool        `yaml:"hide_footer"`
-	HideBadge         bool        `yaml:"hide_badge"`
-	Draft             bool        `yaml:"draft"`      // New Draft Field
-	SiteName          string      `yaml:"site_name"`  // Override Site Name
-	MenuLabel         string      `yaml:"menu_label"` // Custom Menu Title
-	MenuOrder         int         `yaml:"menu_order"` // Menu Sorting Order
-	Author            string      `yaml:"author"`     // Override Author
-	AttributionStyle  string      `yaml:"attribution_style"` // Attribution display style
-	Sidebar           interface{} `yaml:"sidebar"`
+	Title            string      `yaml:"title"`
+	Subtitle         string      `yaml:"subtitle"`
+	TitleSize        string      `yaml:"title_size"`
+	Date             string      `yaml:"date"`
+	ResolvedDate     string      `yaml:"resolved_date"`
+	Tags             []string    `yaml:"tags"`
+	Description      string      `yaml:"description"` // SEO
+	Image            string      `yaml:"image"`       // SEO
+	Hidden           bool        `yaml:"hidden"`
+	Canvas           bool        `yaml:"canvas"`
+	HideMenu         bool        `yaml:"hide_menu"`
+	HideFooter       bool        `yaml:"hide_footer"`
+	HideBadge        bool        `yaml:"hide_badge"`
+	Draft            bool        `yaml:"draft"`             // New Draft Field
+	SiteName         string      `yaml:"site_name"`         // Override Site Name
+	MenuLabel        string      `yaml:"menu_label"`        // Custom Menu Title
+	MenuOrder        int         `yaml:"menu_order"`        // Menu Sorting Order
+	Author           string      `yaml:"author"`            // Override Author
+	AttributionStyle string      `yaml:"attribution_style"` // Attribution display style
+	Sidebar          interface{} `yaml:"sidebar"`
 }

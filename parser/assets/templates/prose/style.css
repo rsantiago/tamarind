@@ -14,6 +14,7 @@
     --text-color: #2C3539; /* Deep Charcoal */
     --text-secondary: #5A6268;
     --primary-color: #0A192F; /* Deep Navy */
+    --btn-text-color: #ffffff;
     --link-color: #1A365D;
     --border-color: #E2E8F0;
     --border-color-medium: #CBD5E1;
@@ -50,6 +51,7 @@
     --text-color: #E2E8F0;
     --text-secondary: #94A3B8;
     --primary-color: #60A5FA; /* Bright Blue for dark mode contrast */
+    --btn-text-color: #ffffff;
     --link-color: #60A5FA;
     --border-color: #1E293B;
     --border-color-medium: #334155;
@@ -538,4 +540,11 @@ a:hover {
 .alert-tip {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

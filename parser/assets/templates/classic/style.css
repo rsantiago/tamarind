@@ -9,6 +9,7 @@
     --text-color: #000000;
     --text-secondary: #000000;
     --primary-color: #0000aa;
+    --btn-text-color: #ffffff;
     /* Blue link */
     --border-color: #000000;
     --card-bg: #ffffff;
@@ -757,3 +758,10 @@ a:hover {
     text-decoration: none !important;
 }
 
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
+}

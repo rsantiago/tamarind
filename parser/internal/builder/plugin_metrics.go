@@ -15,7 +15,7 @@ func NewMetricsPlugin() *MetricsPlugin {
 	}
 }
 
-func (p *MetricsPlugin) Name() string { return "metrics" }
+func (p *MetricsPlugin) Name() string            { return "metrics" }
 func (p *MetricsPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *MetricsPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -23,7 +23,7 @@ func (p *MetricsPlugin) Process(match []string, sourceDir string) (string, error
 
 	reMetric := regexp.MustCompile(`{{\s*metric\s+value="([^"]+)"\s+label="([^"]+)"\s*}}`)
 	itemsHtml := ""
-	
+
 	metricMatches := reMetric.FindAllStringSubmatch(content, -1)
 	for _, itemSubmatch := range metricMatches {
 		val := itemSubmatch[1]
@@ -32,4 +32,8 @@ func (p *MetricsPlugin) Process(match []string, sourceDir string) (string, error
 	}
 
 	return fmt.Sprintf(`<div class="metrics-grid">%s</div>`, itemsHtml), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewMetricsPlugin() })
 }

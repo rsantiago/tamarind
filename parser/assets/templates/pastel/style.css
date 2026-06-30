@@ -13,6 +13,7 @@
     --text-color: #2C2C2C; /* Darker charcoal for readability */
     --text-secondary: #605E65; /* Slate gray for high-contrast secondary text */
     --primary-color: #FFA49E; /* Richer Peach / Soft Coral */
+    --btn-text-color: #000000;
     --primary-dark: #CF4A66; /* Elegant rich rose-pink for premium contrast and pinky feel */
     --secondary-color: #E2D1F9; /* Soft Lavender */
     --accent-color: #B5EAD7; /* Mint */
@@ -54,6 +55,7 @@
     --text-color: #F8F5FA;
     --text-secondary: #D1C5E6;
     --primary-color: #FFB7B2;
+    --btn-text-color: #000000;
     --primary-dark: #FFA6B7; /* Bright premium pastel pink for dark mode contrast */
     --secondary-color: #B5EAD7;
     --card-bg: #383252;
@@ -582,4 +584,11 @@ a:hover {
 .alert-tip {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

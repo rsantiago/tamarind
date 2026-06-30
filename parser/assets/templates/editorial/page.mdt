@@ -25,7 +25,11 @@
 
     <header class="site-header">
         <nav class="nav-container">
-            <a href="{{ .RelPrefix }}index.html" class="logo">{{ .SiteName }}</a>
+            <a href="{{ .RelPrefix }}index.html" class="logo">
+                {{ if .Data.info.use_image_logo }}
+                <img src="{{ .RelPrefix }}images/logo.png" alt="{{ .SiteName }}" style="height: 32px; width: auto; vertical-align: middle;">
+                {{ else }}{{ .SiteName }}{{ end }}
+            </a>
             <div class="header-actions">
                 <ul class="nav-links">
                     {{ range .Menu }}

@@ -2,5 +2,6 @@
   "version": "1.0",
   "author": "Tamarind User",
   "bio": "Engineering Leadership & Org Architecture",
-  "contact_email": "hello@example.com"
+  "contact_email": "hello@example.com",
+  "use_image_logo": true
 }

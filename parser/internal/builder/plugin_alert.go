@@ -17,7 +17,7 @@ func NewAlertPlugin() *AlertPlugin {
 	}
 }
 
-func (p *AlertPlugin) Name() string { return "alert" }
+func (p *AlertPlugin) Name() string            { return "alert" }
 func (p *AlertPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *AlertPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -63,4 +63,8 @@ func (p *AlertPlugin) Process(match []string, sourceDir string) (string, error) 
 	}
 
 	return fmt.Sprintf(`<div class="alert-container alert-%s"><div class="alert-icon-box">%s</div><div class="alert-content">%s<div class="alert-message">%s</div></div></div>`, typ, svgIcon, titleHtml, htmlContent), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewAlertPlugin() })
 }

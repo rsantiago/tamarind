@@ -16,7 +16,7 @@ func NewBadgePlugin() *BadgePlugin {
 	}
 }
 
-func (p *BadgePlugin) Name() string { return "badge" }
+func (p *BadgePlugin) Name() string            { return "badge" }
 func (p *BadgePlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *BadgePlugin) Process(match []string, sourceDir string) (string, error) {
@@ -28,4 +28,8 @@ func (p *BadgePlugin) Process(match []string, sourceDir string) (string, error) 
 		classAttr += " badge-" + typ
 	}
 	return fmt.Sprintf(`<span class="%s">%s</span>`, classAttr, strings.TrimSpace(content)), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewBadgePlugin() })
 }

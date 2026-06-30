@@ -1,8 +1,10 @@
 package builder
+
 import "testing"
 import "os"
 import "path/filepath"
 import "fmt"
+
 func TestDebugContrast(t *testing.T) {
 	cssPath := filepath.Join("..", "..", "assets", "templates", "brutal", "style.css")
 	content, _ := os.ReadFile(cssPath)

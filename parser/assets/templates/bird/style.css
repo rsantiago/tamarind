@@ -13,6 +13,7 @@
     --text-color: #0F1419;
     --text-secondary: #536471;
     --primary-color: #0B8A5A; /* Sprout Botanical Green */
+    --btn-text-color: #ffffff;
     --border-color: #EFF3F4;
     --card-bg: #FFFFFF;
     --hover-bg: rgba(15, 20, 25, 0.03);
@@ -49,6 +50,7 @@
     --text-color: #F7F9F9;
     --text-secondary: #8B98A5;
     --primary-color: #10B981; /* Emerald Sprout */
+    --btn-text-color: #ffffff;
     --border-color: #38444D;
     --card-bg: #1E2732;
     --hover-bg: rgba(255, 255, 255, 0.03);
@@ -771,4 +773,10 @@ a:hover {
         margin-bottom: 24px !important;
         height: auto !important;
     }
+}
+
+/* Logo Requirement */
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

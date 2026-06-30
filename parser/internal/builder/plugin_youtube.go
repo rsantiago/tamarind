@@ -15,9 +15,13 @@ func NewYouTubePlugin() *YouTubePlugin {
 	}
 }
 
-func (p *YouTubePlugin) Name() string { return "youtube" }
+func (p *YouTubePlugin) Name() string            { return "youtube" }
 func (p *YouTubePlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *YouTubePlugin) Process(match []string, sourceDir string) (string, error) {
 	return fmt.Sprintf(`<div class="video-container"><iframe src="https://www.youtube.com/embed/%s" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>`, match[1]), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewYouTubePlugin() })
 }

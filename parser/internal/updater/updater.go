@@ -17,7 +17,7 @@ func CheckForUpdatesAsync() {
 	if config.Version == "v0.0.0" {
 		return // Development build, do not nag
 	}
-	
+
 	go func() {
 		// Wait to ensure all server boot logs have printed so this lands at the absolute bottom.
 		time.Sleep(1 * time.Second)

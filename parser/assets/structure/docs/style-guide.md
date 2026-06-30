@@ -129,35 +129,42 @@ Cards are elevated containers for grouping related information, and badges are c
 **Shortcode Syntax:**
 ```markdown
 {{{{!}}card}}
-  <h3>Feature Card</h3>
-  <p>This is a standard card component.</p>
-  {{{{!}}badge type="primary"}}New{{{{!}}/badge}}
+### Feature Card
+This is a standard card component.
+{{{{!}}badge type="primary"}}New{{{{!}}/badge}}
 {{{{!}}/card}}
 
 {{{{!}}card}}
-  <h3>Another Card</h3>
-  <p>Cards are great for grouping related content in a grid layout.</p>
-  {{{{!}}badge}}Legacy{{{{!}}/badge}}
+### Another Card
+Cards are great for grouping related content in a grid layout.
+{{{{!}}badge}}Legacy{{{{!}}/badge}}
 {{{{!}}/card}}
 ```
 
 **Live Output:**
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; margin-bottom: 24px;">
 {{< card >}}
-    <h3>Feature Card</h3>
-    <p>This is a standard card component. It uses <code>var(--card-bg)</code>.</p>
-    {{< badge type="primary" >}}New{{</ badge >}}
+### Feature Card
+This is a standard card component. It adapts to the theme's borders, shadows, and background colors.
+
+<div style="margin-top: auto;">{{< badge type="primary" >}}New{{</ badge >}}</div>
 {{</ card >}}
 {{< card >}}
-    <h3>Another Card</h3>
-    <p>Cards are great for grouping related content in a grid layout.</p>
-    {{< badge >}}Legacy{{</ badge >}}
+### Another Card
+Cards are great for grouping related content in a grid layout.
+
+<div style="margin-top: auto;">{{< badge >}}Legacy{{</ badge >}}</div>
 {{</ card >}}
 </div>
 
 ---
 
 ## 5. Shortcodes
+
+### Formatting & Indentation Quirks
+Tamarind shortcodes are parsed *before* the Goldmark markdown engine generates HTML. This creates two important formatting rules you must follow when writing documents:
+1. **Never indent block-level shortcodes:** If you indent a shortcode like `{{{{!}}terminal}}` or `{{{{!}}tabs}}` by 4 or more spaces, Goldmark will interpret the resulting HTML as an *indented code block*. This will cause the raw HTML to be displayed on the page instead of rendering the component. Always keep root-level shortcodes flush with the left margin.
+2. **Leave blank lines around shortcodes:** If you place a shortcode immediately after a paragraph of text without an empty line between them, Goldmark will treat the shortcode's HTML as an *inline element* within that paragraph. This causes Goldmark to HTML-escape any injected Javascript (breaking interactive components like Tabs and Terminals). Always leave a blank line before opening a shortcode.
 
 ### Callouts
 Callouts are HSL-styled alert notifications with automatic vector icon rendering.
@@ -316,40 +323,52 @@ A dense tabular card detailing list capabilities, statuses, and description meta
 An interactive vertical progress timeline optimized for tutorials, quick starts, and user guides.
 
 **Shortcode Syntax:**
-```markdown
+````markdown
 {{{{!}}timeline}}
   {{{{!}}item title="Initialize Tamarind" number="1" }}
-    Spin up your local sandbox by running the initialization command in a fresh workspace directory:
-    <pre><code>tamarind init</code></pre>
+Spin up your local sandbox by running the initialization command in a fresh workspace directory:
+```bash
+tamarind init
+```
   {{{{!}}/item}}
   {{{{!}}item title="Configure Cortex" number="2" }}
-    Tweak visual design tokens directly in `style.css` using theme variables:
-    <pre><code>:root {
+Tweak visual design tokens directly in `style.css` using theme variables:
+```css
+:root {
   --primary-color: #0047AB;
-}</code></pre>
+}
+```
   {{{{!}}/item}}
   {{{{!}}item title="Compile static site" number="3" }}
-    Build all production-ready HTML and responsive media assets in seconds:
-    <pre><code>tamarind build</code></pre>
+Build all production-ready HTML and responsive media assets in seconds:
+```bash
+tamarind build
+```
   {{{{!}}/item}}
 {{{{!}}/timeline}}
-```
+````
 
 **Live Output:**
 {{ timeline }}
   {{ item title="Initialize Tamarind" number="1" }}
-    Spin up your local sandbox by running the initialization command in a fresh workspace directory:
-    <pre><code>tamarind init</code></pre>
+Spin up your local sandbox by running the initialization command in a fresh workspace directory:
+```bash
+tamarind init
+```
   {{ /item }}
   {{ item title="Configure Cortex" number="2" }}
-    Tweak visual design tokens directly in `style.css` using theme variables:
-    <pre><code>:root {
+Tweak visual design tokens directly in `style.css` using theme variables:
+```css
+:root {
   --primary-color: #0047AB;
-}</code></pre>
+}
+```
   {{ /item }}
   {{ item title="Compile static site" number="3" }}
-    Build all production-ready HTML and responsive media assets in seconds:
-    <pre><code>tamarind build</code></pre>
+Build all production-ready HTML and responsive media assets in seconds:
+```bash
+tamarind build
+```
   {{ /item }}
 {{ /timeline }}
 
@@ -663,33 +682,33 @@ An automated horizontal social proof scroller component. It renders continuous l
 A clean, responsive tab bar for grouping alternative content blocks, such as terminal commands, code snippets in different languages, or technical instructions.
 
 **Shortcode Syntax:**
-````markdown
+`````markdown
 {{{{!}}tabs}}
-  {{{{!}}tab title="npm" }}
-  ```bash
-  $ npm install @tamarind/core
-  ```
-  {{{{!}}/tab}}
-  {{{{!}}tab title="yarn" }}
-  ```bash
-  $ yarn add @tamarind/core
-  ```
-  {{{{!}}/tab}}
+{{{{!}}tab title="npm" }}
+```bash
+$ npm install @tamarind/core
+```
+{{{{!}}/tab}}
+{{{{!}}tab title="yarn" }}
+```bash
+$ yarn add @tamarind/core
+```
+{{{{!}}/tab}}
 {{{{!}}/tabs}}
-````
+`````
 
 **Live Output:**
 {{ tabs }}
-  {{ tab title="npm" }}
-  ```bash
-  $ npm install @tamarind/core
-  ```
-  {{ /tab }}
-  {{ tab title="yarn" }}
-  ```bash
-  $ yarn add @tamarind/core
-  ```
-  {{ /tab }}
+{{ tab title="npm" }}
+```bash
+$ npm install @tamarind/core
+```
+{{ /tab }}
+{{ tab title="yarn" }}
+```bash
+$ yarn add @tamarind/core
+```
+{{ /tab }}
 {{ /tabs }}
 
 ---
@@ -730,4 +749,23 @@ Tamarind supports rendering a terminal with multiple tabs directly inside timeli
   {{ /terminal }}
   {{ /item }}
 {{ /timeline }}
+
+---
+
+### 6.15 Hero Banner
+The Hero Banner component creates a massive, attention-grabbing introduction section for landing pages, complete with title, subtitle, and action buttons.
+
+**Shortcode Syntax:**
+```markdown
+{{{{!}}hero title="Build Premium Websites" subtitle="Fast, simple, and elegant static site generation."}}
+  {{{{!}}hero_btn label="Get Started" link="/docs/" primary="true" }}
+  {{{{!}}hero_btn label="View Demo" link="/demo/" primary="false" }}
+{{{{!}}/hero}}
+```
+
+**Live Output:**
+{{ hero title="Build Premium Websites" subtitle="Fast, simple, and elegant static site generation."}}
+  {{ hero_btn label="Get Started" link="/docs/" primary="true" }}
+  {{ hero_btn label="View Demo" link="/demo/" primary="false" }}
+{{ /hero }}
 

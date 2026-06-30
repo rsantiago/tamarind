@@ -13,6 +13,7 @@
     --text-color: #0A0A0A; /* Ink Black */
     --text-secondary: #4E4E52; /* Elite contrast secondary gray */
     --primary-color: #5C4D3F; /* Premium deep editorial bronze (High contrast) */
+    --btn-text-color: #ffffff;
     --border-color: #E0E0E0; /* Silver */
     --card-bg: #FFFFFF;
 
@@ -49,6 +50,7 @@
     --text-color: #F0F0F0;
     --text-secondary: #B5B5BA; /* High contrast dark secondary gray */
     --primary-color: #C5B3A1; /* Lighter luxury bronze for dark bg */
+    --btn-text-color: #ffffff;
     --border-color: #2A2A2A;
     --card-bg: #141414;
     --shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
@@ -586,4 +588,11 @@ h1, h2, h3, h4 {
 .alert-tip {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

@@ -16,7 +16,7 @@ func NewCardPlugin() *CardPlugin {
 	}
 }
 
-func (p *CardPlugin) Name() string { return "card" }
+func (p *CardPlugin) Name() string            { return "card" }
 func (p *CardPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *CardPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -27,5 +27,9 @@ func (p *CardPlugin) Process(match []string, sourceDir string) (string, error) {
 	if paddingVal == "false" {
 		paddingClass = ""
 	}
-	return fmt.Sprintf(`<div class="card%s">%s</div>`, paddingClass, strings.TrimSpace(content)), nil
+	return fmt.Sprintf("<div class=\"card%s\">\n\n%s\n\n</div>", paddingClass, strings.TrimSpace(content)), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewCardPlugin() })
 }

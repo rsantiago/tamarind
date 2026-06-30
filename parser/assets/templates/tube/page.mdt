@@ -11,8 +11,12 @@
         <div class="nav-container">
             <div class="logo-container">
                 <a href="{{ .RelPrefix }}index.html" class="logo">
+                {{ if .Data.info.use_image_logo }}
+                <img src="{{ .RelPrefix }}images/logo.png" alt="{{ .SiteName }}" style="height: 32px; width: auto; vertical-align: middle;">
+                {{ else }}
                     <span>T</span> TamarindTube
-                </a>
+                {{ end }}
+            </a>
             </div>
 
             

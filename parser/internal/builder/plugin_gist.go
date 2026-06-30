@@ -18,7 +18,7 @@ func NewGistPlugin() *GistPlugin {
 	}
 }
 
-func (p *GistPlugin) Name() string { return "gist" }
+func (p *GistPlugin) Name() string            { return "gist" }
 func (p *GistPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *GistPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -47,4 +47,8 @@ func (p *GistPlugin) Process(match []string, sourceDir string) (string, error) {
 	data.Div = strings.ReplaceAll(data.Div, "\r", "")
 
 	return fmt.Sprintf(`<link rel="stylesheet" href="%s">%s`, data.Stylesheet, data.Div), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewGistPlugin() })
 }

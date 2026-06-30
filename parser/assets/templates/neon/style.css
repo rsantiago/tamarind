@@ -13,6 +13,7 @@
     --text-color: #F8F8F2; /* Whiteish */
     --text-secondary: #8B8B8B; /* Darker Gray */
     --primary-color: #FF00FF; /* Pure Magenta */
+    --btn-text-color: #ffffff;
     --secondary-color: #00FFFF; /* Cyan */
     --border-color: #222222;
     --card-bg: #0A0A0A; /* Very Dark Gray */
@@ -51,6 +52,7 @@
     --text-color: #000000;
     --text-secondary: #555555;
     --primary-color: #FF00FF;
+    --btn-text-color: #ffffff;
     --border-color: #DDDDDD;
     --card-bg: #F5F5F5;
 
@@ -586,4 +588,11 @@ a:hover {
 .alert-tip {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

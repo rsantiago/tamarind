@@ -196,14 +196,22 @@ func TestProcessShortcodes_UIComponents(t *testing.T) {
 			name:  "Card Standard",
 			input: `{{ card }}Hello Card{{ /card }}`,
 			expected: []string{
-				`<div class="card card-padding">Hello Card</div>`,
+				`<div class="card card-padding">
+
+Hello Card
+
+</div>`,
 			},
 		},
 		{
 			name:  "Card No Padding",
-			input: `{{< card padding="false" >}}No Padding{{</ card >}}`,
+			input: `{{ card padding="false" }}No Padding{{ /card }}`,
 			expected: []string{
-				`<div class="card">No Padding</div>`,
+				`<div class="card">
+
+No Padding
+
+</div>`,
 			},
 		},
 		{
@@ -405,7 +413,7 @@ python main.py
 		t.Run(tt.name, func(t *testing.T) {
 			registry := BuildPluginRegistry()
 			got := processShortcodes(registry, tt.input, "")
-			
+
 			// For Static Mode, assert billing-toggle is omitted
 			if tt.name == "Pricing Grid with plans (Static Mode)" {
 				if strings.Contains(got, "billing-toggle") {
@@ -421,4 +429,3 @@ python main.py
 		})
 	}
 }
-

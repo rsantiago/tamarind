@@ -13,6 +13,7 @@
     --text-color: #0F0F0F;
     --text-secondary: #606060;
     --primary-color: #FF0000;
+    --btn-text-color: #ffffff;
     --border-color: #E5E5E5;
     --card-bg: transparent;
     --hover-bg: #F2F2F2;
@@ -49,6 +50,7 @@
     --text-color: #F1F1F1;
     --text-secondary: #AAAAAA;
     --primary-color: #FF0000;
+    --btn-text-color: #ffffff;
     --border-color: #272727;
     --card-bg: transparent;
     --hover-bg: #272727;
@@ -627,4 +629,11 @@ a {
 [data-theme="dark"] .timeline-content:hover {
     border-color: var(--primary-color, #FF0000) !important;
     box-shadow: 0 12px 28px rgba(255, 0, 0, 0.15) !important;
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

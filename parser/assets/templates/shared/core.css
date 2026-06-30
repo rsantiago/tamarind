@@ -280,14 +280,14 @@ hr {
 /* 2. Gradient Icon Feature Cards */
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.75rem;
   margin: 2.5rem 0;
   width: 100%;
 }
 
 @media (min-width: 768px) {
-  .features-grid {
+  .canvas-mode-active .features-grid {
     margin-left: 50% !important;
     margin-right: 0 !important;
     transform: translateX(-50%) !important;
@@ -968,21 +968,27 @@ hr {
 
 .price-card.featured .pricing-btn {
   background: var(--primary-color, #3b82f6);
-  color: white;
+  color: var(--btn-text-color, white) !important;
 }
 
 .pricing-btn:hover {
   background: var(--primary-color, #3b82f6);
-  color: white;
+  color: var(--btn-text-color, white) !important;
   box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
 }
 
 /* --- Global Spacing Specificity Collision Fixes & Premium Component Typography Resets --- */
 
-/* Snug top-left aligned typography inside standard and premium components across all themes */
+/* Extracted standard card heading overrides for flex-gap layout */
 .article-content .card h1, .article-content .card h2, .article-content .card h3, .article-content .card h4, .article-content .card h5, .article-content .card h6,
 .post-content .card h1, .post-content .card h2, .post-content .card h3, .post-content .card h4, .post-content .card h5, .post-content .card h6,
-.card-padding h1, .card-padding h2, .card-padding h3, .card-padding h4, .card-padding h5, .card-padding h6,
+.card-padding h1, .card-padding h2, .card-padding h3, .card-padding h4, .card-padding h5, .card-padding h6 {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    text-align: left !important;
+}
+
+/* Snug top-left aligned typography inside premium components across all themes */
 .feature-card h1, .feature-card h2, .feature-card h3, .feature-card h4, .feature-card h5, .feature-card h6,
 .metric-card h1, .metric-card h2, .metric-card h3, .metric-card h4, .metric-card h5, .metric-card h6,
 .price-card h1, .price-card h2, .price-card h3, .price-card h4, .price-card h5, .price-card h6,
@@ -1038,6 +1044,12 @@ hr {
     box-shadow: none !important;
     border: none !important;
     background-color: var(--background-color) !important;
+}
+
+.canvas-mode-active main {
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
 }
 
 .canvas-mode-active p {
@@ -1119,6 +1131,8 @@ hr {
     display: flex !important;
     flex-direction: column !important;
     height: 100% !important;
+    gap: 1.25rem !important;
+    justify-content: flex-start !important;
 }
 
 .card .badge,
@@ -1458,6 +1472,42 @@ hr {
     display: block;
 }
 
+/* Ensure code blocks inside tabs always render with a console background, especially in Canvas mode */
+.tamarind-tab-pane pre {
+    background-color: var(--code-bg, var(--terminal-bg, #1a202c)) !important;
+    color: var(--code-color, #f8f8f2) !important;
+    padding: 1.25rem !important;
+    border-radius: 6px !important;
+    overflow-x: auto !important;
+    margin: 1rem 0 !important;
+    border: 1px solid var(--border-color, #2d3748) !important;
+}
+
+/* Base Terminal Header and Dots (Consistent across all themes) */
+.terminal-header {
+    padding: 8px 12px;
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.terminal-header .dot,
+.terminal-dots .dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.terminal-header .red,
+.terminal-dots .red { background: #ff5f56; }
+
+.terminal-header .yellow,
+.terminal-dots .yellow { background: #ffbd2e; }
+
+.terminal-header .green,
+.terminal-dots .green { background: #27c93f; }
+
 /* Terminal Tabs Support */
 .terminal {
     position: relative;
@@ -1540,4 +1590,98 @@ hr {
 
 .terminal-tab-pane.active {
     display: block;
+}
+/* Hero Banner Widget - Premium Edition */
+@keyframes heroFadeUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.hero-container {
+  margin: 1rem 0 3rem; /* Stay inside bounds, cozy margins */
+  padding: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.canvas-mode-active .hero-container {
+  margin: 0 calc(50% - 50vw) 4rem; /* Break out of container in canvas mode */
+  padding: 2rem 1rem;
+  width: 100vw;
+}
+
+.hero-banner {
+  width: 100%;
+  max-width: 1200px;
+  /* Dynamic gradient based on theme variables */
+  background: linear-gradient(135deg, color-mix(in srgb, var(--primary-color) 8%, transparent), color-mix(in srgb, var(--primary-color) 2%, transparent));
+  border-radius: 16px;
+  padding: 6rem 2rem;
+  text-align: center;
+  border: 1px solid color-mix(in srgb, var(--border-color, #e2e8f0) 50%, transparent);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.75rem;
+  box-shadow: 0 10px 30px -10px color-mix(in srgb, var(--primary-color) 10%, transparent);
+  animation: heroFadeUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 900;
+  margin: 0 !important;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-color);
+}
+
+.hero-subtitle {
+  max-width: 650px;
+  color: color-mix(in srgb, var(--text-color) 70%, transparent);
+  font-size: 1.25rem;
+  margin: 0 !important;
+  line-height: 1.6;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+
+.hero-btn-primary, .hero-btn-secondary {
+  padding: 0.875rem 2rem;
+  font-size: 1.05rem;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-btn-primary {
+  background-color: var(--primary-color, #2563eb);
+  /* Fallback to white if button text color isn't defined, but try to use it if available */
+  color: var(--btn-text-color, #ffffff) !important;
+  border: none;
+  box-shadow: 0 4px 14px color-mix(in srgb, var(--primary-color) 30%, transparent);
+}
+
+.hero-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px color-mix(in srgb, var(--primary-color) 40%, transparent);
+  filter: brightness(1.1);
+}
+
+.hero-btn-secondary {
+  background-color: transparent;
+  color: var(--text-color) !important;
+  border: 1px solid var(--border-color, #e2e8f0);
+}
+
+.hero-btn-secondary:hover {
+  background-color: color-mix(in srgb, var(--text-color) 4%, transparent);
+  transform: translateY(-2px);
 }

@@ -6,7 +6,12 @@
 <body>
     <header class="site-header window">
         <div class="window-header">
-            <span>{{ .SiteName }} - Microsoft Internet Explorer</span>
+            <span><span class="logo">
+                {{ if .Data.info.use_image_logo }}
+                <img src="{{ .RelPrefix }}images/logo.png" alt="{{ .SiteName }}" style="height: 32px; width: auto; vertical-align: middle;">
+                {{ else }}
+                {{ .SiteName }}
+                {{ end }}</span> - Microsoft Internet Explorer</span>
             <div style="display:flex">
                 <a href="#" class="window-close" style="height:12px; width:14px; display:inline-flex;">_</a>
                 <a href="#" class="window-close" style="height:12px; width:14px; display:inline-flex;">&#9541;</a>

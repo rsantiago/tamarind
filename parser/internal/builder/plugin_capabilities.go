@@ -15,7 +15,7 @@ func NewCapabilitiesPlugin() *CapabilitiesPlugin {
 	}
 }
 
-func (p *CapabilitiesPlugin) Name() string { return "capabilities" }
+func (p *CapabilitiesPlugin) Name() string            { return "capabilities" }
 func (p *CapabilitiesPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *CapabilitiesPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -25,7 +25,7 @@ func (p *CapabilitiesPlugin) Process(match []string, sourceDir string) (string, 
 	reCapabilityStatus := regexp.MustCompile(`{{\s*capability\s+name="([^"]+)"\s+desc="([^"]+)"\s+status="([^"]+)"(?:\s+statusLabel="([^"]*)")?\s*}}`)
 	reCapabilityCheck := regexp.MustCompile(`{{\s*capability\s+name="([^"]+)"\s+desc="([^"]+)"\s+check="([^"]+)"\s*}}`)
 	rowsHtml := ""
-	
+
 	statusMatches := reCapabilityStatus.FindAllStringSubmatch(content, -1)
 	for _, itemSubmatch := range statusMatches {
 		name := itemSubmatch[1]
@@ -69,4 +69,8 @@ func (p *CapabilitiesPlugin) Process(match []string, sourceDir string) (string, 
 	}
 
 	return fmt.Sprintf(`<div class="capability-card">%s%s</div>`, headerHtml, rowsHtml), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewCapabilitiesPlugin() })
 }

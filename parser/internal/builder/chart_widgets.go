@@ -81,7 +81,7 @@ func generateBarChartFromJSON(content []byte, args map[string]string) string {
 	if args["title"] != "" {
 		html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"])
 	}
-	
+
 	bgGradients := []string{}
 	bgSizes := []string{}
 	if gridY {
@@ -114,12 +114,12 @@ func generateBarChartFromJSON(content []byte, args map[string]string) string {
 	for i, d := range data {
 		c := cList[i%len(cList)]
 		heightPct := (d.Value / max) * 100.0
-		
+
 		valHtml := ""
 		if showY {
 			valHtml = fmt.Sprintf(`<div class="tamarind-barchart-val" style="font-size: 0.8rem; margin-bottom: 5px; color: currentColor;">%.1f</div>`, d.Value)
 		}
-		
+
 		lblHtml := ""
 		if showX {
 			lblHtml = fmt.Sprintf(`<div class="tamarind-barchart-lbl" style="font-size: 0.8rem; margin-top: 8px; text-align:center; color: currentColor;">%s</div>`, d.Label)
@@ -182,11 +182,11 @@ func generatePieChartFromJSON(content []byte, args map[string]string) string {
 		color := cList[i%len(cList)]
 		valRatio := d.Value / total
 		dashArray := valRatio * C
-		
+
 		html += fmt.Sprintf(`<circle r="16" cx="16" cy="16" fill="transparent" stroke="%s" stroke-width="32" stroke-dasharray="%.2f %.2f" stroke-dashoffset="-%.2f" style="transition: stroke-dasharray 0.5s ease; cursor: pointer;" />`, color, dashArray, C, currentOffset)
-		
+
 		legendHtml += fmt.Sprintf(`<div style="display:flex; align-items:center; gap: 10px;"><div style="width: 16px; height: 16px; border-radius:4px; background-color: %s;"></div><span style="font-size: 0.95rem; color: currentColor;">%s (%.1f)</span></div>`, color, d.Label, d.Value)
-		
+
 		currentOffset += dashArray
 	}
 	html += `</svg>`
@@ -234,16 +234,16 @@ func generateLineChartFromJSON(content []byte, args map[string]string) string {
 	width := 600.0
 	height := 250.0
 	padding := 40.0
-	
+
 	html := `<div class="tamarind-linechart" style="margin: 2rem 0; width: 100%;">`
 	if args["title"] != "" {
 		html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"])
 	}
 
 	html += fmt.Sprintf(`<svg viewBox="0 0 %.0f %.0f" style="width: 100%%; height: auto; max-height: 300px; display: block; overflow: visible;">`, width, height)
-	
+
 	showYGridValues := args["grid-y-labels"] == "true"
-	
+
 	if gridY {
 		// Draw mild grid lines for Y axis (horizontal)
 		for i := 1; i <= 4; i++ {
@@ -286,17 +286,17 @@ func generateLineChartFromJSON(content []byte, args map[string]string) string {
 		x := padding + float64(i)*stepX
 		y := height - padding - ((d.Value / max) * (height - 2*padding))
 		points += fmt.Sprintf("%.1f,%.1f ", x, y)
-		
+
 		if showDots {
 			// Circle for data point
 			html += fmt.Sprintf(`<circle cx="%.1f" cy="%.1f" r="4" fill="%s" />`, x, y, c)
 		}
-		
+
 		if showY {
 			// Value label above data point
 			html += fmt.Sprintf(`<text x="%.1f" y="%.1f" font-size="10" fill="currentColor" text-anchor="middle">%.1f</text>`, x, y-10, d.Value)
 		}
-		
+
 		if showX {
 			// Label (every N labels to avoid crowding, or just all if small)
 			if len(data) <= 10 || i%int(math.Ceil(float64(len(data))/10)) == 0 {

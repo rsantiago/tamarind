@@ -12,6 +12,7 @@
     /* Nord Frost Blue */
 
     --primary-color: #88C0D0;
+    --btn-text-color: #000000;
     /* Soft Cyan */
     --secondary-color: #B48EAD;
     /* Soft Purple */
@@ -1140,4 +1141,11 @@ figcaption {
     background-color: #D08770 !important; /* Standout Nord orange aurora */
     color: #2E3440 !important; /* Polar Night dark text */
     font-weight: 700 !important;
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

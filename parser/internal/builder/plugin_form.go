@@ -16,7 +16,7 @@ func NewFormPlugin() *FormPlugin {
 	}
 }
 
-func (p *FormPlugin) Name() string { return "form" }
+func (p *FormPlugin) Name() string            { return "form" }
 func (p *FormPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *FormPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -48,7 +48,7 @@ func NewFormInputPlugin() *FormInputPlugin {
 	}
 }
 
-func (p *FormInputPlugin) Name() string { return "form-input" }
+func (p *FormInputPlugin) Name() string            { return "form-input" }
 func (p *FormInputPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *FormInputPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -89,7 +89,7 @@ func NewFormTextareaPlugin() *FormTextareaPlugin {
 	}
 }
 
-func (p *FormTextareaPlugin) Name() string { return "form-textarea" }
+func (p *FormTextareaPlugin) Name() string            { return "form-textarea" }
 func (p *FormTextareaPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *FormTextareaPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -130,7 +130,7 @@ func NewFormSelectPlugin() *FormSelectPlugin {
 	}
 }
 
-func (p *FormSelectPlugin) Name() string { return "form-select" }
+func (p *FormSelectPlugin) Name() string            { return "form-select" }
 func (p *FormSelectPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *FormSelectPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -179,7 +179,7 @@ func NewFormCheckboxPlugin() *FormCheckboxPlugin {
 	}
 }
 
-func (p *FormCheckboxPlugin) Name() string { return "form-checkbox" }
+func (p *FormCheckboxPlugin) Name() string            { return "form-checkbox" }
 func (p *FormCheckboxPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *FormCheckboxPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -210,7 +210,7 @@ func NewFormRadioGroupPlugin() *FormRadioGroupPlugin {
 	}
 }
 
-func (p *FormRadioGroupPlugin) Name() string { return "form-radio-group" }
+func (p *FormRadioGroupPlugin) Name() string            { return "form-radio-group" }
 func (p *FormRadioGroupPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *FormRadioGroupPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -266,7 +266,7 @@ func NewFormFilePlugin() *FormFilePlugin {
 	}
 }
 
-func (p *FormFilePlugin) Name() string { return "form-file" }
+func (p *FormFilePlugin) Name() string            { return "form-file" }
 func (p *FormFilePlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *FormFilePlugin) Process(match []string, sourceDir string) (string, error) {
@@ -284,4 +284,14 @@ func (p *FormFilePlugin) Process(match []string, sourceDir string) (string, erro
 	}
 
 	return fmt.Sprintf(`<div class="form-group">%s<input type="file" class="form-file"></div>`, labelHtml), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewFormPlugin() })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewFormInputPlugin() })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewFormTextareaPlugin() })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewFormSelectPlugin() })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewFormCheckboxPlugin() })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewFormRadioGroupPlugin() })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewFormFilePlugin() })
 }

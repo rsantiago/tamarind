@@ -119,20 +119,26 @@ graph LR
 Every feature is encapsulated in its own file (e.g., `plugin_chart.go`, `plugin_tabs.go`, `plugin_terminal.go`). This ensures that if a specific component needs a bug fix, the rest of the compilation pipeline remains entirely untouched.
 
 ### Registry Lifecycle
-The following sequence diagram outlines exactly how the registry is instantiated, populated, and executed against a Markdown string:
+The following sequence diagram outlines exactly how the registry is instantiated via Go's native `init()` lifecycle, populated at build time, and executed against a Markdown string:
 
 {{ mermaid }}
 sequenceDiagram
-    participant Builder as BuildPluginRegistry
-    participant Parser as processShortcodes
-    participant Registry as PluginRegistry
+    participant Go as Go Runtime
     participant Plugin as ShortcodePlugin
-    Builder->>Registry: NewPluginRegistry
-    Note over Builder,Registry: Phase 1 Registration
-    Builder->>Plugin: NewChartPlugin
-    Builder->>Registry: Register
-    Note over Parser,Registry: Phase 2 Execution
-    Parser->>Registry: ProcessShortcodes
+    participant Global as Global Registry
+    participant Registry as PluginRegistry Instance
+    participant Parser as processShortcodes
+    
+    Note over Go,Global: Phase 1: App Boot (init)
+    Go->>Plugin: init()
+    Plugin->>Global: RegisterDefaultPlugin(Constructor)
+    
+    Note over Global,Registry: Phase 2: Build Initialization
+    Global->>Registry: NewPluginRegistry()
+    Global->>Registry: Inject all registered Constructors
+    
+    Note over Parser,Registry: Phase 3: Execution
+    Parser->>Registry: ProcessShortcodes(markdown)
     loop For each registered Plugin
         Registry->>Plugin: Pattern Match
         opt If match found

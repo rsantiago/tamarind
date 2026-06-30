@@ -14,6 +14,7 @@
     --text-color: #e2e8f0;          /* Light Slate */
     --text-secondary: #94a3b8;      /* Slate 400 */
     --primary-color: #38bdf8;       /* Tech Sky Blue */
+    --btn-text-color: #000000;
     --secondary-color: #10b981;     /* Tech Emerald Green */
     --accent-color: #6366f1;        /* Technical Indigo */
     --heading-color: #f8fafc;       /* Pure Slate White */
@@ -54,6 +55,7 @@
     --text-color: #1e293b;
     --text-secondary: #64748b;
     --primary-color: #0284c7;       /* Refined Sky Blue */
+    --btn-text-color: #000000;
     --secondary-color: #059669;     /* Refined Emerald */
     --accent-color: #4f46e5;
     --heading-color: #0f172a;
@@ -800,4 +802,11 @@ figcaption {
         box-sizing: border-box !important;
         overflow-x: auto !important;
     }
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

@@ -326,6 +326,16 @@ func extractSelectors(css string, analysis *CSSAnalysis) {
 		}
 		selectorPart = strings.TrimSpace(selectorPart)
 
+		// Register the exact full selectors (splitting by comma for groups)
+		for _, rawSel := range strings.Split(selectorPart, ",") {
+			trimmedSel := strings.TrimSpace(rawSel)
+			if trimmedSel != "" {
+				// Also normalize whitespace inside the selector (e.g. ".logo   img" -> ".logo img")
+				normalizedSel := strings.Join(strings.Fields(trimmedSel), " ")
+				analysis.Selectors[normalizedSel] = true
+			}
+		}
+
 		// Helper matching word boundaries
 		matchWord := func(s, word string) bool {
 			r := regexp.MustCompile(`\b` + regexp.QuoteMeta(word) + `\b`)

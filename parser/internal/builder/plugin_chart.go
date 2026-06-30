@@ -30,7 +30,7 @@ func NewChartFilePlugin(name string, generator func(sourceDir, file string, args
 	}
 }
 
-func (p *ChartFilePlugin) Name() string { return p.name }
+func (p *ChartFilePlugin) Name() string            { return p.name }
 func (p *ChartFilePlugin) Pattern() *regexp.Regexp { return p.pattern }
 func (p *ChartFilePlugin) Process(match []string, sourceDir string) (string, error) {
 	// Block shortcodes are handled by ChartBlockPlugin. If this match contains a closing tag, ignore it.
@@ -40,7 +40,7 @@ func (p *ChartFilePlugin) Process(match []string, sourceDir string) (string, err
 	file := args["file"]
 	if file == "" {
 		// If there is no file, it's likely a block shortcode opening tag, which we shouldn't process here.
-		return match[0], nil 
+		return match[0], nil
 	}
 	return p.generator(sourceDir, file, args), nil
 }
@@ -60,7 +60,7 @@ func NewChartBlockPlugin(name string, generator func(jsonData []byte, args map[s
 	}
 }
 
-func (p *ChartBlockPlugin) Name() string { return p.name + "Block" }
+func (p *ChartBlockPlugin) Name() string            { return p.name + "Block" }
 func (p *ChartBlockPlugin) Pattern() *regexp.Regexp { return p.pattern }
 func (p *ChartBlockPlugin) Process(match []string, sourceDir string) (string, error) {
 	argStr := match[1]

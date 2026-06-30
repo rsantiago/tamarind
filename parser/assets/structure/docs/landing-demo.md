@@ -1,25 +1,14 @@
 ---
-title: "Tamarind Pro: Full-Bleed Canvas Showcase"
+title: "Landing Page Builder Demo: Full-Bleed Canvas Showcase"
 subtitle: "Build premium, high-converting, distraction-free landing pages in pure static markdown"
 canvas: true
 ---
 
 <!-- Hero Section (Naked Layout Showcase) -->
-<div style="text-align: center; margin: 4rem auto 2rem auto; max-width: 800px;">
-  <div style="display: inline-block; background: linear-gradient(135deg, var(--primary-color, #2563eb), #a855f7); color: #ffffff; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 1.5rem;">
-    Announcing Canvas Mode
-  </div>
-  <h1 style="font-size: 3.25rem; font-weight: 800; line-height: 1.15; margin: 0 0 1rem 0; letter-spacing: -1.5px; font-family: var(--font-heading, inherit);">
-    Create Gorgeous Landing Pages <br><span style="background: linear-gradient(to right, var(--primary-color, #2563eb), #22c55e); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Without Distractions</span>
-  </h1>
-  <p style="font-size: 1.25rem; color: var(--text-secondary, #64748b); line-height: 1.6; margin-bottom: 2rem;">
-    Zero distractions, zero menus, and zero complex JS bundles. Write standard markdown and let Tamarind's theme-aware layout compile a premium, air-gapped static landing page out-of-the-box.
-  </p>
-  <div style="display: flex; gap: 16px; justify-content: center; align-items: center; flex-wrap: wrap;">
-    {{ button href="#quick-start" type="primary" }}Deploy in 5 Seconds{{ /button }}
-    {{ button href="style-guide.html" }}Explore Style Guide{{ /button }}
-  </div>
-</div>
+{{ hero title="Create Gorgeous Landing Pages Without Distractions" subtitle="Zero distractions, zero menus, and zero complex JS bundles. Write standard markdown and let Tamarind's theme-aware layout compile a premium, air-gapped static landing page out-of-the-box." }}
+  {{ hero_btn label="Deploy in 5 Seconds" link="#quick-start" primary="true" }}
+  {{ hero_btn label="Explore Style Guide" link="style-guide.html" primary="false" }}
+{{ /hero }}
 
 <!-- Sales Letter Intro Paragraphs -->
 <div style="margin: 3rem auto; max-width: 800px; line-height: 1.8; font-size: 1.1rem; color: var(--text-color);">
@@ -202,7 +191,7 @@ canvas: true
 <div style="max-width: 600px; margin: 0 auto 3rem auto;">
   {{ dropdown id="plan-selector" label="Select a Tamarind License Plan:" }}
     {{ option value="free" }}Tamarind Community Edition (Open Source, Free){{ /option }}
-    {{ option value="pro" selected="true" }}Tamarind Pro Canvas License ($49/one-time){{ /option }}
+    {{ option value="pro" selected="true" }}Landing Page Builder Demo Canvas License ($49/one-time){{ /option }}
     {{ option value="enterprise" }}Tamarind Enterprise Bundle (Unlimited Sites){{ /option }}
   {{ /dropdown }}
 </div>

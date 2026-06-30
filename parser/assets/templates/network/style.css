@@ -13,6 +13,7 @@
     --text-secondary: #64748b;
     /* Slate 500 */
     --primary-color: #2563eb;
+    --btn-text-color: #ffffff;
     /* Was accent-color */
     /* Modern Royal Blue */
     --link-color: #2563eb;
@@ -764,4 +765,11 @@ figcaption {
     margin: 0;
     box-shadow: none;
     border-radius: 50%;
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

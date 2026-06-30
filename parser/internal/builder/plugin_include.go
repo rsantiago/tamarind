@@ -21,7 +21,7 @@ func NewIncludePlugin() *IncludePlugin {
 	}
 }
 
-func (p *IncludePlugin) Name() string { return "include" }
+func (p *IncludePlugin) Name() string            { return "include" }
 func (p *IncludePlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *IncludePlugin) Process(match []string, sourceDir string) (string, error) {
@@ -73,4 +73,8 @@ func (p *IncludePlugin) Process(match []string, sourceDir string) (string, error
 	}
 
 	return fmt.Sprintf("```%s\n%s\n```", lang, finalContent), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewIncludePlugin() })
 }

@@ -14,6 +14,7 @@
     --text-color: #1a1a1a;
     --text-secondary: #57606a;
     --primary-color: #e55300; /* Rich Deep Orange Accent */
+    --btn-text-color: #ffffff;
     --border-color: #d0d7de;
     --card-bg: #ffffff;
     --hover-bg: #f6f8fa;
@@ -52,6 +53,7 @@
     --text-color: #c9d1d9;
     --text-secondary: #8b949e;
     --primary-color: #f77825; /* Sleek Amber glow */
+    --btn-text-color: #ffffff;
     --border-color: #30363d;
     --card-bg: #161b22;
     --hover-bg: #21262d;
@@ -663,3 +665,10 @@ a:hover {
     box-shadow: 0 0 8px rgba(0, 255, 65, 0.2) !important;
 }
 
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
+}

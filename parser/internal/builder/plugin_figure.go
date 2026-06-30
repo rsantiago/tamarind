@@ -21,7 +21,7 @@ func NewFigurePlugin() *FigurePlugin {
 	}
 }
 
-func (p *FigurePlugin) Name() string { return "figure" }
+func (p *FigurePlugin) Name() string            { return "figure" }
 func (p *FigurePlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *FigurePlugin) Process(match []string, sourceDir string) (string, error) {
@@ -101,4 +101,8 @@ func (p *FigurePlugin) Process(match []string, sourceDir string) (string, error)
 
 	// Fallback
 	return fmt.Sprintf(`<figure><img src="%s" alt="%s"%s>%s</figure>`, src, caption, styleAttr, figcaptionHTML), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewFigurePlugin() })
 }

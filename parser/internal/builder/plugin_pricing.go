@@ -18,7 +18,7 @@ func NewPricingPlugin() *PricingPlugin {
 	}
 }
 
-func (p *PricingPlugin) Name() string { return "pricing" }
+func (p *PricingPlugin) Name() string            { return "pricing" }
 func (p *PricingPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *PricingPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -262,4 +262,8 @@ if (typeof togglePricingGrid !== 'function') {
   }
 }
 </script>`, gridID, monthlyLabel, gridID, annualLabel, discountBadgeHtml, plansHtml), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewPricingPlugin() })
 }

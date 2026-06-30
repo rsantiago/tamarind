@@ -14,6 +14,7 @@
     --text-color: #1d1d1f;          /* Apple Dark Charcoal */
     --text-secondary: #86868b;      /* Apple Grey */
     --primary-color: #0071e3;       /* Apple Interactive Blue */
+    --btn-text-color: #ffffff;
     --secondary-color: #1d1d1f;     /* Slate / Ink */
     --accent-color: #515154;
     --heading-color: #1d1d1f;
@@ -53,6 +54,7 @@
     --text-color: #f5f5f7;
     --text-secondary: #86868b;
     --primary-color: #2997ff;       /* Vibrant Apple Dark Blue */
+    --btn-text-color: #ffffff;
     --secondary-color: #ffffff;
     --heading-color: #f5f5f7;
     --border-color: #424245;
@@ -763,3 +765,10 @@ figcaption {
     margin-top: 0 !important;
 }
 
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
+}

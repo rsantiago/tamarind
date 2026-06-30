@@ -10,7 +10,11 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="{{ .RelPrefix }}index.html" class="logo">
+                {{ if .Data.info.use_image_logo }}
+                <img src="{{ .RelPrefix }}images/logo.png" alt="{{ .SiteName }}" style="height: 32px; width: auto; vertical-align: middle;">
+                {{ else }}
                 <span>tamarind</span>
+            {{ end }}
             </a>
             
             <ul class="nav-links">

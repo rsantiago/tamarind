@@ -9,6 +9,7 @@
 :root {
     /* Colors */
     --primary-color: #0f172a;       /* Sleek slate black */
+    --btn-text-color: #ffffff;
     --secondary-color: #4b5563;     /* Gray 600 */
     --accent-color: #2563eb;        /* High-tech royal blue */
     --background-color: #f8fafc;    /* Premium slate-50 white */
@@ -47,6 +48,7 @@
 
 [data-theme="dark"] {
     --primary-color: #f4f4f5;       /* Clean neutral zinc-100 */
+    --btn-text-color: #ffffff;
     --secondary-color: #a1a1aa;     /* Zinc-400 */
     --accent-color: #3b82f6;        /* Bright blue accent */
     --background-color: #09090b;    /* Pure elegant obsidian zinc-950 */
@@ -1247,3 +1249,9 @@ p code, li code {
     border-color: #1e293b !important;
 }
 
+
+/* Logo Requirement */
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
+}

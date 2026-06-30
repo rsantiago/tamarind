@@ -7,8 +7,12 @@
     <header class="site-header">
         <div class="nav-container">
             <a href="{{ .RelPrefix }}index.html" class="logo">
+                {{ if .Data.info.use_image_logo }}
+                <img src="{{ .RelPrefix }}images/logo.png" alt="{{ .SiteName }}" style="height: 32px; width: auto; vertical-align: middle;">
+                {{ else }}
                 <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32" fill="currentColor"><path d="M5 3.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm0 2.122a2.25 2.25 0 1 0-1.5 0v5.256a2.251 2.251 0 1 0 1.5 0V5.372zm8 0a2.25 2.25 0 1 0-1.5 0v.768c0 .502-.2 1.002-.555 1.358L8.66 9.782a.75.75 0 1 0 1.06 1.06l2.285-2.285c.641-.641.995-1.512.995-2.42V5.372zm-7.25 7.378a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0zm8-8a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0z"></path></svg>
                 {{ .SiteName }}
+            {{ end }}
             </a>
             <ul class="nav-links">
                 {{ range .Menu }}

@@ -13,6 +13,7 @@
     --text-color: #E0E0E0; /* Silver/Grey */
     --text-secondary: #909090;
     --primary-color: #D64E29; /* Industrial Rust */
+    --btn-text-color: #ffffff;
     --primary-dark: #A8361A;
     --border-color: #333333;
     --card-bg: #1A1A1A;
@@ -52,6 +53,7 @@
     --text-color: #1A1A1A;
     --text-secondary: #606060;
     --primary-color: #D64E29;
+    --btn-text-color: #ffffff;
     --border-color: #CCCCCC;
     --card-bg: #FFFFFF;
     --hover-bg: #E0E0E0;
@@ -667,4 +669,11 @@ a:hover {
     font-size: 0.85rem;
     font-family: var(--font-body);
     color: var(--text-color);
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

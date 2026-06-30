@@ -24,20 +24,30 @@ var defaultColors = []string{
 
 func generateDonutChart(sourceDir, filename string, args map[string]string) string {
 	content, err := os.ReadFile(filepath.Join(sourceDir, "data", filename))
-	if err != nil { return err.Error() }
+	if err != nil {
+		return err.Error()
+	}
 	return generateDonutChartFromJSON(content, args)
 }
 
 func generateDonutChartFromJSON(content []byte, args map[string]string) string {
 	var data []ChartDataPoint
-	if err := json.Unmarshal(content, &data); err != nil { return err.Error() }
+	if err := json.Unmarshal(content, &data); err != nil {
+		return err.Error()
+	}
 
 	total := 0.0
-	for _, d := range data { total += d.Value }
-	if total == 0 { total = 1 }
+	for _, d := range data {
+		total += d.Value
+	}
+	if total == 0 {
+		total = 1
+	}
 
 	html := `<div class="tamarind-piechart" style="margin: 2rem 0; padding: 1rem; border: 1px solid var(--border-color); border-radius: 8px;">`
-	if args["title"] != "" { html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1.5rem;">%s</h4>`, args["title"]) }
+	if args["title"] != "" {
+		html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1.5rem;">%s</h4>`, args["title"])
+	}
 	html += `<div class="tamarind-piechart-container" style="display: flex; gap: 30px; align-items: center; justify-content: center; flex-wrap: wrap;">`
 	html += `<div class="tamarind-donutchart-inner" style="position: relative; width: 250px; height: 250px;">`
 	html += `<svg viewBox="0 0 40 40" style="width: 100%; height: 100%; border-radius: 50%; transform: rotate(-90deg);">`
@@ -61,24 +71,34 @@ func generateDonutChartFromJSON(content []byte, args map[string]string) string {
 
 func generateHBarchart(sourceDir, filename string, args map[string]string) string {
 	content, err := os.ReadFile(filepath.Join(sourceDir, "data", filename))
-	if err != nil { return err.Error() }
+	if err != nil {
+		return err.Error()
+	}
 	return generateHBarchartFromJSON(content, args)
 }
 
 func generateHBarchartFromJSON(content []byte, args map[string]string) string {
 	var data []ChartDataPoint
-	if err := json.Unmarshal(content, &data); err != nil { return err.Error() }
+	if err := json.Unmarshal(content, &data); err != nil {
+		return err.Error()
+	}
 
 	max := 0.0
-	for _, d := range data { if d.Value > max { max = d.Value } }
+	for _, d := range data {
+		if d.Value > max {
+			max = d.Value
+		}
+	}
 	showX := args["grid-x-labels"] != "false"
 	showY := args["show-values"] != "false"
 	gridX := args["grid-x"] == "true"
 	gridY := args["grid-y"] == "true"
 
 	html := `<div class="tamarind-hbarchart" style="margin: 2rem 0; width: 100%;">`
-	if args["title"] != "" { html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"]) }
-	
+	if args["title"] != "" {
+		html += fmt.Sprintf(`<h4 class="tamarind-chart-title" style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"])
+	}
+
 	bgGradients := []string{}
 	bgSizes := []string{}
 	if gridY {
@@ -98,17 +118,17 @@ func generateHBarchartFromJSON(content []byte, args map[string]string) string {
 	for i, d := range data {
 		widthPct := (d.Value / max) * 100.0
 		color := defaultColors[i%len(defaultColors)]
-		
+
 		lblHtml := ""
 		if showY {
 			lblHtml = fmt.Sprintf(`<div style="width: 80px; font-size: 0.85rem; text-align:right;">%s</div>`, d.Label)
 		}
-		
+
 		valHtml := ""
 		if showX {
 			valHtml = fmt.Sprintf(`<span style="margin-left: 10px; font-size: 0.8rem;">%.1f</span>`, d.Value)
 		}
-		
+
 		html += fmt.Sprintf(`
 		<div style="display:flex; align-items:center; gap: 10px; flex: 1;">
 			%s
@@ -132,21 +152,29 @@ type MultiSeriesChartData struct {
 
 func generateMultiLineChart(sourceDir, filename string, args map[string]string) string {
 	content, err := os.ReadFile(filepath.Join(sourceDir, "data", filename))
-	if err != nil { return err.Error() }
+	if err != nil {
+		return err.Error()
+	}
 	return generateMultiLineChartFromJSON(content, args)
 }
 
 func generateMultiLineChartFromJSON(content []byte, args map[string]string) string {
 	var data MultiSeriesChartData
-	if err := json.Unmarshal(content, &data); err != nil { return err.Error() }
+	if err := json.Unmarshal(content, &data); err != nil {
+		return err.Error()
+	}
 
 	max := 0.0
 	for _, s := range data.Series {
 		for _, v := range s.Data {
-			if v > max { max = v }
+			if v > max {
+				max = v
+			}
 		}
 	}
-	if max == 0 { max = 1 }
+	if max == 0 {
+		max = 1
+	}
 
 	showX := args["grid-x-labels"] != "false"
 	showY := args["show-values"] != "false"
@@ -156,11 +184,13 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 
 	width, height, padding := 600.0, 250.0, 40.0
 	html := `<div class="tamarind-multiline" style="margin: 2rem 0; width: 100%;">`
-	if args["title"] != "" { html += fmt.Sprintf(`<h4 style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"]) }
+	if args["title"] != "" {
+		html += fmt.Sprintf(`<h4 style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"])
+	}
 	html += fmt.Sprintf(`<svg viewBox="0 0 %.0f %.0f" style="width: 100%%; height: auto; max-height: 300px; display: block; overflow: visible;">`, width, height)
-	
+
 	showYGridValues := args["grid-y-labels"] == "true"
-	
+
 	if gridY {
 		// Draw mild grid lines for Y axis
 		for i := 1; i <= 4; i++ {
@@ -176,9 +206,11 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 			html += fmt.Sprintf(`<text x="%.1f" y="%.1f" font-size="10" fill="var(--text-secondary)" text-anchor="end">%.0f</text>`, padding-5, padding+4, max)
 		}
 	}
-	
+
 	stepX := 0.0
-	if len(data.Categories) > 1 { stepX = (width - 2*padding) / float64(len(data.Categories)-1) }
+	if len(data.Categories) > 1 {
+		stepX = (width - 2*padding) / float64(len(data.Categories)-1)
+	}
 
 	if gridX {
 		for i := 0; i < len(data.Categories); i++ {
@@ -202,11 +234,13 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 		color := defaultColors[sIdx%len(defaultColors)]
 		points := ""
 		for i, v := range s.Data {
-			if i >= len(data.Categories) { break }
+			if i >= len(data.Categories) {
+				break
+			}
 			x := padding + float64(i)*stepX
 			y := height - padding - ((v / max) * (height - 2*padding))
 			points += fmt.Sprintf("%.1f,%.1f ", x, y)
-			
+
 			if showDots {
 				html += fmt.Sprintf(`<circle cx="%.1f" cy="%.1f" r="4" fill="%s" />`, x, y, color)
 			}
@@ -223,21 +257,29 @@ func generateMultiLineChartFromJSON(content []byte, args map[string]string) stri
 
 func generateGroupedBarChart(sourceDir, filename string, args map[string]string) string {
 	content, err := os.ReadFile(filepath.Join(sourceDir, "data", filename))
-	if err != nil { return err.Error() }
+	if err != nil {
+		return err.Error()
+	}
 	return generateGroupedBarChartFromJSON(content, args)
 }
 
 func generateGroupedBarChartFromJSON(content []byte, args map[string]string) string {
 	var data MultiSeriesChartData
-	if err := json.Unmarshal(content, &data); err != nil { return err.Error() }
+	if err := json.Unmarshal(content, &data); err != nil {
+		return err.Error()
+	}
 
 	max := 0.0
 	for _, s := range data.Series {
 		for _, v := range s.Data {
-			if v > max { max = v }
+			if v > max {
+				max = v
+			}
 		}
 	}
-	if max == 0 { max = 1 }
+	if max == 0 {
+		max = 1
+	}
 
 	showX := args["grid-x-labels"] != "false"
 	showY := args["show-values"] != "false"
@@ -245,8 +287,10 @@ func generateGroupedBarChartFromJSON(content []byte, args map[string]string) str
 	gridY := args["grid-y"] == "true"
 
 	html := `<div class="tamarind-groupedbar" style="margin: 2rem 0; width: 100%;">`
-	if args["title"] != "" { html += fmt.Sprintf(`<h4 style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"]) }
-	
+	if args["title"] != "" {
+		html += fmt.Sprintf(`<h4 style="text-align:center; margin-bottom: 1rem;">%s</h4>`, args["title"])
+	}
+
 	bgGradients := []string{}
 	bgSizes := []string{}
 	if gridY {
@@ -279,7 +323,9 @@ func generateGroupedBarChartFromJSON(content []byte, args map[string]string) str
 		html += `<div style="flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%;">`
 		html += `<div style="display:flex; align-items:flex-end; gap:4px; height:100%;">`
 		for sIdx, s := range data.Series {
-			if i >= len(s.Data) { continue }
+			if i >= len(s.Data) {
+				continue
+			}
 			val := s.Data[i]
 			heightPct := (val / max) * 100.0
 			color := defaultColors[sIdx%len(defaultColors)]
@@ -297,7 +343,7 @@ func generateGroupedBarChartFromJSON(content []byte, args map[string]string) str
 		html += `</div>`
 	}
 	html += `</div>`
-	
+
 	legendHtml := `<div style="display:flex; justify-content:center; gap:20px; margin-top:10px;">`
 	for sIdx, s := range data.Series {
 		color := defaultColors[sIdx%len(defaultColors)]
@@ -309,29 +355,41 @@ func generateGroupedBarChartFromJSON(content []byte, args map[string]string) str
 
 func generateRadarChart(sourceDir, filename string, args map[string]string) string {
 	content, err := os.ReadFile(filepath.Join(sourceDir, "data", filename))
-	if err != nil { return err.Error() }
+	if err != nil {
+		return err.Error()
+	}
 	return generateRadarChartFromJSON(content, args)
 }
 
 func generateRadarChartFromJSON(content []byte, args map[string]string) string {
 	var data MultiSeriesChartData
-	if err := json.Unmarshal(content, &data); err != nil { return err.Error() }
+	if err := json.Unmarshal(content, &data); err != nil {
+		return err.Error()
+	}
 
 	max := 0.0
 	for _, s := range data.Series {
 		for _, v := range s.Data {
-			if v > max { max = v }
+			if v > max {
+				max = v
+			}
 		}
 	}
-	if max == 0 { max = 1 }
+	if max == 0 {
+		max = 1
+	}
 
 	size, center, radius := 300.0, 150.0, 100.0
 	html := `<div class="tamarind-radarchart" style="margin: 2rem 0; width: 100%; display:flex; flex-direction:column; align-items:center;">`
-	if args["title"] != "" { html += fmt.Sprintf(`<h4 style="margin-bottom: 1rem;">%s</h4>`, args["title"]) }
+	if args["title"] != "" {
+		html += fmt.Sprintf(`<h4 style="margin-bottom: 1rem;">%s</h4>`, args["title"])
+	}
 	html += fmt.Sprintf(`<svg viewBox="0 0 %.0f %.0f" style="width: 100%%; max-width: 400px; height: auto;">`, size, size)
-	
+
 	sides := len(data.Categories)
-	if sides < 3 { return "Error: Radar chart requires at least 3 categories." }
+	if sides < 3 {
+		return "Error: Radar chart requires at least 3 categories."
+	}
 
 	// Draw web
 	for r := 1; r <= 5; r++ {
@@ -362,7 +420,9 @@ func generateRadarChartFromJSON(content []byte, args map[string]string) string {
 		color := defaultColors[sIdx%len(defaultColors)]
 		points := ""
 		for i, v := range s.Data {
-			if i >= sides { break }
+			if i >= sides {
+				break
+			}
 			angle := (math.Pi * 2 * float64(i) / float64(sides)) - (math.Pi / 2)
 			rVal := radius * (v / max)
 			x := center + rVal*math.Cos(angle)
@@ -374,7 +434,7 @@ func generateRadarChartFromJSON(content []byte, args map[string]string) string {
 		html += fmt.Sprintf(`<polygon points="%s" fill="%s" fill-opacity="0.3" stroke="%s" stroke-width="2" />`, points, color, color)
 	}
 	html += `</svg>`
-	
+
 	legendHtml := `<div style="display:flex; justify-content:center; gap:20px; margin-top:10px;">`
 	for sIdx, s := range data.Series {
 		color := defaultColors[sIdx%len(defaultColors)]

@@ -26,8 +26,7 @@ var unsafeGoldmark = goldmark.New(
 
 func BuildPluginRegistry() *PluginRegistry {
 	registry := NewPluginRegistry()
-	registerChartPlugins(registry)
-	
+
 	// Phase 3 & 5 Migrations
 	registry.Register(NewMermaidPlugin())
 	registry.Register(NewTabsPlugin())
@@ -57,19 +56,18 @@ func BuildPluginRegistry() *PluginRegistry {
 	registry.Register(NewFormCheckboxPlugin())
 	registry.Register(NewFormRadioGroupPlugin())
 	registry.Register(NewFormFilePlugin())
-	
+
 	return registry
 }
 
 func processShortcodes(registry *PluginRegistry, markdown, sourceDir string) string {
-	
+
 	markdown = registry.ProcessShortcodes(markdown, sourceDir)
 	// 0. Agent (Comment): {{ agent "instruction" }} -> Removed from output
 	reAgent := regexp.MustCompile(`{{\s*agent\s+"(.*?)"\s*}}`)
 	markdown = reAgent.ReplaceAllString(markdown, "")
 
 	// Chart Widgets have been migrated to the PluginRegistry (plugin_chart.go)
-
 
 	// Cleanup Escape Token {{!}}
 	markdown = strings.ReplaceAll(markdown, "{{!}}", "")

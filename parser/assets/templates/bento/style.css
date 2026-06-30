@@ -13,6 +13,7 @@
     --text-color: #1C1C1E;
     --text-secondary: #4E4E52; /* Much higher contrast than #8E8E93 */
     --primary-color: #0076A8; /* High legibility cyan blue */
+    --btn-text-color: #ffffff;
     --primary-dark: #005A82;
     --border-color: #D1D1D6;
     --card-bg: #FFFFFF;
@@ -50,6 +51,7 @@
     --text-color: #F2F2F7;
     --text-secondary: #C7C7CC; /* Higher contrast than #98989D */
     --primary-color: #64D2FF;
+    --btn-text-color: #ffffff;
     --border-color: #2C2C2E;
     --card-bg: #1C1C1E;
     --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
@@ -523,4 +525,10 @@ a:hover {
 .alert-tip {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Logo Requirement */
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

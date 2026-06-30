@@ -14,6 +14,7 @@
     --text-color: #E2E8F0; /* Soft Silver */
     --text-secondary: #94A3B8; /* Slate Gray */
     --primary-color: #C084FC; /* Bright Neon Purple */
+    --btn-text-color: #000000;
     --primary-dark: #9333EA;
     --secondary-color: #A78BFA;
     --border-color: #2E1B4A; /* Deep Indigo Border */
@@ -54,6 +55,7 @@
     --text-color: #2E1B4A;
     --text-secondary: #581C87;
     --primary-color: #9333EA;
+    --btn-text-color: #000000;
     --card-bg: #FFFFFF;
     --border-color: #E9D5FF;
 
@@ -549,4 +551,11 @@ a:hover {
 .alert-tip {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

@@ -14,6 +14,7 @@ import (
 	"regexp"
 	"strconv"
 	"strings"
+	textTemplate "text/template"
 
 	"github.com/rsantiago/tamarind/parser/internal/models"
 	"github.com/yuin/goldmark"
@@ -48,8 +49,9 @@ func generatePage(registry *PluginRegistry, srcPath, sourceDir, websiteDir strin
 	bodyMarkdown = processShortcodes(registry, bodyMarkdown, sourceDir)
 
 	// Execute Body as Template (to allow {{ .Data.foo }})
-	// We create a temporary template from the markdown body
-	contentTmpl, err := template.New("content").Parse(bodyMarkdown)
+	// Execute Body as Template (to allow {{ .Data.foo }})
+	// We create a temporary template from the markdown body using text/template
+	contentTmpl, err := textTemplate.New("content").Parse(bodyMarkdown)
 	if err == nil {
 		var buf bytes.Buffer
 		// Context for the content template
@@ -282,18 +284,18 @@ func generateCollectionIndex(name string, items []models.ArticleMeta, tmpl *temp
 		}
 
 		data := models.PageData{
-			Title:        strings.Title(baseName),
-			Subtitle:     fmt.Sprintf("Index of %s (Page %d)", baseName, page),
-			Articles:     pageItems,
-			Menu:         menu,
-			RelPrefix:    relPrefix,
-			SiteName:     siteName,
-			BaseURL:      baseURL,
-			CanonicalURL: baseURL + "/" + outputRelPath,
-			Description:  fmt.Sprintf("Browse %s on %s - Page %d", baseName, siteName, page),
-			CustomCSS:    customCSS,
-			Paginator:    paginator,
-			Data:         siteData,
+			Title:            strings.Title(baseName),
+			Subtitle:         fmt.Sprintf("Index of %s (Page %d)", baseName, page),
+			Articles:         pageItems,
+			Menu:             menu,
+			RelPrefix:        relPrefix,
+			SiteName:         siteName,
+			BaseURL:          baseURL,
+			CanonicalURL:     baseURL + "/" + outputRelPath,
+			Description:      fmt.Sprintf("Browse %s on %s - Page %d", baseName, siteName, page),
+			CustomCSS:        customCSS,
+			Paginator:        paginator,
+			Data:             siteData,
 			AttributionStyle: "date-and-author",
 		}
 

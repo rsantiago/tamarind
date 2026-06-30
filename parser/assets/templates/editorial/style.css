@@ -15,6 +15,7 @@
     --text-light: #666666;
     --text-secondary: var(--text-light);
     --primary-color: #D4A373;
+    --btn-text-color: #000000;
     /* Was accent-color */
     --link-color: #2A2A2A;
     --h1-gradient-start: var(--heading-color, #2b1055);
@@ -62,6 +63,7 @@
     --text-light: #9A98A0;
     --text-secondary: var(--text-light);
     --primary-color: #00D9FF;
+    --btn-text-color: #000000;
     --link-color: #D4D2CD;
     --h1-gradient-start: var(--heading-color, #C9522A);
     --h1-gradient-end: var(--heading-color, #FFA574);
@@ -123,14 +125,14 @@ body {
 }
 
 /* --- Global Links --- */
-.layout-container a {
+.layout-container a:not(.btn) {
     color: var(--link-color);
     text-decoration: none;
     border-bottom: 1px solid var(--border-color-medium);
     transition: all 0.2s ease;
 }
 
-.layout-container a:hover {
+.layout-container a:not(.btn):hover {
     color: var(--primary-color);
     border-bottom-color: var(--primary-color);
 }
@@ -788,18 +790,6 @@ figcaption {
     text-transform: uppercase;
 }
 
-/* Cards */
-.card {
-    background-color: var(--card-bg);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow);
-    padding: 24px;
-}
-
-.card-padding {
-    padding: 24px;
-}
-
 /* --- Theme Design System Components (Compliance Spec) --- */
 .card {
     background-color: #F3EFE9;
@@ -807,8 +797,6 @@ figcaption {
     border-radius: var(--radius-lg, 8px);
     box-shadow: var(--shadow, 0 4px 6px rgba(0, 0, 0, 0.04));
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    margin: 2rem auto 3rem auto !important;
-    display: block;
 }
 .card-padding {
     padding: 24px;
@@ -881,4 +869,11 @@ figcaption {
 .alert-tip {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

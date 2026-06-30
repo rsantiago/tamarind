@@ -14,6 +14,7 @@
     --text-color: #333333; /* Charcoal */
     --text-secondary: #4E4E52; /* High legibility secondary text */
     --primary-color: #D64045; /* Soft Red Accent */
+    --btn-text-color: #ffffff;
     --border-color: #E2E0D9;
     --card-bg: #FFFFFF;
     --hover-bg: #EAE8E3;
@@ -49,6 +50,7 @@
     --text-color: #E0E0E0;
     --text-secondary: #B0B0B8; /* High legibility secondary text dark */
     --primary-color: #EF6368;
+    --btn-text-color: #ffffff;
     --border-color: #333333;
     --card-bg: #262626;
     --hover-bg: #2E2E2E;
@@ -710,4 +712,10 @@ main {
     max-width: 100% !important;
     margin: 0 !important;
     gap: 0 !important;
+}
+
+/* Logo Requirement */
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

@@ -13,6 +13,7 @@
     --text-color: #111111; /* Stark Black */
     --text-secondary: #5A5A58; /* Muted Grey */
     --primary-color: #000000; /* Pure Black Action */
+    --btn-text-color: #ffffff;
     --primary-dark: #333333;
     --border-color: #D1CFCA; /* Slightly darker warm grey */
     --card-bg: #F4F3F0; /* Off-white warm card */
@@ -49,6 +50,7 @@
     --text-color: #E8E6E1;
     --text-secondary: #A09F9C;
     --primary-color: #FFFFFF;
+    --btn-text-color: #ffffff;
     --border-color: #2A2A2A;
     --card-bg: #1A1A1A;
     --shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
@@ -542,4 +544,11 @@ a:hover {
 .alert-tip {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

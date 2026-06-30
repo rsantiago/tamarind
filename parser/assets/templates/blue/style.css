@@ -13,6 +13,7 @@
     --text-color: #0F172A; /* Slate 900 */
     --text-secondary: #475569; /* Slate 600 */
     --primary-color: #06B6D4; /* Tech Cyan */
+    --btn-text-color: #000000;
     --primary-dark: #0891B2;
     --border-color: #E2E8F0;
     --border-color-medium: #CBD5E1;
@@ -50,6 +51,7 @@
     --text-color: #F8FAFC;
     --text-secondary: #94A3B8;
     --primary-color: #22D3EE; /* Lighter Cyan */
+    --btn-text-color: #000000;
     --primary-dark: #06B6D4;
     --border-color: #1E293B;
     --border-color-medium: #334155;
@@ -627,3 +629,9 @@ a:hover {
 }
 
 
+
+/* Logo Requirement */
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
+}

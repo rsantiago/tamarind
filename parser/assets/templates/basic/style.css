@@ -15,6 +15,7 @@
     --text-light: #555555;
     --text-secondary: var(--text-light);
     --primary-color: #0047AB; /* Classic Blue */
+    --btn-text-color: #ffffff;
     --link-color: #0047AB;
     --h1-color: #111111;
     --h2-highlight: rgba(0, 71, 171, 0.1);
@@ -58,6 +59,7 @@
     --text-light: #A0A0A0;
     --text-secondary: var(--text-light);
     --primary-color: #4D90FE;
+    --btn-text-color: #ffffff;
     --link-color: #4D90FE;
     --h1-color: #FFFFFF;
     --h2-highlight: rgba(77, 144, 254, 0.15);
@@ -497,3 +499,9 @@ figcaption { margin-top: 0.75rem; font-size: 0.9rem; color: var(--text-light); }
 }
 
 
+
+/* Logo Requirement */
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
+}

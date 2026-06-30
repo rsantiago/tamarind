@@ -8,6 +8,7 @@
     --text-color: #242424;
     --text-secondary: #6b6b6b;
     --primary-color: #1a8917;
+    --btn-text-color: #ffffff;
     /* Medium-greenish accent */
     --border-color: #f2f2f2;
     --card-bg: #fafafa;
@@ -43,6 +44,7 @@
     --text-color: #e0e0e0;
     --text-secondary: #a0a0a0;
     --primary-color: #1a8917;
+    --btn-text-color: #ffffff;
     --border-color: #2a2a2a;
     --card-bg: #1e1e1e;
 
@@ -707,3 +709,10 @@ a:hover {
     font-size: 14px !important;
 }
 
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
+}

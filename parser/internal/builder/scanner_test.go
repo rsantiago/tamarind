@@ -213,23 +213,23 @@ func TestParseFrontMatter_AttributionStyle(t *testing.T) {
 		expected string
 	}{
 		{
-			name: "Default AttributionStyle is empty string",
-			content: "---\ntitle: Test\n---\nContent",
+			name:     "Default AttributionStyle is empty string",
+			content:  "---\ntitle: Test\n---\nContent",
 			expected: "",
 		},
 		{
-			name: "Explicit None AttributionStyle",
-			content: "---\ntitle: Test\nattribution_style: none\n---\nContent",
+			name:     "Explicit None AttributionStyle",
+			content:  "---\ntitle: Test\nattribution_style: none\n---\nContent",
 			expected: "none",
 		},
 		{
-			name: "Explicit Date Only",
-			content: "---\ntitle: Test\nattribution_style: date-only\n---\nContent",
+			name:     "Explicit Date Only",
+			content:  "---\ntitle: Test\nattribution_style: date-only\n---\nContent",
 			expected: "date-only",
 		},
 		{
-			name: "Explicit Author Only",
-			content: "---\ntitle: Test\nattribution_style: author-only\n---\nContent",
+			name:     "Explicit Author Only",
+			content:  "---\ntitle: Test\nattribution_style: author-only\n---\nContent",
 			expected: "author-only",
 		},
 	}

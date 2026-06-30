@@ -1,27 +1,27 @@
 package builder
 
-func registerChartPlugins(registry *PluginRegistry) {
-	registry.Register(NewChartFilePlugin("barchart", generateBarChart))
-	registry.Register(NewChartBlockPlugin("barchart", generateBarChartFromJSON))
-	
-	registry.Register(NewChartFilePlugin("piechart", generatePieChart))
-	registry.Register(NewChartBlockPlugin("piechart", generatePieChartFromJSON))
-	
-	registry.Register(NewChartFilePlugin("linechart", generateLineChart))
-	registry.Register(NewChartBlockPlugin("linechart", generateLineChartFromJSON))
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartFilePlugin("barchart", generateBarChart) })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartBlockPlugin("barchart", generateBarChartFromJSON) })
 
-	registry.Register(NewChartFilePlugin("donutchart", generateDonutChart))
-	registry.Register(NewChartBlockPlugin("donutchart", generateDonutChartFromJSON))
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartFilePlugin("piechart", generatePieChart) })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartBlockPlugin("piechart", generatePieChartFromJSON) })
 
-	registry.Register(NewChartFilePlugin("hbarchart", generateHBarchart))
-	registry.Register(NewChartBlockPlugin("hbarchart", generateHBarchartFromJSON))
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartFilePlugin("linechart", generateLineChart) })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartBlockPlugin("linechart", generateLineChartFromJSON) })
 
-	registry.Register(NewChartFilePlugin("multilinechart", generateMultiLineChart))
-	registry.Register(NewChartBlockPlugin("multilinechart", generateMultiLineChartFromJSON))
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartFilePlugin("donutchart", generateDonutChart) })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartBlockPlugin("donutchart", generateDonutChartFromJSON) })
 
-	registry.Register(NewChartFilePlugin("groupedbarchart", generateGroupedBarChart))
-	registry.Register(NewChartBlockPlugin("groupedbarchart", generateGroupedBarChartFromJSON))
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartFilePlugin("hbarchart", generateHBarchart) })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartBlockPlugin("hbarchart", generateHBarchartFromJSON) })
 
-	registry.Register(NewChartFilePlugin("radarchart", generateRadarChart))
-	registry.Register(NewChartBlockPlugin("radarchart", generateRadarChartFromJSON))
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartFilePlugin("multilinechart", generateMultiLineChart) })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartBlockPlugin("multilinechart", generateMultiLineChartFromJSON) })
+
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartFilePlugin("groupedbarchart", generateGroupedBarChart) })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartBlockPlugin("groupedbarchart", generateGroupedBarChartFromJSON) })
+
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartFilePlugin("radarchart", generateRadarChart) })
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewChartBlockPlugin("radarchart", generateRadarChartFromJSON) })
 }

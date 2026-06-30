@@ -13,6 +13,7 @@
     --text-color: #1A1A1A; /* Deep Black */
     --text-secondary: #555555;
     --primary-color: #000000;
+    --btn-text-color: #ffffff;
     --border-color: #DDDDDD;
     --border-heavy: #000000;
     --card-bg: #FFFFFF;
@@ -49,6 +50,7 @@
     --text-color: #E8E8E8;
     --text-secondary: #AAAAAA;
     --primary-color: #FFFFFF;
+    --btn-text-color: #ffffff;
     --border-color: #333333;
     --border-heavy: #FFFFFF;
     --card-bg: #1A1A1A;
@@ -642,4 +644,11 @@ a:hover {
     font-size: 0.95rem;
     color: var(--text-secondary);
     line-height: 1.5;
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

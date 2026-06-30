@@ -16,7 +16,7 @@ func NewButtonPlugin() *ButtonPlugin {
 	}
 }
 
-func (p *ButtonPlugin) Name() string { return "button" }
+func (p *ButtonPlugin) Name() string            { return "button" }
 func (p *ButtonPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *ButtonPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -59,4 +59,8 @@ func (p *ButtonPlugin) Process(match []string, sourceDir string) (string, error)
 	}
 
 	return fmt.Sprintf(`<a href="%s" class="%s"%s>%s</a>`, href, classAttr, targetAttr, strings.TrimSpace(content)), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewButtonPlugin() })
 }

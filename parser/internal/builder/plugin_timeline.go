@@ -17,7 +17,7 @@ func NewTimelinePlugin() *TimelinePlugin {
 	}
 }
 
-func (p *TimelinePlugin) Name() string { return "timeline" }
+func (p *TimelinePlugin) Name() string            { return "timeline" }
 func (p *TimelinePlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *TimelinePlugin) Process(match []string, sourceDir string) (string, error) {
@@ -26,7 +26,7 @@ func (p *TimelinePlugin) Process(match []string, sourceDir string) (string, erro
 	reItem1 := regexp.MustCompile(`(?s){{\s*item\s+title="([^"]+)"(?:\s+number="([^"]*)")?\s*}}(.*?){{\s*/item\s*}}`)
 	reItem2 := regexp.MustCompile(`(?s){{\s*timeline-item\s+step="([^"]+)"\s+title="([^"]+)"\s*}}(.*?){{\s*/timeline-item\s*}}`)
 	itemsHtml := ""
-	
+
 	item1Matches := reItem1.FindAllStringSubmatch(content, -1)
 	for _, itemSubmatch := range item1Matches {
 		title := itemSubmatch[1]
@@ -78,4 +78,8 @@ func (p *TimelinePlugin) Process(match []string, sourceDir string) (string, erro
 	}
 
 	return fmt.Sprintf(`<div class="timeline-container">%s</div>`, itemsHtml), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewTimelinePlugin() })
 }

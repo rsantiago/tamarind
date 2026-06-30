@@ -13,6 +13,7 @@
     --text-color: #242729; /* Deep Charcoal */
     --text-secondary: #5C6A75;
     --primary-color: #F48024; /* Neon Orange */
+    --btn-text-color: #000000;
     --border-color: #D6D9DC;
     --card-bg: #FFFFFF;
     --hover-bg: #F1F2F3;
@@ -53,6 +54,7 @@
     --text-color: #ADBAC7;
     --text-secondary: #768390;
     --primary-color: #F48024;
+    --btn-text-color: #000000;
     --border-color: #444C56;
     --card-bg: #22272E;
     --hover-bg: #373E47;
@@ -641,4 +643,11 @@ a:hover {
 .alert-tip {
     border-left-color: #28a745;
     background-color: rgba(40, 167, 69, 0.05);
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

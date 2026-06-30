@@ -194,7 +194,7 @@ func CheckRequirement(analysis *CSSAnalysis, req Requirement) bool {
 			return false
 		}
 		tplStr := string(tplContent)
-		if target == "tamarind-ghost-badge" {
+		if target == "tamarind-ghost-badge" || target == "use_image_logo" {
 			return strings.Contains(tplStr, target)
 		}
 		return (strings.Contains(tplStr, target) || strings.Contains(tplStr, "footer.mdt"))
@@ -229,7 +229,7 @@ func verifyBackgroundContrast(analysis *CSSAnalysis) bool {
 	lLightBg := RelativeLuminance(r1, g1, b1)
 	lLightCard := RelativeLuminance(r2, g2, b2)
 	lightRatio := ContrastRatio(lLightBg, lLightCard)
-	
+
 	if lightRatio < 1.015 {
 		return false
 	}
@@ -254,8 +254,12 @@ func verifyBackgroundContrast(analysis *CSSAnalysis) bool {
 func verifyChartColorsContrast(analysis *CSSAnalysis) bool {
 	lightVars := analysis.LightVars
 	darkVars := make(map[string]string)
-	for k, v := range analysis.LightVars { darkVars[k] = v }
-	for k, v := range analysis.DarkVars { darkVars[k] = v }
+	for k, v := range analysis.LightVars {
+		darkVars[k] = v
+	}
+	for k, v := range analysis.DarkVars {
+		darkVars[k] = v
+	}
 
 	getChartColor := func(vars map[string]string, index int) string {
 		cName := fmt.Sprintf("--chart-%d", index)
@@ -263,22 +267,33 @@ func verifyChartColorsContrast(analysis *CSSAnalysis) bool {
 			return ResolveVal(val, vars)
 		}
 		switch index {
-		case 1: return ResolveVal(vars["--primary-color"], vars)
-		case 2: return ResolveVal(vars["--secondary-color"], vars)
-		case 3: return "#93761f"
-		case 4: return "#8ba5c0"
-		case 5: return "#8f233e"
-		case 6: return "#bcd278"
-		case 7: return "#23468f"
-		case 8: return "#db8b6f"
-		case 9: return "#595959"
+		case 1:
+			return ResolveVal(vars["--primary-color"], vars)
+		case 2:
+			return ResolveVal(vars["--secondary-color"], vars)
+		case 3:
+			return "#93761f"
+		case 4:
+			return "#8ba5c0"
+		case 5:
+			return "#8f233e"
+		case 6:
+			return "#bcd278"
+		case 7:
+			return "#23468f"
+		case 8:
+			return "#db8b6f"
+		case 9:
+			return "#595959"
 		}
 		return ""
 	}
 
 	checkContrast := func(vars map[string]string) bool {
 		bgVal := vars["--card-bg"]
-		if bgVal == "" { bgVal = vars["--background-color"] }
+		if bgVal == "" {
+			bgVal = vars["--background-color"]
+		}
 		bgVal = ResolveVal(bgVal, vars)
 		br, bg, bb, bgOk := ParseColor(bgVal)
 		bgL := RelativeLuminance(br, bg, bb)
@@ -286,13 +301,16 @@ func verifyChartColorsContrast(analysis *CSSAnalysis) bool {
 		for i := 1; i <= 9; i++ {
 			ci := getChartColor(vars, i)
 			ri, gi, bi, oki := ParseColor(ci)
-			if !oki { continue }
+			if !oki {
+				continue
+			}
 			li := RelativeLuminance(ri, gi, bi)
 
 			if bgOk {
-				if ContrastRatio(li, bgL) < 1.35 { return false }
+				if ContrastRatio(li, bgL) < 1.35 {
+					return false
+				}
 			}
-
 
 		}
 		return true

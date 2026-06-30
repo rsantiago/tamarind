@@ -12,6 +12,7 @@
 
     /* Colors */
     --primary-color: #66FCF1;
+    --btn-text-color: #000000;
     --secondary-color: #45A29E;
 
     --border-color: #2E3543;        /* Soft luxurious steel gray border */
@@ -1078,4 +1079,11 @@ figcaption {
 .card .badge-danger {
     margin-top: auto !important;
     align-self: flex-start !important;
+}
+
+/* Logo Requirement */
+.logo { display: inline-flex; align-items: center; }
+.logo img {
+    max-height: 40px;
+    object-fit: contain;
 }

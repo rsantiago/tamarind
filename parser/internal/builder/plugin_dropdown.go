@@ -16,7 +16,7 @@ func NewDropdownPlugin() *DropdownPlugin {
 	}
 }
 
-func (p *DropdownPlugin) Name() string { return "dropdown" }
+func (p *DropdownPlugin) Name() string            { return "dropdown" }
 func (p *DropdownPlugin) Pattern() *regexp.Regexp { return p.pattern }
 
 func (p *DropdownPlugin) Process(match []string, sourceDir string) (string, error) {
@@ -37,7 +37,7 @@ func (p *DropdownPlugin) Process(match []string, sourceDir string) (string, erro
 
 	reOption := regexp.MustCompile(`(?s){{\s*option\s+value="([^"]+)"(?:\s+selected="([^"]*)")?\s*}}(.*?){{\s*/option\s*}}`)
 	optionsHtml := ""
-	
+
 	optMatches := reOption.FindAllStringSubmatch(content, -1)
 	for _, itemSubmatch := range optMatches {
 		val := itemSubmatch[1]
@@ -65,4 +65,8 @@ func (p *DropdownPlugin) Process(match []string, sourceDir string) (string, erro
 	chevronSvg := getBuiltInIconSvg("chevron")
 
 	return fmt.Sprintf(`<div class="tamarind-select-wrapper">%s<div class="tamarind-select-control"><select class="tamarind-select"%s>%s</select><div class="tamarind-select-chevron">%s</div></div></div>`, labelHtml, idAttr, optionsHtml, chevronSvg), nil
+}
+
+func init() {
+	RegisterDefaultPlugin(func() ShortcodePlugin { return NewDropdownPlugin() })
 }
