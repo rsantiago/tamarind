@@ -17,41 +17,135 @@ Tamarind is an enterprise-grade, blazing-fast static site engine written entirel
 * **Theme-Aware Ecosystem:** Shipped with 31+ embedded, premium aesthetic themes built into the compiler binary, enforcing strict color-contrast rules and UI layout consistency.
 * **Zero Infrastructure:** No databases. No external packages. Pure, secure static file output ready for immediate S3/CDN deployment.
 
-## 2. Architecture & Pipeline
+## 2. High-Level Compilation Lifecycle
 
-Tamarind's compiler leverages an abstract syntax tree (AST) traversal to process markdown, intercepting proprietary shortcodes and expanding them into rich, reactive UI components via an extensible Plugin Registry.
-
-### 2.1 The Compilation Pipeline
+Tamarind operates as a strict, deterministic compilation pipeline. The build process ingests raw markdown, resolves complex extensible shortcodes via the Plugin Registry, and emits pristine, optimized HTML.
 
 ```mermaid
-graph TD
-    Src["Markdown Assets"] --> CLI{"Tamarind Compiler"}
-    CLI --> AST["Goldmark AST Parser"]
-    AST --> PR["Plugin Registry"]
-    PR --> SC["Shortcode Engine"]
-    SC --> UI["Component Rendering"]
-    UI --> HTML["Static HTML Output"]
-    HTML --> CDN["Deployment Edge"]
+sequenceDiagram
+    participant CLI as main.go
+    participant Builder as builder.go
+    participant Scanner as scanner.go
+    participant Registry as PluginRegistry
+    participant Goldmark as goldmark
+    participant Templates as html_template
+    CLI->>Builder: Build
+    Builder->>Registry: BuildPluginRegistry
+    Builder->>Templates: ParseFiles
+    Builder->>Scanner: Scan
+    Scanner-->>Builder: File Graph and Menu
+    loop Every Markdown File
+        Builder->>Registry: ProcessShortcodes
+        Registry-->>Builder: resolved_markdown
+        Builder->>Goldmark: Convert
+        Goldmark-->>Builder: html_body
+        Builder->>Templates: ExecuteTemplate
+        Templates-->>Builder: final_html
+    end
+    Builder->>Builder: Process Assets
+    Builder->>Builder: Generate SEO
 ```
 
-### 2.2 The Plugin Registry (OCP Compliant)
+## 3. The Plugin Registry (OCP Compliant)
 
-Tamarind implements a strictly decoupled `PluginRegistry` architecture following the Open-Closed Principle (OCP). All UI components (Charts, Terminals, Timelines, Code Blocks) are injected dynamically as atomic Go packages into the markdown rendering pipeline. This ensures that the core compiler remains perfectly isolated and fully extensible by enterprise engineering teams without risking upstream regressions.
+Tamarind implements a strictly decoupled `PluginRegistry` architecture following the Open-Closed Principle (OCP). All UI components are injected dynamically as atomic Go packages into the markdown rendering pipeline. This ensures that the core compiler remains perfectly isolated.
 
-## 3. Advanced Capabilities (The "Dev Spice")
+### Plugin Hierarchy
+
+```mermaid
+graph LR
+    PR["PluginRegistry"] --> UI["UI Components"]
+    PR --> LP["Landing Page Builder"]
+    PR --> DataVis["Data Visualization"]
+    PR --> Form["Form Interactions"]
+    PR --> Utilities["Utilities and External"]
+    UI --> Accordion["Accordion Component"]
+    UI --> Alert["Alert Callouts"]
+    UI --> Tabs["Tabs Component"]
+    UI --> Timeline["Timeline Component"]
+    UI --> Dropdown["Dropdown Menus"]
+    LP --> Features["Features and Capabilities"]
+    LP --> Pricing["Pricing Tables"]
+    LP --> Card["Card and Badge Components"]
+    LP --> Buttons["Call to Action Buttons"]
+    LP --> Social["Social Ribbons"]
+    LP --> Media["Media Figures"]
+    DataVis --> Chart["Chart Visualizations"]
+    DataVis --> Mermaid["Mermaid Diagrams"]
+    DataVis --> Metrics["Metrics Scorecards"]
+    Form --> FormContainer["Form Endpoints"]
+    Form --> Inputs["Form Inputs"]
+    Utilities --> Terminal["Terminal Simulator"]
+    Utilities --> Include["Include External"]
+    Utilities --> Gist["Gist Snippets"]
+    Utilities --> Math["Math LaTeX"]
+```
+
+## 4. The Data Model
+
+As the scanner reads the file system, it populates shared data structs. The primary composite structure injected into the HTML templates is `PageData`. Templates access these variables directly using Go template syntax.
+
+```mermaid
+classDiagram
+    class PageData {
+        +String Title
+        +String Subtitle
+        +String Description
+        +String Body
+        +List Articles
+        +List Menu
+        +Map Data
+        +Paginator Paginator
+        +List ContextualSidebar
+    }
+    class ArticleMeta {
+        +String Title
+        +String Date
+        +String URL
+        +List Tags
+        +String Author
+    }
+    class MenuItem {
+        +String Title
+        +String URL
+        +int Order
+    }
+    class Paginator {
+        +int CurrentPage
+        +int TotalPages
+        +List VisiblePages
+    }
+    class PageLink {
+        +int Number
+        +String URL
+        +bool IsCurrent
+    }
+    class SidebarItem {
+        +String Title
+        +String URL
+        +bool IsCurrent
+    }
+    PageData *-- ArticleMeta : Composes
+    PageData *-- MenuItem : Composes
+    PageData *-- Paginator : Composes
+    PageData *-- SidebarItem : Composes
+    Paginator *-- PageLink : Composes
+```
+
+## 5. Advanced Capabilities (The "Dev Spice")
 
 ### 📈 Embedded Data Visualization
 No need for external charting libraries like Chart.js or D3. Tamarind parses raw data structures from markdown and natively compiles them into interactive, SVG-based Bar, Line, Pie, and Grouped Bar charts.
 
 ### 💻 Time to Hello World < 3 Seconds
-Extract the entire `writer-sandbox` default structure instantly. Tamarind requires exactly zero configuration files to start rendering beautiful documentation and landing pages.
+Extract the entire `writer-sandbox` default structure instantly via the `go:embed` virtual filesystem. Tamarind requires exactly zero configuration files to start rendering beautiful documentation and landing pages.
 
 ### 🎨 Guaranteed Contrast Ratios
 Our internal stylesheet compilation engine dynamically injects CSS variables globally across the site, ensuring that all 31 embedded themes exceed WCAG AAA accessibility standards regardless of dark/light mode toggling.
 
 ---
 
-## 4. Agent-Native Installation
+## 6. Agent-Native Installation
 
 We have completely removed the friction of manual environment setup. You can deploy Tamarind simply by instructing your AI agent.
 
@@ -81,7 +175,7 @@ make build
 
 ---
 
-## 5. Licensing & Governance
+## 7. Licensing & Governance
 
 Tamarind is distributed under the **Business Source License (BSL 1.1)**. It is free for non-production use and open for code inspection, but strictly protected against unauthorized commercial exploitation and SaaS repackaging.
 
