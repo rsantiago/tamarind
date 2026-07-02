@@ -19,3 +19,7 @@ website/
 /parser/build_error.log
 /parser/server.log
 *.log
+
+venv/
+node_modules/
+writer-sandbox-backup*/

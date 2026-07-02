@@ -1,0 +1,200 @@
+
+<figure><img src="images/logo.png" srcset="images/logo-480w.png 480w" sizes="(max-width: 480px) 100vw, (max-width: 800px) 100vw, 100vw" alt="" style="width: 300px; margin: 0 auto; display: block;"></figure>
+
+## Generate. Edit. Deploy.
+
+Stop fighting with complex frameworks. Get a live local development server running instantly, ready for you to add your content. Go from zero to a live site in seconds:
+
+<div class="timeline-container"><div class="timeline-item"><div class="timeline-badge"><span class="timeline-badge-number">1</span></div><div class="timeline-content"><h3 class="timeline-title">Run the Quickstart</h3><div class="timeline-desc"><p>Run the quickstart command in your terminal. This boots up the development server instantly with zero configuration:</p>
+  <script>
+if (typeof tamarindSwitchTerminalTab !== 'function') {
+window.tamarindSwitchTerminalTab = function(evt, tabId) {
+var i, tabpanes, tablinks;
+var container = evt.currentTarget.closest('.terminal');
+tabpanes = container.getElementsByClassName("terminal-tab-pane");
+for (i = 0; i < tabpanes.length; i++) {
+tabpanes[i].className = "terminal-tab-pane";
+}
+tablinks = container.getElementsByClassName("terminal-tab-btn");
+for (i = 0; i < tablinks.length; i++) {
+tablinks[i].className = tablinks[i].className.replace(" active", "");
+}
+document.getElementById(tabId).className = "terminal-tab-pane active";
+evt.currentTarget.className += " active";
+};
+window.tamarindCopyTerminal = function(evt) {
+var container = evt.currentTarget.closest('.terminal');
+var activePane = container.querySelector('.terminal-tab-pane.active code');
+var content = "";
+if (activePane) {
+content = activePane.innerText;
+} else {
+var codeBlock = container.querySelector('.terminal-content code');
+if (codeBlock) content = codeBlock.innerText;
+}
+// Strip terminal prompts like '$', 'PS>', or '>' from the beginning of lines
+content = content.replace(/^(?:\$|PS>|>)\s*/gm, '').trim();
+navigator.clipboard.writeText(content).then(function() {
+var btn = evt.currentTarget;
+var originalHtml = btn.innerHTML;
+btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+setTimeout(function() { btn.innerHTML = originalHtml; }, 2000);
+});
+};
+}
+</script><div class="terminal terminal-has-tabs"><button class="terminal-copy-btn" onclick="tamarindCopyTerminal(event)" aria-label="Copy" title="Copy"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><div class="terminal-tabs-bar"><button class="terminal-tab-btn active" onclick="tamarindSwitchTerminalTab(event, 'term-tab-6-0')">macOS</button><button class="terminal-tab-btn" onclick="tamarindSwitchTerminalTab(event, 'term-tab-6-1')">Linux</button><button class="terminal-tab-btn" onclick="tamarindSwitchTerminalTab(event, 'term-tab-6-2')">Windows</button></div></div><div id="term-tab-6-0" class="terminal-tab-pane active"><pre class="terminal-content"><code>$ tamarind quickstart</code></pre></div><div id="term-tab-6-1" class="terminal-tab-pane"><pre class="terminal-content"><code>$ tamarind quickstart</code></pre></div><div id="term-tab-6-2" class="terminal-tab-pane"><pre class="terminal-content"><code>PS> .\tamarind.exe quickstart</code></pre></div></div>
+<p>Your sample website will be compiled and served locally at <code>http://localhost:8000</code> with automatic hot-reloading!</p>
+</div></div></div><div class="timeline-item"><div class="timeline-badge"><span class="timeline-badge-number">2</span></div><div class="timeline-content"><h3 class="timeline-title">Edit the Content</h3><div class="timeline-desc"><p>Use your favorite AI Agent or text editor to mass-edit the <code>.md</code> files in the <code>writer-sandbox/</code> folder. See your changes render instantly in the browser.</p>
+<p><em>Example prompts:</em></p>
+<p>• &quot;Turn the files in <code>writer-sandbox/</code> into md files for a website about [topic]&quot;</p>
+<p>• &quot;Add a new page about [topic] to this site structure&quot;</p>
+</div></div></div><div class="timeline-item"><div class="timeline-badge"><span class="timeline-badge-number">3</span></div><div class="timeline-content"><h3 class="timeline-title">Try Different Themes</h3><div class="timeline-desc"><p>List available themes and build/compile with your theme of choice:</p>
+  <script>
+if (typeof tamarindSwitchTerminalTab !== 'function') {
+window.tamarindSwitchTerminalTab = function(evt, tabId) {
+var i, tabpanes, tablinks;
+var container = evt.currentTarget.closest('.terminal');
+tabpanes = container.getElementsByClassName("terminal-tab-pane");
+for (i = 0; i < tabpanes.length; i++) {
+tabpanes[i].className = "terminal-tab-pane";
+}
+tablinks = container.getElementsByClassName("terminal-tab-btn");
+for (i = 0; i < tablinks.length; i++) {
+tablinks[i].className = tablinks[i].className.replace(" active", "");
+}
+document.getElementById(tabId).className = "terminal-tab-pane active";
+evt.currentTarget.className += " active";
+};
+window.tamarindCopyTerminal = function(evt) {
+var container = evt.currentTarget.closest('.terminal');
+var activePane = container.querySelector('.terminal-tab-pane.active code');
+var content = "";
+if (activePane) {
+content = activePane.innerText;
+} else {
+var codeBlock = container.querySelector('.terminal-content code');
+if (codeBlock) content = codeBlock.innerText;
+}
+// Strip terminal prompts like '$', 'PS>', or '>' from the beginning of lines
+content = content.replace(/^(?:\$|PS>|>)\s*/gm, '').trim();
+navigator.clipboard.writeText(content).then(function() {
+var btn = evt.currentTarget;
+var originalHtml = btn.innerHTML;
+btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+setTimeout(function() { btn.innerHTML = originalHtml; }, 2000);
+});
+};
+}
+</script><div class="terminal terminal-has-tabs"><button class="terminal-copy-btn" onclick="tamarindCopyTerminal(event)" aria-label="Copy" title="Copy"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><div class="terminal-tabs-bar"><button class="terminal-tab-btn active" onclick="tamarindSwitchTerminalTab(event, 'term-tab-7-0')">macOS</button><button class="terminal-tab-btn" onclick="tamarindSwitchTerminalTab(event, 'term-tab-7-1')">Linux</button><button class="terminal-tab-btn" onclick="tamarindSwitchTerminalTab(event, 'term-tab-7-2')">Windows</button></div></div><div id="term-tab-7-0" class="terminal-tab-pane active"><pre class="terminal-content"><code>$ tamarind themes
+<pre><code>$ tamarind build --theme dark&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div id=&quot;term-tab-7-1&quot; class=&quot;terminal-tab-pane&quot;&gt;&lt;pre class=&quot;terminal-content&quot;&gt;&lt;code&gt;$ tamarind themes
+$ tamarind build --theme dark&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div id=&quot;term-tab-7-2&quot; class=&quot;terminal-tab-pane&quot;&gt;&lt;pre class=&quot;terminal-content&quot;&gt;&lt;code&gt;PS&gt; .\tamarind.exe themes
+PS&gt; .\tamarind.exe build --theme dark&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</code></pre>
+</div></div></div><div class="timeline-item"><div class="timeline-badge"><span class="timeline-badge-number">4</span></div><div class="timeline-content"><h3 class="timeline-title">Compile for Production & Deploy</h3><div class="timeline-desc"><p>Run the compiler to build highly optimized, responsive pages:</p>
+  <script>
+if (typeof tamarindSwitchTerminalTab !== 'function') {
+window.tamarindSwitchTerminalTab = function(evt, tabId) {
+var i, tabpanes, tablinks;
+var container = evt.currentTarget.closest('.terminal');
+tabpanes = container.getElementsByClassName("terminal-tab-pane");
+for (i = 0; i < tabpanes.length; i++) {
+tabpanes[i].className = "terminal-tab-pane";
+}
+tablinks = container.getElementsByClassName("terminal-tab-btn");
+for (i = 0; i < tablinks.length; i++) {
+tablinks[i].className = tablinks[i].className.replace(" active", "");
+}
+document.getElementById(tabId).className = "terminal-tab-pane active";
+evt.currentTarget.className += " active";
+};
+window.tamarindCopyTerminal = function(evt) {
+var container = evt.currentTarget.closest('.terminal');
+var activePane = container.querySelector('.terminal-tab-pane.active code');
+var content = "";
+if (activePane) {
+content = activePane.innerText;
+} else {
+var codeBlock = container.querySelector('.terminal-content code');
+if (codeBlock) content = codeBlock.innerText;
+}
+// Strip terminal prompts like '$', 'PS>', or '>' from the beginning of lines
+content = content.replace(/^(?:\$|PS>|>)\s*/gm, '').trim();
+navigator.clipboard.writeText(content).then(function() {
+var btn = evt.currentTarget;
+var originalHtml = btn.innerHTML;
+btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>';
+setTimeout(function() { btn.innerHTML = originalHtml; }, 2000);
+});
+};
+}
+</script><div class="terminal terminal-has-tabs"><button class="terminal-copy-btn" onclick="tamarindCopyTerminal(event)" aria-label="Copy" title="Copy"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg></button><div class="terminal-header"><div class="terminal-dots"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div><div class="terminal-tabs-bar"><button class="terminal-tab-btn active" onclick="tamarindSwitchTerminalTab(event, 'term-tab-8-0')">macOS</button><button class="terminal-tab-btn" onclick="tamarindSwitchTerminalTab(event, 'term-tab-8-1')">Linux</button><button class="terminal-tab-btn" onclick="tamarindSwitchTerminalTab(event, 'term-tab-8-2')">Windows</button></div></div><div id="term-tab-8-0" class="terminal-tab-pane active"><pre class="terminal-content"><code>$ tamarind build</code></pre></div><div id="term-tab-8-1" class="terminal-tab-pane"><pre class="terminal-content"><code>$ tamarind build</code></pre></div><div id="term-tab-8-2" class="terminal-tab-pane"><pre class="terminal-content"><code>PS> .\tamarind.exe build</code></pre></div></div>
+<p>Tamarind outputs a pure static folder in <code>website/</code> with zero runtime dependencies. Deploy it to Netlify, Vercel, S3, or GitHub Pages.</p>
+</div></div></div></div>
+
+It's that simple. No more blocks because you can't find the right CSS property. No more fighting with broken framework dependencies. 
+
+Just focus on your message, your content, and your ideas.
+
+But yes, you can still edit the style.css file in the website/assets/ folder to change the style of the generated site (you can use your favorite AI Agent to do it for you).
+
+## The Web Has Two Audiences Now.
+**Humans** read with their eyes.
+**AI Agents** read with context.
+
+Most sites are built only for humans. They are invisible to the smartest users on the planet (LLMs).
+
+**Tamarind builds for both.**
+
+When you build with Tamarind, you get a beautiful HTML site intended for humans. But you also get a perfect semantic structure intended for AI. Your site becomes a "Source of Truth" that ChatGPT, Claude, and Google Gemini can actually understand.
+
+Every website you have ever built is invisible to half the internet.
+We usually build for humans. We obsess over CSS, dark mode, and responsive layouts. But while we were refining pixel margins on mobile, something fundamental shifted. The internet is no longer just for eyeballs. It is for **Agents**.
+
+AI models—ChatGPT, Claude, search crawlers—are the new "browsers". And right now, your beautiful React app looks like a garbled mess of `<div>` soup to them. Your documentation is hallucinated. Your blog is ignored.
+
+You are building dead ends for the smartest users on the planet.
+
+**Tamarind fixes this.**
+
+## Write faster with your favorite AI Agent
+
+Instead of spending hours using old blog interfaces, logging in to admin panels and editing and saving posts one by one, you can now use your favorite AI Agent to mass-edit the md files in the `writer-sandbox/` folder.
+
+Your pages are just regular text files called markdown files. You can edit them with any text editor you want, including Claude, ChatGPT, Gemini, or any other AI Agent.
+
+And by the way, you can edit the style of the site by editing the generated `style.css` file.
+
+## Ship Content Like Code
+
+If you pitch yourself as a "blogger", you also inherit the "SEO is dying" anxiety.
+
+**Tamarind is a content engine for SaaS teams.**
+
+### 1. Product Content, Not Just "Blogging"
+Your content should be versioned, reviewable, and deployable.
+*   **Your Content Edition workflow can use GitHub now**: PR previews, review states, and build gates.
+*   **Structure**: Clean headings and semantics increase skimmability for humans and extractability for AI.
+
+### 2. Publish Once, Distribute Everywhere
+A Tamarind site isn't just a website. It's a distribution center.
+*   **Pages, Docs and Blog**: You can structure your content in a way that makes sense for you. You can have a blog section, a documentation section, landing pages, and any other section you want - including hidden pages.
+*   **AI-Ready Publishing**: Auto-generated `llms.txt`, consistent answer blocks, and strong metadata defaults.
+
+## Only What Matters
+
+We stripped everything else away.
+
+Most web frameworks are 90% configuration, infrastructure and 10% content. You spend hours fighting Webpack, updating `node_modules`, logging in heavy admin panels to edit pages one by one, and fighting with CSS to make it look the way you want.
+
+Tamarind has:
+*   **No Config**: This site has no configuration file. It just works.
+*   **No Dependencies**: It is a single binary. No Node.js. No Python. Becuase good, fast content is static.
+*   **No Fluff**: It processes Markdown into HTML in milliseconds.
+
+### Try It Now.
+
+Once you use Tamarind quickstart, this page is generated on your `writer-sandbox/` folder as a file called `index.md`.
+
+Open it. Delete this text. Write your own.
+
+You are now building for the Agent Web.

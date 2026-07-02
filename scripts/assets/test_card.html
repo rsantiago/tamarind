@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style>
+.card {
+    display: flex !important;
+    flex-direction: column !important;
+    height: 100% !important;
+    gap: 1.25rem !important;
+    justify-content: flex-start !important;
+    border: 1px solid black;
+    padding: 24px;
+}
+</style>
+</head>
+<body>
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px;">
+  <div class="card">
+    <h3>Card 1</h3>
+    <p>Short text</p>
+    <div style="margin-top: auto;"><span>Badge 1</span></div>
+  </div>
+  <div class="card">
+    <h3>Card 2</h3>
+    <p>Long text long text long text long text long text long text long text long text long text long text</p>
+    <div style="margin-top: auto;"><span>Badge 2</span></div>
+  </div>
+</div>
+<script>
+  const cards = document.querySelectorAll('.card');
+  const badges = document.querySelectorAll('div > span');
+  console.log("Card 1 height:", cards[0].offsetHeight);
+  console.log("Card 2 height:", cards[1].offsetHeight);
+  console.log("Badge 1 offsetTop:", badges[0].offsetTop);
+  console.log("Badge 2 offsetTop:", badges[1].offsetTop);
+</script>
+</body>
+</html>
