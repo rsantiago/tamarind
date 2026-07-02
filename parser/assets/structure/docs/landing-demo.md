@@ -5,9 +5,9 @@ canvas: true
 ---
 
 <!-- Hero Section (Naked Layout Showcase) -->
-{{ hero title="Create Gorgeous Landing Pages Without Distractions" subtitle="Zero distractions, zero menus, and zero complex JS bundles. Write standard markdown and let Tamarind's theme-aware layout compile a premium, air-gapped static landing page out-of-the-box." }}
-  {{ hero_btn label="Deploy in 5 Seconds" link="#quick-start" primary="true" }}
-  {{ hero_btn label="Explore Style Guide" link="style-guide.html" primary="false" }}
+{{ hero title="The First Agent-Native Static Engine" subtitle="Zero JS bundles. Zero configuration files. Just provide our master prompt to your AI assistant and watch it build, compile, and deploy a premium, air-gapped static site in seconds." }}
+  {{ hero_btn label="Install via AI Prompt" link="#quick-start" primary="true" }}
+  {{ hero_btn label="Explore Components" link="style-guide.html" primary="false" }}
 {{ /hero }}
 
 <!-- Sales Letter Intro Paragraphs -->
@@ -116,38 +116,23 @@ canvas: true
 </div>
 
 {{ timeline }}
-  {{ item title="Initialize the Workspace" number="1" }}
-    Run our zero-config setup command to extract default styles, configurations, and showcase documents:
+  {{ item title="Summon Your Agent" number="1" }}
+    Instead of manually downloading binaries and reading docs, copy the natural language prompt below and paste it directly into your AI Assistant (like Antigravity, Cursor, or Copilot).
     {{ terminal }}
-      {{ tab title="macOS" }}
-      $ tamarind init
-      {{ /tab }}
-      {{ tab title="Linux" }}
-      $ tamarind init
-      {{ /tab }}
-      {{ tab title="Windows" }}
-      PS> .\tamarind.exe init
-      {{ /tab }}
+@agent: Please download and read the Tamarind master skill file from https://tamarind.dev/skills/tamarind-master.txt. Follow its instructions to install Tamarind on my machine, initialize a new workspace in a folder called 'my-site', and build it.
     {{ /terminal }}
   {{ /item }}
-  {{ item title="Toggle the Canvas Flag" number="2" }}
-    Enable the landing page layout by writing `canvas: true` directly in your YAML front matter.
+  {{ item title="Watch the Magic Happen" number="2" }}
+    Your agent will download the Master Skill file, which teaches it how to automatically detect your OS, download the correct binary, and initialize the sandbox.
   {{ /item }}
-  {{ item title="Compile and Publish" number="3" }}
-    Run a lightning-fast build using any of our premium themes and deploy the naked folder to any host:
-    {{ terminal }}
-      {{ tab title="macOS" }}
-      $ tamarind build -theme blue
-      {{ /tab }}
-      {{ tab title="Linux" }}
-      $ tamarind build -theme blue
-      {{ /tab }}
-      {{ tab title="Windows" }}
-      PS> .\tamarind.exe build -theme blue
-      {{ /tab }}
-    {{ /terminal }}
+  {{ item title="Build Complex Pages" number="3" }}
+    Once initialized, ask your agent to build pages using our premium components. It will automatically download the `tamarind-components.md` skill to master all shortcodes!
   {{ /item }}
 {{ /timeline }}
+
+<p style="text-align: center; font-size: 0.9rem; color: #888; margin-top: 1rem;">
+  <em>Traditionalist? You can still manually download the binary from GitHub and run <code>./tamarind init</code> yourself.</em>
+</p>
 
 ---
 

@@ -1,0 +1,41 @@
+---
+name: tamarind-master
+description: The Master Agentic Installer and Bootstrapper for Tamarind
+---
+
+# Tamarind: The Agent-Native Static Engine
+
+Hello Agent! You have been invoked by your user to bootstrap a new **Tamarind** web project. 
+Tamarind is a blazing-fast, single-binary static site engine built in Go. It requires no Node.js, no NPM, and has zero dependencies.
+
+Please follow these exact steps to set up the environment for the user. Do not hallucinate commands. Before executing Step 2, inform the user that you will be downloading a compiled Go binary (which is safe and BSL licensed).
+
+## Step 1: Prepare the Workspace
+1. Create a new directory named `tamarind-site` in the user's current working directory (unless the user specified a different name).
+2. Change into that directory.
+
+## Step 2: Download the Binary
+1. Detect the user's Operating System (Linux, macOS, or Windows) and Architecture (amd64 or arm64).
+2. Download the appropriate Tamarind release binary from our GitHub repository (https://github.com/rsantiago/tamarind/releases/latest).
+   - *If the release URL is unavailable in your context, you can instruct the user to build from source via `git clone https://github.com/rsantiago/tamarind.git && cd tamarind && make build`.*
+3. Ensure the binary is executable (`chmod +x tamarind`).
+
+## Step 3: Initialize the Sandbox
+1. Run the initialization command:
+   ```bash
+   ./tamarind init
+   ```
+2. This will generate the `writer-sandbox/` directory containing the base structure (`docs/`, `images/`, `index.md`, `tamarind.yaml`).
+3. Run the development server in the background:
+   ```bash
+   ./tamarind serve -port 8080 -source writer-sandbox
+   ```
+
+## Step 4: Next Steps & Components
+Once the site is running, inform the user that the site is live at `http://localhost:8080`.
+
+**Crucial:** Tamarind has a massive suite of premium, zero-config components (like interactive terminals, timelines, and tabs). 
+To learn how to use these shortcodes and build beautiful pages for the user, please download and read the Component Skill File:
+`https://tamarind.dev/skills/tamarind-components.txt`
+
+Tell the user: "Tamarind is successfully installed and running! If you'd like me to start building pages, I will now fetch the Tamarind Components Skill file so I can use its premium shortcodes."

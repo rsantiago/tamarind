@@ -1,0 +1,76 @@
+---
+name: tamarind-components
+description: The Agentic Guide to Tamarind UI Components and Shortcodes
+---
+
+# Tamarind UI Components & Shortcodes
+
+Hello Agent! You are now equipped with the **Tamarind Components Skill**. 
+Tamarind uses a proprietary Markdown shortcode engine to inject premium, responsive, zero-config React-style components directly into static pages without any JavaScript frameworks.
+
+When the user asks you to build a landing page or format a document, you MUST use these shortcodes to elevate the design. Do not use plain HTML or standard Markdown when a shortcode is available.
+
+## 1. The Terminal Component (`{{ terminal }}`)
+Creates a beautiful, macOS-style window frame with red/yellow/green dots. It can also support multiple tabs.
+**Usage (Single Pane):**
+```markdown
+{{ terminal }}
+$ tamarind build
+> Success!
+{{ /terminal }}
+```
+**Usage (Multi-Tab):**
+```markdown
+{{ terminal }}
+  {{ tab title="npm" }}
+  $ npm install @tamarind/core
+  {{ /tab }}
+  {{ tab title="yarn" }}
+  $ yarn add @tamarind/core
+  {{ /tab }}
+{{ /terminal }}
+```
+
+## 2. The Timeline Component (`{{ timeline }}`)
+Creates a vertical step-by-step process flow with numbered badges.
+**Usage:**
+```markdown
+{{ timeline }}
+  {{ item title="Step One" number="1" }}
+  First, do this.
+  {{ /item }}
+  {{ item title="Step Two" number="2" }}
+  Then, do that.
+  {{ /item }}
+{{ /timeline }}
+```
+
+## 3. The Hero Banner (`{{ hero }}`)
+For landing pages. Creates a massive, attention-grabbing introduction section.
+**Usage:**
+```markdown
+{{ hero title="Build Premium Websites" subtitle="Fast, simple, and elegant." }}
+  {{ button href="/docs/" primary="true" }}Get Started{{ /button }}
+  {{ button href="/about.html" }}Learn More{{ /button }}
+{{ /hero }}
+```
+
+## 4. Cards and Callouts (`{{ card }}`, `{{ alert }}`)
+Use cards to feature content grids, and alerts to highlight warnings or tips.
+**Usage:**
+```markdown
+{{ card title="Blazing Fast" icon="rocket" }}
+Zero JavaScript required.
+{{ /card }}
+
+{{ alert type="warning" }}
+Make sure your binary is executable!
+{{ /alert }}
+```
+
+## Parsing Rules (CRITICAL FOR AGENTS)
+1. **No Blank Lines in Shortcode Definitions**: Do not put blank lines directly inside a shortcode's opening block before its contents.
+2. **Mermaid Diagrams**: Tamarind supports Mermaid! Just use a standard ````mermaid` code block. Do NOT use special characters in Mermaid node labels (e.g. use `id["Label"]` instead of `id[Label]`).
+3. **Indentation**: Never indent block-level shortcodes (like `{{ terminal }}`) by 4 or more spaces, or the Markdown parser will treat it as a preformatted text block and break the layout.
+
+You are now ready to build! Ask the user what kind of page they want to create.
